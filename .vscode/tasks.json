@@ -1,0 +1,36 @@
+{
+  // Run these from the Command Palette (Ctrl+Shift+P) → "Tasks: Run Task",
+  // or Terminal menu → Run Task. Same as the npm scripts in package.json.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Cross: web server",
+      "type": "npm",
+      "script": "web",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "group": { "kind": "build", "isDefault": true }
+    },
+    {
+      "label": "Cross: chat",
+      "type": "npm",
+      "script": "chat",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Cross: ingest corpus",
+      "type": "npm",
+      "script": "ingest",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+    {
+      "label": "Cross: install dependencies",
+      "type": "shell",
+      "command": "npm install",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  // Sensible defaults so the project opens clean in VS Code.
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/uploads": true,
+    "**/case-uploads": true,
+    "**/generated": true
+  },
+  "javascript.preferences.importModuleSpecifierEnding": "js"
+}

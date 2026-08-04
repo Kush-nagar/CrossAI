@@ -1,0 +1,16 @@
+node_modules/
+incoming/processed/*
+!incoming/processed/.gitkeep
+generated/*
+!generated/.gitkeep
+uploads/*
+!uploads/.gitkeep
+case-uploads/*
+!case-uploads/.gitkeep
+voice-profile.json
+feedback.json
+.env
+delivery-history.json
+distill-data/
+delivery-data/*
+!delivery-data/README.md

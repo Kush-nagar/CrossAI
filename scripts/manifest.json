@@ -1,0 +1,27 @@
+{
+  "processed": {
+    "511b8b9d2d41585e0ac30ed8698d25a3f77e7df4e01be3a92e62afb21a344bae": "training-data\\debate-ai-master-repository.md",
+    "c6ab6d811298bf16ee69f3a24eaab59bc5110a656d4d492e303cc6b40788cda9": "training-data\\evidence\\ai-cybercrime\\leibler-23.md",
+    "a5302118c775e605b931725a7cc21854123aa1dc9c8f6344177bbf80197bdc01": "training-data\\evidence\\ai-misinformation\\artificial-intelligence-is-proving-to-be-an-integral-part-of.md",
+    "e25fcc0e9b3443fd913c0e2f1f424fd76a63cf5bb6d95198be8588766a1d12df": "training-data\\evidence\\ai-misinformation\\deepfakes-misinfo.md",
+    "778d23318e67254541cf2c3c0785184445d85c7dce334cefc638b7da4165865d": "training-data\\evidence\\media-policy\\felks.md",
+    "0ef7852a7f813925d7d279065769f66174a7bae797f290ba222ace3a5f5f3186": "training-data\\blocks\\court-clog\\courts.md",
+    "b42f017d97cb28181db90be212cab28a8b631c89dc79038f96983fd43d4435fa": "training-data\\blocks\\aff-vs-k-framework\\aff-v-k-framework-toolbox-v2.md",
+    "415cc87d74dea8977063466462478fb7f16f066c54f55b7b76823e89c30041d7": "training-data\\cases\\dy-military-tech-aff\\drill-2ac.md",
+    "35ad47324cbadaef085fef6b1332f75b944520edbc25ec391d77170433b7c051": "training-data\\cases\\dy-military-tech-aff\\dy-military-tech-aff.md",
+    "3ed498380582fa9462b5183ab36d1bd9e4dc0795894b964430e2717b4bde8a27": "training-data\\rounds\\speech-hell-summary-dy-6-8-5pm.md",
+    "abef3ccdccc1777a7598325eeb9638faee649fb4e4b21183406f2384193e41bb": "training-data\\rounds\\speech-rebuttal-vs-ardery-kell-6-2-7pm.md",
+    "2d5ddfe34c145e1f7e2ccb3f9db20f2d56ca60f07dfc84e5cb557dd70a04a002": "training-data\\refactor-test.md",
+    "774202b11bacf0fbd076df0a595d4705e88ad264492a1a2d66598c0ed9f39055": "training-data\\blocks\\aff-vs-k-framework\\aff-framework-vs-k-intro-lecture-seth-small.md",
+    "b595f28b639b07ec402a3d4fe7aca9ffca76d039c950771cc83e60b77a4f159a": "training-data\\blocks\\aff-vs-k-framework\\aff-vs-k-link-debate-lecture.md",
+    "44145c0ca991b7f5a4a5d6d4751c6ced281967783f2da9cda203964593b07b71": "training-data\\cases\\casing-and-case-construction-lecture.md",
+    "b864bdede80fd10b30af45fe9dd03d9794487b0d0cce2615b65db461c81cb495": "training-data\\cases\\casing-and-case-construction-lecture.md",
+    "4976dfec544355edc9ac16ab4435f9882c126669a43b994b088b50e4106f97ff": "training-data\\reference\\frontlining-and-coaching-advice.md",
+    "16f753d0a7047722755d1fb9ae77ad7c42663351b2e05cb30bdfcff661a5dae2": "training-data\\lectures\\round-vision-lecture-alex-zhang.md",
+    "bfa47f04aa2d15dd2beaf8b5b87cc4df800510e39fbd995d55b86b26a451505d": "training-data\\judging\\judge-paradigms-for-round-vision.md",
+    "0ec30f4d18b0d95eff76e269f287578ef8eb32ccf52768c7a48b225f9cefc1fb": "training-data\\rounds\\toc-r1f1-feedback.md",
+    "cc2cea586750c868f5e90b0997e6940e9888048d40df1e5d275b4f4aa5b49d76": "training-data\\rounds\\toc-r1f2-feedback.md",
+    "113c5f7312dc0cc3f928b319174fbbf6d4081078ef3c331e45b40f820e116f2a": "training-data\\rounds\\bao-octas-westwood-v-seven-lakes-feedback.md",
+    "ca05ad6e91f2c5ec92d6f0f5090f83032eea9f5567361d76c2652c9e3ad939fb": "training-data\\rounds\\bao-quarters-harker-v-westwood-feedback.md"
+  }
+}

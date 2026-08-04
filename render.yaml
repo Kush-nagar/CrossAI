@@ -1,0 +1,29 @@
+# Render deployment blueprint for Cross.
+# In Render: New → Blueprint → connect this repo → it reads this file.
+# You'll be prompted for ANTHROPIC_API_KEY (sync: false = not stored in git).
+services:
+  - type: web
+    name: cross-ai
+    runtime: node
+    plan: free            # "starter" (~$7/mo) keeps it always-on; "free" sleeps when idle
+    branch: master
+    buildCommand: npm install && npm --prefix web install && npm --prefix web run build
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false        # set your real key in the Render dashboard when prompted
+      - key: DAILY_REQUEST_CAP
+        value: "1000"      # total AI requests/day across all visitors (0 = unlimited)
+      - key: RATE_LIMIT_PER_MINUTE
+        value: "20"        # per-visitor AI requests/minute
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: "production"  # explicit: guarantees the dev-only test routes never mount
+      - key: SESSION_SECRET
+        generateValue: true  # signs session cookies; required in production (server refuses to boot without it)
+      - key: SUPABASE_URL
+        sync: false        # judge paradigm cache; unset = always scrape + always summarize, no error
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false        # server-side secret, never in git

@@ -1,0 +1,7 @@
+{
+  // VS Code will offer to install these when the project is opened.
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
+  ]
+}

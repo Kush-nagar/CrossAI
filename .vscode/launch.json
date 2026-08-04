@@ -1,0 +1,42 @@
+{
+  // Run/debug configs for Cross. Open the Run & Debug panel (Ctrl+Shift+D),
+  // pick a config from the dropdown, and press F5 (or the green ▶ button).
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Web server (Cross)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/server.mjs",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "pattern": "listening on .*?([0-9]+)|http://localhost:([0-9]+)|port ([0-9]+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "openExternally"
+      }
+    },
+    {
+      "name": "Chat (terminal)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/chat.mjs",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Ingest corpus",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/scripts/ingest.mjs",
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"]
+    }
+  ]
+}
