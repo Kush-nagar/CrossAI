@@ -1,8 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Swords } from 'lucide-react'
 import { useState } from 'react'
 import { primaryNavItems, secondaryNavItems, type NavItem } from './nav-config'
 import { useAuth } from '@/components/auth/auth-gate'
@@ -15,8 +15,8 @@ function RailButton({ item, active, expanded }: { item: NavItem; active: boolean
       aria-current={active ? 'page' : undefined}
       data-active={active}
       title={item.label}
-      className={`nav-pen-mark relative flex min-h-12 items-center gap-3 overflow-hidden rounded-md px-3 text-sm font-semibold transition ${
-        active ? 'text-foreground' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+      className={`nav-pen-mark relative flex min-h-12 items-center gap-3 overflow-hidden rounded-xl px-3 text-sm font-medium transition ${
+        active ? 'text-pen' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
       }`}
     >
       <Icon className="size-5 shrink-0" />
@@ -45,9 +45,7 @@ export function AppRail() {
       className={`glass fixed inset-y-4 left-4 z-20 hidden flex-col rounded-xl p-2.5 transition-all duration-300 md:flex ${expanded ? 'w-52' : 'w-[68px]'}`}
     >
       <Link href="/home" aria-label="Cross home" className="flex min-h-12 items-center gap-3 overflow-hidden rounded-md px-2.5">
-        <span className="flex size-8 shrink-0 items-center justify-center rounded-sm bg-foreground text-card">
-          <Swords className="size-4" />
-        </span>
+        <Image src="/cross-logo.png" alt="" width={32} height={32} priority className="size-8 shrink-0 rounded-lg" />
         <span className={`font-display text-lg font-semibold transition ${expanded ? 'opacity-100' : 'opacity-0'}`}>Cross</span>
       </Link>
       <nav aria-label="Primary" className="mt-5 flex flex-col gap-1">

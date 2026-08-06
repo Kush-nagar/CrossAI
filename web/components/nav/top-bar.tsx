@@ -1,7 +1,8 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
-import { Bell, Menu, Search, Swords } from 'lucide-react'
+import { Bell, Menu, Search } from 'lucide-react'
 import { useAuth } from '@/components/auth/auth-gate'
 import { useCommandBar } from './command-bar'
 import { ThemeToggle } from './theme-toggle'
@@ -19,9 +20,7 @@ export function TopBar({ openMore }: { openMore: () => void }) {
   return (
     <div className="flex h-16 items-center justify-between md:h-20">
       <Link href="/home" className="flex items-center gap-2 font-display font-semibold md:hidden">
-        <span className="flex size-8 items-center justify-center rounded-sm bg-foreground text-card">
-          <Swords className="size-4" />
-        </span>
+        <Image src="/cross-logo.png" alt="" width={32} height={32} priority className="size-8 rounded-lg" />
         Cross
       </Link>
       <div className="hidden md:flex" />

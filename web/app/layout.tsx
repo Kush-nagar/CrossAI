@@ -1,13 +1,11 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, JetBrains_Mono, Newsreader } from 'next/font/google'
 import { AuthGate } from '@/components/auth/auth-gate'
 import { AppShell } from '@/components/nav/app-shell'
 import './globals.css'
 
-const bodyFont = Newsreader({ subsets: ['latin'], variable: '--font-body' })
-const displayFont = Fraunces({ subsets: ['latin'], variable: '--font-display', weight: ['500', '600', '700'] })
-const dataFont = JetBrains_Mono({ subsets: ['latin'], variable: '--font-data', weight: ['500', '600'] })
+// ponytail: type is the SF/system stack defined in globals.css — no webfont
+// requests, and it renders as the real thing on Apple devices.
 
 export const metadata: Metadata = {
   title: 'Cross — Debate training, intelligently focused',
@@ -17,8 +15,8 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   colorScheme: 'light dark',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#e9e8e1' },
-    { media: '(prefers-color-scheme: dark)', color: '#17181a' },
+    { media: '(prefers-color-scheme: light)', color: '#f5f5f7' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -35,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
-      <body className={`${bodyFont.variable} ${displayFont.variable} ${dataFont.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <AuthGate>
           <AppShell>{children}</AppShell>
         </AuthGate>

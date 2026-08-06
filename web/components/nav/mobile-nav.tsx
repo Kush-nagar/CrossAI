@@ -21,20 +21,20 @@ export function MobileNav({ openMore }: { openMore: () => void }) {
             href={item.href}
             aria-current={active ? 'page' : undefined}
             data-active={active}
-            className={`nav-pen-mark font-data flex min-h-12 min-w-14 flex-col items-center justify-center gap-1 rounded-md text-[10px] font-semibold uppercase tracking-wide transition ${
-              active ? 'text-foreground' : 'text-muted-foreground'
+            className={`nav-pen-mark flex min-h-12 min-w-14 flex-col items-center justify-center gap-1 rounded-xl px-2 text-[11px] font-medium transition ${
+              active ? 'text-pen' : 'text-muted-foreground'
             }`}
           >
-            <Icon className="size-4" />
+            <Icon className="size-5" />
             {item.label === 'CrossCoach' ? 'Coach' : item.label}
           </Link>
         )
       })}
       <button
         onClick={openMore}
-        className="font-data flex min-h-12 min-w-14 flex-col items-center justify-center gap-1 rounded-md text-[10px] font-semibold uppercase tracking-wide text-muted-foreground"
+        className="flex min-h-12 min-w-14 flex-col items-center justify-center gap-1 rounded-xl px-2 text-[11px] font-medium text-muted-foreground"
       >
-        <MoreHorizontal className="size-4" />
+        <MoreHorizontal className="size-5" />
         More
       </button>
     </nav>

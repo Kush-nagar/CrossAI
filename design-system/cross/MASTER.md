@@ -1,73 +1,84 @@
-# Cross — Ballot / Ink Editorial design system
+# Cross — Apple-inspired design system
 
-Signature: judge ballot + printed brief + fountain-pen underline. Ink-black type on paper surfaces, accent used like a pen mark or ballot highlighter — sparse, never neon.
+Signature: Apple HIG. Minimal chrome, generous whitespace, system blue as the only brand accent, elevation instead of outlines, frosted-glass navigation, smooth `cubic-bezier(.4,0,.2,1)` motion.
+
+Replaces the previous "Ballot / Ink editorial" system. The class *names* from that system survive (`.ink-stamp`, `.eyebrow`, `.tally`, `.ballot-rule`, `.nav-pen-mark`, `--pen`) and were redefined in place with Apple semantics — that is why no screen JSX needed rewriting. Don't rename them; the ~70 consumers would all have to change for zero visual gain.
 
 ## Fonts
 
 | Role | Face | CSS var | Tailwind |
 |---|---|---|---|
-| Display | Fraunces (500/600/700) | `--font-display` | `font-display` |
-| Body | Newsreader | `--font-body` | `font-sans` (default) |
-| Data/mono | JetBrains Mono (500/600) | `--font-data` | `font-data` / `font-mono` |
+| Display | SF Pro Display → system | `--font-display` | `font-display` |
+| Body | SF Pro Text → system | `--font-body` | `font-sans` (default) |
+| Data/mono | SF Mono → ui-monospace | `--font-data` | `font-data` / `font-mono` |
 
-Loaded via `next/font/google` in `web/app/layout.tsx`.
+Defined as stacks in `web/app/globals.css` — **no `next/font/google` webfonts**. Real SF on Apple devices, Segoe/Roboto elsewhere, zero font requests.
+
+Body carries `letter-spacing: -0.01em`, headings `-0.022em`, page titles `-0.03em` — the Apple optical-tightening rule.
 
 ## Color tokens (`web/app/globals.css`)
 
-Semantic vars set on `:root` (light) and `:root.dark` (dark), plus an `@media (prefers-color-scheme: dark)` fallback for `:root:not(.light)` before a user picks explicitly.
+Semantic vars on `:root` (light) and `:root.dark` (dark), plus an `@media (prefers-color-scheme: dark)` fallback for `:root:not(.light)`.
 
 **Light**
 ```
---paper #e9e8e1      --paper-raised #f4f3ed
---ink   #1b1b18      --ink-soft     #4a4842
---rule  #c9c7bc      --secondary    #dedcd2
---pen   #8a2e1f      --highlight    #c98a2b
---destructive #a23325
+--paper #f5f5f7      --paper-raised #ffffff
+--ink   #1d1d1f      --ink-soft     #86868b
+--rule  #d2d2d7      --secondary    #ebebf0
+--pen   #0071e3      --highlight    #ff9f0a
+--success #30d158    --destructive  #ff3b30
 ```
 
 **Dark**
 ```
---paper #17181a      --paper-raised #212226
---ink   #ece9e1      --ink-soft     #a7a499
---rule  #35362f      --secondary    #2a2b26
---pen   #c1543a      --highlight    #d98a3d
---destructive #e2604a
+--paper #000000      --paper-raised #1c1c1e
+--ink   #f5f5f7      --ink-soft     #98989d
+--rule  #38383a      --secondary    #2c2c2e
+--pen   #0a84ff      --highlight    #ff9f0a
+--success #30d158    --destructive  #ff453a
 ```
 
-Mapped into Tailwind's `@theme inline` as the existing semantic scale (`background`/`foreground`/`card`/`primary`/`secondary`/`muted`/`accent`/`border`/`ring`) plus one addition, `--color-pen`, so `text-pen`/`border-pen`/`bg-pen` are directly usable. `primary` = ink-fill (stamp buttons), not a saturated brand color — this is the key departure from the old blue-primary system.
+Page background is the *grouped* tint (`--paper`), cards are pure white/near-black above it (`--paper-raised`) — the Settings.app relationship, inverted from the old paper/ink one.
 
-`--radius` dropped from `1rem` to `.4rem`; the derived `radius-xl/2xl/3xl` scale (`+.3/.55/.8rem`) shrinks with it, so most existing `rounded-3xl` card markup got crisper for free without per-file edits.
+`--pen` is now system blue and is the primary accent (`text-pen` / `bg-pen` / `border-pen`). `--color-success` was added for switch tracks (Apple switches are green, not blue).
+
+Shadow tokens: `--shadow-card`, `--shadow-lift`, `--shadow-glass` — layered, low-opacity, and swapped for heavier values in dark mode.
+
+`--radius` is `.75rem`, and `radius-sm/md/lg/xl/2xl/3xl` are all derived from it in `@theme inline` (`-.35 / -.15 / +0 / +.3 / +.55 / +.8rem`). **Changing that one value rescales every `rounded-*` class app-wide.**
 
 ## Theme switching
 
-`web/lib/local-prefs.ts` — `LocalPrefs.theme: 'light' | 'dark' | 'system'`, persisted under the existing `cross.localPrefs` localStorage key. `applyTheme()` toggles `.light`/`.dark` on `<html>`. An inline blocking script in `layout.tsx` (`noFlashScript`) applies the class before first paint. Toggle UI: `components/nav/theme-toggle.tsx` (shell top-bar + mobile "more" sheet) and a three-way Light/Dark/System control in Settings → Appearance.
+Unchanged: `web/lib/local-prefs.ts` (`theme: 'light' | 'dark' | 'system'` under `cross.localPrefs`), `applyTheme()` toggles `.light`/`.dark` on `<html>`, `noFlashScript` in `layout.tsx` applies it before first paint (hence `suppressHydrationWarning` on `<html>`). Toggle UI in `components/nav/theme-toggle.tsx` and Settings → Appearance.
 
 ## Layout
 
-Max content width 1600px shell, left rail (desktop) separated from content by a hairline border, not a filled sidebar. One elevation step only (`.surface` = paper-raised + hairline border, no stacked shadows).
+Max content width 1600px. Desktop rail is a floating frosted `.glass` panel (inset, rounded), not a flush sidebar. Mobile tab bar is the same floating glass treatment. Elevation is the depth cue — `.surface` cards are shadow-first with a barely-there hairline.
 
-## Signature — 5 places (`.nav-pen-mark`, `.ballot-rule`, `.tally`, `.eyebrow`, `.ink-stamp` in `globals.css`)
+## Utility classes (`globals.css`, `@layer utilities`)
 
-1. **Nav active state** — `.nav-pen-mark[data-active="true"]::after`, a pen-stroke underline, not a filled pill. Used in `app-rail.tsx` / `mobile-nav.tsx`.
-2. **Section dividers** — `.ballot-rule`, hairline + short pen-colored tick at the left margin. Used in `PageTitle`, `SettingsGroup`, judges paradigm section.
-3. **Score/tally cells** — `.tally` / `TallyBox` primitive, mono numerals in a bordered cell with corner ticks. Used in drill report win-probabilities.
-4. **Eyebrow labels** — `.eyebrow`, mono/uppercase/pen-colored, paired with a `.ballot-rule` divider. Used in `PageTitle` and section headers.
-5. **Primary CTA** — `.ink-stamp` / `InkButton` primitive: solid ink fill, paper text, faint grain-texture bleed on hover, scale-down "thunk" on press. Used for every primary action (upload, generate, save, sign-in).
-
-Supporting: `.highlight-mark` (ballot-highlighter text emphasis), `.paper-grain` (low-opacity noise texture on hero/CTA surfaces only).
+1. **`.nav-pen-mark`** — active nav state is a soft blue pill behind the item (`::after`, `inset:0`, `z-index:-1`, blue at 12%) plus blue text. Used in `app-rail.tsx` / `mobile-nav.tsx`.
+2. **`.ballot-rule`** — plain hairline above a section + `padding-top`. No pen tick. Used in `SettingsGroup`, judge profile/summary sections. (`PageTitle` no longer uses it — an Apple large title sits above its content, not under a rule.)
+3. **`.tally`** / `TallyBox` — pill-shaped stat chip, `--secondary` fill, tabular numerals. Used in drill report win-probabilities.
+4. **`.eyebrow`** — uppercase, blue, `.06em` tracking. Used in `PageTitle` and section headers.
+5. **`.ink-stamp`** / `InkButton` — blue capsule (`border-radius: 999px`), white text, hover darkens + drops a blue glow, `scale(.97)` on press. Every primary action.
+6. **`.glass`** — `blur(20px) saturate(180%)` over a 72% card tint. Nav and overlay chrome only.
+7. **`.surface`** — card: raised background + `--shadow-card` + hairline.
+8. **`.lift`** — `translateY(-4px)` + `--shadow-lift` on hover, 400ms.
+9. **`.highlight-mark`** — soft orange-tinted inline emphasis, rounded, `box-decoration-break: clone`.
+10. **`.gradient-text`** — blue→orange gradient clip for hero words.
+11. **`.paper-grain`** — deliberate no-op. The grain texture retired with the ballot theme; the class is kept so its one consumer (`recommended-session.tsx`) needs no edit.
 
 ## Motion
 
-`framer-motion` (`MotionConfig reducedMotion` wired to both the OS media query and the manual Settings → Accessibility → Reduce motion toggle — see `app-shell.tsx`).
+`framer-motion` (`MotionConfig reducedMotion` wired to both the OS media query and Settings → Accessibility → Reduce motion — see `app-shell.tsx`). Standard easing is `cubic-bezier(.4,0,.2,1)`; durations 150ms (micro) / 300ms (standard) / 500ms (entrance).
 
-- Route transitions: `AnimatePresence mode="wait"` in `app-shell.tsx`, fade + 8px rise in (220ms), fade + -6px exit (140ms equivalent — single shared 220ms/ease curve, exit distance shorter).
-- Command palette (`command-bar.tsx`): spring scale+fade, stiffness 300 / damping 26, paper-tint backdrop (no glass blur).
-- Mobile "more" sheet: spring slide-up, same spring constants.
-- Chat message enter (`.chat-message` in `globals.css`): fade + 6px rise, 160ms.
-- Composer focus (`.chat-composer:focus-within`): pen-colored border + ring, no transform.
-- Button press (`.press:active`, `.ink-stamp:active`): scale 0.97-0.975.
-- Reduced motion: `prefers-reduced-motion`, `.force-reduced-motion` (manual toggle), and `MotionConfig reducedMotion="always"` all collapse transforms/springs to near-instant.
+- Route transitions: `AnimatePresence mode="wait"` in `app-shell.tsx`, fade + 8px rise (220ms).
+- Command palette + mobile "more" sheet: spring, stiffness 300 / damping 26–28.
+- `.page-enter` 500ms, `.stagger` children 600ms at 60ms increments.
+- Chat message enter 300ms; composer focus draws a 3px blue focus ring.
+- `:focus-visible` is a global 2px blue outline at 2px offset.
+- Reduced motion: `prefers-reduced-motion`, `.force-reduced-motion`, and `MotionConfig` all collapse to near-instant.
 
-## Screens touched
+## Screens
 
-`home`, `prep`, `drill`, `judges`, `coach`, `tournament`, `settings` under `web/components/screens/` — behavior/API calls unchanged, restyled to tokens + primitives + signature elements above. Shared primitives rebuilt in `web/components/ui/primitives.tsx` (`Pill`, `Progress`, `TallyBox`, `HighlightMark`, `InkButton`, `SettingsGroup`, `Field`, `Toggle`, `PageTitle`).
+`home`, `prep`, `drill`, `judges`, `coach`, `tournament`, `settings` under `web/components/screens/` inherit the system entirely through tokens and the classes above — the Apple restyle changed no screen file. Shared primitives: `web/components/ui/primitives.tsx` (`Pill`, `Progress`, `TallyBox`, `HighlightMark`, `InkButton`, `SettingsGroup`, `Field`, `Toggle`, `PageTitle`).

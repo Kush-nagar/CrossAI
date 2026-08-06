@@ -1,14 +1,14 @@
-// Shared Ballot/ink primitives used across screens.
+// Shared primitives used across screens.
 
 export function Pill({ children, tone = 'neutral' }: { children: React.ReactNode; tone?: 'neutral' | 'pen' | 'highlight' }) {
   const style =
     tone === 'pen'
-      ? 'border-pen/40 text-pen'
+      ? 'bg-pen/10 text-pen'
       : tone === 'highlight'
-        ? 'border-highlight/50 text-foreground bg-highlight/15'
-        : 'border-border text-muted-foreground'
+        ? 'bg-highlight/15 text-foreground'
+        : 'bg-secondary text-muted-foreground'
   return (
-    <span className={`font-data inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide ${style}`}>
+    <span className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${style}`}>
       {children}
     </span>
   )
@@ -22,19 +22,19 @@ export function Progress({ value, pen = false }: { value: number; pen?: boolean 
   )
 }
 
-// Ballot tally cell — mono numerals boxed like a judge's score field.
+// Stat chip — tabular numerals in a soft capsule.
 export function TallyBox({ value, label }: { value: React.ReactNode; label?: string }) {
   return (
-    <span className="tally rounded-sm">
+    <span className="tally">
       <span className="text-base font-semibold">{value}</span>
-      {label && <span className="text-[10px] uppercase tracking-wide text-muted-foreground">{label}</span>}
+      {label && <span className="text-[11px] text-muted-foreground">{label}</span>}
     </span>
   )
 }
 
-// Inline "ballot highlighter" emphasis for a phrase.
+// Inline tinted emphasis for a phrase.
 export function HighlightMark({ children }: { children: React.ReactNode }) {
-  return <mark className="highlight-mark bg-transparent text-foreground">{children}</mark>
+  return <mark className="highlight-mark text-foreground">{children}</mark>
 }
 
 export function InkButton({
@@ -55,7 +55,7 @@ export function InkButton({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`ink-stamp inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 text-sm disabled:opacity-50 ${className}`}
+      className={`ink-stamp inline-flex min-h-11 items-center justify-center gap-2 px-6 text-sm disabled:opacity-40 ${className}`}
     >
       {children}
     </button>
@@ -97,8 +97,8 @@ export function Toggle({
         <b className="block text-sm">{label}</b>
         <span className="text-xs text-muted-foreground">{detail}</span>
       </span>
-      <span className={`flex h-6 w-11 items-center rounded-full border p-0.5 transition ${checked ? 'border-pen bg-pen' : 'border-border bg-secondary'}`}>
-        <span className={`size-4.5 rounded-full bg-card shadow transition ${checked ? 'translate-x-5' : 'translate-x-0'}`} />
+      <span className={`flex h-7 w-12 items-center rounded-full p-0.5 transition-colors duration-300 ${checked ? 'bg-success' : 'bg-secondary'}`}>
+        <span className={`size-6 rounded-full bg-white shadow-md transition-transform duration-300 ${checked ? 'translate-x-5' : 'translate-x-0'}`} />
       </span>
     </button>
   )
@@ -116,11 +116,11 @@ export function PageTitle({
   action?: React.ReactNode
 }) {
   return (
-    <header className="ballot-rule flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+    <header className="flex flex-col gap-5 pb-2 md:flex-row md:items-end md:justify-between">
       <div className="flex max-w-2xl flex-col gap-2">
         <p className="eyebrow">{eyebrow}</p>
-        <h1 className="font-display text-balance text-3xl font-semibold tracking-tight md:text-5xl">{title}</h1>
-        <p className="text-pretty text-sm leading-relaxed text-muted-foreground md:text-base">{description}</p>
+        <h1 className="font-display text-balance text-4xl font-semibold tracking-[-0.03em] md:text-6xl">{title}</h1>
+        <p className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">{description}</p>
       </div>
       {action}
     </header>
