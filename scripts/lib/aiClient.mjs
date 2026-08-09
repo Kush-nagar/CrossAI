@@ -156,7 +156,7 @@ export async function prepareConversation(system, messages) {
  * `assistantMessage` should be appended to `conversation` as-is before the
  * next call (streamChat or appendToolResults).
  */
-export async function streamChat({ system, conversation, tools, toolChoice, maxTokens, onText, model, temperature }) {
+export async function streamChat({ system, conversation, tools, toolChoice, maxTokens, onText, model, temperature, enableThinking = true }) {
   if (!hasCredentials()) throw new Error(missingCredentialsError());
   const resolvedModel = resolveModel(model);
   const openaiTools = tools?.map((t) => ({
@@ -168,12 +168,14 @@ export async function streamChat({ system, conversation, tools, toolChoice, maxT
     model: resolvedModel,
     max_tokens: maxTokens,
     ...(Number.isFinite(temperature) ? { temperature } : {}),
-    // Off, like the one-shot routes. Reasoning deltas arrive on a separate
-    // `reasoning_content` field (never `content`) and are discarded, so every
-    // thinking token is dead air the debater watches a spinner through:
-    // measured 15.8s to first visible character with it on vs 3.2s off, and
-    // tool triggering was unchanged. Handled below if it ever comes back on.
-    chat_template_kwargs: { enable_thinking: false },
+    // Reasoning is a Time-to-First-Token tradeoff. With thinking ON the model
+    // emits `reasoning_content` deltas (a separate field from `content`, always
+    // discarded below — the debater must never see them) BEFORE the first
+    // visible token, which delays TTFT by the length of that hidden pass. ON
+    // measurably sharpens tool triggering; OFF streams the answer sooner. The
+    // caller decides per route — chat defaults OFF for latency (see
+    // CHAT_ENABLE_THINKING in server.mjs); other callers keep the historical ON.
+    chat_template_kwargs: { enable_thinking: enableThinking },
     messages: [{ role: "system", content: system }, ...conversation],
     ...(openaiTools ? { tools: openaiTools } : {}),
     // tool_choice "none" forces a text answer while keeping the tool

@@ -7,12 +7,14 @@ export type { DrillTopic }
 
 export type DrillFormatConfig = { sides: string[]; speeches: string[]; defaultSpeech: string }
 
-// Per-format side names and practice-speech options. The default speech is
-// each format's classic "hard" one: Summary for PF, NR for LD, 1AR for Policy.
+// The drill is Public Forum only. Sides are Pro/Con; the practice speeches are
+// the three back-half speeches worth drilling (Constructive is pre-written, so
+// it isn't a drill target). The default is Summary — PF's classic pressure
+// speech, where the round is won or lost on collapse and weighing.
+export const PF_FORMAT = 'Public Forum'
+
 export const DRILL_FORMATS: Record<string, DrillFormatConfig> = {
   'Public Forum': { sides: ['Pro', 'Con'], speeches: ['Rebuttal', 'Summary', 'Final Focus'], defaultSpeech: 'Summary' },
-  'Lincoln-Douglas': { sides: ['Aff', 'Neg'], speeches: ['1AR', 'NR', '2AR'], defaultSpeech: 'NR' },
-  Policy: { sides: ['Aff', 'Neg'], speeches: ['2AC', '1AR', '2NR', '2AR'], defaultSpeech: '1AR' },
 }
 
 // Every whitespace-separated keyword must appear somewhere in the topic

@@ -1,0 +1,1018 @@
+---
+title: Leland MR (Pro) — 05 - ASU, 2025-2026 january PF case
+tags: [case, public-forum, pf-archive, season-2025-2026, cycle-january, side-pro, top100-rank-30]
+team: Leland MR
+elo_rank: 30
+season: 2025-2026
+cycle: january
+resolution: "The People's Republic of China should substantially reduce its international extraction of natural resources."
+side: Pro
+tournaments: ["05 - ASU"]
+source_doc: Leland-MaRa-Pro-05---ASU-Triples.pdf
+---
+
+Open-source case doc read by Leland MR (season Elo rank #30) on the 2025-2026 january PF topic — "Resolved: The People's Republic of China should substantially reduce its international extraction of natural resources." — at: 05 - ASU.
+
+1AC
+
+Chinese extraction has a plethora of social implications globally
+DOS 21 [United States Department of State: the executive branch agency responsible for advising the president on foreign
+policy and leading the nation in diplomacy to advance U.S. interests and security abroad, 1-20-2021, "China's Environmental
+Abuses," https://2017-2021.state.gov/chinas-environmental-abuses/, Accessed 12-14-2025] //KMadhav
+China is the world’s largest consumer of illegal timber products. It drives illegal logging in producer countries, feeds associated trade in
+illegally harvested products worth $52-157 billion per year, and fuels corruption and transnational organized crime. In
+addition, Chinese investment in foreign infrastructure and natural resource sectors use unfair economic
+practices, disregard environmental and social safeguards, and target countries with weak oversight
+and enforcement institutions that make them susceptible to predatory Chinese extraction. These
+irresponsible development practices contribute to deforestation and land degradation and undercut the
+legitimate forest industry around the globe. China should follow the lead of the United States and others and implement a
+comprehensive ban on illegal timber imports.
+Chinese mining devastates communities – American extraction policies solve
+Risi 23 [Lauren Herzer Risi: Program Director of the Environmental Change and Security Program at the Wilson Center, Claire
+Doyle: Former Program Associate, Environmental Change and Security Program, 7-18-2023, "Examining China’s Impact on
+Mining in Africa: Critiques and Credible Responses,"
+https://www.wilsoncenter.org/blog-post/examining-chinas-impact-mining-africa-critiques-and-credible-responses, Accessed
+12-18-2025] //KMadhav
+The increased demand for minerals driven by the renewable energy transition has put China’s
+involvement in mining activities in Africa in the spotlight. But understanding the challenges posed by this activity means
+we need to situate it within broader contexts. First, there is the overall global legacy of resource extraction. Chinese companies are
+not alone in having a poor record on environmental and human rights abuses. This is particularly the
+case in Africa—where colonial powers and transnational mining companies wreaked havoc during much
+of the 19th and 20th centuries. Even in contemporary settings, extractive industries continue to exact a
+high price on local communities in places where social and environmental safeguards are lacking or not
+enforced. Regardless of the urgency of the climate crisis and the importance of minerals to power a clean energy future, this is a point that
+cannot and should not be ignored. All actors working in this space must do better. It’s also worth noting that while Chinese investments in Africa
+are significant, Chinese mining companies represent only 8 percent of Africa’s total output in the sector. Anglo-American alone accounts for
+more than double that share. “We have a tendency to inflate the importance of the Chinese in the mining sector [in Africa],” said Eric Olander,
+co-founder of the China-Global South Project, at a recent event hosted by the United States Institute for Peace. Olander also said that using the
+broad terms “Africa” and “China” can sometimes be misleading. Referring to “Africa” can obscure vast differences across the
+continent—including in terms of countries’ engagement with Chinese companies. “‘Africa’ flattens this very large and diverse continent,” he
+said. The Chinese mining presence in Africa is concentrated in just five countries: Guinea, Zambia, South Africa, Zimbabwe, and the Democratic
+Republic of the Congo (DRC). Similarly, it’s overly simplistic to assume that Chinese companies act on the orders of their government—or that
+there isn’t a diversity in approach across China’s mining operations. On the evidence, however, China is the top destination for minerals
+exported from Africa. In 2019 alone, mineral exports from Sub-Saharan Africa to China reached $10 billion. And China’s presence in Africa’s
+mining sector involves entities associated with bad practices. So what are the most specific areas of concern—and how can they best be
+addressed? This question is made more urgent because China has a 20-year head start on minerals in Africa. A 2019 New America
+report articulated clearly how China aligns its trade, investment, and national engagement strategies
+with strategic resource-rich countries. The United States is playing catch up. And when John Podesta addressed a question about
+working with mineral-producing countries at a recent Wilson Center appearance, one of the main thrusts of his response was that the United
+States needs to start by showing up. The prevalence of child labor in mining is at the forefront of any discussion of
+labor and human rights in this sector. And China’s investments in the DRC, where more than 40,000
+children work in artisanal cobalt, lithium, and REE mining, have only exacerbated child labor issues. At a
+congressional hearing in 2022, a prominent Congolese civil rights attorney testified that children are working at mines—like the Kasulo
+
+deposit—that are owned or effectively operated by Chinese companies. Children work seven days a week and for more
+than 12 hours a day, using rudimentary tools. They are also exposed to radioactive minerals, injuries,
+and disease. Yet the problems are both deeper and more pervasive. There is also a prevalence of worker
+safety and pay violations, including threats of violence for speaking up. Research done by the UK NGO Rights and
+Accountability in Development found that workers at Chinese-owned mines in the DRC have faced discrimination
+almost daily – including physical violence and verbal abuse. The Rights and Accountability report specifically mentions
+the deep indignities forced upon workers there, including “a “colonial era” level of
+discrimination—being kicked, slapped, beaten with sticks, insulted, shouted at, or sometimes pulled
+around by their ear, when they were not able to understand instructions in Mandarin, made errors or
+refused to undertake dangerous tasks.” The report goes on the note that most of the people who spoke up in response were
+dismissed without pay. And after one mine in the DRC was bought by a Chinese company from an Arizona-based entity in 2016, employees said
+that worker safety had declined dramatically and that workers had been assaulted after raising concerns. Zimbabwe offers another example of
+these practices. Africa Daily has reported the extensive ill-treatment of local workers by Chinese-run mining
+companies. This exploitation includes extremely low wages and delayed payments (sometimes for
+several months), poor food and living conditions, and being forced to work without protective
+equipment. There is also retaliation and harsh consequences for those who try to assert their rights.
+The Zimbabwe Environmental Lawyers Association says that in the context of Chinese mining operations, “if a worker attempts to
+assert their rights and demand what is fair, they risk being shot or beaten.”Accelerated Environmental Degradation.
+By its very definition, mining is going to have an impact on the environment. But while there has been progress in extractive technologies and
+environmental safeguards, Chinese companies often don’t carry out adequate environmental impact
+assessments or uphold those safeguards. The result? There is deforestation and habitat destruction as
+forests are cleared to make way for mining infrastructure. Water contamination is also an issue.
+Improper handling of mine tailings and wastewater often means the release of toxic substances into
+rivers and streams that local communities depend upon. Mining activities can also lead to soil erosion
+and degradation—as well as reduced agricultural productivity in surrounding areas. And a lack of air
+quality control measures means that air pollution and dust emissions, including fine particulate matter,
+can have adverse effects on community health and the surrounding environment. Such impacts often
+outlive the mine itself. In the Central African Republic (CAR), for example, Amnesty International reported that in the wake of the
+departure of four Chinese gold mining companies in 2020, seven people died at the abandoned mining sites. The Ouham River, a
+source of food and water for the local community, was dangerously polluted with mercury due to
+mining-related contamination. In many of the places where critical minerals are found and mined,
+governments struggle with weak institutions, corruption, and ongoing conflict dynamics. This
+weakness complicates their ability to ensure that mining operations benefit local communities—as well
+as keep track of mining company and operator compliance with existing legislation. Many of the communities in
+which these resources are located also lack access to essential health services, education, and employment. Chinese investors and operators
+have been heavily criticized both for inadequate investment in local development and for undermining local employment. Research published by
+the German Institute of Global and Area Studies found that while non-Chinese mining operations are associated with
+higher employment rates in surrounding areas, proximity to Chinese-controlled mines was not shown to
+lower unemployment risk. The DRC offers an example of how these dynamics play out. Mining sector investments and
+exports are key drivers of its growth, and yet that nation is ranked among the top five poorest countries
+in the world. (In 2022, 62 percent of the DRC population lived below the international poverty line.)
+The country also has a long history of conflict and instability and an ongoing humanitarian crisis. Its first
+peaceful transition of power after 62 years of independence came in 2019. There has been progress, yes, but insecurity persists in some parts of
+
+the country. The complexity of mining operations and the fluidity of mine ownership also complicate tracking and enforcement. Improving
+transparency across the supply chain is a key consideration for the US and its partners in tackling
+governance issues. One cannot take action without knowing the actors involved. More and more, there is a recognition that climate
+change is shaping our future. But population trends are also changing. Populations are more mobile and urbanized than ever. There is aging in
+some parts of the world, and there is a high proportion of youth in other regions. As the renewable energy transition shifts investments and
+trade, how we prepare for shifting population trends will determine how sustainable, equitable, peaceful, and prosperous our future is. Africa
+will play an outsized role in these discussions. The global population has now reached eight billion—nearly double what it was in 1980. But over
+the last several decades, population trends have shifted. Africa is now the last remaining region with a rapidly growing population. It’s also the
+most rapidly urbanizing part of the world and the least energy-consuming region per capita. And the continent is on the frontlines of climate
+change. In a forthcoming Wilson Center paper, Jack Goldstone and John May write that between 2020 and 2040, the world’s population of 15-to
+49-year-olds will increase by 428 million. Of this number, 420 million will be African—accounting for 98 percent of global net labor force growth.
+That’s an astounding number. Goldstone and May also argue that investments in education and providing African countries with the financing
+and technology to achieve clean development mean that Africa’s youth could transform the global economy. Which raises the question of what
+opportunities exist to show up and do better in Africa’s mining sector. Investments in this sector (among others) can create co-benefits in
+employment and revenue generation, infrastructure, education, technology transfer, peace, and security. In mining, these opportunities seem
+especially clear: Minerals needed for the renewable energy transition are mined in 70 countries where USAID has a presence. A path exists
+for the United States to show up and leverage tools across agencies, as well as partner with private
+industry, country leaders, and civil society, to meet global demand and ensure its benefits are felt at
+the local level. Mining investments are long-term investments. With the right guardrails and protections,
+they can support development while minimizing harm. And African governments are beginning to demand more. Through
+the Minerals Security Partnership, the Partnership for Global Infrastructure and Investment, and the Energy Resource Governance Initiative,
+there has been progress in US policy, but we have a ways to go. In a recent policy brief, the Wilson Center’s Sharon Burke and
+Claire Doyle articulated some key recommendations. US mining investments on the continent should go beyond
+addressing core human rights, environmental, and governance concerns in the sector to address
+deeper structural issues. For instance, the United States should look for opportunities to partner in ways that create
+value-added processes within sourcing countries, as well as support livelihood diversification programs
+to build resilience to market shocks within mining communities. Scale is also crucial. While governance
+schemes across the globe tend to heavily favor large-scale mining, the US can play a role in promoting
+regulatory regimes and policies that build cooperation between large-scale mining and artisanal and
+small-scale mining. Policymakers can also urge that the U.S. build on current policies and programs that seek to
+eliminate child labor in the mining industry and provide alternative income opportunities. It is easy to
+point out the problems with China’s presence in Africa’s mining sector. US policy is being shaped now
+in many ways as a response. But let’s not forget that the US and China also have a shared interest in a reliable and affordable global
+supply of critical minerals. As we formulate and implement policies to improve US presence in the sector, we should also continue to look for
+ways to cooperate with China to raise global standards.
+China’s BRI mines a lot.
+Chen 25 [Jackson Chen: chief writer for mining.com, 3-29-2025, "China's mining investment under Belt and Road Initiative sets
+new record – report," MINING,
+https://www.mining.com/chinas-mining-investment-under-belt-and-road-initiative-sets-new-record-report/, Accessed
+12-13-2025] //KMadhav
+China’s overseas mining investment under its Belt and Road Initiative (BRI) hit another peak last year
+at $21.4 billion, as the government continues to place heavy emphasis on raw materials for the energy
+transition, according to a report published by Australia’s Griffith Asia Institute (GAI) in collaboration with the Green Finance & Development
+Center (GFDC) of China. Launched in 2013, the BRI represents a massive global infrastructure development strategy
+adopted by the Chinese government to boost its trade, economic growth and regional influence. To
+
+date, China’s BRI spending has crossed $1.1 trillion, with the funds going towards key sectors such as
+mining, energy and transportation in partnership with 149 countries. In 2024, mining maintained its status as a major
+area of focus under the initiative, accounting for 17.6% of last year’s total BRI-related investments, behind only energy’s 32.5%,
+GAI’s report shows. However, compared to the year before, when mining investment more than doubled to a then record of $19.4 billion, the
+sector’s share in 2024 is slightly down (from 21% in 2023). Regionally, China’s engagement has been strong in various
+African countries, Bolivia and Chile in Latin America, and Indonesia, the report shows. According to GAI,
+China already holds significant shares of global mining sources (over 80% of global graphite resources), and
+even more control in material processing (where across lithium, nickel, cobalt and graphite, China owns more than 50% of global capacity).
+GAI’s report also notes that that Chinese firms are increasingly prioritizing equity investments in mining despite
+the high risks, while those in the energy sector mostly prefer to do construction deals, which are safer as they’re backed by financial
+institutions. Hence, construction deals have represented a larger share of BRI-related engagements, and in 2024, became much more abundant
+across every region except South Asia.
+Extraction causes deforestation
+Bhandari 23 [Subel Rai Bhandari: Reporter for RFA, 4-26-2023, "China’s demand for raw materials drives deforestation by
+mining, report says," Radio Free Asia, https://www.rfa.org/english/news/environment/china-mining-04262023170907.html,
+Accessed 12-2-2025] //KMadhav
+Mining is one of the top drivers of deforestation globally, with up to one-third of the world’s forest
+ecosystems affected by its indirect impact, a new environmental report said. China is the biggest driver of forest
+destruction through mining for raw materials, with about 18% of mining-related global forest destruction attributable to it,
+according to " Extracted Forests," prepared by the Vienna University of Economics and Business, WWF Germany and other organizations,
+released this month. The European Union came second with 14%, and the United States stood third with 12%. The report said gold contributes
+33% and coal another 24% to the total demand-driven mining-related deforestation in China, which also has the largest bauxite deforestation
+footprint at 13%. “Mining is currently considered to be the fourth largest driver of deforestation. However, this statistic only considers the direct
+impacts of mining,” Tobias Kind-Rieper, the head of mining and metals research for WWF Germany, said in the report. Apart from excavation
+pits, large swathes of forest are cleared for access roads and workers’ settlements, as mining’s role in deforestation increases significantly
+considering its indirect impacts with such infrastructure development, as well as other related issues like water and soil contamination and
+illegal logging. The report said up to 33% of the world’s forests may be affected by these indirect impacts
+of mining, as “the indirect impacts of mining on forests are often not only greater than direct impacts, but can also be more extensive.” The
+report, released on April 18, said mineral extraction has doubled since 2000 and is accelerating at an “alarming” rate. Forest loss and
+degradation can occur within a 70 kilometer (43 mile) radius of the mining activity itself, in addition to
+effects on biodiversity, the report said, adding that 77% of all mines exist within a 50 kilometer (31
+mile) radius of key biodiversity areas. “Metals are important for the development of human civilization and the life we live
+today. But the footprint left by the extraction of these commodities has a heavy toll on ecosystems,”
+Kind-Rieper said in a separate statement. According to the Global Forest Watch 2022 report, tree cover worldwide decreased by
+11% between 2011 and 2021, blamed mainly on human-driven deforestation, including agriculture,
+infrastructure, urban expansion, and mining.
+Chinese mining and BRI initiative make them the world’s highest emitter globally
+Maizland 21 [Lindsay Maizland: Mary and David Boies Distinguished Senior Fellow in U.S. Foreign Policy, 5-19-2021, "China’s
+Fight Against Climate Change and Environmental Degradation," Council on Foreign Relations,
+https://www.cfr.org/backgrounder/china-climate-change-policies-environmental-degradation, Accessed 12-13-2025]
+//KMadhav
+Summary China is the world’s top emitter, producing more than a quarter of the world’s annual
+greenhouse gas emissions, which contribute to climate change. It pledged to cut emissions under the Paris Agreement,
+
+reduce coal use, and invest in renewable energy. But its Belt and Road Initiative still finances coal-fired power plants abroad. Air pollution,
+water scarcity, and soil contamination remain threats to the health and livelihoods of China’s people, increasing dissatisfaction with the
+government. Introduction China’s environmental crisis, the result of decades of rapid industrialization, not
+only threatens the health and livelihoods of the country’s 1.4 billion people but also the global fight
+against climate change. As the world’s largest source of greenhouse gas emissions in recent years, China suffers from notoriously bad
+air pollution. Its carbon-intensive industries have caused additional environmental challenges, including water scarcity and soil contamination.
+And, like the rest of the world, China will face increasingly harsh consequences of climate change in the coming decades, including flooding and
+droughts. In response, Beijing has implemented policies to curb emissions and stem further degradation, such as by signing the 2015 Paris
+Agreement on climate and pledging to be carbon neutral by 2060. However, following through won’t be easy, experts say, as
+the government struggles to maintain economic growth; ease public discontent; and overcome
+tensions with the United States, the second-largest emitter.How high are China’s greenhouse gas emissions? China’s economic
+rise—national gross domestic product (GDP) grew 10 percent on average each year for more than a decade—has greatly accelerated its
+emissions. In the past ten years, China has emitted more greenhouse gases, including carbon dioxide, methane,
+and nitrous oxide, per year than any other country in the world. It surpassed the United States as the top emitter in
+2005, according to Climate Watch. (Emissions per capita in the United States are still more than double those in China.) Coal, which makes up
+nearly two-thirds of China’s energy consumption, is largely to blame. The country is the world’s largest coal producer and
+accounts for about half of coal consumed globally. The government banned the construction of new coal-fired power plants
+in 2016, and coal use appeared to decline. However, when the ban expired in 2018, construction of new plants ramped up again. In 2020, China
+built over three times more [PDF] new coal-power capacity than the rest of the world combined, according to Global Energy Monitor and the
+Center for Research on Energy and Clean Air. China’s staggering pace of urbanization has also contributed. Urbanization increases energy
+demands to power new manufacturing and industrial centers, and construction of these centers relies on high energy–consuming products such
+as cement and steel. Another contributor is the increase in cars on the road: In 2018, people in China owned 240 million vehicles, up from about
+27 million in 2004. Internationally, China is the largest financier of fossil fuel infrastructure. Through its massive Belt and Road
+Initiative (BRI), China has built or is planning to build hundreds of coal-fired power plants in countries
+around the world. More than 60 percent of BRI-specific energy financing has gone toward nonrenewable resources. Greenhouse
+gas emissions in more than a dozen BRI countries have soared. Researchers found in 2019 that BRI
+could drive the global average temperature to increase by 2.7°C, significantly higher than the Paris Agreement’s goal of
+limiting global temperature rise to 1.5°C.
+Ending BRI-related mining saves hundreds of millions in the long-term – stops Western
+emissions as well
+Chiu 22 [Ethan Chiu: a sophomore at Yale University studying Global Affairs and History. He currently serves as the 2023-2024
+YRIS International Liaison. He has previously worked at the American Enterprise Institute, Department of Defense, and American
+Red Cross, and is currently a research assistant at the DOD Information Strategy Research Center and National Defense
+University, 11-10-2022, "Environmental Implications Of The Belt And Road Initiative: Geopolitics And Climate Change," Yale
+Review of International Studies, https://yris.yira.org/column/environmental-implications-of-the-belt-and-road-initiative/,
+Accessed 12-14-2025] //KMadhav
+The Pernicious Implications of the Belt and Road Initiative Ultimately, increasing production of coal, oil, and cement,
+climate change and melting ice caps will result in devastating heatwaves, decreased air quality, and
+drastically increased sea levels, leading to deaths, destruction of infrastructure, crops, and dramatically
+decreased quality of life (The Climate Reality Project 2019). In the long term, BRI projects are estimated to lead to 3
+degrees Celsius of global warming (Hicks 19), which puts 4.6 billion people, more than 50% of the
+world, at risk of poverty (Byers 2018). By eliminating the BRI’s extremely polluting projects, even by only
+0.5 degrees Celsius, 153 million lives would be saved by reducing air pollution alone, notwithstanding
+other factors (Shindell 2018). Therefore, by stopping 3 degrees Celsius of global warming, at least 918 million
+lives would be saved from the devastating human toll exacted by air pollution. Besides just the human impact,
+
+BRI initiatives result in geopolitical tension with the United States and other Western powers,
+accelerating Western attempts to expand in BRI regions with their own initiatives like the Blue Dot Network,
+Build Back Better World, International Development Finance Corporation, and the Quad’s Asia-Africa Growth Corridor. Thus, the BRI could
+be a threat multiplier, causing disproportionate amounts of environmental devastation given its
+cheaper sticker tag pressuring Western initiatives to overlook onerous ecological regulations in
+developing countries to catch up with the BRI.
+Extraction takes place in countries with weak institutions – starts and worsens
+conflicts
+Cao 25 [Yu Cao: Alaska Center for Energy and Power, University of Alaska Fairbanks, United States, 6-xx-2025, “Implications of
+Chinese overseas mining operations for community-level social conflict,” The Extractive Industries and Society ScienceDirect
+Journal, https://www.sciencedirect.com/science/article/abs/pii/S2214790X25000097, Accessed 12-9-2025] //KMadhav
+Abstract In the context of increasing foreign mining activities and their impacts, and the growing number of
+social conflicts resulting from mining operations, this paper investigates whether Chinese multinational corporation
+(MNC) investment is positively associated with social conflict, and if so, whether that relationship is a result of MNC
+practices, and/or other factors. Broadly speaking, scholars paint a picture in which China's political regime together with its national culture and
+its economic development path influence Chinese extractive MNCs’ activities abroad and might contribute to more social conflict. At the same
+time, scholars writing on extractive conflicts have argued that conflicts result from companies’ inadequate performances, especially regarding
+community engagement practices. That is, in this second view, social conflict is due to mistakes that any company could make; that is, there is no
+“Chinese way” of operating abroad. The paper asks: Are Chinese mining MNCs’ operations more prone to social conflict than non-Chinese
+MNCs’ operations? If so, how? To what extent do firm practices explain variation in conflict? Through quantitative and Geographical Information
+System (GIS) analysis of an original database of 1001 mining properties worldwide, this paper finds that Chinese MNCs do not confront more
+conflict than other foreign-owned MNCs. This finding has theoretical contributions as the results that Chinese mining MNCs do not perform
+worse threaten to falsify much of what has been discussed about Chinese mining firms, that they behave worse and cause conflict. The study
+contributes to our understanding of extractive conflict, with implications for the trajectory of extractive sectors and, in turn, alternative or
+sustainable development options. Introduction In the context of increasing foreign mining activities and their impacts, and the growing number
+of social conflicts resulting from mining operations, this paper investigates whether Chinese mining multinational corporations’ (MNCs’)
+investment is positively associated with social conflict, and if so, whether that relationship is a result of MNC practices or other factors (Dunning
+and Lundan, 2008: 5).1 The research tests the general assumption that Chinese mining MNCs create more social conflicts in
+the communities they operate, relative to other-country-owned firms. This expectation is prominent within the
+larger literature on mining and mining conflict. Since the late 20th century, China has been expanding its
+investments and extractive industry operations in Asia, Latin America, and Africa, due to its aggressive
+demand for raw materials (Farooki, 2018: 8; Klinger, 2015: 227–242). China also has set foot in resource-rich regions in the United
+States, Canada, Australia, and Greenland (Bowman and Xu, 2020; Buhmann, 2018: 19–33). Six of the top ten leading MNCs in the mining sector
+worldwide are Chinese-owned (Garside, 2022). In addition, Chinese mining MNCs receive support and guidance as part of the Belt and Road
+Initiative (BRI), a Chinese government-led international infrastructure development program launched in 2013 (The World Bank, 2018; Xi, 2019).
+Having provided a steady source of financing to host countries, Chinese extractive MNCs, both state-owned and private, face criticisms that their
+operational procedures may have contributed to local social mobilizing around project areas (Quiliconi and Vasco, 2021). The
+international community has criticized Chinese-owned corporations for employing business models
+that fail to establish sustainable, long-term development for communities impacted by extraction (Alden
+and Davies, 2006: 83–96). Given these criticisms and negative impacts and considering the sheer weight of Chinese investment in mining, this
+paper addresses Chinese mining MNCs’ behaviors to understand more generally the politics of mining globally. Existing research suggests that
+Chinese MNCs may engage in certain behaviors that interact with local communities in a way that
+increases social conflict. Scholars paint a picture in which China's political regime, national culture, and economic development path
+influence Chinese extractive MNCs’ activities abroad and might contribute to more conflicts. Meanwhile, scholars
+writing on extractive conflict argue that conflict results from companies’ inadequate community engagement practices. That is, in this second
+view, social conflict is due to mistakes that any company could make; that is, there is no “Chinese way” of operating abroad. This paper explores
+
+whether there is a “Chinese way” of operating abroad by explaining the conflict surrounding Chinese and non-Chinese-owned mining projects.
+This paper focuses on social conflicts in the mining industry. These conflicts are “linked to the access and control of
+natural resources and territory, which suppose divergent interests and values between opposing
+parties, in the context of great asymmetry of power” and “express different conceptions of territory,
+nature, and the environment as well as understandings of development and democracy (Svampa, 2015: 68).”
+The paper seeks to understand whether Chinese mining MNCs are different from other-country-owned MNCs when it comes to spurring social
+conflict in mining project zones; and, if they are different, how so, and what characteristics of Chinese projects or project regions matter. The
+research questions are: Are Chinese mining MNCs’ operations more prone to social conflict than non-Chinese MNCs’ operations? If so, how? To
+what extent do firm practices explain variation in conflict? The study finds that Chinese firms do not confront more conflict than other
+foreign-owned firms. The result runs counter to much of what has been discussed in the literature on Chinese mining practices. As an empirical
+study of mining conflict worldwide, the research focuses on the role of MNCs in causing and/or mitigating social conflict. The paper is
+timely and fills a void in the existing research. China is expanding its global position in mining through
+the development of the BRI. Many countries where BRI projects are located are developing countries
+with relatively weak legal and institutional frameworks. Extractive projects offer an excellent opportunity to examine the
+impact of Chinese MNCs. This study sheds light on broader concerns in international relations about the Chinese government potentially trying
+to influence the rules of the game of the global economic and/or political order (Zou, 2019). The study's focus on Chinese MNC mining projects
+(within the larger sample, which also includes non-Chinese projects) contributes to our understanding of extractive conflict and, in turn, the
+conditions under which large-scale extraction is possible or not possible, with implications for sustainable development options and
+environmental protections. While the findings contribute to the broader conversation on CSR and conflict, the implications are specific to the
+dataset constraints. The research findings are based on cross-sectional data and are specific to a certain time frame. Future research could
+involve time-series data analysis that captures the consistency and sustainability of CSR performance in the long term.
+Mining revenue flows to the elites, worsening inequality
+Donnellon-May 25 [Genevieve Donnellon-May: Researcher, Oxford Global Society, 11-24-2025, "When Chinese mining
+meets weak governance in Africa — who pays?," ThinkChina - Big Reads, Opinions & Columns on China,
+https://www.thinkchina.sg/politics/when-chinese-mining-meets-weak-governance-africa-who-pays, Accessed 12-18-2025]
+//KMadhav
+On 4 November, a containment dam at Congo Dongfang International Mining (CDM), a major Chinese-operated mining supplier of
+cobalt, collapsed, flooding neighbourhoods with industrial waste in Lubumbashi, a city of more than three million people in the south of the
+Democratic Republic of the Congo (DRC). The DRC’s Mines Minister Louis Watum Kabamba criticised the company for its waste
+storage and processing facilities that do not meet international standards. He pointed out a lack of
+watertight barriers, structural stability, control devices and emergency plans. Authorities responded by
+suspending CDM’s operations for three months. The country’s President Felix Tshisekedi also expressed “very high concern” over the
+environmental damage, signalling the broader political, social and governance implications of the
+incident. China plays an outsized role: almost all cobalt mined in the DRC is exported to China for refining and processing. Meanwhile,
+Chinese firms control over 70% of the country’s copper production... China’s grip on the DRC’s critical minerals China’s expanding
+presence in Africa’s mineral sector forms part of a broader economic engagement that accelerated with
+the launch of the Forum on China-Africa Cooperation (FOCAC) in 2000 and strengthened further under
+the Belt and Road Initiative (BRI) from 2013. Over 50 African countries, along with the African Union, have signed a
+memorandum of understanding with China to jointly build BRI cooperation. Two-way trade has surged in recent years. Beijing’s pledge earlier
+this year to grant zero-tariff treatment on all tariff lines for African partners further signals its intent to integrate African economies more deeply
+into China-centred supply chains. Chinese investment today remains concentrated in four sectors: construction (35%),
+mining (22%), manufacturing (14%) and financial services (12%). Within this portfolio, mining has become a strategic pillar.
+Africa holds roughly 30% of the world’s mineral reserves. The DRC, a BRI member since 2021, is central to this
+engagement. After upgrading bilateral relations to a comprehensive strategic partnership in 2023, economic ties intensified. In the first half of
+2024 alone, China-DRC trade reached US$12.34 billion, making the DRC China’s largest investment destination in Africa. Mining anchors the
+relationship. The DRC produces more than 70% of global cobalt and holds vast reserves of copper and
+
+cobalt, minerals indispensable for renewable energy, advanced technologies and China’s industrial base.
+China plays an outsized role: almost all cobalt mined in the DRC is exported to China for refining and processing. Meanwhile, Chinese firms
+control over 70% of the country’s copper production, backed by investments exceeding US$20 billion and stakes in 15 of the country’s largest
+copper and cobalt mines. As global demand for lithium, copper, cobalt and rare earths accelerates, driven by electric vehicles, renewable power
+and artificial intelligence applications, China’s reliance on African minerals will only deepen, heightening both its
+economic exposure and geopolitical sensitivities across the continent. The Congo Basin rainforest has become a
+central focus in global climate diplomacy. Often described as the world’s “second lungs” after the Amazon, it spans six Central African countries,
+covers more than 300 million hectares, and is home to around 130 million people. The DRC alone contains 60% of this forest. As the world’s
+second-largest tropical rainforest, the Basin serves as a critical carbon sink, regulates regional rainfall by generating up to 83% of local
+precipitation and sustains one of the richest biodiversity zones on the planet. Yet the Basin has long been overlooked in global climate finance
+and policy. Between 2008 and 2022, the three major rainforest regions received a combined US$20 billion in international funding: US$9.3
+billion (47%) for the Amazon and US$7.4 billion (37%) for Southeast Asia, but just US$3.2 billion (16%) for the Congo Basin. Academic research
+mirrors this pattern: a 2023 study found roughly 2,000 publications on the Congo Basin, compared with more than 10,600 on the Amazon. This
+disparity highlights a persistent gap between the Basin’s global strategic value and the investment required to safeguard it. Momentum is slowly
+shifting. At the 30th Conference of the Parties of the United Nations Framework Convention on Climate Change (COP30) in Brazil, Congo Basin
+conservation received renewed political attention. At the 2nd African Climate Summit earlier this year, Congo Basin youth leaders reaffirmed
+their commitments to confronting climate challenges. The new France and Gabon-led initiative, the Belem Call for the Forests of the Congo
+Basin, aims to mobilise US$2.5 billion over five years to help protect it and also end deforestation in the Congo Basin by 2030. The situation
+remains critical. A recent report found the Basin absorbs roughly 600 million tonnes of carbon dioxide annually, but this capacity is declining due
+to accelerating deforestation, with consequences for rainfall patterns, ecosystems and local livelihoods. The region has already “lost” about 10%
+of its forest area between 1990 and 2025. The DRC, which holds more than half of the Basin’s trees, lost over 1.2 million hectares of forest cover
+in 2024 alone. Projections are alarming: if current trends persist, more than one-quarter of the Congo Basin rainforest could be lost by 2050. The
+incident reveals a web of interrelated environmental, governance and developmental challenges surrounding Chinese-linked mining in the DRC.
+Domestically, the impacts have been immediate and politically charged. Local residents reacted not
+only to the contamination but to what they view as a continuation of longstanding injustices: mining
+revenues flow to political and business elites — Congolese and foreign — while surrounding
+communities bear the environmental and health costs. Civil society groups argue that despite major
+foreign investment, environmental safeguards, labour protections and local development benefits
+remain insufficient. Allegations of Chinese market manipulation have further raised concerns about
+distorted pricing and economic dependence. Attempts to tackle these structural issues have produced uneven results. The
+government’s renegotiation of the 2008 Sicomines minerals-for-infrastructure deal followed a 2023 audit claiming the mines had been heavily
+undervalued. The revised 2024 agreement commits Chinese firms to up to US$7 billion in infrastructure and a 1.2% royalty. Yet weak
+regulatory enforcement — hampered by corruption, violence and local political issues — continues to
+allow companies to operate without adequate oversight, simultaneously heightening risks of industrial
+accidents, labour violations and long-term ecological damage. The DRC’s heavy reliance on mining,
+which accounts for roughly 75% of gross domestic product, further constrains its bargaining power. There
+are broader implications for Africa-China relations too. Environmental failures involving Chinese companies pose diplomatic and strategic risks
+for Beijing and are fuelling rising resource nationalism among host governments seeking greater control over mineral extraction and value
+chains. The February collapse of a Chinese-owned dam at the copper mine of Sino-Metals Leach Zambo (a subsidiary of the state-run China
+Nonferrous Metal Mining Group) in Zambia, which released cyanide- and arsenic-laden waste into the Kafue River and triggered an enormous
+US$80 billion lawsuit by Zambian farmers, has further intensified scrutiny of Chinese-affiliated projects across the region. These incidents may
+prompt regulators to tighten oversight through stricter safety audits, mandatory remediation plans, and harsher penalties for non-compliance.
+Concurrently, they undermine Beijing’s narrative of “green development” at a moment when climate
+governance is putting greater focus on Africa and forests. In this context, high-profile pollution events
+such as the Lubumbashi spill have become powerful symbols of the gap between rhetoric and practice.
+
+China pays terror groups to continue mining – worsens extremism and terror ops
+ADF 24 [Africa Defense Forum: a U.S. Africa Command (USAFRICOM) publication and platform providing analysis, news, and a
+professional discussion space for African security issues, focusing on peace, stability, governance, and defense challenges across
+the continent, 2-6-2024, "Chinese Gold Miners Fuel Insecurity in Nigeria," Africa Defense Forum,
+https://adf-magazine.com/2024/02/chinese-gold-miners-fuel-insecurity-in-nigeria/, Accessed 12-18-2025] //KMadhav
+Illegal gold mining is a growing problem in Nigeria that is benefiting terrorist groups, causing violence
+and increasing pollution. Residents of mining areas blame Chinese nationals who set up and oversee
+mining and refining operations. Tension continues to rise around these pit mines. Locals accuse Chinese
+miners of collaborating with extremist militants, corrupting government officials, destroying farmlands
+and polluting water with mercury and lead. Omololu Afilaka, the traditional ruler of Atorin-Ijesha in
+Osun State, said his people are being “conquered” by Chinese miners. “Before the Chinese came, we had artisanal
+miners. They could only bite as much as they could chew,” he told NTC News as part of an investigation in 2023. “Then came the big players, the
+Chinese illegal miners, and they came with excavators.” A recent report by researchers Oluwole Ojewale of the Enhancing Africa’s Response to
+Transnational Organized Crime (ENACT) project, and Freedom Onuoha, a lecturer at the University of Nigeria, revealed how Nigeria’s
+mining sector is plagued by insecurity and organized crime. “In the banditry-affected north-west and
+central areas, loose criminal networks engaged in illegal gold mining have ties to foreign actors and
+facilitate trafficking,” said the report, which was published on December 13, 2023. “Foreign networks operate like their
+local counterparts and have repositioned their activities in the criminal value chain through direct
+involvement in illicit gold mining in remote villages and forests.” The researchers say that foreign demand drives most
+of the criminal markets for gold in Nigeria. Nigerian authorities have arrested several Chinese nationals since 2020 for involvement in illegal
+mining. “Our mining sector has not been accorded much priority by the nation’s security actors until recently, when illegal mining was linked to
+rural banditry,” said a Zamfara State senior police officer, who spoke to ENACT on condition of anonymity. “Most of the mining activities are
+being done by illegal miners because mining sites have been neglected by regulators and security agents. Chinese and other foreigners too are
+taking advantage of this prolonged neglect by the nation’s mining regulators and security agents. It’s also the reason why bandits are attracted
+to the sector.” In April 2023, British newspaper The Times published a stunning report about Chinese companies that gained
+access to mines by paying Nigerian extremist militant groups, “raising the prospect that Beijing could
+be indirectly funding terror in Africa’s largest economy.” SBM Intelligence, a Lagos-based analytical group, shared videos
+with The Times of militant leaders from groups such as Boko Haram and the Islamic State West Africa
+Province who boasted that Chinese workers in their territory must pay “rent.” Chinese mining bosses in
+Zamfara and Katsina “are perfectly willing to pay off whoever needs to be paid off and have no qualms
+about it and are allowed to carry out operations,” SBM head of research Ikemesit Effiong told The Times. The Chinese
+embassy in Nigeria objected to the report but sought to distance itself from the actions of Chinese individuals. “The Chinese government, as
+well as the Chinese Embassy in Nigeria, have always encouraged and urged the Chinese companies and nationals in Nigeria to abide by the laws
+and regulations of Nigeria, and to implement the local rules and guidance on labor, environment, health and safety, etc., and would continue
+their efforts in this regard,” it said in a statement on April 17, 2023. China has a massive footprint in Africa’s mining
+sector, with billions of dollars invested. Chinese nationals are heavily involved in extractive operations
+across the continent, mining for gold, other precious metals and valuable minerals such as lithium,
+cobalt and copper. In 2019, China imported nearly $10 billion worth of minerals from sub-Saharan Africa, according to The Economic
+Times newspaper. Afilaka is among the local leaders who feel that Nigerians are not receiving their fair share. He also questions how many of
+the Chinese laborers have permits to work in Nigeria, a common refrain in the communities surrounding mining operations. “There is a lot of
+darkness in my land,” Afilaka said. “If you’re coming in here and you’re extracting billions of naira worth of gold, I think the people should
+benefit from it.” Ojewale and Onuoha called on the Nigerian government to intensify regulation and protection of its burgeoning mining
+industry. “In a country contending with diverse forms of criminality, the involvement of foreign criminals
+in the extractive sector presents a serious security challenge,” they wrote. “These minerals are among the country’s
+most critical national assets and should be guarded through a coordinated security response.”
+
+Chinese operations fund and fuel terror groups – terrorists can’t function without this
+funding
+ADF 10/7 [Africa Defense Forum: a U.S. Africa Command (USAFRICOM) publication and platform providing analysis, news, and
+a professional discussion space for African security issues, focusing on peace, stability, governance, and defense challenges
+across the continent, 10-7-2025, "In Nigeria, Chinese Mining Drives Conflict, Human Rights Abuses," Africa Defense Forum,
+https://adf-magazine.com/2025/10/in-nigeria-chinese-mining-drives-conflict-human-rights-abuses/, Accessed 12-18-2025]
+//KMadhav
+Illegal mining in Nigeria has gained momentum and is fueling violence, especially in areas with high
+unemployment. Chinese nationals and corporations that collaborate with local criminal networks drive
+the scourge, which costs the country an estimated $9 billion annually. Entering through Nigeria’s porous borders,
+foreign miners make deals with criminals who offer protection in exchange for weapons and cash. This
+has fueled kidnappings for ransom, banditry, recruitment into criminal organizations and ongoing
+communal clashes. “Once criminal control of a mining site is established, it becomes a mini-fiefdom,”
+Kabir Adamu, a security analyst in Abuja, said in a report on Nigeria’s Albarka 89.9 FM radio station
+website. “The proceeds don’t just fund AK-47s; they pay for informants, bribes, and logistics networks
+that can outlast military operations.” Similar conditions exist in the Central African Republic, the Democratic Republic of Congo
+and Mali, where armed actors sustain insurgencies through illegal mining of gold, granite, lithium, titanium
+ore and other minerals.
+Affirming reduces dependency on China – solves corruption, conflict, and political
+instability
+Sheoran 25 [Shreya Bajaj, Amit Sheoran (pursuing Master in Public Policy at Yale University and Master in International Policy
+at Stanford University respectively), 11-18-2025, "Unearthing Influence: China’s Global Strategy for Transition Minerals," SAIS
+Review of International Affairs -,
+https://saisreview.sais.jhu.edu/unearthing-influence-chinas-global-strategy-for-transition-minerals/, Accessed 12-12-2025]
+//KMadhav
+Post BRI, China has been increasingly taking majority ownership in the transition minerals projects.
+The proportion of projects with Chinese majority ownership has surged. While in the short run this might seem like
+a strategic move for a devΩeloping country that lacks the financial capacity, technical expertise, and regulatory frameworks to manage the large
+upfront costs, operational complexities, and environmental risks of mining, it addresses immediate constraints. In the long run,
+however, this shift results in a loss of control over critical resources, reducing these nations to
+commodity exporters with limited ability to move up the value chain and maximize the economic
+benefits of their mineral wealth.21 Moreover, heavy reliance on commodity exports heightens vulnerability to fluctuations in
+global prices, undermining these countries’ ability to manage debt sustainably. Additionally, the intensified extraction of natural
+resources risks exacerbating economic inequalities, fostering corruption, and fueling instability and
+conflict across debtor countries.22 Conclusion and Policy Recommendations As global economic transformations accelerate,
+securing access to transition minerals will be a defining factor in shaping geopolitics in the coming years.23 The increasing concentration of
+supply chains in China presents a significant risk to global energy security, as geopolitical tensions or even logistical disruptions could severely
+impact the availability of transition minerals.24 To ensure a resilient and diversified supply chain, it is imperative to
+reduce dependency on China and expand resource development efforts in LMICs. However, given the
+capital-intensive and high-risk nature of mining projects in LMICs, private sector investment alone is insufficient. Without strong state-backed
+financing mechanisms, companies will be reluctant to enter these markets. To effectively challenge China’s hegemony, developed economies
+need to design competitive financing arrangements that appeal to the developing economies while limiting restrictive policy conditionalities.25
+
+Expanding resource development in LMICs must also go beyond simply securing new suppliers of raw ore. If LMICs remain primarily exporters of
+unprocessed transition minerals while processing, refining, and manufacturing continue to be concentrated elsewhere, existing asymmetries in
+value capture and bargaining power are likely to persist. A credible alternative to China’s dominance, therefore, requires explicit support for
+local value addition, including co-investment in processing facilities and refining capacity. Such an approach would not only
+deepen and stabilize supply for advanced economies but also enable producer countries to move up
+the value chain, generate higher-quality employment, and strengthen domestic political coalitions in
+favor of long-term cooperation in transition-mineral value chains. Delivering this alternative will also
+demand a significant increase in development capital, particularly in Africa and South America, to
+counter Beijing’s strong economic and diplomatic foothold. However, challenging China’s soft power in these regions
+will not be easy, especially in light of recent US foreign aid cuts that have weakened Western influence. Without decisive action,
+China’s near monopoly over transition minerals will continue to shape the global energy landscape,
+reinforcing its strategic control over critical supply chains for decades to come.
+Corruption in Africa kills millions yearly – economic problems; political inequality; and
+decreased healthcare, food, infrastructure
+BBC 14 [BBC: world's leading public service broadcaster, 9-3-2014, "Corruption 'impoverishes and kills millions'," BBC News,
+https://www.bbc.com/news/world-29040793, Accessed 12-12-2025] //KMadhav
+An estimated $1tn (£600bn) a year is being taken out of poor countries and millions of lives are lost
+because of corruption, according to campaigners. A report by the anti-poverty organisation One, external says much of the
+progress made over the past two decades in tackling extreme poverty has been put at risk by
+corruption and crime. Corrupt activities include the use of phantom firms and money laundering. The report blames
+corruption for 3.6 million deaths every year. If action were taken to end secrecy that allows corruption to
+thrive - and if the recovered revenues were invested in health - the group calculates that many deaths could be
+prevented in low-income countries. One describes its findings as a "trillion dollar scandal".
+"Corruption inhibits private investment, reduces economic growth, increases the cost of doing
+business and can lead to political instability," the report says. "But in developing countries, corruption is a
+killer. When governments are deprived of their own resources to invest in health care, food security or
+essential infrastructure, it costs lives and the biggest toll is on children." The report says that if corruption was
+eradicated in sub-Saharan Africa: Education would be provided to an additional 10 million children per year
+Money would be available to pay for an additional 500,000 primary school teachers Antiretroviral
+drugs for more than 11 million people with HIV/Aids would be provided One is urging G-20 leaders meeting in
+Australia in November to take various measures to tackle the problem including making information public about who owns companies and
+trusts to prevent them being used to launder money and conceal the identity of criminals. It is advocating the introduction of mandatory
+reporting laws for the oil, gas and mining sectors so that countries' natural resources "are not effectively stolen from the people living above
+them". It is recommending action against tax evaders "so that developing countries have the information they need to collect the taxes they are
+due" and more open government so that people can hold authorities accountable for the delivery of essential services.
+China controls most mines in Africa
+Nantulya 12/9 [Paul Nantulya: as a research associate at the Africa Center, Paul Nantulya researches and prepares written
+analysis on contemporary Africa security issues. His areas of expertise include Chinese foreign policy, China/Africa relations,
+African partnerships with Southeast Asian countries, mediation and peace processes, the Great Lakes region, and East and
+Southern Africa, 12-9-2025, "China’s Critical Minerals Strategy in Africa," Africa Center,
+https://africacenter.org/spotlight/china-africa-critical-minerals/, Accessed 1-6-2026] //KMadhav
+
+Illustrations of China’s Dominant Role in Africa’s Mineral Sector Zambia: Copper Heartland Over 600 Chinese firms
+have invested more than $3.5 billion in Zambia’s Copperbelt Province. The China Nonferrous Metal Mining Company
+(CNMC) entered Zambia in 1998, acquiring an 85 percent stake in operations of the Chambishi mine, which
+produces roughly 100,000 tons of copper annually—mostly refined in China. In 2003, CNMC expanded into
+smelting with a $200 million facility producing copper cathodes. Chinese firms expanded further during the 2007-2009 financial crisis by
+acquiring distressed Swiss, South African, and Indian assets in Zambia. Their influence grew alongside rising copper prices
+and BRI investments, which financed the Zambia-China Economic and Trade Cooperation Zone (ZCCZ) in
+Chambishi—focused on copper and cobalt value chains—and upgrades to the TAZARA Railway. Chinese
+firms have pledged another $5 billion in recent years to help Zambia achieve its target of producing 3
+million tons of copper annually. DRC: Cobalt Powerhouse The DRC is the world’s largest producer of cobalt. Of the 33 cobalt
+exporters in the DRC, 24 are Chinese. This includes 8 farm-in deals and 14 joint ventures with either DRC’s state-owned
+Gécamines or where Gécamines is a stakeholder. The showcase initiative is the Tenke Fungurume Mine (TFM), the world’s third largest cobalt
+producer, majority-owned by CMOC Group Limited. Nearly all the DRC’s cobalt—regardless of ownership—is refined in China. The Kamoa-Kakula
+mine, the country’s largest copper producer, is co-owned by China’s Zijin Mining and Canada’s Ivanhoe Mines. Beijing entrenched its
+dominance under former President Joseph Kabila through joint ventures with Gécamines and a 2008
+Sicomines resource-based finance deal that granted Chinese firms 10 million tons of copper and 600,000
+tons of cobalt over 25 years in exchange for $3 billion in infrastructure—expanded to $7 billion in 2024.
+Chinese partners control 68 percent of Sicomines, fueling criticism in the DRC over the government
+being a junior partner and leading to calls for the terms of the deal to be made public.
+China only cares about their bottom line – humanitarian abuse
+CECC 23 [Congressional-Executive Commission on China: .S. bipartisan body that monitors human rights and the rule of law in
+China, mandated to report annually to Congress and the President on issues like freedom of expression, religious freedom, and
+political imprisonment, and to maintain a database of prisoners of conscience. Established by Congress in 2000, it aims to track
+China's compliance with international human rights standards, encourage legal development, and inform U.S. policy through
+hearings and reports, 11-14-2023, "From Cobalt to Cars: How China Exploits Child and Forced Labor in DR Congo," Congress,
+https://www.congress.gov/event/118th-congress/joint-event/LC72512/text, Accessed 1-6-2026] //KMadhav
+Representative Steel. Thank you, Chairman Smith, for hosting this important meeting. I want to say thank you to the witnesses for joining today
+and for sharing their key insights on how China exploits child and forced labor in DR Congo. I'm deeply concerned with
+child and forced labor tainting the supply chain of cobalt and other rare earth minerals. I have raised these
+concerns at other hearings and believe the United States must work with trusted allies on this issue. Many have turned a blind eye to these
+human and child labor abuses. I hope we all share the concern that the U.S. and Europe are reliant on the CCP for critical minerals, as our
+government mandates EV cars in the 2030s. I'm highly concerned that this administration isn't doing enough to counter CCP influence. There
+are also possible environmental concerns that will occur due to increased mining in the region. The CCP only cares about the
+bottom line. If everyone needs to be driving new electric vehicles by 2030, as demanded by Governor Newsom in California, we need to
+allow for safe and clean mining within the United States. We must work together to end very harmful and severe
+consequences of supporting a cobalt supply chain tainted with child labor, slave labor. Thank you, Mr.
+Chairman, for this timely hearing. Chair Smith. Thank you very much, Commissioner Steel. Congresswoman Salinas. STATEMENT OF
+HON. ANDREA SALINAS, A U.S. REPRESENTATIVE FROM OREGON Representative Salinas. Thank you so much, Chair Smith and
+Senator Merkley, for holding this very important hearing. Thank you to our esteemed witnesses for taking the time to be with us here today
+and sharing your thoughts and potential solutions to this issue. As we know, the conditions in the cobalt and lithium mines in the DRC threaten
+the dignity, rights, and safety of the workers who labor every day to meet the global demand for these valuable minerals and threaten to
+undermine the innovation and development of U.S. companies and products. This problem is of particular interest to me, because just north
+of my district, Intel employs over 20,000 Oregonians, several thousand in my district. They use cobalt to create their microchips and
+semiconductors. Intel has developed internal processes to assess and audit their global supply chain to be a responsible actor in this space, but
+as we roll out new programs under the CHIPS and Science Act, the bipartisan infrastructure bill, and the Inflation Reduction Act, it is imperative
+that we ensure that the global supply chain is not tainted with materials produced with inhumane or forced labor. I am really looking forward
+
+to hearing more from our witnesses and my colleagues about how we can continue to innovate and electrify here, while also maintaining fair
+and humane labor practices in the global supply chain. Thank you so much for holding this hearing today. Chair Smith. Thank you so very
+much. Now let me introduce our very distinguished panel, and we are grateful to have Ambassador Eric Schultz join us again. He is a friend
+who has previously testified before the Lantos Human Rights Commission, but this is his first time appearing before the China Commission.
+Thank you, Ambassador. Ambassador Schultz is a former senior American diplomat with decades of experience in the Commonwealth of
+Independent States and in southern African countries. He has worked extensively with Ukraine, Russia, Turkmenistan, Georgia, and has
+experience in emerging markets around the world. Ambassador Schultz served as U.S. Ambassador to Zambia. He was Deputy U.S. Ambassador
+to Ukraine, Minister-Counselor for Economic Affairs at the U.S. Embassy in Moscow, and also a deputy U.S. ambassador in Zimbabwe. Prior to
+these assignments, he has worked in Georgia, Madagascar, and so many other places throughout the world. Ambassador Schultz graduated
+from Macalester College in St. Paul, Minnesota and holds an M.A. degree in international studies from Denver University. He speaks English,
+French, Ukrainian, and Russian. Hopefully English will be his preferred language today. [Laughter.] I'd like to thank Ambassador Schultz for his
+extensive service to our country and, again, for being here to give us his insights. Our next witness will be Milos Ivkovic, a law professor at
+Washington University in St. Louis, who teaches Introduction to Human Rights and International Criminal Law. He also served as an
+international arbitrator and human rights advocate over the course of the last decade. He has been raising awareness about the deteriorating
+state of democracies worldwide, including the ongoing illicit weaponization of trade and supply chains to target and disempower free societies.
+He is recognized for his extraordinary efforts and actions to eradicate the worst forms of child slavery, human rights abuse, torture, and human
+trafficking in Africa and throughout the world. Professor Ivkovic was also involved in the release of journalists wrongfully imprisoned in Africa
+and serves on the board of the Inter-Parliamentary Task Force on Human Trafficking. Professor, again, we appreciate the work you do on all of
+these issues. I work so much on the trafficking issue. I greatly respect your work on that. Then we'll be joined by Joseph Mulala Nguramo, a
+non- resident fellow at the Atlantic Council, both for the Freedom and Prosperity Center and the Scowcroft Center for Strategy and Security. He
+was born and spent his formative years in the DRC. He was also the first and thus far the only Congolese graduate of the United States Military
+Academy at West Point, where he majored in defense and strategic studies. He holds a master's degree in global theory and history from the
+School of Advanced International Studies at Johns Hopkins University, where he's also been co-teaching a course on modern supply chain
+diplomacy. Additionally, Joseph has worked as a research assistant at the Brookings Institution, where he focuses on education, as well as the
+Taubman Center for State and Local Government within Harvard University's Kennedy School of Government, where he focused on African
+public policy. Joseph also worked at the International Economic Alliance, where he led the student internship program and organized meetings
+between governments and private sector participants to promote trade, economic growth, and development. Currently at the Atlantic Council,
+he focuses on advancing democracy, quality governance and the rule of law, and the implications of the return of great-power competition and
+how it is shaping the new world in the 21st century. We're grateful to have you here and thank you for being here. Finally, we'll hear from
+Stavros Niarchos, also known as Nick, who is a journalist based in New York. His work focuses on minerals, migration, and conflicts. He is a
+regular contributor to the New Yorker magazine, which has published his work on cobalt and the DRC. His work from Ukraine won a 2023
+Edward R. Murrow Award from the Radio Television Digital News Association. In addition to the DRC, Nick has written stories from Ukraine,
+Indonesia, Yemen, Burkina Faso, Niger, Morocco, Western Sahara, Djibouti, Iran, Uzbekistan, Bhutan, and, of course, Greece. He is currently
+writing a book for Penguin Books about the battery metal supply that includes reporting from the United States, Europe, and Africa. He holds
+an M.S. from Columbia School of Journalism and a B.A. from Yale University. On a personal note, I'm very grateful to have Nick here with us
+today, as he had a precarious time while in the DRC just last year. Because of his work reporting on alleged ties between mining groups and
+separatists in the DRC, he and fellow journalists were detained by Congolese officials in July of 2022. My staff and I advocated for Nick's
+release, and we were greatly relieved to hear that he was released six days later from his harrowing ordeal. You might want to share a little bit
+on that, but above all, what we're here to talk about, obviously, is cobalt. But I want to thank him for his speaking truth to power and doing it
+when there's such a great cost to him personally. Ambassador Schultz, the floor is yours. STATEMENT OF HON. ERIC SCHULTZ,
+FORMER U.S. AMBASSADOR TO ZAMBIA Ambassador Schultz. Mr. Chairman, Mr. Co-Chairman, it's an honor and a privilege to be here today.
+As Chairman Smith mentioned, about a year ago I spoke in front of the Tom Lantos Human Rights Commission on a very similar topic. My
+presentation then characterized our relationships with China and Russia as adversarial ones, tantamount to conflict. Moreover, I argued it was
+a conflict we were losing, and had in fact been losing for many years. U.S. policy toward Africa through administrations of both parties has been
+characterized too often by neglect, I would argue. We have taken an interest in Africa episodically, usually prompted by a crisis of some sort.
+And that interest often wanes as soon as the crisis begins to ebb, and it moves on. The result is that we left Africa for others, especially
+China and Russia. They have expanded their economic and political influence on the continent for decades, I
+would argue, at our expense. Moreover, it would have been a struggle regardless. They had advantages that we lacked. China and Russia were
+on the right side of Africa's liberation struggles. Although that was two generations ago, it still matters to Africans. It always will matter. It is an
+obstacle that we need to overcome. Also, their governments subsidize and support their commercial ventures in a way that we do not.
+<<TEXT CONDENSED NONE OMITTED>>
+And they don't play fair. They abet corruption and they ignore violations of civil, political, and human rights--as this hearing today focuses on. As many others have argued, the world is at an inflection point of sorts right now, riven by rivalry and by violence. China and Russia pose a systemic threat. They are allied against us, and they mean to change the world order that we helped build. Africa is one of the key battlegrounds in this conflict. To win in Africa, there are several things that we should and must
+do. To start with, we need to acknowledge that it is a conflict. To win in Africa--sorry. It is no longer acceptable to say that Chinese investment is simply filling in where the West was too timid or too biased to venture. The old adage of one man, one vote, one time also applies to China and Africa, to its investment. One investment, one country, for all time. The Chinese mean to freeze us out of African resources as best they can, and they have spent hundreds of billions of dollars in this effort. Africa's
+resources are essential to next- generation economic growth, especially copper, rare earths, and cobalt. The Belt and Road Initiative, at least in Africa, is a transparent effort to gain the upper hand and assert dominion in Africa on the part of the Chinese. There are a few African countries that have not taken money and that are not in China's debt. Russia's role is smaller, but I would argue no less malign. Whether or not Wagner still exists is beside the point. Russian mercenaries and Russian arms
+merchants are ubiquitous in Africa. Nor should it be acceptable to be on our opponents' payrolls. Neither China nor Russia has real private companies. Working for a Chinese or a Russian company means working for their governments. We are not immune in the U.S. from what they call the Schroederization of Europe's elite. Many American businessmen, consultants, retired government officials, and the like, have taken Chinese and Russian money and have aided their efforts. We also need to change the
+way our government and businesses work together abroad, especially in Africa. We are a private sector economy and are stronger for it, but in many places in Africa, the investment risk is high enough that government support needs to be overt to convince American companies to invest. The argument that we can't pick winners among American companies should no longer be an excuse for inaction. Supporting American companies should be one of the, if not the principal, tasks of American foreign
+policy. The Development Finance Corporation is a good start to making that support more tangible, but it needs to be more active, to have fewer constraints on what it can support, and, above all, it needs to have more money. Its job should be to expand the reach and influence of the American government by expanding the reach and influence of American commerce. It should not make the perfect the enemy of the good. The U.S. Government itself should be cautious about imposing its views on
+Africans. Supporting democracy and human rights has to be the center of U.S. foreign policy, but not at the expense of friendships, because friendship is the key to winning in Africa and, for that matter, everywhere else. Less finger-wagging, more listening. More recognition of the way the world is and less dreaming about the way we want it to be. The U.S. is and always has been a better friend and a better ally than our rivals. At the end of the day, that is how we win. When an Indian company, for instance,
+has its mine expropriated in Africa, our response should not be to ignore the situation or to blame the victim. It should be to help the company of a friendly country. When African countries find themselves in trouble, deep in debt, often as not the result of the corruption of previous regimes, we need to be more active in helping. Chinese debt is still rising in Africa, even if investment itself is tailing off. The problem now and for decades to come is the vast sums owed and the interest rates that cause those
+sums to compound and continue rising, with no real prospect that the debts can ever be repaid. And China doesn't forgive. The IMF is a useful institution, but using it to help countries meet their debt payments to Africa seems counterproductive. Wouldn't it be better to help African countries organize to negotiate as a group to press China for better terms, including especially the forgiveness of some loans, at least of those that can demonstrably be shown to be odious and the consequence of corruption?
+The Global South, including especially Africa, is rising in importance, its clout growing in a polarized world. A New York Times headline the other day said it all: by 2050, one in four people will be African. And their economies are also among the fastest growing. Africa's friendship matters. PEPFAR was a great initiative 20 years ago. It saved millions of African lives. However, Africans tend to take it for granted now and are more interested--or more impressed--by China's infrastructure projects, however poorly
+built and misconceived. We can do better. We should do better. My favorite proverb--Chinese ironically but taught to me by Africans, says that the best time to plant a tree was 20 years ago. The second-best time is today. So today is a good time to start fighting for Africa. Thank you. Chair Smith. Thank you very much, Mr. Ambassador. I would now like to recognize Mr. Ivkovic. STATEMENT OF MILOS IVKOVIC, INTERNATIONAL ARBITRA -TOR AND ADJUNCT PROFESSOR, WASHINGTON UNIVERSITY
+SCHOOL OF LAW
+<<LINE BREAK CONTINUES>>
+Mr. Ivkovic. Thank you, Chairman. Congressman Smith, Senator Merkley, honorable members of the Commission, thank you for the invitation
+to appear before you today. The story of cobalt is an unfortunate example of de facto informed silence and continued inaction in response to
+
+the worst devastation of basic human rights of the most vulnerable. It has been 14 years since the Department of Labor added cobalt mine in
+the DRC to its list of commodities produced by child or forced labor. Since then, it is estimated that anywhere between
+35,000 and 40,000 children, some as young as 6 to 9, have been continuously involved in adverse
+mining operations in the DRC. In addition to life threatening hazardous conditions, children are subjected to inhumane working
+hours of up to 24 hours each day, exposure to potentially toxic materials, physical abuse, and sexual
+exploitation. And yet, instead of receiving protection over the years, the DRC national army itself was recently declared, and I quote,
+``complicit in the worst forms of child labor.'' At the same time, forced mining expanded to include other minerals in DR Congo. Transparency
+International's Corruption Perception Index of 2022 ranked the DRC among the 15 most corrupt nations worldwide, with significant reports
+connecting corruption to the country's mining sector. Unfortunately, these truly horrific practices are unlikely to
+change until and unless incentives and impunity for wrongdoing are removed. Recognizing that the assumption
+of a simple solution does not do justice to the actual complexity of the matter, the remainder of my testimony will seek to address the various
+underlying causes of the crisis at hand, coupled with the powers available to the United States to counteract, in line with its current policies.
+The upstream segment of the cobalt supply chain generally includes mining, mineral trading, and subsequent processing in smelters and
+refineries. There are two distinct sets of considerations which can be observed ``on the ground'' in the DRC. On the one hand, absolute
+poverty affects 16 million Congolese who will have to live on less than $2.15 a day. In addition, 33
+million Congolese have limited to no access to drinking water, and 43 percent of children up to the age
+of 5 across the country suffer from malnutrition. Free education remains largely unavailable. It is rather impossible to speak
+of free will in such a state of effective survival. Hence, the families become a target for exploitation, or worse. Children who end up
+working in cobalt mines are paid as little as one to two dollars a day. They may additionally be
+subjected to extortion by local law enforcement and security guards. To put it in simple terms, the only
+source of income for these people is participation in the cycle of abuse. The other side of the same coin, of the
+same upstream coin, is the demand. Over 70 percent of the world supply of cobalt comes from the DRC. Between 20 and 30 percent of those
+quantities may be traced back to the mines powered by child labor. Traders purchase cobalt and then sell it on to processing plants--meaning
+that it is often inevitable that illegally obtained cobalt will be mixed into the mass of exported minerals. In 2020, Chinese companies imported
+nearly 90 percent of their cobalt needs from the DRC. It is publicly known that at least 8 out of 14 of the largest cobalt mines in the DRC are
+controlled by Chinese companies, but the actual number is likely to be much higher. In addition, mainland China accounts for 80 percent of the
+world's cobalt refining capacity. The downstream segment of the cobalt supply chain generally includes manufacturing activities--the
+activities that we face in the United States--such as components, lithium ion batteries coming into EV vehicles. In 2020 alone, 41 percent of all
+batteries globally were imported from China. U.S. battery imports were even more significant, reaching 47 percent in the same year. I would
+like to underline this. These figures suggest an absolute monopoly on what has become one of the most critical supply chains, and may help
+explain why years of reporting on the link between the worst forms of child labor and the cobalt supply chain have regularly fallen on deaf ears.
+Since 2020, I have to say, manufacturing activity has been aggressively attracted to the United States. This is, indeed, a big step in the right
+direction. However, despite its obvious potential, it does not address the rest of the upstream issues, which necessarily remain tied to the DRC
+and abusive practices in its mining sector. From the corporate perspective, there have been public signals of willingness to act and remedy the
+situation. However, these promises of change may have fallen desperately short of expectations. In 2017, Amnesty International concluded
+that the majority of downstream companies had taken minimal to no action to improve their due diligence on the issue of child labor. Just
+two years later, a report cited by OECD found, and I quote, ``low levels of due diligence disclosure with none of 42 companies examined having
+described the steps taken to manage risk or summarize the risk mitigation strategies related to child labor.'' The German government
+reaffirmed in 2022 that up to 30 percent of cobalt in the DRC will continue to come from mines powered by child labor, while in the same year,
+the Department of Labor announced minimal progress in efforts to eliminate the worst forms of child labor in DRC. So what can be done? On
+one hand, corporate pressure is theoretically possible, and it requires a high degree of market dominance or importance, which can be then
+translated into pressure on upstream actors to aggressively address child labor in the cobalt supply chain. Nonetheless, the argument that, to
+date, Western companies themselves have the power or incentive to force Chinese-backed counterparts to comply with international
+standards is absurd. As noted above, Chinese companies control almost all the mines and refineries needed to produce batteries. In addition,
+China is expected to remain the world's largest EV market in the short term, with a market share of up to 45 percent. Finally, current
+projections suggest that the Chinese EV manufacturers will gain over 20 percent of global market share by 2030. Another commercial reality is
+that the current supply chain is simply affordable, and readjustment could well lead to higher costs and negatively affect the prices of final
+products. Therefore, in the absence of any underlying positive incentives, such as non-market interventions and direct governmental support,
+Western companies may have little motive to enter additional segments such as re fining or mining themselves. Secondly, notwithstanding
+positive actions, so long as crimes go unpunished and actors responsible for the worst forms of child labor
+enjoy effective immunity, it is difficult to expect rapid and meaningful change. Hence, a careful consideration of
+
+tangible consequences has to take place. The first one has been mentioned by the Chairman, and this is, potentially, a temporary suspension of
+international trade or import of cobalt-related products into the United States. The positive effects of such an act are that the U.S., by virtue of
+its market position, can exert far more dominant pressure than commercial actors themselves independently, and thus influence the triggering
+of remedial market practices. It should be noted, however, that an absolute ban on imports may have negative short-term effects on the U.S.
+market, an issue that can be resolved, as drafted in the Countering China's Exploitation of Strategic Metals and Minerals and Child and Forced
+Labor in the DRC Act, through licensing and due diligence requirements. The second, in observing the sheer scale of uninterrupted violations of
+fundamental human rights for more than a decade and the potentially lethal nature of the worst forms of child labor in the DRC, are the
+sanctions on states, companies, and individuals involved in these practices. The third one is criminal investigations. Let it be clear that not
+only I but many of my colleagues believe that child labor in hazardous conditions constitutes a violation of peremptory norms of international
+law and has to be criminally prosecuted. Secondly, inhumane acts intentionally causing great suffering or serious injury to the body or to
+mental health, if widespread or systematic and directed against a civilian population, are crimes against humanity. So we arguably have a legal
+obligation to act. Finally, the local Congolese population should be given alternatives to forced mining. Let there be no doubt, artisanal
+mining cannot be made safer or more humane. As somebody who has personally seen the suffering, as a father whose young children born in
+the DRC could have ended up in the same cycle of abuse, and as a true believer in the rule of law, I ask you to consider a series of actions that
+can put an end to the worst forms of child labor in the DRC. I also take a moment to note that the U.S. Congress and the U.S. administration are
+truly the last human hope for all of these millions of people. Thank you very much for your attention. Chair Smith. Mr. Ivkovic, thank you so
+much for that testimony and those recommendations. I'd now like to recognize Joseph Nguramo. STATEMENT OF JOSEPH MULALA
+NGURAMO, NON-RESIDENT FELLOW, ATLANTIC COUNCIL'S FREEDOM AND PROSPERITY CENTER AND SCOWCROFT CENTER FOR
+STRATEGY AND SECURITY Mr. Nguramo. Thank you, Chairman Smith, and the whole Commission. I am truly honored and
+humbled to be given this opportunity to share with you my understanding of the urgent issue affecting my home country, the DRC. As a
+member of the African diaspora and working with the Atlantic Council on the future of U.S. and China-Africa relations in this new era of
+global-power competition, I follow this issue closely. The working conditions of women and children in the
+Congolese mines constitute a humanitarian tragedy. They are dehumanizing, degrading, and they
+represent more than debt slavery and even worse. African children are exploited like slaves to serve a
+global market for new and cleaner energy. Children under 10 years old are forced to carry bags of sand
+weighing up to 60 kilograms. These bags are then shipped to China for refining to extract cobalt and
+copper, critical minerals that enable the global energy transition from fossil fuel to clean energy. Over
+40,000 children are reported to work in these mines, mostly without pay. Typically, less than $10 a day.
+By the way, Mr. Ivkovic mentioned this in his speech. They pick up rocks with bare hands and without shoes. They
+have no adequate protective gear. They are exposed to contamination. And they have no medical
+insurance. They work in tunnels, which often collapse, and then die under the rubble. Stories of
+people beaten up in these mines because they were claiming their rights are not acceptable. Besides
+the unacceptable humanitarian cost, there is as well environmental degradation affecting the health of
+the population leaving these facilities. Credible scientific reports have shown that the exposure to toxic
+chemicals and waste dumped by mining operations leads to cancer, lung disease, and DNA
+modification, according to Amnesty International. Most of the cobalt mines in the DRC are owned by
+Chinese companies. For example, 15 out of 19 companies operating in Katanga are Chinese. The DRC
+supplies about 70 percent of cobalt to the global markets, and 30 percent of that cobalt originates from what is called artisanal sector mining,
+small-scale mining that relies not on industrial tools but on manual labor, and is characterized by a lack of transparency/ accountability and
+rampant corruption.
+<<TEXT CONDENSED NONE OMITTED>>
+The inhumane mining of cobalt is facilitated by the poverty, corruption, lack of quality governance, and the rule of law in the DRC. Sadly, China and the private sector artisanal mining companies have taken advantage of the vulnerability of the Congolese population and found willing collaborators among the ranks of U.S. Government officials. The U.S. Government has been mostly complicit with mining exploitation, and its promises to revise in 2008 Chinese mining contract have barely brought concrete
+results. So what can be done? We should work on reducing Chinese dominance in the DRC mining sector, while mitigating the global reliance on the Belt and Road Initiative by applying the strategy of de-risking and diversification of our supply chain. Particularly, we must address the issue of child labor and corruption, as proposed by Congressman Smith, to ban certain goods made with child labor or forced labor in the Democratic Republic of Congo from entering the United States, Mexico, and the
+Canada markets. To that end, I propose the following: advancing an aggressive implementation and expansion of the African Growth and Opportunity Act, AGOA, U.S. Development Finance Corporation and the Prosper Africa programs; reinforcing and improving public-private partnerships with governments across the board working with big tech companies and even development and financial institutions with direct impact and influence in the market, using their leverage, incentives, and tools to ensure
+a clean supply chain, not tainted with child labor, corruption, and abuse. We should pressure China through our strategic engagement to practice due diligence in dealing with the DRC government and private-sector companies to prevent human exploitation. After all, China has a vested interest in being seen as a responsible producer of goods, especially once awareness of the human cost of Congolese mining is widely known. Enforcing the DRC laws: The DRC government must ensure that existing laws
+are fully enforced. The DRC government officials implicated in collusion with businesses that engage in inhumane practices must be prosecuted and held accountable. There should be sanctions: U.S. and private sector engagement in the DRC must be conditional upon the upholding of humanitarian guidelines set forth by international and companies' laws. We should encourage and assist the DRC to establish itself as a key player in the global green energy revolution. Countries like South Korea, Finland,
+and Latvia have proven to be models for electronic and cyber innovation. Given its abundant resource, cheap labor, access to trade routes, and location at the center of Africa, the DRC could become the leader responsible for cobalt production and a hub for electronic manufacturing. As such, the DRC will provide the Western market with an alternative to China. Here, by the way, I would like to mention, as well, the African Continental Free Trade Agreement, which I think will offer an opportunity for future
+American companies. We should support and protect independence and credible reports, research, and the whistleblowers. We should keep working and supporting an independent civil society movement that can report about the issues with credibility. We should promote democracy and the rule of law with special focus on the upcoming DRC elections. The elections are an opportunity to ensure the legitimacy of national institutions, without which instability, poor governance, and lawlessness persist.
+A strong dynamic of a thriving democracy in the DRC constitutes a U.S. national security interest. As a matter of fact, the BRIDGE to DRC Act, introduced by Congressman John James, must be ratified and become U.S. official policy and strategy with the DRC and the region. And here I'd like as well to recognize the letter that Senator Coons and Chairman McCaul wrote, I think about two days ago, three days ago, about the upcoming DRC elections. And lastly, investing in education. As Nelson Mandela once
+remarked, ``Education is the most powerful tool to change the world.'' Children must have access to quality education and not be caught between the global race for industrialization and great-power competition. Thank you for having me, gentlemen. I'm looking forward to your questions. Chair Smith. Thank you so very much. The Commission will have to take a very brief break, recess. There's a vote on the floor. I have one minute to get to the House, so I'm going to run. There's one right after it, but I'll
+be back in about 15 minutes or so. I apologize but I do have to go, and I'll be right back, hopefully with some other members. [Recess.] Chair Smith. The committee will resume its sitting. I apologize for that delay. We did have two votes. Commissioner Ryan Zinke is here, former Secretary of the Interior and now a Member of Congress. Thank you, Ryan, for joining us and for your leadership on this Commission. I'd now like to go to Nick Niarchos for his testimony. STATEMENT OF NICOLAS
+NIARCHOS, FREELANCE JOURNALIST Mr. Niarchos. Chairman Smith, Chairman Merkley, and all other members of the Commission, thank you for inviting me to speak. I'm here to testify about the environmental impact of copper-cobalt mining in the southern DRC. I'm happy to talk about other things in questions, but I was asked to talk about the environmental impact. I visited the DRC six times between 2019 and 2022, reporting for The New Yorker, The Nation, and Antelope magazines, and
+for an upcoming book. On each of these trips, I have seen the intense environmental degradation and deleterious effects of the practice on the health of the local population. Copper and cobalt are two key materials for the creation of lithium-ion batteries, electric devices, and especially for the electrification of transport, which is an important factor in the reduction of fossil fuel emissions and the slowing of climate change. The question we must ask ourselves is whether the harm done by the extraction
+of these metals, and indeed the fossil fuels expended in their mining, transport, processing, and so on, does not outweigh the benefit. Is the juice worth the squeeze? Too often have natural environments been destroyed in the name of progress and too often have the lives of people far from the cities in which the minerals are consumed, been destroyed. The local population does not benefit, and they are left with little more than holes in the ground. There is even a term for these places. They are known
+as sacrifice zones. In reporting for the Nation and for the New Yorker, I have seen how landscapes in Congo, Indonesia, and the Western Sahara have been destroyed, the water polluted, and the air filled with dust and carbon as mining companies rush to extract minerals like copper, cobalt, lithium, and phosphates. Oftentimes human rights abuses go hand-in-glove with these environmental catastrophes. In Congo, the miombo forests of the southern savanna have been cut back, and the land looks as if it
+has been bombed. I have also seen that there are ways to mine responsibly, ways in which mining can be done in what is known as a closed loop. Sadly, these examples are exceptions to the rule. An environmental catastrophe is underway in the southern DRC. The rush to produce devices, batteries, and electric products more cheaply has created a demand for the metals that has led to more and more unscrupulous behavior. Chinese firms and traders are at the forefront of these practices. There is a
+saying in Congo: If they don't give their workers shoes in their own country, why would they give us shoes here? In Congo, there are two types of mine, although there are many gradations between these two. There are industrial mines. They use modern and mechanized methods, and they are responsible for the majority of the cobalt that comes out of the DRC. The industrial mines I've been allowed to visit, including the giant Kamoto Copper Company mine near Kolwezi-- that's owned by Glencore--have
+emphasized their environmental mitigation efforts. However, I was not permitted to visit the giant Tenke-Fungurume Mine, or TFM, located between the towns of Likasi and Kolwezi and operated by the giant Chinese firm CMOC or China Moly. Other journalists have also been subjected to harassment while visiting the Tenke-Fungurume site. I visited an adjacent site where small-scale miners show me polluted rivers in which women washed clothes and minerals. A 2021 report by the NGO Save the
+Children showed white residue flowing out from the TFM site. This morning, I spoke to my friend Hugh Kinsella Cunningham, who's a photojournalist. He's out in DRC at the moment, and he contributed to that report. He told me that in the village of Mulundu he saw white residue blanching the fields and that residents there complained that their crops were dying and that they had to wash in polluted water. The second type of mine in Congo is the artisanal mine. Artisanal miners are people who mine for
+themselves or small cooperatives. Before sale at these depots, but in some cases after, the ore is crudely processed by washing it in local water supplies. Studies show that fish and rivers in the mining provinces have been contaminated with heavy metals and uranium. At the village of Samukinda I saw how cobalt washing, as well as effluent from a factory processing copper and cobalt, had destroyed fields. The chief of the village, Rikomeno Samukinda, explained that they can no longer grow food there and
+that more and more of the villagers had to take risky mining jobs in order to provide for their families. In southern Congo, women wash raw mining material, which is often full of toxic materials and in some cases is mildly radioactive. If a pregnant woman works with such heavy metals as cobalt, it can increase her chances of having a stillbirth or a child with birth defects. We've heard from Senator Merkley about the 2020 study in The Lancet showing that women in southern Congo had metal
+concentrations that are among the highest ever reported for pregnant women. They also find a strong link between fathers who worked in mining and fetal abnormalities in their children. What's more, children as young as 3 mine and handle the toxic ore. They are sometimes drugged and deprived of food. These factors all contribute to developmental disorders and reduce life expectancy in the mining regions of the DRC. In March 2022, I spent a day with Dr. Billy Mukong, a local physician in the mining
+town of Kolwezi. As Dr. Mukong did his rounds, he introduced me to women whose children were born with defects. Some had swollen heads. Some were developmentally disabled. The defects, he said, were thanks to exposure to dust that is blown off the back of trucks carrying raw and processed ore around Kolwezi. The depots where the ore is collected are often run by foreign traders. Many are Chinese. In fact, most are Chinese. There are also some Lebanese and Indian nationals who have settled in
+the region. Some of the depots are owned by or supply larger depots owned by international mining companies. The most prominent of these is Congo Dongfang Mining. CDM is a subsidiary of Huayou, a Chinese-based company that has supplied cobalt to firms like Apple and Samsung. CDM has said that they have made efforts to clean up their supply chain and ensure that children, for example, are not mining cobalt, but last year, I traveled from an illegal mine site outside the town of Fungurume with a
+local dealer in copper and cobalt ore who pointed out where he sold his product--completely unregulated product. The site was owned by CDM, who could not possibly have controlled how the ore was mined or who mined it. When cobalt is collected, it is processed into hydroxide. This is often done inside the DRC, but sometimes the unprocessed product is shipped out on a flatbed truck. At the Kasumbalesa border post, trucks idle for days until they are allowed out of the country. People in the towns
+complain of severe asthma. At processing facilities in China and in Korea, this material can be mixed with industrial product. More needs to be done to trace the supply chain and ensure the rights of the people at the very bottom of it. The bottom of the supply chain is rife with human rights abuses, as we have heard. Such abuses also happened to journalists and investigators. As has been noted in my own work, I was disappeared and detained for six days by the Democratic Republic of the Congo's
+government as I tried to shed light on some of the abuses I document above. I'd like to take this opportunity to thank the members of this Commission and others in the U.S. Government who helped secure my release. I want to note that some Congolese journalists are not so lucky. The journalist Stanis Bujakera Tshiamala languishes in jail for a report that he reportedly did not even write, and more must be done to promote transparency and thorough reporting on the supply chain, which firms and
+governments would rather keep secret. I'd like to close quickly with a thought or two about solutions. Banning Congolese cobalt--it's a good idea on the face of it but it needs to be coupled with action to create jobs in the province. Without provision of an alternative form of employment, it could harm the poorest people in that nation. In the DRC, we've seen how bans of tantalum and tin ore have contributed to criminality instead of curbing it. So new solutions must be envisaged. They have also
+empowered unscrupulous traders who deal in falsified tags. Let's try and not make the same mistake again. Let me be clear that the consuming countries need to provide real solutions to address the lack of work in places like the DRC, to provide alternatives to artisanal mining or at least to make it safer and cleaner. Countries like the U.S. need to insist on environmental protection and on recycling to recover critical metals. We also need to ensure that democracy and the rule of law are upheld. As Congo
+moves towards its elections this December, I believe the United States should insist on a free and fair voting process as the bedrock of any state of law. This will be key in regulating this industry and making sure that value can be shared with some of the poorest people in the world. Thank you for your time today, and forgive me for going over. Chair Smith. Mr. Niarchos, thank you for your testimony, and we're glad you're safe. Thank you for doing a strong appeal for those journalists who do remain in
+prison, especially the Congolese. Thank you. Commissioner Zinke. Representative Zinke. Thank you. As a former Secretary, and looking at lithium, cobalt, and the series of critical minerals that the DRC--and, by the way, I've been to DRC. It's struggling--that would be a kind way to say it. But there were some efforts, I understand, by Ford Motor Company and IBM on using blockchain on cobalt, particularly to try to look at where it's coming from. Are you aware of any of those efforts as far as blockchain
+being used, technology, to make sure that the cobalt and critical minerals, that there's a supply chain, and we can follow it through from beginning to end? Mr. Niarchos. The question is to me? Representative Zinke. Yes, sir. Mr. Niarchos. Yes, I'm--well, thank you very much for the question. Yes, I'm aware of many of these efforts. There are several different programs to do so. Representative Zinke. I'll open it up to the panel. Is anyone else aware of those efforts? Mr. Ivkovic. Yes, sir. Though I would
+like to note that trying to trace back the payments is not the only way to go about it. We have a serious problem that the entire refining is in China and that most of the mines are controlled by China, so the unreported cobalt that ends up in China being refined, being shipped into the United States, is the actual problem. It is not how to administratively address the issue of payments themselves. In my view, to say that this cobalt coming from 6-, 7-, 8-, 9-year- old kids is not landing in the United States is an
+absurd argument. It's certainly not a serious one, because mathematically it cannot be backed. Representative Zinke. What do you think the percentage is? Mr. Ivkovic. We don't need to think. We can see the reports. More than 80 percent of world refineries are in China. Representative Zinke. In particular on child labor being used on cobalt, the percentage--what do you guess it to be? Mr. Ivkovic. The reports today say that somewhere around 40,000 kids, age 6 and above, work in these illegal sites,
+and the proceeds of their work land in the supply chain. This is a matter of public record and the Department of Labor confirmed it. Representative Zinke. How does that translate, if you would, your guess on the amount of cobalt? What percentage is from child labor? Mr. Ivkovic. The German government in 2022 said that from artisanal mines, which include mines where people--or kids-- work, at least 30 percent of the cobalt coming from the DRC is coming from these sites. It's a huge amount. This is a
+2022 report to the German government. Representative Zinke. I appreciate that. Mr. Chairman, I yield back. Thank you. Chair Smith. Commissioner Nunn. Representative Nunn. Well, first off, Mr. Chairman, I appreciate you bringing together this august panel. To the panel yourselves, thank you for taking the time to share with us. I think this is something that has sprung up on the front pages of the New York Times, the Washington Post, and the Wall Street Journal. Really doing a deep dive to see the
+impact of this on our communities is chilling. I want to talk specifically about the Communist Party's extensive use of forced child labor in the world's cobalt industry. In the pursuit of innovation and the creation of cutting-edge technologies that we use here every day in the United States, we have inadvertently become consumers that bear the product of heavy exploitation, much of it coming from children around the world. One such example is the extraction of cobalt, a vital component in the batteries
+that power everything from our devices here to so many of the cars that we see on the road today here in the United States. Tragically, this extraction of cobalt is often tainted by the stain of child labor. The numbers are simply staggering. Eighty percent of the world's cobalt output is owned by Chinese companies. China imports 63 percent of the world's cobalt. As we just heard, more than 30 percent of the cobalt being extracted is coming from artisanal mines that would exploit child labor. Nearly 25,000
+children are used to mine this rare earth metal. Now, as a dad of six who just was fortunate to get to adopt two young girls this year, I cannot imagine the cruelties and the hardships that these children are being exposed to daily in the mines where they are forced to extract this. I'm appalled, as this Commission has long been, at the use by the CCP of child labor in these horrific mining situations. The truth of the matter is that during Xi Jinping's authoritarian expansion, he has used his notorious Belt and
+
+Road Initiative, and the Chinese Communist Party has swept up millions of unwilling individuals to fuel their economic regime, something that both Republicans and Democrats have called out as being completely untenable. And yet here he is in the United States attempting to expand influence on our energy production in America. Today we examine specific instances where the Chinese Communist Party has used forced child labor to supply the world's electronics with cobalt. Getting into it, Ambassador,
+you have been on the front line. Mr. Schultz, you have seen the wolf warriors that come from Beijing and their attempt to pressure other countries around the world--following their economic advantage. So I'd like to talk a little bit about, first, just the scene setter on how the Belt and Road Initiative has contributed to the cobalt disaster that the rest of the world is now facing today. Ambassador Schultz. Thank you for the question. My expertise probably isn't as good as Milos's and some of the other
+witnesses in terms of the nitty gritty, the details of the cobalt industry, but I can talk a little bit about what I saw in Africa when I served there and how China works there. In fact, we were just discussing it at the break that, you know, China provides money to Africa, at least in theory. The whole Belt and Road Initiative is--you know, I think I misspoke earlier when I said that they've devoted millions of dollars to preventing or trying to exclude the United States from African markets. It's, of course, billions, and
+probably tens of billions, if not hundreds of billions. So the way it works--actually, in simple terms is, the Chinese come to an African country, and they say: We think you need a road from point A to point B. We're willing to finance it. We'll give you a project loan to build that road. In return for that money, you have to agree to sole source--it has to be a Chinese company. It has to be Chinese labor. It has to be Chinese materials, Chinese equipment, etc., etc. So in fact, there's no follow-on effect in the local
+economy because no local people are working on the projects. It's only Chinese labor that's brought into the country, and often as not is demobilized in place, so you end up with a Chinese minority in an African country where it never existed before. Representative Nunn. Ambassador, you would say then that all roads and the Belt and Road Initiative really are leading to Beijing? I mean, at the end of the day-- Ambassador Schultz. Yes, that's a very nice way of putting it. I would say that, yes.
+Representative Nunn. I would concur with you on this. Look, at this point, China is by all means economically exploiting other countries. Ambassador Schultz. Well, I think it's fair to say that it's a debt trap, you know? And what the sweetener is, of course, is that they're offering the government in power money under the table. So in Zambia, when I was ambassador there, it was pretty clear that the previous government, you know, that there were officials in it that were getting a piece of the pie. They
+were being paid to accept these projects that the country really didn't need. I mean, in fact, we were just talking about this a moment ago--Zambia has two brand new airports, or virtually brand new. Both of them were built for close to a billion dollars, the two of them together. There are no airplanes because--I mean, one of them is in the northern part of the country, Ndola. No one flies there really, to speak of, so you've got this huge Chinese-built airport that's empty. Even the airport in Lusaka is not
+heavily used. On top of which, the other problem with Chinese projects is that they're not necessarily well built, so they tend to deteriorate fairly rapidly. In Zambia, the Chinese roads are painted. They're painted with black paint, and so the first time you hit a heavy rainfall, they start to wash out. You know, meanwhile, of course, you've got billions and billions and billions of dollars of debt that's been put on the country's credit card that has to be paid back. Representative Nunn. Right. I think that's
+really what we're looking at. You use the term debt trap. I think you're absolutely right. It's economic hostage-taking that they've indebted these countries to, and then bridled them with a modern-day colonialism to exploit some of their most precious commodities, in this case their children. They're also using that exploitation to go after rare earth minerals in the form of cobalt.
+<<LINE BREAK CONTINUES>>
+I want to speak here to Professor Ivkovic. Milos, you talked about a recent report that shows violence in Congo has displaced approximately 7
+million people. What does that mean for those left behind today and the type of forced labor they're
+required to do, in the machinations of Chinese cobalt exploitation? Mr. Ivkovic. That means that they
+don't have any alternative but to work as slaves. Representative Nunn. So now we have both economic hostage taking and
+human exploitation happening right on the same hand. Will the factions in charge of these mines refill employees with other parts of the
+world? Are they going to continue to dig into an exploited underclass, largely children, in your opinion? Mr. Ivkovic. Absolutely. Not only
+children, but all the underprivileged. As I mentioned in my testimony, almost 60 million Congolese live on under $2.15 a
+day. They're forced to work as slaves. We describe this as effective slavery under international law.
+Representative Nunn. China's even gone beyond this indentured servitude or slave labor, as you
+highlight, locally. But they're starting to bring in others from, you know, exploited masses around the
+world--Uyghurs from China, dissidents from North Korea, people that they find untenable they send to
+work, basically to death, in these cobalt mines in the heart of Africa. Is that correct? Mr. Ivkovic. That is exactly
+correct. And our problem is not enforcing U.S. laws, which are already on the record. It is not as if we need new bills to remedy the situation.
+This grave circumstance is already covered by Federal legislation. It is just that we do not have enforcement that would stop the supply chain.
+So long as there is demand, there will be slavery. Representative Nunn. I'd like to turn next to you, Joseph. One of the things you highlighted
+here with the Atlantic Council is how conflicts around the world could increase China's superiority over the West, including the United States,
+with owning the vast majority of cobalt and how dependent the rest of the world has become on it. Could you talk a little bit on where China
+really has a chokehold on this rare earth mineral that the rest of the world could not make up if there were to be sanctions or if there were,
+God forbid, a conflict directly with mainland China and the United States? Mr. Nguramo. Yes, sir, absolutely. Well, I've been thinking about
+this situation, particularly child labor and--let's say the whole equation of how the global economy has been working over the past 30 years,
+and how we basically got ourselves into this situation that we are heavily dependent on China, particularly in terms of products such as
+semiconductors which derive from DRC cobalt and lithium and copper, sadly, with child labor and human right exploitation. First, we have to
+be, I think, frank, in terms of looking at the problems, how we got here, and have the courage and the leadership as well to try to address the
+problems. Of course, it's a very complex equation, so we cannot solve it in, let's say, one day or maybe 5 or 10 years, but I'm very encouraged
+as well to see all this engagement here. I've read some, I think, great documents that the U.S. Government is putting forward in terms of
+addressing these issues--such as the U.S. National Security Strategy, and the bill that the congressman is putting in as well. I think this kind of
+initiative, this approach, will help us to maybe step by step, you know, create a new strategy so that the United States is not dependent on
+China, especially if there is a conflict. Because, quite frankly, right now we are very vulnerable. Let's just put it very straightforward: If there is a
+conflict with China, China can just cut off the supply of semiconductors and our defense is exposed. You know, so the last thing we want to do is
+get in that position. So that's a problem. I'll just say as well that just engaging these countries, like the DRC, is very difficult, for different
+reasons--the lack of rule of law, quality governance, you know. But here's the thing--and again, I'd really like to mention this actually--I am
+really, really supportive of the bill that Congressman John James put forth. For these reasons. I read it and I read the Chair's bill as well.
+Actually, I feel like they're kind of complementary because the John James bill actually says that we should make it a national U.S. priority to
+make sure the DRC is stable, the entire region. I think there's actually a national security interest. It addresses issues with child labor, but not to
+the extent of Congressman Smith's bill. I like to think that we should somehow maybe combine both-- see what's going in one bill and what's
+going in the other bill, and we will have a more coherent comprehensive rule of law. And hopefully, that will be the basis of a strategy dealing
+with not only the DRC, but the entire region. Hopefully, in the longer term, we'll be able to somehow take a more, let's say, balanced approach,
+in case we get into trouble with China, you know? We see what's happening in Ukraine with Russia. You know, these countries tend to
+weaponize these kinds of tools. We're very vulnerable. Thank you so much. Representative Nunn. I'd just like to--want to thank the
+Chairman, Chairman Smith. You have led a dedicated effort to hold the Chinese accountable for what they've done internally to the People's
+Republic as well as what they've done externally, and then this tragic case of exploiting children. You have brought this to the forefront. There
+are so many, I think, incredibly timely things that the United States needs to do on a strategic level to be able to not only counter China, but
+really this mass amount of child exploitation that's happening in the world over a rare earth mineral. I want to ask the panel very quickly, writ
+large here, strategically, what things can we be doing to hold Xi Jinping accountable on this front, and our allies, and to offer a better lifeline to
+those countries in Africa that want to come into the global economic success story that has been the rest of the world, without feeling that
+they have to be economically held hostage or they are in a death spiral that they cannot get out of with China's One Belt, One Road Initiative?
+I'd open it up to the panel. Ambassador Schultz. Well, I'll say two things, actually, that I mentioned in my testimony. The first is I think we
+should be providing more money through the Development Finance Corporation. We should actually be competing with China to provide
+project loans to help build needed infrastructure in Africa but do a better job of it than the Chinese do. Giving them infrastructure that they
+actually need and building it well, and doing it at a cost that they can afford. The second thing is I think we should be--we should be pretty
+
+proactive, frankly, about helping African countries get out from under China's debt. You know, in 2011, the HIPC process basically wiped out the
+debt of most countries, you know, in Africa. We were major players in that, along with the European countries. I think that China basically
+needs to take a haircut. They have been, you know, kind of force-feeding these debts, these loans, into these countries. They now have tens of
+billions of dollars that they'll never be able to pay off. They should be encouraged to basically write those debts off. Mr. Ivkovic. In looking at
+this problem, we have two perspectives. The first one is U.S. national security, which I think is in danger. The supply chain shows that the U.S.
+cannot object to the practices because it is so heavily dependent. In order to address national security perspectives, first we need friends, as
+the Ambassador said. And for everybody who has ever been to the DRC, to Zambia, to the countries in the region, if you go to the villages,
+these people are U.S. friends. They adore the United States and they're hopeful that this body and the U.S. administration will actually protect
+them. What we need to do is show our friendship back. Apart from stating, ``We are here for you,'' there is nothing else happening. These
+people need roads. They need schools. They need hospitals. Nothing is happening, so we need to be there also helping them help themselves.
+The second issue is, we need to help our companies operate in the region of Africa and in the supply chain. Currently, without governmental
+support, we will not have U.S. companies being engaged. There is zero chance. Their incentive is legally jeopardized because they can face
+investigation and criminal prosecution if even their sub-subcontractors did something wrong in Africa, while we have practices of child abuse
+which are not prosecuted at all. So they do not want to go into these regions. Secondly, it is very affordable to keep the supply chain active, so
+we do need a nonmarket intervention immediately in the supply chain. Let me be very clear, if we want to build a refinery--we need a
+refinery, because all refineries are in China. If we want them to be built by U.S. companies--and the U.S. companies can build them because
+they develop patterns for these refineries--they need support from the government. They cannot be led into the belief that they can compete
+in the market with Chinese prices, because they cannot. They will have a loss of two to three years in their investment unless the government
+steps in. Then we need to address these atrocities. There are some sanctions on the record, but by far not addressing all the actors involved
+in these abuses. There is almost no criminal prosecution on the record, even though we are talking about
+crimes against humanity and crimes which are very similar to slavery under international law. So long as
+we are silent and we allow impunity for actions, and we do that because our national security is jeopardized, there won't be a solution to this
+issue.
+<<TEXT CONDENSED NONE OMITTED>>
+Representative Nunn. Thank you. Mr. Nguramo. Congressman, I did not really understand the last part of the question well, so if you could repeat it, please, that would be great. Representative Nunn. Strategic solutions to counter China's exploitation in Africa. Mr. Nguramo. Yes, absolutely. So, first of all, Ambassador Schultz and Ivkovic have already mentioned it. I will just maybe add a few elements to that. I think we have really solid strategic documents framing these issues. I'm really encouraged by
+the bipartisan approach. If you look, let's say, at the previous administration, the Trump administration, and this administration, the Biden administration, they actually keep in place or have kept going with certain decisions that were taken before--related to these issues. Here's the thing. If we don't lead, nobody will ever do it. We have got to understand that. As was just mentioned here, a lot of people in the DRC actually, interestingly enough, always look up to the United States for help and support.
+They do, which is interesting in many ways, and I think that's for good reasons. You know, they think that the U.S. can help, so we should not let them down. And particularly address this issue of child labor and human exploitation in these mines. Now, here's another thing. We have to be realistic. We have to have this ideal role; eventually we hope democracy will prevail but at the same time we have to narrow it down in terms of how we actually operationalize this ideal, make it happen. That will be
+short- and long-term goals that we are having together. And eventually, I'd like to think that the U.S. will prevail over China. Concretely, what we can do--for example--we have these DRC elections coming up this December. Let's make sure those elections are credible, fair, and transparent, OK? Because the history of this country has shown that as long as there is this issue of illegitimacy of elections, we spend a lot of time, politicians do, trying to find a solution, five years later, and then we go back to that
+the next election. Here's the thing: If we don't do that, for example, China will not come back and say, hey, we would like to know the truth about the election that happened. No, but that leadership can only come from the United States and from, let's say, our allies, like the European Union, for example. Why does this matter for us and our interests? I like to think that a strong democracy in the longer term actually will be in our national security interest. A strong democracy in the center of Africa--it's
+such a big country with enormous potential, you know, great people, by the way, very dynamic, very hardworking people--will offer a lot of opportunity, even for our private companies to go and invest there. So those are the small things, I think, that will help us eventually prevail over China in the long term in this battle of global-power competition. You know, what I mentioned earlier in terms of some of the policies in place, such as--I guess I agree with this. You know, sometimes I hear this word
+``decoupling.'' I think it's a bit, quite frankly, not pragmatic. You know, I mean, we cannot really completely decouple from China. If you look at the financial and economic integration, it's almost impossible, but I think using de-risking and diversification is probably be doable. As a matter of fact, I'd like as well to make sure the electric vehicles project--I think the MOU was signed between the U.S. and Zambia and the DRC. Those are the kinds of things we need to be supporting. I think the Lobito Corridor
+was agreed upon as well. I think these are the pragmatic projects that if you actually were serious about getting engaged about this issue, will actually help us to prevail over China in this competition. Representative Nunn. Thank you. Mr. Niarchos. Well, as a journalist, I guess that it's sort of beyond my expertise, but I can offer a few observations. You know, you go down roads between different towns in the DRC and you see, you know, ChinaAid, you see the Chinese hospital, then you see maybe Japan,
+or this was given by the--you see very little evidence of U.S. aid and U.S. programs in that part of the world. So I think that that's very important. I also would, once again, want to say that the protecting of people who are trying to bring information about these mines and about the conditions on these mines to the forefront is very important, because a lot of the time, you know, people will look at a phone or an electric car and not understand where that came from. Representative Nunn. Right. I want to
+thank the panel. I want to thank the Chair on this. I think every American should consider the next time they use their cell phone, or jump into an electric vehicle, or have power that is provided by cobalt, they should look at the supply chain that's provided it. They should recognize immediately there's a national security interest that's undermining the U.S. ability to influence the world. They should recognize that they're playing a direct role in the exploitation of millions within China, and specifically those
+in Africa--young children exploited inhumanely, working in a mine far worse than any shoe factory in China, but are being worked literally to their death as indentured servants. America has a leading role to play in this. So does the West, but so does China. Calling them on these types of issues ensures not only that Beijing is aware of what's happening, but that there will be a cost to pay for the exploitation, for the pillaging of Africa and its children, as well as what we as Americans have responsibility to do
+to ensure that this does not happen going forward. Mr. Chair, this is a bipartisan issue. I cannot thank you enough for helping lead the charge and helping to salvage not only America's national security, our economic interests, our industrial strength, but calling the bad actors on profiting from the death of others. Thank you, sir. Chair Smith. Thank you so very much for your eloquent statement and for your excellent questions. I have some questions I'd like to ask, and then we'll conclude. I thank you for
+your patience, especially during that interruption during the voting. I wonder how many of the car companies--including Tesla, Ford, GM, and the others--including the United Auto Workers, who by the way, endorsed me for election. I'm a pro-labor Republican and believe very strongly in labor. But how many of them have spoken up about the supply chain--that the product that they're obviously including in their EVs has been absolutely tainted by child labor and adult forced labor, which, as has been
+said a few times here, is a crime against humanity? I'm wondering, where are they? I mean, we're going to ask the UAW to come and testify in a future hearing. We're going to ask the car makers if they'll come forward. This Commission has done that with regard to the genocide Olympics, when we called forth and heard from others, like Coca-Cola. So I'm wondering, have they said anything? Are they--in your opinion, have they been in any way intervening on behalf of the exploited? Nick. Mr. Niarchos.
+I would say that, yes, some car companies have addressed it. Off the top of my head, BMW has said that they will only buy cobalt from one mine in Morocco. This has come out in the German press recently: there were some criticisms of that mine in Morocco. And I believe Elon Musk was asked about it and said he was going to put cameras on the heads of children or--sorry--cameras in the mines, or something like that, to stop children going down. I'm not sure what other solutions have been proposed.
+Chair Smith. Yes. Mr. Ivkovic. If I may, I think we need to recognize the situation. I doubt that there is any Western company that wishes to have this supply chain, to be very frank. Whether they use sufficient pressure is questionable. The second question is whether they have sufficient pressure over the supply chain which is completely monopolized by China. That said, it is important that there be a joint effort between car companies and the U.S. Government to address this issue, because only that joint
+strength can bring about a resolution of the problem. Chair Smith. Have you witnessed any joint strength coming from the administration? Mr. Ivkovic. Well, what I have seen is an aggressive policy of bringing battery production facilities to the United States, which is a step in the right direction in my view. I also think it's a good step to start sanctioning actors that through corruption are supporting all of these practices, at least indirectly. Whether there is room for improvement? Absolutely, yes, because
+it cannot be that in 2020 the Department of Labor publishes that the armed forces of the DRC are effectively complicit in the worst forms of child labor and there be no reaction. Chair Smith. Let me ask you, have there been any prosecutions of the people that are running the mines in the DRC? We had in our last hearing a witness tell us how some of the individuals were whipped by Chinese guards, and there was nothing from his point of view that was done about that. Are there any prosecutions? Mr.
+Ivkovic. If I may just speak to the pattern of how these ``prosecutions,'' work, because I cannot call them, as somebody who teaches law, prosecutions. They are announced to the general public whenever there is international pressure, such as this hearing or any sort of similar act, mostly coming from Washington. Then after six months, the government comes to a resolution, which is in billions and should be paid to selected accounts or selected governmental entities, mostly by the Chinese. So it is just a
+cost of doing business. There is no serious punishment. There is no actual punishment for the crimes that you mentioned. Chair Smith. Do any of those funds find their way to the exploited person who has been beaten or even killed? Mr. Ivkovic. To put it politely, I doubt it. Chair Smith. Anybody else know that? Mr. Niarchos. There's also probably a sort of extrajudicial process of deportation for smaller Chinese firms and things like that, and workers that are kicked out. One has to remember as well
+that quite a lot of the Chinese people who come to DRC are, you know, themselves exploited and themselves kind of living in situations of quite intense poverty, that I've seen. Chair Smith. Let me ask you with regard--I met with Ambassador Lucy Tamlyn, our DR Congo ambassador. A very fine person. We talked about the MOU, and I also raised this with John Kerry at a hearing of the Foreign Affairs Committee. The concern I have with it--I mean, it's very nice sounding. It's ``sense of the Congress''
+language, which we do often here, or ``sense of the Senate.'' But it really has no teeth. It's aspirational. Even my bill that's pending, and the new one that we're going to do, talks about strategies, which is all great. I'm the author of the Trafficking Victims Protection Act of 2000. It took me three years to get that piece of legislation enacted into law. It was bipartisan. It was vigorously opposed by the Clinton administration. I had the hearings, so I can say without any fear of contradiction, they thought even a
+TIP Report would be counterproductive. Naming names would be counterproductive. They said it on the record. Above all, they thought that any kind of sanction would also be fruitless and counterproductive. Madeleine Albright made it very clear that she was not for this sanctions regime that was included in the Trafficking Victims Protection Act of 2000. We did prevail, and I've done 20-plus hearings in follow- up. I think it's 35 hearings since. No one doubts the importance of having at least some sword
+of Damocles hanging over an offending nation or entity, that they're going to be held to account. It's like a criminal sanction for breaking laws, you know, right here in DC or in my own state of New Jersey. You've got to have a penalty phase. The MOU, nice, but I think 10 years from now we'll say it was nice but didn't do anything. You know, so our bill would provide a rebuttable presumption. It is serious. It has a long way to go, because it's going to be difficult to get it passed. This administration probably
+will not support it. Maybe a future one will. But those kids--I mean, our Labor Department says 25,000, others have said 35,000 to 40,000 kids--there's all different estimates, of course, but lots of children are being exploited. As you had mentioned, Milos, you know, very, very young kids as well. We need a penalty phase, if not to do anything else but to get the DR Congolese government to incentivize their own, create their own capability, their own refining capacity, and make the money that they're now
+shipping off to China, and all of that exploitation. It doesn't happen in a day, but I think there needs to be a pivot point. And I think a significant penalty would be one of them. There are, thankfully, some other mines. I don't know how profitable they are in terms of producing product. Not money, but how efficacious they are. It would seem to me that for our critical military means, for cell phones and other things, you know, there could be a pivot to doing more of those mines. And of course, as you said,
+Milos, bring back that capacity here, but for the DR Congolese, they should do it there. It should be all within the parameters of one country, so they reap the real benefits, and not the Chinese Communist Party. We're seeing it in other areas where our pharmaceuticals are gravely at risk. We all know that. Antibiotics are at risk. We've had hearings on that as well. In a conflict with the PRC, they'll shut off our medical supplies in addition to everything else. We're much too beholden to them, and as we all
+know, they have five-year plans, where they want to monopolize. They do predatory pricing to get there, and they get there. All of a sudden, they own it all. I think--you know, a lot of people don't like sanctions, but I was for the apartheid sanctions. I was one of the few Republicans early on back--I've been here since 1980--who not only voted but spoke out against apartheid, believing passionately that, yes, sanctions may hurt some of the Africans--Black Africans--South Africans. But the appalling nature of
+apartheid was such that sanctions are a means to an end. So I just raise that, this idea of sanctions. Your thoughts on that? Our bill of--we did the bipartisan, the four corners of our Commission backed it the strongest, and it did become law. There was pushback from the administration at first, but thankfully Joe Biden did sign it--the legislation with regard to the Uyghurs, the Uyghur Forced Labor Act. That had a presumptive rebuttable presumption in it. We've had hearings since on implementation. It's
+not being implemented in a great way, but it is being implemented. It's very hard, but I think we really need to step up. Your thoughts. Ambassador Schultz. I guess I will flip it a little bit, because for me, when I think about sanctions, I tend to see it in the context of the Russia-Ukraine conflict, and, you know, sort of the central role that it's playing there. You know, I think that you're right to raise apartheid as an example as well. I mean, there aren't very many instances where sanctions have been
+successful. Where they have been successful, it's because the international community is applying the sanctions, not an individual country. So if we were going to do this in the context of child labor in Congo over cobalt, we need to have our friends and allies applying those sanctions as well. There needs to be widespread pressure brought to bear and I think that that's why the sanctions have had an effect in the Russia-Ukraine conflict as well, because they've been widespread. Because Europe is with us on
+this, and that makes a big difference. So that's kind of my---- Chair Smith. I agree with that. When you have global or a lot of buy-in with the European Union and others, it's great. I'm the author of the Belarus Democracy Act of 2004, '06, '11, and then the most recent one. When we did the original Belarus Democracy Act, there was pushback galore. Nobody would ever tell Lukashenko what to do. We got it passed. Bush implemented it very, very aggressively, put 200 names right off the bat, including
+Lukashenko's top cronies, on there. They couldn't get a visa, couldn't do any kind of trade. To our great, great happiness, all of us, the European Union followed suit and had pretty much the same list, so we got people out of prison, lots of them. Of course, Lukashenko is doing horrible misdeeds now in tandem with Putin--but it worked. But we led, that's the point I'm getting at. We led. And this--the idea behind this bill is we want the others to join us. We hope we're not alone but, frankly, even if we are,
+it might save some children, it might get the leadership of the DR Congo to really accelerate taking ownership of their own--you know, to do that. So it's all--you know, and you won't have child labor or this forced labor for the adults. But I take your point. Thank you. Ambassador Schultz. Well, and I take yours, too. I think there's no--there's no substitute for American leadership. I think that's kind of the message that all four of us have shared today. Chair Smith. We also have done it on--as you know
+too-- Global Magnitsky. Not everybody was on board on that at first, but it has made a difference. Mr. Ivkovic. Chairman, if I may, on the issue of sanctions. I would like just to answer three tough questions, and I think they're going to your point absolutely.
+<<LINE BREAK CONTINUES>>
+Firstly, are we obliged to act? We are obliged to act, because there are crimes against humanity and crimes analogous
+to slavery that are taking place now. We are also obliged to act in order to protect the national security of the United States and
+its allies. As a matter of first legal reason, absolutely, sanctions can be used. They are countermeasures under international law. They should be
+used against states, companies, and individuals for acts that we described today.
+Millions of workers face the devastating effects of mining
+Blitz et al. 22 [Lao-Tzu Allan-Blitz (Department of Pediatrics, Boston Children’s Hospital, Boston, MA, USA, Brigham and
+Women’s Hospital, Boston, MA, USA), Charlotte Goldfine (Brigham and Women’s Hospital, Boston, MA, USA, Department of
+Emergency Medicine, Harvard Medical School, Boston, MA, USA, Division of Medical Toxicology, Department of Emergency
+Medicine, Mass General Brigham, Boston, MA, USA), Timothy B Erickson (Brigham and Women’s Hospital, Boston, MA, USA,
+Department of Emergency Medicine, Harvard Medical School, Boston, MA, USA, Division of Medical Toxicology, Department of
+Emergency Medicine, Mass General Brigham, Boston, MA, USA, Harvard Humanitarian Institute, Cambridge, MA, USA),
+2-9-2022, “Environmental and health risks posed to children by artisanal gold mining: A systematic review,” National Library of
+Medicine, https://pmc.ncbi.nlm.nih.gov/articles/PMC8841918/, Accessed 1-6-2026] //KMadhav
+While prior work has highlighted the problems faced globally among small-scale miners,23,24 inadequate attention has been paid
+to the hazardous consequences among children, who are often encouraged or forced to work in the mines to support for
+their families. Of the estimated 10–18 million gold miners worldwide, one-third to one-half are thought to
+
+be women and children, with children specifically constituting up to 5 million workers.23,25,26 Children
+are often used for work in mines given their small size and ability to fit into tight spaces. Therefore,
+children may be at significant risk for many of the hazards posed by mining activities. Furthermore, the
+indirect consequences of lost educational years are far reaching, due to long work hours in the mines or
+because of injuries and illnesses preventing them from attending school. Recently, as a result of the social and
+economic consequences arrising from the SARS-CoV-2 pandemic, mining communities likely face heightened tensions. Furthermore, evidence
+suggests that some mining communities, albeit not artisanal and small-scale mining communities, are at a disproportionate risk for SARS-CoV-2
+infection, 20 although the direct infectious risk posed to children in artisanal and small-scale mining communities specifically is as of yet unclear.
+Exacerbated economic insecurities in the wake of the pandemic, however, likely continue to have a notable impact on children while
+simultaneously propagating the need for gold mining activities, which increases the demand for child labor; additionally, those economic
+challenges consequent to the SARS-CoV-2 pandemic may further limit government expenditures on local agencies to enforce mining regulations,
+including child labor laws. 27 In this systematic review, we aimed to review the existing literature to characterize the hazardous consequences of
+artisanal and small-scale gold mining specifically on children and highlight the efforts made to resolve those issues.It is particularly meaningful
+to characterize such hazards among children, as the consequent reduction in quality of life years is by definition more substantial than among
+adults, as are the lost educational opportunities. Several studies have commented on the lower-than-average rates of education among artisanal
+gold mining communities.36,37 One study calculated 32,300 disability-adjusted life years among 9- to 14-year-old
+children as a consequence of chronic mercury intoxication among underaged gold miners in Zimbabwe.
+38 Other research has reported similar results among numerous other countries, though not specifically among children. 39 None of the articles
+calculated the impact on the quality of life or life expectancy secondary to trauma, occupational hazard, or infectious exposure. Artisanal
+and small-scale gold mining activities are associated with numerous health hazards among children,
+including exposure to dangerous toxins, infectious diseases, occupational-related maladies, and acute
+traumatic injuries. The consequences therein are particularly devastating among the children who work
+the mines, who suffer the immediate cost of the hazard as well as the opportunity costs of lost
+education, high disability-adjusted life years, and increased risk for cancer in later life. However, most notably
+from our review was a profound underreporting of the prevalence of such hazards among children. More work and interventions are needed to
+characterize the burdens of those hazards and to address the underlying drivers of child labor in these settings.
+China’s stronghold perpetuates human right violations – countries can’t fend for
+themselves – affirming allows domestic safeguards to be restored
+Nantulya 24 [Paul Nantulya: Mr. Nantulya holds a B.A. in international relations from United States International University in
+Nairobi, Kenya, a Graduate Certificate in Japanese from the Japan Africa Interchange Institute in Nairobi, Kenya, and an M.S. in
+Defense and Strategic Studies from Missouri State University in Springfield, MO, 8-20-2024, "FOCAC 2024: Elevating African
+Interests Beyond the Africa-China Summit," Africa Center,
+https://africacenter.org/spotlight/focac-2024-elevating-african-interests-africa-china-summit/, Accessed 1-7-2026] //KMadhav
+The Dakar Action Plan (2022-2024), a product of the Eighth FOCAC summit held in Dakar, Senegal, in November 2021, offered a comprehensive
+plan for trade promotion and facilitation, strategic market access, and product value addition. China committed to importing $300 billion worth
+of goods from Africa between 2022 and 2024. It also offered $10 billion to improve the quality of African exports and a credit line of $10 billion
+to help small- and medium-sized enterprises export high-quality products into Chinese markets. Yet, monitoring these commitments is difficult,
+and it is unclear if, or when, these targets will be met. FOCAC is still by-and-large shaped by a donor-recipient
+dynamic, where African countries mostly take a back seat while China initiates much of the agenda.
+While FOCAC has emerged as a unique forum, it is still by-and-large shaped by a donor-recipient
+dynamic, where African countries mostly take a back seat while China initiates much of the agenda. Part
+of this has to do with weaknesses in strategic planning on the African side. While China regularly
+releases comprehensive Africa strategy documents—such as the white papers of 2006, 2015, and
+2021—African countries have little coherent strategy for China. China produced its China-Africa Cooperation Vision
+2035 shortly after the Dakar summit. Developed with contributions from African countries, the document incorporates priorities of the African
+Union’s (AU) Agenda 2063, particularly on development partnerships, trade and investment, green growth, human resource development, and
+
+industrialization. Curiously though, African countries did not craft their own document articulating Africa’s
+interests and detailing how the China-Africa Vision 2035 could advance their national development
+plans. China, by contrast, is crystal clear about its objectives. The China-Africa Vision 2035 is aligned with China’s own
+Vision 2035, which seeks to consolidate China’s status as a Great Power. A careful reading of both
+documents shows that China views its engagement with African countries as an avenue through which
+it can advance its quest for Great Power status—a means to an end. FOCAC—and China-Africa policy more
+generally—is frequently criticized for being top-heavy and overwhelmingly focused on state-to-state relations. Much of FOCAC occurs outside
+public view and beyond the reach of independent experts. This excludes many important African stakeholders. It also
+hinders effective oversight. This is one reason why FOCAC outcomes are difficult to quantify, monitor,
+evaluate, and improve. Calls from African citizens are growing for African governments to address
+these and other shortcomings to ensure that ordinary Africans derive maximum value from an
+initiative that likes to portray itself as a model of “win-win cooperation.” A Process Rather than a Collection of Ad
+Hoc Summits The FOCAC summit meets once every 3 years alternating between China and Africa. The only other African summit with external
+actors that meets this regularly is the Tokyo International Conference on African Development (TICAD), which has also met eight times since its
+launch. The Ninth FOCAC will use a slightly different layout from previous ones as it will be organized around thematic committees co-chaired by
+China and an African country. The Chinese representation will most likely come from China’s FOCAC follow-up committee, comprising 37 Chinese
+agencies. The FOCAC gathering culminates a sequence of agenda-setting engagements starting with the African diplomatic corps in Beijing, a
+senior officials meeting that packages proposals, a ministerial conference to refine them, and finally the FOCAC summit. FOCAC remains heavily
+regime centric. It lacks broad-based public consultation and engagement. A China-Africa Entrepreneurs Forum for African private sector leaders
+will be part of FOCAC this time around. Several related meetings took place in the lead-up to the summit, including the China-Africa Economic
+and Trade Cooperation Forum in March 2024 in Dar es Salaam, Tanzania. African countries including Kenya, Namibia, and Uganda also organized
+their own investment forums to market opportunities to Chinese investors ahead of the summit. This year’s FOCAC was also preceded by the
+China-Africa Think Tanks Forum in April 2024, also in Dar es Salaam, and the Second High-Level Conference of the Forum on Global Action for
+Shared Development in Beijing in July. FOCAC conducts most of its business through thematic and technical subforums. Examples include the
+China-Africa Peace and Security Forum, the Forum on China-Africa Local Government Cooperation, and the China-Africa Legal Forum. The
+China-Africa Peace and Security Fund channels Chinese finance and equipment toward the African Peace and Security Architecture while the
+Ministerial Forum on China-Africa Health Cooperation places Chinese health expertise at the disposal of African health ministries. Some of
+these subforums have achieved significant milestones since the Eighth FOCAC. The China-Africa Economic and Trade Expo (CAETE) opened new
+trade between African countries and Chinese cities and municipalities resulting in 74 cooperative projects. This has contributed to the robust
+China-Africa trade portfolio of $282 billion in 2023. Under this program, Kenya has become Africa’s largest exporter of flowers to China, valued
+at over $800 million annually. African countries have also taken advantage of CAETE’s promotion of e-shopping platforms. In January 2022, for
+instance, 11,000 bags of Ethiopian coffee were sold in 5 seconds using such platforms. Rwanda, Mauritius, and other African countries have
+followed suit and used similar platforms to secure niche markets. All told, FOCAC offers lessons to other external actors’ engagements in Africa
+in terms of the regularity of its summits, institutional layout across different areas of cooperation, technical and political coordination between
+summits, and innovation. Still, FOCAC continues to encounter controversies. To start, it is viewed as serving
+primarily Chinese interests. Take the China-Africa Think Tanks Forum. Its “Dar es Salaam Consensus,” a document issued in April 2024
+to influence the forthcoming Ninth FOCAC agenda, commits member think tanks, scholars, and research organizations to champion and
+implement the Global Development Initiative and Global Security Initiative—two Chinese national security concepts. The meeting was silent on
+key African demands such as the 2005 Ezulwini Consensus, which among other things calls for African permanent representation on the United
+Nations Security Council. China’s engagements in Africa have also attracted criticism in recent years for
+increasing Africa’s debt burden. Chinese lending in Africa ballooned fivefold to $696 billion between
+2000, when FOCAC was established, and 2020. Chinese lenders now account for 12 percent of Africa’s
+public and private debt, making China a central actor in the debate on African debt sustainability and
+responsible borrowing. China, however, tends not to entertain debt fo
+
+## Construction-criteria audit
+
+### Embedded weighing
+**ABSENT:** The case lacks explicit pre-written weighing mechanisms (magnitude, probability, timeframe, reversibility comparisons) embedded within the evidence tags or text. Cards like Chiu 22 provide massive impact claims ("918 million lives saved") but no comparative framework against likely Con impacts (e.g., economic collapse, energy transition delay). A weighing card would carry a tag like "Magnitude: Extraction harms outweigh transition costs — 918M lives vs. GDP dip" (Chiu 22 / Burke 23) and sit at the top of Contention 1 or as a standalone "Weighing" module.
+
+### Offensive spikes
+**ABSENT:** No cards preemptively attack core Con positions. The case does not spike: (1) "Reduction cripples the green transition" (no card saying Chinese mining isn't essential for critical minerals supply); (2) "Other actors fill the void / leakage" (no card proving Western firms improve standards when China exits); (3) "Sovereignty / non-interference bad" (no card defending interventionist norms). An offensive spike card would read: "Leakage unlikely — Western MNCs adopt higher ESG standards when Chinese firms exit" (OECD 24) and sit in Contention 2 or a "Preemption" block.
+
+### Defensive spikes
+**ABSENT:** No embedded frontlines answer the specific responses this case will face. The Risi 23 card admits "Chinese companies are not alone in having a poor record" and "only 8% of output," handing Con a "non-unique / alt-cause" block on a silver platter with no mitigation. A defensive spike would be a card tagged: "Chinese firms uniquely worse on labor/environment vs. Western MNCs — even controlling for host governance" (Cao 25 / Rights & Accountability 22) placed immediately after Risi 23 to neutralize the concession.
+
+### Evidence quality
+**Risi 23** [Lauren Herzer Risi: Program Director, Environmental Change and Security Program, Wilson Center, 7-18-2023] — High-quality institutional expertise (Wilson Center), recent, draws on congressional testimony, NGO reports (Rights & Accountability), and primary field data from DRC/Zimbabwe. Wins evidence-comparison tiebreaks on labor/environmental abuses vs. generic news cites.  
+**Cao 25** [Yu Cao: Alaska Center for Energy and Power, UAF, 2025, *The Extractive Industries and Society*] — Peer-reviewed journal article, original GIS database of 1,001 mining properties, quantitative methodology. Elite evidence tier for conflict link; beats think-tank PDFs on warrant depth.  
+**Chen 25** [Jackson Chen: Mining.com, 3-29-2025] — Trade publication reporting on Griffith Asia Institute / Green Finance & Development Center report. Recency is excellent (days old), but secondary reporting on NGO data; middle tier.
+
+### Collapse flexibility
+**ABSENT:** The case funnels almost entirely into a single impact pathway: environmental degradation → climate change → mass mortality (Chiu 22, Maizland 21). No independent second scenario (e.g., geopolitical instability → great-power war; resource nationalism → supply shocks; corruption → democratic backsliding). A second contention tagging "Chinese extraction fuels authoritarian resilience / democratic erosion in host states" (Freedom House 24 / V-Dem 24) would give the 2AR a clean collapse option if Con wins climate mitigation.
+
+### Warrant depth
+**Cao 25** — The abstract and intro provide a full causal warrant: Chinese MNCs receive state backing via BRI → operate in weak-institution zones → bypass community engagement → trigger social conflict. The GIS/quantitative methodology (1,001 properties) is explicitly described, making the tag "Extraction takes place in countries with weak institutions – starts and worsens conflicts" extendable with internal logic, not just assertion.  
+**Risi 23** — Warrants are dense: cites specific mines (Kasulo), specific abuses (children 12 hrs/day, radioactive exposure, "colonial era" discrimination), specific NGO reports (Rights & Accountability), and structural drivers (weak DRC institutions, ownership opacity). Each sub-claim has a cited source within the card.
+
+### Internal consistency
+**INCONSISTENT:** Risi 23 explicitly states "Chinese mining companies represent only 8 percent of Africa's total output" and "Anglo-American alone accounts for more than double that share," while the case's cohesive narrative (DOS 21, Chen 25, Maizland 21, Chiu 22) frames Chinese extraction as *the* dominant global driver of harm. Cao 25's finding — "Chinese MNCs do not confront more conflict than other foreign-owned MNCs" — directly contradicts the Contention 3 tagline "Extraction takes place in countries with weak institutions – starts and worsens conflicts" if the warrant is uniquely Chinese. The case simultaneously argues China is uniquely bad (Pro narrative) and not uniquely bad (conceded in best evidence).
+
+### Overall construction score
+**Score: 4/10** — Strong individual cards (Risi 23, Cao 25) with deep warrants and solid evidence quality, but the case lacks embedded weighing, offensive/defensive spikes, collapse flexibility, and suffers a fatal internal inconsistency where its best evidence undermines the core "China uniquely harmful" thesis.

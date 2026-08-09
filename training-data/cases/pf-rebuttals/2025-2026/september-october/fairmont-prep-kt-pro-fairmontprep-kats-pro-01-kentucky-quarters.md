@@ -1,0 +1,25 @@
+---
+title: Fairmont Prep KT (Pro — rebuttal) — 01 - Kentucky, 2025-2026 september-october PF rebuttal doc
+tags: [rebuttal, public-forum, pf-rebuttals, season-2025-2026, cycle-september-october, side-pro, top100-rank-7]
+team: Fairmont Prep KT
+elo_rank: 7
+season: 2025-2026
+cycle: september-october
+resolution: "The United Kingdom should rejoin the European Union."
+side: Pro
+tournaments: ["01 - Kentucky"]
+source_doc: FairmontPrep-KaTs-Pro-01---Kentucky-Quarters.docx
+doc_type: rebuttal
+source: cases/pf-archive/2025-2026/september-october/fairmont-prep-kt-pro-fairmontprep-kats-pro-01-kentucky-quarters.md
+answers: ["Cohesion---2AC", "Terror---2AC"]
+---
+
+2AC
+AT: Cohesion---2AC
+AT: Terror---2AC
+1. The EU is getting better at resolving counterterror.
+Cross, M. K. D. Professor at Northeastern, "Counter-terrorism & the intelligence network in Europe." International journal of law, crime and justice 72 (2023): 100368. https://www.sciencedirect.com/science/article/abs/pii/S1756061619304732
+Despite the recognition of the need to share intelligence, this is easier said than done. Indeed, the political science literature clearly asserts that intelligence is one of the most difficult areas for states to cooperate because of the high level of trust and political will required to achieve this. Even in Europe, a region where the pooling of sovereignty among member states has had a long track record of over six decades, intelligence sharing is still considered a difficult area for cooperation. Nearly all research into the intelligence field in Europe concludes that it is currently quite dismal, with little hope of improving. According to some scholars, the only way in which member states might change their minds is for normative (trust) or functional (efficiency) reasons, but the bar is set high (Müller-Wille, 2004; Walsh, 2006; Edwards and Meyer, 2008). While <mark>there is this tendency to assume that intelligence sharing has poor prospects in Europe</mark>, I argue that the <mark>European intelligence space is actually reaching a new level of maturity in large part because of the growth of an informal network of intelligence professionals. Why is this happening</mark>? The literature on transgovernmental networks would focus more on the functionalist way in which networks fulfill the needs of professionals working in a particular policy area. It would emphasize exogenous factors, i.e. security crises that have prompted the network to get stronger over time. While these factors certainly play a role, I suggest that changes in this network are also the result of the bottom-up efforts of individuals in the network to construct meaning and confront the new dilemmas that they are facing in the work they do (Bevir, 2013). More specifically, as I will explain in this article, the exogenous reasons for the growth of this network, <mark>include (1) structural changes to the EU's intelligence institutions, (2) new threats that serve as catalysts for more intelligence sharing,</mark> and (3) recognition of the need for some level of secrecy in enabling effective governance (Cross, 2020). But underpinning all of these more functionalist or structural processes are the ongoing bottom-up processes among intelligence professionals themselves. They have responded to the need to move their profession forward in new ways in order to grapple with challenges to European security, especially terrorism. Although this is happening somewhat under the radar, I argue that it is leading to the creation of a kind of European intelligence space, particularly one that emphasizes sharing best practices and expertise. To be sure, sharing best practices is not the same as sharing substantive information, but the former is likely the first step towards the latter. Moreover, as I suggest below, the growing use of open-source intelligence (OSINT) means member states are no longer the exclusive gatekeepers of intelligence (Cross, 2013). Thus, I argue that an exclusive focus on formal or structural cooperation among member states is too narrow of a lens through which to understand this policy area and the network that inhabits this space.
+2. Most modern EU terrorist attacks are lone wolf inspired attacks and electronic surveillance cannot stop. VOH 25
+Vision Of Humanity, Institute for Economics and Peace, 3-4-2025, "Evolving threat of lone wolf terrorism in the West", Vision of Humanity, https://www.visionofhumanity.org/evolving-threat-of-lone-wolf-terrorism-in-the-west/
+<mark>Ninety-three per cent of fatal terrorist attacks in the West over the last five years have been carried out by lone wolf actors. </mark>Western democracies have faced an increasing challenge from a particularly elusive and dangerous form of terrorism: the lone wolf attacker.<mark> Unlike traditional terrorist networks, these individuals operate independently, often radicalising rapidly and acting with little to no external support</mark>. The Institute for Economics & Peace (IEP) has analysed this evolving threat, uncovering critical trends in lone wolf terrorism, its growing connection to youth radicalisation, and the bro

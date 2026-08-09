@@ -1,0 +1,29 @@
+---
+title: Westwood PS (Con — rebuttal) — 04 -- Glenbrooks Speech and Debate Tournament, 2025-2026 november-december PF rebuttal doc
+tags: [rebuttal, public-forum, pf-rebuttals, season-2025-2026, cycle-november-december, side-con, top100-rank-71]
+team: Westwood PS
+elo_rank: 71
+season: 2025-2026
+cycle: november-december
+resolution: "The United States federal government should require technology companies to provide lawful access to encrypted communications."
+side: Con
+tournaments: ["04 -- Glenbrooks Speech and Debate Tournament"]
+source_doc: Westwood-ShPa-Con-04----Glenbrooks-Speech-and-Debate-Tournament-Quarters.docx
+doc_type: rebuttal
+source: cases/pf-archive/2025-2026/november-december/westwood-ps-con-westwood-shpa-con-04-glenbrooks-speech-and-debate-tournament-quarters.md
+answers: ["Sudbury CR"]
+---
+
+AT: Sudbury CR
+
+2NC---AT: P-Risks
+
+AI---Impact---AT: FAI---2NC
+MAI would come first! It’s impossible to ingrain friendliness---unpredictability, accidents, and complexity.
+Yampolskiy ’15 [Roman; June 25; Associate Professor in the Speed School of Engineering, Ph.D. in Computer Science, Director of the Cybersecurity Laboratory; Artificial Intelligence: A Futuristic Approach, “Controlling the Impact of Future Superintelligence,” Ch. 10]
+10.2 Machine Ethics is a Wrong Approach
+I have argued that machine <mark>ethics</mark> is the <mark>wrong</mark> approach <mark>for</mark> AI <mark>safety</mark>, and we should use an AI safety engineering approach instead. The main difference between machine ethics and AI safety engineering is in how the AI system is designed. In the case of machine ethics, the goal is to construct an artificial ethicist capable of making ethical and moral judgments about humanity. I am particularly concerned if such decisions include “live-or-die” decisions, but it is a natural domain of full ethical agents, so many have stated that machines should be given such decision power. In fact, some have argued that machines will be superior to humans in that domain just like they are (or will be) in most other domains.
+I think it is a serious mistake to give machines such power over humans. First, once we relinquish moral oversight, we will not be able to undo that decision and get the power back. Second, we have <mark>no way to</mark> reward or <mark>punish machines</mark> for their incorrect decisions—essentially, we will end up with an immortal dictator with perfect immunity against any prosecution. This sounds like a dangerous scenario to me. On the other hand, AI <mark>safety</mark> engineering <mark>treats AI</mark> system design <mark>like product design</mark>: Your only <mark>concern is</mark> product liability. Does the system strictly follow formal <mark>specifications</mark>? The important thing to emphasize is that the product is not a full moral agent by design, so it never gets to pass moral judgment on its human owners.
+A real-life example of this difference can be seen in military drones. A fully autonomous drone deciding at whom to fire, at will, has to make an ethical decision about which humans are an enemy worthy of killing; a drone with a man-in-the-loop design may autonomously locate potential targets but needs a human to make the decision to fire. Obviously, the situation is not as clear-cut as my example tries to show, but it gives you an idea of what I have in mind. To summarize, AI systems we design should remain as tools, not equal or superior partners in live-or-die decision making. I think fully autonomous machines can never be safe and so should not be constructed. I am not naïve; I do not think I will succeed in convincing the world not to build fully autonomous machines, but I still think that point of view needs to be verbalized. AI safety engineering can only work on AIs that are not fully autonomous, but because I think that fully autonomous machines can never be safe, AI safety engineering is the best we can do.
+Overall, I think that fully autonomous machines cannot ever be assumed to be safe. The difficulty of the problem is not that one particular step on the road to friendly AI is hard and once we solve it we are done; all steps on that path are simply impossible. <mark>First, human</mark> value<mark>s</mark> are <mark>inconsistent</mark> and dynamic and so can never be understood/programmed into a machine. Suggestions for overcoming this obstacle require changing humanity into something it is not and so by definition destroying it. Second, <mark>even if</mark> we did have a consistent and <mark>static</mark> set of <mark>values</mark> to implement, <mark>we</mark> would have <mark>no way of knowing if</mark> a <mark>self-modifying</mark>, self-improving, continuously <mark>learning intelligence</mark> greater than ours will continue to <mark>enforce</mark> that set of <mark>values</mark>. Some can argue that friendly AI research is exactly what will teach us how to do that, but I think fundamental limits on verifiability will prevent any such proof. At best, we will arrive at a probabilistic proof that a system is consistent with some set of fixed constraints, but it is far from “safe” for an unrestricted set of inputs. In addition, <mark>all</mark> programs <mark>have bugs</mark>, can be hacked or <mark>malfunction because</mark> of natural or <mark>external</mark>ly caused <mark>hardware</mark> failure, and so on. To summarize, at best, we will end up with a probabilistically safe system.
+It is also <mark>unlikely</mark> that a <mark>friendly</mark> AI <mark>will be</mark> constructible <mark>before</mark> a <mark>general</mark> AI system <mark>because</mark> of the higher <mark>complexity</mark> and impossibility of incremental testing. Worse yet, any truly intelligent system will treat its “be friendly” desire the same way smart people deal with constraints placed on their minds by society. They basically see them as biases and learn to remove them. I

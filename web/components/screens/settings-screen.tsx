@@ -1,13 +1,21 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Headphones, LogOut, Monitor, Moon, Sun } from 'lucide-react'
+import { Gavel, Headphones, LogOut, Monitor, Moon, SlidersHorizontal, Sun } from 'lucide-react'
 import { InkButton, PageTitle, SettingsGroup, Field, Toggle } from '@/components/ui/primitives'
 import { getVoiceProfileStatus, resetVoiceProfile, type VoiceProfileStatus } from '@/lib/api'
 import { useOnboarding } from '@/components/onboarding/onboarding-overlay'
 import { defaultPrefs, loadLocalPrefs, saveLocalPrefs, type LocalPrefs, type Theme } from '@/lib/local-prefs'
 import { useAuth } from '@/components/auth/auth-gate'
 import { TabroomLink } from '@/components/auth/tabroom-link'
+import { JudgesSettings } from '@/components/judges/judges-settings'
+
+type SettingsTab = 'preferences' | 'judges'
+
+const TABS: { value: SettingsTab; label: string; icon: typeof Gavel }[] = [
+  { value: 'preferences', label: 'Preferences', icon: SlidersHorizontal },
+  { value: 'judges', label: 'Judges', icon: Gavel },
+]
 
 const THEME_OPTIONS: { value: Theme; label: string; icon: typeof Sun }[] = [
   { value: 'light', label: 'Light', icon: Sun },
@@ -38,6 +46,7 @@ export function SettingsScreen() {
   const [busy, setBusy] = useState(false)
   const [prefs, setPrefs] = useState<LocalPrefs>(defaultPrefs)
   const [saved, setSaved] = useState(false)
+  const [tab, setTab] = useState<SettingsTab>('preferences')
 
   useEffect(() => {
     getVoiceProfileStatus()
@@ -92,7 +101,32 @@ export function SettingsScreen() {
         title="Make Cross yours."
         description="Tune your debate context, voice calibration, and accessibility preferences."
       />
-      <div className="flex flex-col gap-5">
+
+      <div className="flex flex-wrap gap-2" role="tablist" aria-label="Settings sections">
+        {TABS.map(({ value, label, icon: Icon }) => (
+          <button
+            key={value}
+            type="button"
+            role="tab"
+            aria-selected={tab === value}
+            onClick={() => setTab(value)}
+            className={`press flex min-h-11 items-center gap-2 rounded-md border px-4 text-sm font-semibold transition ${
+              tab === value ? 'border-pen text-pen' : 'border-border text-muted-foreground hover:bg-secondary'
+            }`}
+          >
+            <Icon className="size-4" />
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {tab === 'judges' && (
+        <SettingsGroup title="Judges">
+          <JudgesSettings />
+        </SettingsGroup>
+      )}
+
+      <div className={`flex flex-col gap-5 ${tab === 'preferences' ? '' : 'hidden'}`}>
         <SettingsGroup title="Account">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <span>
