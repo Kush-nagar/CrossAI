@@ -1,0 +1,970 @@
+---
+title: Germantown Friends LZ (Pro) — 01 - Harvard National Speech and Debate Tournament, 2025-2026 february PF case
+tags: [case, public-forum, pf-archive, season-2025-2026, cycle-february, side-pro, top100-rank-40]
+team: Germantown Friends LZ
+elo_rank: 40
+season: 2025-2026
+cycle: february
+resolution: "The Federal Trade Commission should establish a federal regulatory framework for sports betting."
+side: Pro
+tournaments: ["01 - Harvard National Speech and Debate Tournament"]
+source_doc: GermantownFriendsSchool-LiZh-Pro-01---Harvard-National-Speech-and-Debate-Tournament-Doubles.pdf
+---
+
+Open-source case doc read by Germantown Friends LZ (season Elo rank #40) on the 2025-2026 february PF topic — "Resolved: The Federal Trade Commission should establish a federal regulatory framework for sports betting." — at: 01 - Harvard National Speech and Debate Tournament.
+
+Case
+ads are deceptive
+Apelbaum 22 [Benjy Apelbaum, Benjy is a graduate of the University of Michigan School of Law where he
+served as a Notes Editor on the Michigan Journal of Law Reform. During law school, he interned in the
+Washington Criminal Section of the Justice Department's Antitrust Division and in the Securities and Exchange
+Commission's Division of Enforcement. Before law school, Benjy worked as a paralegal at a plaintiff-side
+antitrust firm. He holds a degree in Economics and Political Science from Northwestern University.
+"There’s No Such Thing as a Free Bet: How to Stop Misleading the Public in Gambling Advertisements",
+08/29/2022, Michigan Journal of Law Reform,
+https://mjlr.org/2024/02/16/theres-no-such-thing-as-a-free-bet-how-to-stop-misleading-the-public-in-gamblin
+g-advertisements/, Accessed 02/11/2026] //lzed
+If you have watched a sporting event on TV in the time since the Murphy decision, there is a good chance you have seen an ad for sports gambling as numerous
+companies work to grab market share in the new industry.5See, e.g., Todd Shriber, Sports Betting Advertising on Torrid Expansion Pace, Casino.org (Dec. 29, 2021,
+10:25 AM), https://www.casino.org/news/sportsbook-advertising-is-growing-and-more-is-on-the-way/ [https://perma.cc/6JZV-4FH6]. These ads
+promote the possibility of big wins6Fanduel TV Spot, ‘Same Day Parlay Bet: Risk Free, iSpot.tv (Sept. 14, 2021),
+https://www.ispot.tv/ad/qwJK/fanduel-same-day-parley-bet-risk-free (ad portraying a person placing a “risk-free” bet and winning 3)
+[https://perma.cc/ZCG8-ASFK]. and offer attractive sign-up inducements such as “risk-free” and “no-sweat”
+bets.7Danny Funt, Sportsbooks Call Them Risk-Free Bets. Just Don’t Read the Fine Print., Wash. Post (Dec. 26, 2022, 6:30 AM),
+https://www.washingtonpost.com/sports/2022/12/26/risk-free-bets-mgm-draft-kings-fanduel-caesars/ [https://perma.cc/VK4Z-2T7M]. Some online promotions
+even tout the opportunity to win “guaranteed” money.8@OddCheckerUS, Twitter (Jan. 9, 2023, 4:20 PM),
+https://twitter.com/OddsCheckerUS/status/1612559845428793344 [https://perma.cc/LY6E-QD4T]. These ads mislead individuals on their
+likelihood of winning by playing on cognitive biases. Research shows that people are overly confident in predicting events, which can cause them
+to misunderstand the risks of gambling.9Frank Grazioli, What You Need to Know About Problem Gambling in Relation to Sports Betting, Columbia Univ. Dep’t
+of Psychology (Oct. 2, 2018), https://www.columbiapsychiatry.org/news/what-you-need-know-about-problem-gambling-relation-sports-betting
+[https://perma.cc/7SFR-GSJ9]. It is estimated that less than 5% of gamblers win money in the long-term.10RJ Bell,
+Vegas Weekend Recap: Why do so Many Sports Bettors Lose?, Grantland (Nov. 20, 2013),
+https://grantland.com/the-triangle/vegas-weekend-recap-why-do-so-many-sports-bettors-lose/ [https://perma.cc/RNU2-77S9]. For the rare person
+that does make money in the long term, many gambling websites will restrict winning users’ ability to
+bet.11See, e.g., Danny Funt, Sportsbooks Say You Can Win Big. Then They Try to Limit Winners, Wash. Post (Nov. 17, 2022),
+https://www.washingtonpost.com/sports/2022/11/17/betting-limits-draft-kings-betmgm-caesars-circa/ [https://perma.cc/5B3G-9K78]. Unsurprisingly, the
+increased prevalence of gambling has led to increases in addiction that comes with financial and social costs.12See Joe Hernandez, Sports Betting Ads are
+Everywhere. Some Worry Gamblers Will Pay a Steep Price, (June 18, 2022, 5:00 AM),
+https://www.npr.org/2022/06/18/1104952410/sports-betting-ads-sports-gambling [https://perma.cc/8RQ2-V838](stating that inquiries to the National Problem
+Gambling Helpline Network increased by 45% in 2021). Some states have begun to prohibit misleading promotions for “risk-free” and “free bets” to protect the
+public, but the volume of ads continues.13Funt, supra note 7. In Part I, this article will describe the current state of gambling advertisements and the negative effects
+of legalized mobile gambling on the public. Part II will examine and propose reforms to the regulation of online gambling, drawing lessons from solutions developed
+in response to the public health crisis created by the tobacco industry. This article proposes closer regulation of misleading advertisements and requirements that
+gambling companies inform consumers of the risk of addiction and the likelihood of loss, rather than falsely glamorizing their product. Part I Studies
+demonstrate there is a direct correlation between exposure to gambling advertisements and problem
+gambling.14Andre Syvertsen et al., Relationships Between Exposure to Different Gambling Advertising Types, Advertising Impact and Problem Gambling, 38
+J. Gambling Studies 465 (2021). Problem gambling is commonly defined as a loss of control over one’s gambling despite the negative financial and personal
+
+consequences.15See id at 466. This loss of control is understandable, given that many gambling advertisements expose individuals to enticing messages while
+watching their favorite sports, often from celebrities. For example, a PointsBet advertisement features Drew Brees, a popular former NFL quarterback, encouraging
+would be gamblers to “live your bet life,” a play on their “best” life.16PointsBet Sportsbook, You’re your Bet Life -Drew Brees x PointsBet Sportsbook, YouTube
+(Sept. 28, 2021), https://youtu.be/yodP8T6Bavg [https://perma.cc/J6W6-F7L3]. Another stars Jamie Foxx, a prominent actor, asking if the audience if they “want
+to make every game interesting.”17BetMGM, BetMGM, The King of Sportsbooks, YouTube (Aug. 13, 2021), https://youtu.be/gQanN0yuPNs
+[https://perma.cc/BC97-MKTQ]. Advertisements portray gambling as fun and easy, featuring displays of people celebrating as they inevitably win their bets.18See,
+e.g., Fanduel, Fanduel TV Spot, ‘Same Day Parlay Bet: Risk Free’, iSpot.tv (Sept. 14, 2021), https://www.ispot.tv/ad/qwJK/fanduel-same-day-parley-bet-risk-free
+[https://perma.cc/PVC8-GKMN]. One ad says you can “simply pick two or more players and win up to ten times your money” while a customer
+celebrates.19Prizepicks, Prizepicks TV Ad Spot 0:30 ‘Basketball: Better Way to Play’ iSpot.tv (Dec. 20, 2022),
+https://www.ispot.tv/ad/2LOy/prizepicks-better-way-to-play [https://perma.cc/PX8H-HZGG]. While these ads usually display information for gambling
+addiction hotlines, they can convince the public gambling is an easy way to make money. While still in the early stages, evidence is accumulating that this advertising
+blitz and the increased popularity of gambling is having negative social impacts. The executive director of the National Council on Problem Gambling has said that
+the gambling industry’s aggressive marketing tactics make it difficult for problem gamblers to escape.20Maxwell Strachan, The Rise of Mobile Gambling is Leaving
+People Ruined and Unable to Quit, Vice (Sept. 6, 2022, 9:00 AM), https://www.vice.com/en/article/ake7gk/the-rise-of-mobilegambling-is-leaving-people-ruined-and-unable-to-quit [https://perma.cc/5RGW-ZQC3]. This is different from the casinos and lotteries of years past because of the
+easy access cell phones provide to gambling.21Id. A study from the University of Nottingham found that “schedules of reinforcement found in gambling interact
+with the ways in which people tend to use smartphones” and can lead to problem gambling.22Richard J. E. James, Claire O’Malley & Richard J. Tunney,
+Understanding the Psychology of Mobile Gambling: A Behavioral Synthesis, 108 Brit. J. Psych. 608, 608 (2016) https://doi.org/10.1111/bjop.12226. Unlike
+gambling in a casino that requires making a concerted effort to travel to, mobile gambling is constantly at one’s fingertips. Constant access to smartphones makes this
+new generation of gambling more pernicious, as it can become a habit easier than casino gambling.23See id. at 614 (“[I]n using applications over time, the behaviour
+appears to be habitual or ‘checking’ in nature.”). Problem gambling appears to be on the rise in the United States. The National Problem
+Gambling Helpline Network saw a 45% increase in calls from 2020 to 2021.24Hernandez, supra note 12. As sports
+betting becomes increasingly legalized, young men in particular are increasingly suffering from gambling addiction.25Claire Ansberry, Problem Gambling Is on the
+Rise Among Young Men, Wall St. J. (Dec. 18, 2022), https://www.wsj.com/articles/problem-gambling-is-on-the-rise-among-young-men-11671388600
+[perma.cc/5XYT-E7HR]. This is because, according to a clinical psychologist, they tend to “have distorted thinking that they are in control and can predict the
+outcome” of sporting events.26Id. Many people believe they can make money from sports gambling because they possess a so-called “illusion of control” and believe
+that their particular knowledge about sports can guarantee them a win.27Eric Adelson, As Sports Betting Goes Mainstream, Addiction Experts are on High Alert,
+Wash. Post (Sept. 6, 2022, 6:00 AM) https://www.washingtonpost.com/sports/2022/09/06/sports-gambling-addiction/ [perma.cc/5KB3-P7HX] (“People who bet
+on sports often believe they have an edge because they follow the teams.”). Contrary to many gambler’s beliefs, closely following sports does not give people a
+significant edge in their ability to make money sports gambling.28See id. (“The random bounce of a football or a blown call doesn’t tend to factor into a bettor’s
+belief system.”). In fact, one study found “sports betting, relative to non-sports betting, has been more strongly linked to gambling problems and cognitive
+distortions related to illusion of control, probability control and interpretive control.29Mestre-Bach et al., Sports-Betting-Related Gambling Disorder: Clinical
+Features and Correlates of Cognitive Behavioral Therapy Outcomes, 133 Addictive Behaviors (2022),
+https://www.sciencedirect.com/science/article/pii/S030646032200137X [perma.cc/A8SE-MKZU]. Gambling addiction is a mental health issue that leads to both
+financial and physical problems.30See Compulsive Gambling, Mayo Clinic (Jun. 18, 2022),
+https://www.mayoclinic.org/diseases-conditions/compulsive-gambling/symptoms-causes/syc-20355178 [perma.cc/6PJX-VRW3]. Given the recency of the Murphy
+decision, there is limited research about the impact of mobile sports betting in the United Sates. However, data from countries where this form of gambling has been
+legal for years demonstrate the risks it poses.31Gavin Finch et al., Britain Opened the Door to Online Gambling. Now It’s Living With the Consequences,
+Bloomberg (Dec. 5, 2022, 3:00 PM), https://www.bloomberg.com/graphics/2022-gambling-addiction-stories-how-uk-got-hooked-on-online-casino
+betting/?srnd=premium&leadSource=uverify%20wall [perma.cc/2GNB-6WFW. For example, the UK legalized advertising for online gambling in 2005 and the
+industry exploded in the years since. 138,000 people in England are classified by regulators as problem gamblers and an estimated 8% of all suicides, around 400 per
+year, are linked to gambling.32Id. Data from the UK also shows that gambling losses disproportionately effect the poor, and that poor people place bets with longer
+odds and lower chances of success.33Rob Davies, People From Poor UK Areas More Likely to be High-Risk Online Gamblers – Study, The Guardian (Mar. 12,
+2021, 11:24 AM), https://www.theguardian.com/society/2021/mar/12/people-from-poor-uk-areas-more-likely-to-be-high-risk-online-gamblers-study
+[perma.cc/KQV2-RYZU]. Sign-up promotions from gambling companies are a common way companies attempt to claim market share and get people hooked on
+gambling. While these promotions can be good deals for the customer initially,34See Steven Petrella, The Best Ways to Use Sportsbook Sign-Up Promos & Bonuses,
+Action Network (Apr. 14, 2022), https://www.actionnetwork.com/legal-online-sports-betting/how-to-use-free-money-bets-promos-bonuses
+[perma.cc/55CE-4769]; see also Ray Belkora, How to Take Advantage of Sportsbook Sign-Up Bonuses: Weighing Your Options, Oddsjam (Sept. 20, 2023, 3:25
+PM), https://oddsjam.com/betting-education/how-to-take-advantage-of-sportsbook-sign-up-bonuses-strategy [perma.cc/8W6P-FHRY]. the
+advertisements are frequently misleading about their benefits.35Funt, supra note 7. One prominent example of this is
+the use of the terms “free bets” or “free cash” from DraftKings, one of the leading sportsbooks.36See, e.g., Draftkings Sportsbook
+TV Spot, ‘NBA: Instant 0 Credit’ Featuring Kevin Hart, YouTube (Jan. 30, 2023) https://www.youtube.com/watch?v=TDJQ9_6HebI [perma.cc/SQ3P-CSNP].
+In one such ad Kevin Hart, a famous comedian, touts a sign-up promotion that allows people to get “$200 instantly.” Later in the ad he gets an alert on his phone
+and says “there’s my $200.”37Id. Unless you read the lowercase text on the screen you might not notice that the $200 comes in the form of “free bets,” rather than
+cash – contrast this with the text in all-caps: “BET,” “GET” and “INSTANTLY”.38Id. This $200 in free bets, sometimes referred to as bonus bets, is very different in
+
+value from having a regular $200 in one’s account.39Hernandez, supra note 12. When that money is bet, the customer does not receive the original stake, meaning
+that if the $200 was bet at even odds and the bettor won, they would receive back $200, rather than the $400 they would have if they bet $200 in cash.40Id.
+(explaining that when companies offer a bonus bet, “the company keeps the original ‘bonus’ stake.”). This language could easily mislead
+customers about the value to be gained from signing up for betting. Perhaps even more egregious are the “risk-free” first bets offered
+by many sportsbooks for eye-popping amounts in the thousands of dollars.41See Funt, supra note 7. While a gambler might expect
+“risk-free” to mean that their money would be returned if they lost their first bet, the money from losing bets is actually returned in the form of “free bets,” as
+discussed above.42Id. If players lose the pick they make with the free bet, they are left with $0 and have clearly taken some risk. One Virginia attorney misinterpreted
+this language and lost hundreds of dollars on what he thought was a “risk-free” bet offered by BetMGM.43Danny Funt, After a Customer Said a Promo was
+Deceptive, BetMGM Offered Him ,000, Wash. Post (May 17, 2023, 8:00 AM), https://www.washingtonpost.com/sports/2023/05/17/betmgm-risk-free-bets/
+[perma.cc/NX8Y-YV3Z]. BetMGM offered him $12,000 before the attorney went public to warn other bettors.44Id. Misleading people on the
+value of a promotion can introduce people to gambling and get them hooked. This practice is so
+obviously misleading that some state regulators have prohibited the use of such language.45Funt, supra note 7. The Attorney Generals of Ohio and
+New York have even sent out a consumer warning regarding the language.46Id; Press Release, New York Att’y Gen., Consumer Alert: Attorney General James
+Warns New Yorkers of Deceptive Online Sports Betting Companies Ahead of Super Bowl (Feb. 10, 2022)
+(https://ag.ny.gov/press-release/2022/consumer-alert-attorney-general-james-warns-new-yorkers- deceptive-onlinesports#:~:text=NEW%20YORK%20%E2%80%93%20New%20York%20Attorney,Yorkers%20 can%20bet%20on%20online). It also sparked a class-action complaint,
+which, at the time of this writing, is pending in federal district court in Colorado.47Complaint, Gutman v. Pointsbet, No. 1-22-2137 (D. Colo. Aug. 19, 2022).
+Sportsbooks have recently phased out the “risk-free” language, and are now using phrases such as “no sweat” or “second chance” bets.48Bennett Conlin, Requiem
+for the So-Called ‘Risk-Free Bet’, SportsHandle (Feb. 2, 2023), https://sportshandle.com/us-sportsbooks-move-away-risk-free-bets/
+[https://perma.cc/SA8D-2KMN]. While not as clearly incorrect as the phrase “risk free” betting, these phrases are still misleading, as most customers would likely be
+sweating if their $3,000 initial bet had a chance of going to $0. These promotions, while typically a good deal for the customer, serve to increase customer’s
+willingness to bet beyond their means with their first bets and cause customers to get used to betting large amounts to take advantage of the promotion.49See Funt,
+supra note 7 (“Deceptive offers can induce other forms of recklessness….”). Part II To constrain the harms of gambling, regulations should require
+that advertisements contain warnings to the public, so the public is aware that almost all gamblers lose
+money and that there is a risk of developing a gambling addiction. Regulations should also prevent
+advertisers from misleading the public by implying that gambling is an easy and exciting way to make
+money. These warnings should also appear when individuals sign up for accounts, so they are aware of the scope of the potential harm and are not misled into
+believing that it is easy to profit from gambling. This warning would be similar to warnings currently required to be displayed on
+cigarette packaging that describes the negative health effects of smoking.50Cigarette Labeling and Health Warning Requirements, U.S. Food and Drug
+Administration (Aug. 25, 2021),
+https://www.fda.gov/tobacco-products/labeling-and-warning-statements-tobacco-products/cigarette-labeling-and-health-warning-requirements
+[https://perma.cc/Y46L-4Q87]. The 2009 Family Smoking Prevention and Tobacco Control Act enabled the FDA to implement these regulations and require
+graphic warning language on cigarette packaging.51Id. However, the First Amendment limits what the government can require public companies to say about their
+products.52Cent. Hudson Gas & Elec. Corp. v. Pub. Serv. Comm’n, 447 U.S. 557, 561–66 (1980). The test for government regulation of commercial speech was
+established in Central Hudson, which states: At the outset, we must determine whether the expression is protected by the First Amendment. For commercial speech
+to come within that provision, it at least must concern lawful activity and not be misleading. Next, we ask whether the asserted governmental interest is substantial.
+If both inquiries yield positive answers, we must determine whether the regulation directly advances the governmental interest asserted, and whether it is not more
+extensive than is necessary to serve that interest.53Id. at 566. A previous Supreme Court case also stated “[warnings] or [disclaimers] might be appropriately required
+… in order to dissipate the possibility of consumer confusion or deception.”54In re R. M. J., 455 U.S. 191, 201 (1982). It is important the regulation be properly
+tailored to the goal in order to pass the Central Hudson test. For instance, the Supreme Court in Lorillard Tobacco Co. v. Reilly held that prohibitions on advertising
+within 1,000 feet of playgrounds or schools was too broad, in large part because it would prevent advertising in up to ninety percent of certain cities.55Lorillard
+Tobacco Co. v. Reilly, 533 U.S. 525, 562–563 (2001). As discussed in the previous section, the government has a substantial interest in ensuring that people do not
+become addicted to gambling, much like it has an interest in protecting citizens from smoking. Admittedly, the health and social consequences of gambling are not as
+serious as smoking. However, it can still cause serious harm. For example, gambling is linked to an estimated 400 suicides per year in the United Kingdom, where the
+social cost of gambling has been more thoroughly researched.56Finch, supra note 31. Also, gambling addiction can have significant impact on an individual’s mental
+health and their ability to financially support themselves.57See id. Smoking regulations have demonstrated that advertising restrictions can advance the governmental
+interest of improving public health.58See David T. Levy et al., Public Health Effects of Restricting Retail Tobacco Product Displays and Ads, 1 Tobacco Regul. Sci.
+61 (2015) https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4503383/. Tobacco companies are prohibited from sponsoring sporting events or other cultural events
+and all packaging must conspicuously display warnings that tobacco can cause cancer and heart disease.59See Advertising and Promotion, U.S. Food & Drug
+Admin.(Jan. 30, 2020) https://www.fda.gov/tobacco-products/products-guidance-regulations/advertising-and-promotion [https://perma.cc/2656-DCTE];
+Retailers: Chart of Required Warning Statements on Tobacco Product Packaging and Advertising, U.S. Food & Drug Admin. (Aug. 13, 2018)
+
+https://www.fda.gov/tobacco-products/retail-sales-tobacco-products/retailers-chart-required-warning-statements-tobacco-product-packaging-and-advertising
+[https://perma.cc/L8UQ-Y7DT]. These warning labels lead to greater knowledge about the risks of smoking60See Renee E. Magnan & Linda D. Cameron, Do
+Young Adults Perceive That Cigarette Graphic Warnings Provide New Knowledge About the Harms of Smoking? 49 Annals of Behav. Med. 594 (Feb. 2015)
+https://academic.oup.com/abm/article/49/4/594/4562698 (showing that both graphics and text messages can lead to better understanding of the dangers of
+smoking). and smoking rates have fallen significantly since the introduction of warning labels.61See Overall
+Tobacco Trends, American Lung Association (last accessed March 3, 2023)
+https://www.lung.org/research/trends-in-lung-disease/tobacco-trends-brief/overall-tobacco-trends (indicating that the adult smoking rate fell from 42.6% at the
+time of the Federal Cigarette Labeling and Advertising Act took effect in 1966 to 13.6% in 2018) [https://perma.cc/EY4B-AN5F]. Increased consumer
+knowledge is especially important in the gambling industry because it is a new industry. Many in the public
+are not yet familiar with how gambling works and the flood of advertisements may be particularly influential in shaping individual’s perceptions of the
+industry.62See Hernandez, supra note 12 (stating that companies unleashed an advertising storm to “scoop up as many new customers as possible”). This makes it
+especially important for consumers to be aware that the vast majority of people lose money to prevent uninformed members of the public from believing that sports
+gambling is a reliable way to make money. Currently, there is very little information is required to be given to
+would-be gamblers to counteract the impression that gambling is fun and easy way to win money.63See
+Hernandez, supra note 12 (“Scant regulation has followed [the legalization of sports betting].”). Most states require that companies include
+information in their ads about how to seek help for gambling addiction, but these blurted out phone
+numbers are woefully inadequate to inform consumers.64See id. Other countries have implemented these of public health
+interventions more in line with the US’s tobacco regime. For example, Australia has passed a law that requires gambling advertisements to include taglines that
+remind consumers of the risks.65What are the New Taglines Online Wagering Companies Will be Required to Show?, ABC News (Nov. 2, 2022, 5:40 AM)
+https://www.abc.net.au/news/2022-11-02/betting-advertising-reform-explainer/101606184 [https://perma.cc/WU3S-H2YT]. These ads require messages that
+include statements such as “chances are you’re about to lose” and “What’s gambling really costing you.”66Id. Messages like these may help to ensure consumers are
+adequately informed that gambling is a losing proposition for most. Legislation and regulations at both the state and federal level can be utilized to better protect the
+public. One option on a federal level is to replicate the mechanism of the Tobacco Control Act of 2009 and allow a federal agency, likely the Department of Health
+and Human Services which is responsible for mental health, to issue regulations requiring companies to better inform the public of the risks of gambling.67See
+About Us, Substance Abuse and Mental Health Serv. Admin. (last accessed Mar. 3, 2023)
+https://www.samhsa.gov/about-us#:~:text=The%20Substance%20Abuse%20and%20Mental,behavioral%20health%20of%20the%20nation
+[https://perma.cc/69T2-D7SL]. Like in smoking regulations, this information should appear both in advertising and the actual websites and apps customers use.
+These regulations could also be enacted on a state-by-state level, as states have been the primary regulators of gambling thus far.68Hernandez, supra note 12 (“States
+regulate how sportsbooks can operate but give companies wide latitude over what they can say in advertisements…”). Regulators will have to ensure that the message
+is narrowly tailored to advance the government’s interest in protecting its citizens from gambling addiction and its financial and social consequences. It is especially
+important that would-be gamblers receive more accurate information about the risks of gambling, because while the public is aware of the risks of smoking,
+misleading advertising has left the public unaware of the true odds of gambling. Short of requiring warning labels, the FTC and state attorneys general can
+play a role in ensuring that the flood of advertising individuals see is not misleading.69See Truth in Advertising, Fed. Trade
+Comm’n (last accessed Mar. 3, 2023) https://www.ftc.gov/news-events/topics/truth-advertising [https://perma.cc/EW4X-8XJM]. Promotional terms such as
+“risk-free” and “no-sweat” are misleading and can be prohibited under existing statutes that prohibit misleading marketing.70Federal Trade Commission Act, 15
+U.S.C. § 52. Conclusion Since 2018, little has been done to ensure consumers are protected from a new and harmful industry. Individuals in states where gambling is
+legal can now use their money to gamble on their phone as they see fit. However, the government should implement changes to ensure individuals are more aware of
+the realities of gambling and not allow the gambling companies to create their own narrative. Warning labels and a crackdown on misleading advertisements are an
+appropriate way to strike this balance.
+sports betting ads are worse than cigarettes!
+Thomsen 2/11 [Ian Thomsen, Senior Writer, Sports Illustrated Sports Illustrated Senior Writer Ian Thomsen,
+who joined the magazine in 1998, is one of SI's top basketball scribes. Along with writing columns and features
+for SI, Thomsen is a frequent contributor to SI.com. Before joining SI, Thomsen spent six years in Europe as the
+sports columnist for the International Herald Tribune, the world's largest international English-language daily.
+While at the paper Thomsen wrote about an array of sports for a global audience, including the major world and
+European soccer tournaments, the 1995 Rugby World Cup, Olympic Games, Ryder Cups, Grand Slam tennis
+
+events, Grand Prix auto races and, very rarely, cricket. Thomsen, who graduated from Northwestern with a
+journalism degree in 1983, was a feature writer for The National Sports Daily during its short, expensive run of
+1990-91. His first job was with The Boston Globe, where he covered Doug Flutie's Boston College Eagles and all
+three of the Celtics-Lakers NBA Finals of the 1980s. Thomsen was a feature writer at SI before taking on the
+NBA beat fulltime in 2000. With Luis Fernando Llosa and Melissa Segura, Thomsen covered the 2001 scandal
+of overaged Little League pitcher Danny Almonte and wrote the first SI cover story on Kobe Bryant in 1998.
+Thomsen lives with his wife and two children near Boston. "Ads for sports betting have been more effective than
+the original cigarette campaigns, Northeastern expert says", 02/11/2026, https://www.facebook,
+https://news.northeastern.edu/2023/05/19/sports-betting-ad-campaigns/, Accessed 02/11/2026] //lzed
+Ads for sports betting have been more effective than the original cigarette campaigns, Northeastern expert says
+Northeastern professor Richard Daynard is calling for a ban on sports-betting ads. Photo by Matthew Modoono/Northeastern University The U.S. has
+been inundated with ads for sports betting since the 2018 Supreme Court ruling that legalized the industry. Richard Daynard, who has
+spent much of his career establishing the legal responsibilities of the tobacco industry, says the nascent marketing for sports betting has been
+more effective than the early campaigns for cigarette smoking. “The original Camels advertising around 1913 was, I believe, the
+first mass marketing campaign for any product,” says Daynard, university distinguished professor of law at Northeastern. “In the 1920s Lucky Strike began an
+effective campaign to get women to smoke. In the 1950s Marlboro adopted the powerful cowboy theme. In the 1980s the Joe Camel campaign openly appealed to
+teenagers. Richard Daynard, university distinguished professor of law and president of the Public Health Advocacy Institute. Photo by Alyssa Stone/Northeastern
+University “All four campaigns produced dramatic increases in smoking,” Daynard says. “But I doubt that any of them
+equaled the effect that the saturation advertising campaigns by several mobile sports betting companies have had in the
+past few months in creating a massive market for a previously nonexistent product category.” In 1984 Daynard co-founded the Tobacco Products Liability Project, a
+legal-resource group that helped deliver liability verdicts to smokers and their families—with the ultimate goal of preventing young people from becoming addicted
+to cigarettes. In 2006 it merged with the School of Law’s Public Health Advocacy Institute, of which Daynard is president. Gambling is among several public issues
+that the institute is addressing. Close to $300 million was spent last year on TV ads for sports gambling—a figure that promises to be eclipsed this year. All but 15
+states have legalized sports betting, which historically had been permitted solely in Nevada. “This is a public health crisis,” U.S. Rep. Paul Tonko, a
+Democrat from New York, told The Athletic. Added Tonko, who has proposed a ban on the ads: “What we’ve done is simply displace Joe Camel with this activity.”
+Daynard spoke with Northeastern Global News about the similarities between the cigarette and sports-betting industries as well as the difficulties in trying to limit
+them. His comments have been edited for brevity and clarity. What were the original ad strategies of the cigarette industry? Recovering gambling addict among
+experts who say Massachusetts legalizing sports betting brings more harm than good The Camel newspaper advertisements began in 1913 by announcing, “the
+camels are coming,” with a picture of camels, and that would go on for a week or two. Later the ads listed a particular date saying, “The camels will be here.” And
+then on that day, the ads became advertisements for Camel cigarettes. It was very effective. The industry had the problem that women weren’t smoking, so you had
+Sigmund Freud’s nephew, Edward Bernays—who was called the father of public relations—he had women marching down Fifth Avenue on the Easter Parade in
+1929 carrying cigarettes as torches of freedom. The Joe Camel campaign became an outright pitch to kids. You also had the Marlboro Man as the iconic cowboy, the
+man who makes his own choices and nobody tells him what to do. How does smoking relate to sports betting? The reason people keep smoking is because they get
+addicted. Gambling is the same thing. The gambling industry had a phrase: They wanted players to “play to extinction”—not
+meaning death but running out of all their money. When they’ve transferred their money to the gambling casino, the casino has done its thing.
+What’s happening with sports betting now is that you’re able to gamble on the next play. So what you have is something that is similar to betting on slot machines,
+where people are sitting there just riveted. Hour after hour they’re in that zone, not focused on anything else, and it has been studied as an addictive behavior. How
+successful has the sports-betting industry been? In Massachusetts, for example, they got the go-ahead [when sports betting was legalized] on March 10. By the end of
+March there had been over $500 million bet in Massachusetts. Over $100 million of that went to the gambling operators. Who is opposing the gambling industry?
+There has been essentially no organized opposition to the gambling interests. So they talk to the Massachusetts
+legislature or other bodies—and there’s nobody on the other side. Because how is a state senator or representative supposed to know? We’re here, but there aren’t
+many groups who are trying to present the downside to the legislatures. In Massachusetts, of the $100-plus million in revenue in March, $20 million went to the
+state. But the harm to the state and its people is going to turn out to be much greater than that. What makes the ads so effective for
+sports-betting companies? A lot of them offer a “free” something or other, which is deceptive. But they are
+rarely offering you free money. Some have offered $1,000 of your losses back, but you have to bet $30,000, $40,000, $50,000 or more. What about the use of
+celebrities in these ads? Obviously that makes it all the worse. My understanding is if you’re into celebrities—you think they’re fabulous, you want to be like
+
+them—and then they tell you this is the thing to do? It becomes a statement of “this is what I do.” Whether these celebrities are actually making bets, I don’t know.
+Is it surprising that athletes are endorsing sports betting? Will new anti-doping regs be enough to save horses—and horse racing? I think I know the reason some of
+them endorse it. It’s this thing. (Daynard raises his wallet.) Sports figures, historically, weren’t supposed to be betting. There was supposed to be an absolute
+separation because of concerns about corruption. So, presumably, these are not people who have been betting for most of their lives. Not only have they sold out, so
+have the leagues—the NFL, Major League Baseball. All of them had been fiercely anti-gambling until very recently.
+FTC warning labels worked!
+The Federal Register 10 [The Federal Register, The Federal Register (FR or sometimes Fed. Reg.) is the
+official journal of the federal government of the United States that contains government agency rules, proposed
+rules, and public notices.[1] It is published every weekday, except on federal holidays. The final rules
+promulgated by a federal agency and published in the Federal Register are ultimately reorganized by topic or
+subject matter and codified in the Code of Federal Regulations (CFR), which is updated quarterly. "Required
+Warnings for Cigarette Packages and Advertisements", 12/07/2010, Federal Register,
+https://www.federalregister.gov/documents/2010/11/12/2010-28538/required-warnings-for-cigarette-packages
+-and-advertisements, Accessed 02/11/2026] //lzed
+This proposed rule would bring about a variety of distributional effects not yet discussed in detail. Sectors affiliated with tobacco and tobacco products would lose
+sales revenues. Simultaneously, non-tobacco-related industries would gain sales, because dollars not spent for tobacco products would be spent on other
+commodities. 1. TOBACCO MANUFACTURERS, DISTRIBUTORS, AND GROWERS FDA estimates that implementation of the
+proposed regulation may reduce the annual cigarette consumption of U.S. smokers by 80 million
+packs. Meanwhile, the FTC (Ref. 39) reports that, in 2006, 1.75 billion cigarette packs were manufactured and distributed to consumers. These numbers imply
+that tobacco manufacturer revenues would be 0.68 percent lower in the rule's first year, and 0.79 percent lower in 2031, than they were in 2006. The U.S. Census
+Bureau (Ref. 92) reports that tobacco manufacturers' revenues totaled $41.6 billion in 2006; hence, the rule-induced decrease in annual tobacco sales would range
+from approximately $284 to $328 million. These estimates would rise somewhat higher if we were accounting for the decrease in price that accompanies the decrease
+in demand for a good (in this case, cigarettes). Experimental evidence from Mexico (Ref. 93) indicates that graphic warning labels may decrease smokers'
+willingness-to-pay for cigarettes by 17 percent; however, without supply elasticity data, we cannot determine how much this decline in willingness-to-pay would
+change cigarettes' market price. We estimate that the tobacco manufacturing, warehousing and wholesale trade sectors employ about 74,000 full-time workers (Ref.
+77). Under the assumption of constant production-to-employment ratio, we project that a 0.68-0.79 percent reduction in sales would result in the displacement of
+500-600 jobs among manufacturers, warehouses, and wholesalers.
+anti-gambling ads are effective.
+Rockloff 24 [Matthew Rockloff, Prof. Matthew Rockloff received a Ph.D. in psychology from Florida Atlantic
+University in 1999. Dr Rockloff is Head of the Experimental Gambling Research Laboratory. Dr. Rockloff has
+been honoured as a Jack Walker Scholar and twice as an Aurel B. Newell Fellow. Dr Rockloff was named in the
+Top 15 Unijobs Lecturer of the Year Awards in 2011, 2012 and 2013. Prof Rockloff was named an Ig Nobel
+Laureate in 2017 for his experiments on how contact with a live crocodile affects a person’s willingness to
+gamble. "Testing the effectiveness of different safer gambling messages for sports and race betting: A five-week
+experiment", February 2024, ScienceDirect,
+https://www.sciencedirect.com/science/article/pii/S0306460323002885#s0120, Accessed 02/13/2026] //lzed
+3.3. Time spent gambling There was a significant decrease in the time spent gambling overall, χ2 (4) = 146.02, p <.001. The 10% trimmed mean was 65 min
+spent in week 1 as opposed to 45 min spent in week 5. There was no significant difference in the decrease by condition, χ2 (8) =
+2.60, p =.953. For the analysis of complete cases, the results were similar with a significant decrease over time χ2(4) = 92.33, p <.001, but no differential between
+conditions χ2(8) = 1.88, p =.984. This pattern was identical for those with PGSI 3+: a significant decrease over time χ2(4) = 68.64, p <.001, but no differential
+between conditions χ2(8) = 8.65, p =.372. 3.4. Gambling urges Gambling urges decreased across the waves 1–5, χ2 (4) = 158.57, p <.001. The 10% trimmed mean
+
+score for urges was 15.3 in week 1 and 8.9 in week 5. There was no significant difference in the decrease in urges by condition, χ2 (8)
+= 8.2, p =.408, ns. For the analysis of complete cases, the results were similar with a significant decrease over time χ2(4) = 77.98, p <.001, but no differential between
+conditions χ2(8) = 4.96, p =.762. This pattern was identical for those with PGSI 3+: a significant decrease over time χ2(1) = 31.18, p <.001, but no differential
+between conditions χ2(8) = 3.16, p =.924. 3.5. Risk-related cognitions Risk-related cognitions decreased from week 1 to week 5, χ2 (4) = 44.23, p <.001. The 10%
+trimmed mean score was 73.6 in week 1 and 68.8 in week 5. There was no significant difference between conditions in the rate of decrease in risk-related cognitions,
+χ2 (8) = 3.36, p =.909. For the analysis of complete cases, there was a significant decrease over time χ2(1) = 448.58, p <.001, and also a significant differential between
+conditions χ2(2) = 10.585, p =.005. The control group showed the largest decline from 82.7 to 67.3, but those in the norm-based message group showed a similar
+mean at time 5 (67.5). This pattern was similar for those with PGSI 3+: a significant decrease over time χ2(1) = 161.42, p <.001, but no differential between
+conditions χ2(8) = 4.62, p =.098. 3.6. Short gambling harms screen Gambling harms decreased from weeks 1 to week 5, χ2 (1) = 44.23, p <.001. Trimmed mean score
+for week 1 was 3.1 harms, whereas mean harm for week 5 was 1.8. Despite the apparent differences in slope, there were no significant differences in the rate of
+decrease in harms experienced for the different messaging conditions, χ2 (2) = 3.55, p =.909. For the analysis of complete cases, the results were similar with a
+significant decrease over time χ2(1) = 14.71, p <.001, but no differential between conditions χ2(1) = 0.275, p =.872. This pattern was identical for those with PGSI
+3+: a significant decrease over time χ2(1) = 34.97, p <.001, but no differential between conditions χ2(2) = 0.30, p =.859. Lastly, controlling for age, gender and PGSI
+status as independent covariates did not affect the results in terms of significance for any outcome shown in Fig. 1 and detailed above. Download: Download high-res
+image (496KB) Download: Download full-size image Fig. 1. Amount bet, Time spent gambling, Gambling Urges and Gambling beliefs by wave (time) and
+condition. 3.7. Helpfulness and ease of understanding by message type People rated the 3 messages pertaining to their condition in week 2, a different set of 3
+messages in week 3 and another set of 3 in week 4. Thus, a total of 9 messages were rated by each participant. As noted earlier, the order of message judgement was
+counterbalanced, such that each message was judged with equal frequency in each of these weeks to avoid order effects. Fig. 2 illustrates the average ratings for each
+message across the 3 conditions. All differences between the conditions, on both helpfulness and ease of understanding, were significant, p <.001. Ratings were
+highest for positive-emotional messages, followed by control messages, and lastly, normative messages. Download: Download high-res image (156KB) Download:
+Download full-size image Fig. 2. Rating of Helpfulness and Understanding for messages across Control, Norm-based and Positive-emotional message-types. 3.8.
+Ratings for individual messages The ratings of the individual messages reveal which were most (and least) helpful and understandable (see Fig. 3). The message that
+was rated most helpful and understandable was “Only bet what you can afford,” which had been employed in the UK and was one of the control messages. The
+lowest rated message was “Most people who gamble bet once a month or less,” which was a norm-based message. Download: Download high-res image (596KB)
+Download: Download full-size image Fig. 3. Helpfulness and ease of understanding for each message. 3.9. Bayes Factor calculations Table 3 shows the results of the
+Bayes Factor analysis, which compares the likelihood of the data under two different hypotheses: the null hypothesis (H0) that there is no difference in the mean
+outcomes between the three groups, and the alternative hypothesis (HA) that there is some difference in the mean outcomes between the three groups. The Bayes
+Factor is calculated as the ratio of the probability of the data under HA to the probability of the data under H0. A higher Bayes Factor means that the data observed
+is more likely under HA than under H0, and vice versa. A Bayes Factor of 1 means that the data is equally likely under both hypotheses. Table 3. Bayes Factor
+calculation comparing ANOVA models with mean differences between the three groups versus the null. Empty Cell Week 3 Week 4 Week 5
+Amount bet 0.03 0.03 0.04 Time spent gambling 0.05 0.03 0.10 Gambling urges 2.61 1.94 0.35
+Risk-related cognitions * * 1.84 Short Gambling Harms Screen * * 0.05 * Notes: Not measured at this time point.
+The interpretation of the Bayes Factor depends on the magnitude of the ratio. Table 3 is interpreted here using a scale proposed by Kass and Raftery (1995), which
+ranges from “very strong evidence” for HA to “support for the null model” and “anecdotal evidence” in between. According to this scale, a Bayes Factor of 20 or
+more indicates strong evidence for HA, while a Bayes Factor of 1 or less indicates evidence for H0. A Bayes Factor between 1 and 3 indicates anecdotal evidence,
+which arguably means that the data does not provide much support for either hypothesis. As seen in Table 3, most of the Bayes Factors are below 1, which means
+that the data is more likely under H0 than under HA. This suggests that there is no significant difference in the mean outcomes between the three groups for most of
+the measures and relevant time points. The only exceptions are gambling urges (GUS) at weeks 3 and 4, and risk-related cognitions at week 5, which have Bayes
+Factors above 1 but below 3. This means that there is anecdotal evidence for HA, but it is very weak and not conclusive. Therefore, based on the Bayes Factor
+analysis, we can conclude that there is little or no evidence that exposure to different message types affects these outcomes of interest. 4. Discussion Gambling
+problems and resulting harm is a consequence of difficulty in limiting time and money spent on gambling (Neal et al., 2005). An effective message should be able to
+limit these aspects of gambling, particularly with respect to expenditures that exceed people’s budget for entertainment. Time, money-spent, and gambling-harm
+reduced on average for participants over the course of the 5 weeks of the study; irrespective of message condition. Thus, there was arguably an observable effect for
+participation in the study on these principal outcomes, but not for the particulars of the messages people received. In short, hypothesis 1 was not supported.
+Regarding the reduction in these outcomes over time, there was one major sporting event, the Australian Open, that occurred in weeks 1 and 2 (Wood, 2021). Past
+evidence suggests this is not a critical sport for betting in Australia (Gainsbury & Russell, 2015), with tennis accounting for only 1.25% of all bets placed in a year,
+although it cannot be wholly discounted. Crucially, we note that we cannot solely ascribe the positive developments directly to the received messages, separate from
+the overall participation in the study. In other words, the mere act of participation may have spurred improvements, not necessarily the exposure to specific messages.
+In addition, it is possible, of course, that the Australian Open or other minor betting opportunity changes might have also contributed to observed improvements.
+Attitudes can often change more quickly than behaviours because they require less effort in action or in overcoming ingrained habits, as suggested by the
+intention-behaviour gap (Sheeran, 2002). Consequently, gambling urges were measured each week (1–5) of the study, and progressively and
+significantly decreased, although again without any differentiation between message conditions. Presumably, people with fewer urges are less tempted
+to exceed a reasonable budget for gambling, which in turn protects them from harm. In addition, scores on the Gamblers’ Beliefs Questionnaire (see Table 1), which
+reflect cognitive distortions and risky assumptions surrounding gambling, also reduced significantly over the course of the study. Fewer cognitive distortions,
+similarly, can protect people from harm by reducing beliefs that suggest gambling is more profitable than it is (Browne et al., 2019). Again, however, there were no
+significant differences by condition, suggesting that the specific content of messages was not particularly influential. Again, hypothesis 1 was not supported. The last
+
+source of evidence was that certain messages should be perceived as particularly helpful or easy to understand (or both). Positive-emotional messages, as a group, were
+rated the highest in helpfulness and ease of understanding. There was a high correlation between the ratings of helpfulness and ease of understanding, which may
+indicate that people do not make much of a distinction between the two concepts. In short, these ratings may represent a composite perception of the overall
+“goodness” of the message. People responded well to messages that had a positive emotional tone to them. In past interviews (Newall, Rockloff et al., 2022),
+gambling-researchers, treatment providers and regulators said they were worried that negatively framed messages might stigmatise gamblers. Perhaps consequently,
+the control group had the second-highest average rating. These messages mostly do not give any real advice, for example: “play it safe if you gamble”, with the notable
+exception of the highest rated message, “Only bet what you can afford.” The lowest rated messages were based on norms. For instance, “most people bet $10 a week
+or less,” was one of these norm-based messages (see Fig. 3 for the full list). Speculatively, people who bet more than $10 may have felt these messages were too
+challenging and elicited feelings of shame or guilt. 4.1. Potential reasons for improvement over time The study showed that, on average, people improved on every
+outcome measure over the course of 5 weeks. It is notable that expenditure increased slightly from week 1 to week 2, but then declined progressively after that. This
+suggests that engaging with the messages (regardless of message type) may have been the active ingredient in the decrease in gambling expenditures, although this
+should be recognised as highly speculative. The general pattern of improvement on all outcomes may be due to the beneficial effects of self-reflection on betting
+behaviours. In all weeks, participants were asked how much they had bet on sports and races. The wording of this question may have caused people to reflect on
+whether their expenditures on gambling were well controlled. Since only gambling expenditures (and urges) were asked in all weeks (1–5), the pattern of results is at
+least consistent with self-reflection as a causal mechanism. This speculative reasoning is consonant with some previous findings. Consistent with their aim to
+challenge gamblers to reflect on and evaluate their behaviour over time rather than just in that instance, some studies have found that self-evaluation messages reduce
+harm beyond the current gambling session (Monaghan & Blaszczynski, 2010), are more frequently recalled by gamblers (Gainsbury et al., 2015a; S. Gainsbury et al.,
+2015b), and have more impact on perceived intentions (Riley-Smith & Binder, 2003), compared to informative messages. Importantly, however, there was no
+control condition with no messages, so again, it is important to recognise that improvements may be simply a result of participating in the study rather than the
+received message content or self-reflection on expenditures. Self-reflection may have caused people to improve on all outcome measures, but they may have also been
+motivated to give “correct” answers to please researchers, which has been termed ‘the good subject effect”, or alternatively, social desirability bias (Nichols and Maner,
+2008, Latkin et al., 2017). The good subject effect is when people give answers or results that they think the researchers want to find, regardless of whether those
+answers are accurate. Thus, people may have shown improvements in their answers, but not in their actual gambling behaviours and attitudes. However, the overall
+decline in most outcome measures suggests that at least some improvements were genuine. The most popular message, according to ratings of
+helpfulness and ease of understanding, was “only bet what you can afford.” This control-message was endorsed strongly, which may mean that reflecting on one’s
+own expenditures each week was individually helpful. Moreover, the positive emotional messages, which were the most highly endorsed message-type overall, had
+content that reflected largely on the benefits of controlling expenditures. In short, the pattern of overall decreases in risk-related outcomes over the course of the
+study, along with endorsement of messages that emphasise the need and benefits of controlling expenditure, suggest that such messages may be helpful. It is
+important to recognise, however, that this study was not constructed to test the benefits of self-reflection on gambling-expenditures, and therefore these findings and
+reflections on their meaning should be seen as only exploratory. Apart from improving the content of gambling messages, future research should further explore
+different aspects of the context of messaging that may impact upon effectiveness. Messages should be delivered at the right time when
+gamblers are able and motivated to pay attention to the content, such as before or during a gambling event or session.
+Gambling messages should be delivered at an optimum frequency. Messages that are too frequent may be ignored or habituated to, and messages that are too
+infrequent may be forgotten. The format of the message is another important component, which may affect their appeal by using attractive colours, images,
+animations, or sounds. Lastly, messages may need to be tailored to their audience, such as frequent vs. occasional gamblers, so that people view the message as
+appropriate for them.
+advertisements directly lead to gambling
+Wardle et al 22 [Heather Wardle, Heather Wardle is Lord Kelvin/Adam Smith Reader in Social Sciences at the
+University of Glasgow, specialising in gambling research, policy and practice. "The association between gambling
+marketing and unplanned gambling spend: Synthesised findings from two online cross-sectional surveys",
+03/23/2022, School of Social and Political Sciences, University of Glasgow, Adam Smith Building, Bute
+Gardens, https://www.sciencedirect.com/science/article/pii/S0306460322002064#s0075, Accessed
+02/11/2026] //lzed
+In conclusion, in two independent studies, around a third of current gamblers and the almost nine-in-ten of those
+experiencing problem gambling reported that marketing had prompted unplanned spend on gambling. In
+both sports bettors and emergent adults, such reports are associated with receiving more direct gambling marketing in the past month and following or liking a
+gambling brand on at least one social media platform. Longitudinal assessments of causality, and possible mediating or moderating factors, remain important areas
+
+for future investigation. A precautionary interpretation of these data, particularly the associations between problem gambling and marketing prompting unplanned
+spend, suggests that restrictions on gambling marketing may be a positive harm-reduction measure.
+FanDuel and DraftKings duopoly squeezes out competition by exploiting key
+vulnerabilities and loopholes in antitrust enforcement. Only the FTC can push
+non-merger antitrust investigations.
+MLL ’25 [Mogin Law Llp; 2/11/2025; Mogin Law LLP is a competition law firm prepared to meet the
+most demanding challenges in litigation, strategic counseling, and policy advocacy. Our legal and
+economic skill and experience, gained through participating in some of the nation’s landmark antitrust
+cases, means our clients get clarity, focus, and a passion for sound decision-making. We encourage
+attorneys to contact us to explore potential matters. Media inquiries are welcome, too; “A Safe Bet:
+FanDuel and DraftKings Are Stifling Competition”;
+https://moginlawllp.com/a-safe-bet-fanduel-and-draftkings-are-stifling-competition/] //lzed
+But we can be sure the companies are paying attention. Senators Mike Lee (R-Utah) and Peter Welch (D-Vt.) have urged the
+Federal Trade Commission and the Department of Justice Antitrust Division to investigate potential
+antitrust violations by FanDuel and DraftKings, the runaway dominant players in the online betting
+market.
+Lee and Welch filed their letter in December in that period after the election but before President Trump’s team took their seats in power. Only time will tell how or
+whether the new antitrust enforcers will respond. But the letter raises important questions for this burgeoning industry.
+The senators are concerned that the companies are coordinating their efforts to suppress competition,
+nine years after the government blocked their merger due to the same antitrust worries.
+The senators allege that, despite the failed merger, the companies have continued to leverage their
+dominance in fantasy sports. They specifically accuse FanDuel and DraftKings of using the Sports Betting
+Alliance trade association to put pressure on smaller competitors by hindering their access to essential
+technology and marketing partnerships.
+“FanDuel and DraftKings didn’t get their monopoly through a merger,” the letter reads, “so now they’re trying to achieve it by arguably acting as one
+company.”
+The Market
+FanDuel and DraftKings collectively control about 80% of the U.S. market. FanDuel leads with about 45%,
+while DraftKings follows with about 32%. A recent report by FanDuel’s parent, Flutter Entertainment indicates that investments in the online
+gambling – especially in marketing and technology – are paying off as the industry grows significantly. Total wagers increased from $13 billion
+in 2019 to $135 billion in 2024, with projections reaching $39 billion by 2030. FanDuel alone reported
+$4.84 billion in revenue in 2023.
+The overwhelming strength of the duopoly creates a significant barrier to entry and stifles innovation.
+Smaller competitors, often the lifeblood of creativity in emerging industries, are reportedly being
+
+squeezed out by the duopoly, but a handful of smaller operators are fighting to compete. BetMGM, the strongest alternative, commands 11% of the
+market, while Caesars Sportsbook maintains 6%. Further down in the rankings, Bet365 holds 3.5%, while ESPN Bet, a fresh entrant backed by a major media
+powerhouse, has quickly grabbed 3.7%. Fanatics Sportsbook, leveraging its brand recognition in the sports apparel world, currently holds 2.8% and is working to
+expand its foothold. These smaller operators play a crucial role in keeping the market from becoming an unchecked duopoly.
+Enforcement Blindspot
+This case reveals a critical blind spot in antitrust enforcement; that is, non-merger activities that achieve
+the same monopolistic outcomes. If enforcers fail to act, it will only embolden dominant players in
+other industries to suppress competition by coordinating without merging.
+David Balto is former FTC assistant director of policy and evaluation and attorney adviser to the FTC chair. In a recent article for Legal Dive, Balto expressed his
+concerns this way: “The case raises an urgent question: Can U.S. antitrust laws prevent firms from achieving through collusion what courts have barred through
+mergers?” That’s a great question. “As the DOJ and FTC consider next steps,” Balto continues, “the outcome could set a critical precedent for applying
+anti-competition law in the digital age.
+Hegarty 25 [Tadgh Hegarty , Karl Whelan; Tadgh Hegarty has been an Occasional Lecturer at University
+College Dublin since 2021. Previously, he worked as a Researcher in the further education and training
+sector across a number of different public research institutions. He also has over 20 years experience as
+an on-course bookmaker. Hence, his research is mainly focused on the economics of betting markets. He
+holds a PhD in Economics (doctoral graduand) from University College Dublin; Professor of Economics at
+University College Dublin. August 28 2025; Oxford Economic Papers; “Market structure and prices in
+online betting markets: theory and evidence”; DOA:1/30/26]
+https://academic.oup.com/oep/article/78/1/90/8244336 //lzed
+Our findings are relevant for the emerging US sports betting market. The US market has attracted heavy involvement from European
+bookmakers, either via direct entry such as Paddy Power owner Flutter’s acquisition of FanDuel or via selling services to newly-licensed US bookmakers to allow
+them to copy the European business model. The rush to enter the market after the 2018 Supreme Court decision and the
+expensive state-by-state licensing process has combined to produce a market that is dominated by two
+firms. These firms (FanDuel and DraftKings) began in the pre-legalization era as fantasy sports sites and thus had access to lists of fans
+likely to bet on outcomes of sporting events. Media reports suggest the two leading firms have over 70 per cent of the current market, so
+price setting seems unlikely to meet the ideal of a perfectly competitive market and may be closer to the monopolistic market discussed in
+our article. These firms also promote long-odds ‘moneyline’ bets as well as ‘parlay/accumulator’ and other multi-leg proposition bets that have very low
+probabilities of succeeding. Our model suggests this market is likely to become characterized by high profit rates
+and large loss rates for people taking these bets.
+Ercolino 25 [Andrea Ercolino, JD Candidate at Maurice A. Deane School of Law at Hofstra University, "Sports Data Monopolies: Uncovering Their Rise and
+How We Got Here (Part 2)", February 10, 2025, Lsports,
+https://www.hofstrajibl.org/2024/11/regulatory-inconsistencies-regarding-sports-gambling/#:~:tex
+t=Since%20this%20decision%2C%20about%2030,User%20Protection%20Concerns] //lzedlol
+The sports data industry wasn’t always controlled by a handful of powerful players. In its early days, data
+collection was a decentralized process, often managed by leagues, teams, or even individual scouts. Information was gathered manually and shared with media
+outlets or other interested parties. However, as the value of sports data became increasingly apparent, the industry began to shift. The rise of sports
+betting and the growing demand for real-time data transformed the landscape. Companies realized that controlling
+
+access to data could be incredibly lucrative, and they began to strike exclusive deals with leagues and organizations. These agreements gave them the sole right to
+collect and distribute data, effectively shutting out competitors. Over time, this led to the consolidation of power in the hands of a few major providers.
+Another factor was the lack of legal protections for sports data. Unlike intellectual property such as music or movies, facts,
+numbers, and figures are not protected by copyright law. This means that once a goal is scored or a match is played, the data surrounding that event is considered
+public domain. However, the exclusive agreements signed by leagues and data providers have created a de
+facto monopoly, as competitors are legally barred from collecting the same data independently. The
+result is an industry that is heavily skewed in favor of a few dominant players. These providers have
+little incentive to innovate or improve their services, as they face no real competition. Meanwhile,
+leagues, media companies, and betting platforms are left with limited options and rising costs.
+FTC actions worked.
+Wood 2000 [Diane Wood, Diane Pamela Wood is an American attorney who serves as the director of the
+American Law Institute and a senior lecturer at the University of Chicago Law School. She previously
+served as a circuit judge on the United States Court of Appeals for the Seventh Circuit. "Toys "R" Us, Inc.
+v. FTC, No. 98-4017 (7th Cir. 2000)", 05/18/1999, Justia Law,
+https://law.justia.com/cases/federal/appellate-courts/ca7/98-4017/98-4017.html, Accessed
+02/12/2026] //lzed
+The antitrust laws, which aim to preserve and protect competition in economically sensible markets, have long drawn a sharp distinction between
+contractual restrictions that occur up and down a distribution chain—so-called vertical restraints—and restrictions that come about as a result of
+agreements among competitors, or horizontal restraints. Sometimes, however, it can be hard as a matter of fact to be sure what kind of agreement is at
+issue. This was the problem facing the Federal Trade Commission ("the Commission") when it brought under its antitrust microscope the large toy retailer
+Toys "R" Us (more properly Toys "R" Us, but to avoid debate we will abbreviate the company's name as TRU, in keeping with the parties' usage). The
+Commission concluded, upon an extensive administrative record, that TRU had acted as the coordinator of a horizontal agreement among a number of
+toy manufacturers. The agreements took the form of a network of vertical agreements between TRU and the individual manufacturers, in each of which
+the manufacturer promised to restrict the distribution of its products to lowpriced warehouse club stores, on the condition that other manufacturers
+would do the same. This practice, the Commission found, violated § 5 of the Federal Trade Commission Act, 15 U.S.C. § 45. It also found that TRU had
+entered into a series of vertical agreements that flunked scrutiny under antitrust's rule of reason. TRU appealed that decision to us. It attacks both the
+sufficiency of the evidence supporting the Commission's conclusions and the scope of the Commission's remedial order. It is hard to prevail on either type
+of challenge: the former is fact-intensive and faces the hurdle of the substantial evidence standard of review, while the latter calls into question the
+Commission's exercise of its discretion to remedy an established violation of the law. We conclude that, while reasonable people could differ on the facts
+in this voluminous record, the Commission's decisions pass muster, and we therefore affirm. I TRU is a giant in the toy retailing industry. The
+Commission found that it sells approximately 20% of all the toys sold in the United States, and that in some metropolitan areas its share of toy sales
+ranges between 35% and 49%. The variety of toys it sells is staggering: over the course of a year, it offers about
+11,000 individual toy items, far more than any of its competitors. As one might suspect from these figures alone, TRU is a
+critical outlet for toy manufacturers. It buys about 30% of the large, traditional toy companies' total output and it is usually their most important
+customer. According to evidence before the Commission's administrative law judge, or ALJ, even a company as large as Hasbro felt that it could not find
+other retailers to replace TRU—and Hasbro, along with Mattel, is one of the two largest 931*931 toy manufacturers in the country, accounting for
+approximately 12% of the market for traditional toys and 10% of a market that includes video games. Similar opinions were offered by Mattel and smaller
+manufacturers. Toys are sold in a number of different kinds of stores. At the high end are traditional toy stores and department stores, both of which
+typically sell toys for 40 to 50% above their cost. Next are the specialized discount stores—a category virtually monopolized by TRU today—that sell at an
+average 30% mark-up. General discounters like Wal-Mart, K-Mart, and Target are next, with a 22% mark-up, and last are the stores that are the focus of
+this case, the warehouse clubs like Costco and Pace. The clubs sell toys at a slender mark-up of 9% or so. The toys customers seek in all these stores are
+highly differentiated products. The little girl who wants Malibu Barbie is not likely to be satisfied with My First Barbie, and she certainly does not want Ken
+or Skipper. The boy who has his heart set on a figure of Anakin Skywalker will be disappointed if he receives Jar-Jar Binks, or a truck, or a baseball bat
+instead. Toy retailers naturally want to have available for their customers the season's hottest items, because toys are also a very faddish product, as
+those old enough to recall the mania over Cabbage Patch kids or Tickle Me Elmo dolls will attest. What happened in this case, according to the
+Commission, was fairly simple. For a long time, TRU had enjoyed a strong position at the low price end for toy sales, because its only competition came
+from traditional toy stores who could not or did not wish to meet its prices, or from general discounters like Wal-Mart or K-Mart, which could not offer
+anything like the variety of items TRU had and whose prices were not too far off TRU's mark. The advent of the warehouse clubs changed all that. They
+were a retail innovation of the late 1970s: the first one opened in 1976, and by 1992 there were some 600 individual club stores around the country.
+Rather than earning all of their money from their mark-up on products, the clubs sell only to their members, and they charge a modest annual
+membership fee, often about $30. As the word "warehouse" in the name suggests, the clubs emphasize price competition over service amenities.
+
+Nevertheless, the Commission found that the clubs seek to offer name-brand merchandise, including toys. During the late 1980s and early 1990s,
+warehouse clubs selected and purchased from the toy manufacturers' full array of products, just like everyone else. In some instances they bought
+specialized packs assembled for the "club" trade, but they normally preferred stocking conventional products so that their customers could readily
+compare the price of an item at the club against the price of the same item at a competing store. To the extent this strategy was successful, however, TRU
+did not welcome it. By 1989, its senior executives were concerned that the clubs were a threat to TRU's low-price image and, more importantly, to its
+profits. A little legwork revealed that as of that year the clubs carried approximately 120-240 items in direct competition with TRU, priced as much as 25
+to 30% below TRU's own price levels. TRU put its President of Merchandising, a Mr. Goddu, to work to see what could be done. The response Goddu and
+other TRU executives formulated to beat back the challenge from the clubs began with TRU's decision to contact some of
+its suppliers, including toy manufacturing heavyweights Mattel, Hasbro, and Fisher Price. At the Toy Fair in
+1992 (a major event at which the next Christmas season's orders are placed), Goddu informed the manufacturers of a new TRU policy, which was
+reflected in a memo of January 29, 1992. The policy set forth the following conditions and privileges for TRU: • The clubs could have no new or promoted
+product unless they carried the entire line. 932*932 • All specials and exclusives to be sold to the clubs had to be shown first to TRU to see if TRU wanted
+the item. • Old and basic product had to be in special packs. • Clearance and closeout items were permissible provided that TRU was given the first
+opportunity to buy the product. There would be no discussion about prices. TRU was careful to meet individually with each of its
+suppliers to explain its new policy. Afterwards, it then asked each one what it intended to do. Negotiations between TRU and the manufacturers followed,
+as a result of which each manufacturer eventually agreed that it would sell to the clubs only highly differentiated products (either unique individual items
+or combo packs) that were not offered to anything but a club (and thus of course not to TRU). As the Commission put it, "[t]hrough its announced policy
+and the related agreements discussed below, TRU sought to eliminate the competitive threat the clubs posed by
+denying them merchandise, forcing the clubs' customers to buy products they did not want, and frustrating customers' ability to make direct
+price comparisons of club prices and TRU prices." FTC opinion at 14. The agreements between TRU and the various manufacturers were, of course,
+vertical agreements, because they ran individually from the supplier/manufacturer to the purchaser/retailer. The Commission found that TRU
+reached about 10 of these agreements. After the agreements were concluded, TRU then supervised and enforced each toy company's
+compliance with its commitment. But TRU was not content to stop with vertical agreements. Instead, the Commission found, it decided to go
+further. It worked for over a year and a half to put the vertical agreements in place, but "the biggest hindrance TRU had to overcome was the major
+toy companies' reluctance to give up a new, fast-growing, and profitable channel of distribution." FTC opinion at 28. The manufacturers were also
+concerned that any of their rivals who broke ranks and sold to the clubs might gain sales at their expense, given the widespread and increasing popularity
+of the club format. To address this problem, the Commission found, TRU orchestrated a horizontal agreement among its key
+suppliers to boycott the clubs. The evidence on which the Commission relied showed that, at a minimum, Mattel, Hasbro, Fisher Price,
+Tyco, Little Tikes, Today's Kids, and Tiger Electronics agreed to join in the boycott "on the condition that their competitors would do the same." FTC
+opinion at 28 (emphasis added). The Commission first noted that internal documents from the manufacturers revealed that they were trying to expand,
+not to restrict, the number of their major retail outlets and to reduce their dependence on TRU. They were specifically interested in cultivating a
+relationship with the warehouse clubs and increasing sales there. Thus, the sudden adoption of measures under which they decreased sales to the clubs
+ran against their independent economic self-interest. Second, the Commission cited evidence that the manufacturers were unwilling to limit sales to the
+clubs without assurances that their competitors would do likewise. FTC opinion at 29. Goddu himself testified that TRU communicated the message "I'll
+stop if they stop" from manufacturer to competing manufacturer. FTC opinion at 30. He specifically mentioned having such conversations with Mattel and
+Hasbro, and he said more generally "We communicated to our vendors that we were communicating with all our key suppliers, and we did that I believe
+at Toy Fair 1992. We made a point to tell each of the vendors that we spoke to that we would be talking to our other key suppliers." Id. at 31. Evidence
+from the manufacturers corroborated Goddu's account. A Mattel executive said that it would not sell the clubs the same items it was selling to TRU, and
+that this decision was "based on the fact 933*933 that competition would do the same." Id. at 32. A Hasbro executive said much the same thing:
+"because our competitors had agreed not to sell loaded [that is, promoted] product to the clubs, that we would ... go along with this." Id. TRU went so far
+as to assure individual manufacturers that no one would be singled out. Once the special warehouse club policy (or, in the Commission's more pejorative
+language, boycott) was underway, TRU served as the central clearinghouse for complaints about breaches in the agreement. The Commission gave
+numerous examples of this conduct in its opinion. See id. at 33-37. Last, the Commission found that TRU's policies had bite. In the year before the boycott
+began, the clubs' share of all toy sales in the United States grew from 1.5% in 1991 to 1.9% in 1992. After the boycott took hold, that percentage slipped
+back by 1995 to 1.4%. Local numbers were more impressive. Costco, for example, experienced overall growth on sales of all products during the period
+1991 to 1993 of 25%. Its toy sales increased during same period by 51%. But, after the boycott took hold in 1993, its
+toy sales decreased by 1.6% even while its overall sales were still growing by 19.5%. The evidence indicated that
+this was because TRU had succeeded in cutting off its access to the popular toys it needed. In 1989, over 90% of the Mattel toys Costco and other clubs
+purchased were regular (i.e. easily comparable) items, but by 1993 that percentage was zero. Once again, the Commission's opinion is chock full of similar
+statistics. The Commission also considered the question whether TRU might have been trying to protect itself against free riding, at least with respect to
+its vertical agreements. It acknowledged that TRU provided several services that might be important to consumers, including "advertising, carrying an
+inventory of goods early in the year, and supporting a full line of products." FTC opinion at 41-42. Nevertheless, it found that the manufacturers
+compensated TRU directly for advertising toys, storing toys made early in the year, and stocking a broad line of each manufacturer's toys under one roof.
+A 1993 TRU memorandum confirms that advertising is manufacturer-funded and is "essentially free." FTC opinion at 42. In 1994, TRU's net cost of
+advertising was a tiny 0.02% of sales, or $750,000, out of a total of $199 million it spent on advertising that year. As the Commission saw it, "[a]dvertising
+
+... was a service the toy manufacturers provided for TRU and not the other way around." Id. (emphasis in original). TRU records also showed that
+manufacturers routinely paid TRU credits for warehousing services, and that they compensated it for full line stocking. In short, the Commission found,
+there was no evidence that club competition without comparable services threatened to drive TRU services out of the market or to harm customers.
+Manufacturers paid each retailer directly for the services they wanted the retailer to furnish. Based on this record, the Commission drew three central
+conclusions of law: (1) the TRU-led manufacturer boycott of the warehouse clubs was illegal per se under the rule enunciated in Northwest Wholesale
+Stationers, Inc. v. Pacific Stationery & Printing Co., 472 U.S. 284, 105 S. Ct. 2613, 86 L. Ed. 2d 202 (1985); (2) the boycott was illegal under a full rule of
+reason analysis because its anticompetitive effects "clearly outweigh[ed] any possible business justification"; and (3) the vertical agreements between
+TRU and the individual toy manufacturers, "entered into seriatim with clear anticompetitive effect, violate section 1 of the Sherman Act." FTC opinion at
+46. These antitrust violations in turn were enough to prove a violation of FTC Act § 5, which for present purposes tracks
+the prohibitions of the Sherman and Clayton Acts. After offering a detailed explanation of these conclusions (spanning 42 pages in its slip opinion), it
+turned to the question of remedy and affirmed the order the ALJ had entered. In the Commission's words, its order: 934*934 ... prohibits TRU from
+continuing, entering into, or attempting to enter into, vertical agreements with its suppliers to limit the supply of, or refuse to sell, toys to a toy
+discounter. See II.A. The order also prohibits TRU from facilitating, or attempting to facilitate, an agreement between or among its suppliers relating to
+the sale of toys to any retailer. See II.D. Additionally, TRU is enjoined from requesting information from suppliers about their sales to any toy discounter,
+and from urging or coercing suppliers to restrict sales to any toy discounter. See ¶¶ II.B, C. These four elements of relief are narrowly tailored to stop, and
+prevent the repetition of, TRU's illegal conduct. FTC opinion at 88. TRU complained that the order trampled on its ability to exercise its rights under
+United States v. Colgate & Co., 250 U.S. 300, 39 S. Ct. 465, 63 L. Ed. 992 (1919), to choose unilaterally the companies with which it wanted to deal. The
+Commission rejected the point, because it found that TRU had repeatedly crossed the line from unilateral to concerted behavior in illegal ways, and that it
+was entitled to include remedial provisions that were necessary to prevent recurrence of the illegal behavior, citing FTC v. National Lead Co., 352 U.S. 419,
+430, 77 S. Ct. 502, 1 L. Ed. 2d 438 (1957). Commissioner Swindle concurred in part and dissented in part. He agreed with the majority's determination that
+TRU had engaged in a series of anticompetitive vertical agreements, and he thus agreed with the remedial provisions designed to proscribe those
+practices and their effects. He was unconvinced, however, that TRU had orchestrated a horizontal combination as well, believing that the evidence was
+too thin to support that conclusion. TRU appealed from the Commission's final order of October 13, 1998, to this court, under 15 U.S.C. § 45(c), as it
+carries on business in this circuit (as well as every other circuit, to the best of our knowledge). II On appeal, TRU makes four principal arguments: (1) the
+Commission's finding of a horizontal conspiracy is contrary to the facts and impermissibly confuses the law of vertical restraints with the law of horizontal
+restraints; (2) whether the restrictions were vertical or horizontal, they were not unlawful because TRU has no market power, and thus the conduct can
+have no significant anticompetitive effect; (3) the TRU policy was a legitimate response to free riding; and (4) the relief ordered by the Commission goes
+too far. We review the Commission's legal conclusions de novo, but we must accept its findings of fact if they are supported by such relevant evidence as
+a reasonable mind might accept as adequate to support a conclusion. FTC v. Indiana Fed'n of Dentists, 476 U.S. 447, 454, 106 S. Ct. 2009, 90 L. Ed. 2d 445
+(1986). A. Horizontal Conspiracy As TRU correctly points out, the critical question here is whether substantial evidence supported the Commission's
+finding that there was a horizontal agreement among the toy manufacturers, with TRU in the center as the ringmaster, to boycott the warehouse clubs. It
+acknowledges that such an agreement may be proved by either direct or circumstantial evidence, under cases such as Matsushita Electric Indus. Co. v.
+Zenith Radio Corp., 475 U.S. 574, 106 S. Ct. 1348, 89 L. Ed. 2d 538 (1986) (horizontal agreements), Monsanto Co. v. Spray-Rite Service Corp., 465 U.S. 752,
+104 S. Ct. 1464, 79 L. Ed. 2d 775 (1984) (vertical agreements), and Interstate Circuit, Inc. v. United States, 306 U.S. 208, 59 S. Ct. 467, 83 L. Ed. 610 (1939).
+When circumstantial evidence is used, there must be some evidence that "tends to exclude the possibility" that the alleged conspirators acted
+independently. Monsanto, 465 U.S. at 764, 104 S. Ct. 1464, quoted in Matsushita, 475 U.S. at 588, 106 S. Ct. 1348. This does not mean, however, that the
+Commission had to exclude all 935*935 possibility that the manufacturers acted independently. As we pointed out in In re Brand Name Prescription Drugs
+Antitrust Litigation, 186 F.3d 781 (7th Cir. 1999), that would amount to an absurd and legally unfounded burden to prove with 100% certainty that an
+antitrust violation occurred. Id. at 787. The test states only that there must be some evidence which, if believed, would support a finding of concerted
+behavior. In the context of an appeal from the Commission, the question is whether substantial evidence supports its conclusion that it is more likely than
+not that the manufacturers acted collusively. In TRU's opinion, this record shows nothing more than a series of separate, similar vertical agreements
+between itself and various toy manufacturers. It believes that each manufacturer in its independent self-interest had an incentive to limit sales to the
+clubs, because TRU's policy provided strong unilateral incentives for the manufacturer to reduce its sales to the clubs. Why gain a few sales at the clubs, it
+asks, when it would have much more to gain by maintaining a good relationship with the 100-pound gorilla of the industry, TRU, and make far more sales?
+We do not disagree that there was some evidence in the record that would bear TRU's interpretation. But that is not the standard we apply when we
+review decisions of the Federal Trade Commission. Instead, we apply the substantial evidence test, which we described as follows in another case in
+which the Commission's decision to stop a hospital merger was at issue: Our only function is to determine whether the Commission's analysis of the
+probable effects of these acquisitions on hospital competition in Chattanooga is so implausible, so feebly supported by the record, that it flunks even the
+deferential test of substantial evidence. Hospital Corp. of America v. F.T.C., 807 F.2d 1381, 1385 (7th Cir.1986). There, as here, the Commission
+painstakingly explained in a long opinion exactly what evidence in the record supported its conclusion. We need only decide whether the inference the
+Commission drew of horizontal agreement was a permissible one from that evidence, not if it was the only possible one. The Commission's theory,
+stripped to its essentials, is that this case is a modern equivalent of the old Interstate Circuit decision. That case too involved actors at two levels of the
+distribution chain, distributors of motion pictures and exhibitors. Interstate Circuit was one of the exhibitors; it had a stranglehold on the exhibition of
+movies in a number of Texas cities. The antitrust violation occurred when Interstate's manager, O'Donnell, sent an identical letter to the eight branch
+managers of the distributor companies, with each letter naming all eight as addressees, in which he asked them to comply with two demands: a minimum
+price for first-run theaters, and a policy against double features at night. The trial court there drew an inference of agreement from the nature of the
+proposals, from the manner in which they were made, from the substantial unanimity of action taken, and from the lack of evidence of a benign motive;
+the Supreme Court affirmed. The new policies represented a radical shift from the industry's prior business practices, and the Court rejected as beyond
+the range of probability that such unanimity of action was explainable only by chance. The Commission is right. Indeed, as it argues in its brief, the TRU
+case if anything presents a more compelling case for inferring horizontal agreement than did Interstate Circuit, because not only was the manufacturers'
+decision to stop dealing with the warehouse clubs an abrupt shift from the past, and not only is it suspicious for a manufacturer to deprive itself of a
+
+profitable sales outlet, but the record here included the direct evidence of communications that was missing in Interstate Circuit. Just as in Interstate
+Circuit, TRU tries to avoid this result by hypothesizing independent motives. 306 U.S. at 223-24, 59 S. Ct. 467. If there were no evidence in the record
+tending to support 936*936 concerted behavior, then we agree that Matsushita would require a ruling in TRU's favor. But there is. The evidence showed
+that the companies wanted to diversify from TRU, not to become more dependent upon it; it showed that each manufacturer was afraid to curb its sales
+to the warehouse clubs alone, because it was afraid its rivals would cheat and gain a special advantage in that popular new market niche. The Commission
+was not required to disbelieve the testimony of the different toy company executives and TRU itself to the effect that the only condition on which each
+toy manufacturer would agree to TRU's demands was if it could be sure its competitors were doing the same thing. That is a horizontal agreement. As we
+explain further below in discussing TRU's free rider argument, it has nothing to do with enhancing efficiencies of distribution from the manufacturer's
+point of view. The typical story of a legitimate vertical transaction would have the manufacturer going to TRU and asking it to be the exclusive carrier of
+the manufacturer's goods; in exchange for that exclusivity, the manufacturer would hope to receive more effective promotion of its goods, and TRU would
+have a large enough profit margin to do the job well. But not all manufacturers think that exclusive dealing arrangements will maximize their profits.
+Some think, and are entitled to think, that using the greatest number of retailers possible is a better strategy. These manufacturers were in effect being
+asked by TRU to reduce their output (especially of the popular toys), and as is classically true in such cartels, they were willing to do so only if TRU could
+protect them against cheaters. Northwest Stationers also demonstrates why the facts the Commission found support its conclusion that the essence of
+the agreement network TRU supervised was horizontal. There the Court described the cases that had condemned boycotts as "per se" illegal as those
+involving "joint efforts by a firm or firms to disadvantage competitors by either directly denying or persuading or coercing suppliers or customers to deny
+relationships the competitors need in the competitive struggle." 472 U.S. at 294, 105 S. Ct. 2613 (internal citations omitted). The boycotters had to have
+some market power, though the Court did not suggest that the level had to be as high as it would require in a case under Sherman Act § 2. Here, TRU was
+trying to disadvantage the warehouse clubs, its competitors, by coercing suppliers to deny the clubs the products they needed. It accomplished this goal
+by inducing the suppliers to collude, rather than to compete independently for shelf space in the different toy retail stores. See also NYNEX Corp. v.
+Discon, Inc., 525 U.S. 128, 119 S. Ct. 493, 142 L. Ed. 2d 510 (1998); Klor's, Inc. v. Broadway-Hale Stores, Inc., 359 U.S. 207, 79 S. Ct. 705, 3 L. Ed. 2d 741
+(1959). B. Degree of TRU's Market Power TRU's efforts to deflate the Commission's finding of market power are pertinent only if we had agreed with its
+argument that the Commission's finding of a horizontal agreement was without support. Horizontal agreements among competitors, including group
+boycotts, remain illegal per se in the sense the Court used the term in Northwest Stationers. We have found that this case satisfies the criteria the Court
+used in Northwest Stationers for condemnation without an extensive inquiry into market power and economic pros and cons: (1) the boycotting firm has
+cut off access to a supply, facility or market necessary for the boycotted firm (i.e. the clubs) to compete; (2) the boycotting firm possesses a "dominant"
+position in the market (where "dominant" is an undefined term, but plainly chosen to stand for something different from antitrust's term of art
+"monopoly"); and (3) the boycott, as we explain further below, cannot be justified by plausible arguments that it was designed to enhance overall
+efficiency. 472 U.S. at 294, 105 S. Ct. 2613. We address the market power point here, therefore, only in the alternative. 937*937 TRU seems to think that
+anticompetitive effects in a market cannot be shown unless the plaintiff, or here the Commission, first proves that it has a large market share. This,
+however, has things backwards. As we have explained elsewhere, the share a firm has in a properly defined relevant market is only a way of estimating
+market power, which is the ultimate consideration. Ball Memorial Hospital, Inc. v. Mutual Hospital Insurance, 784 F.2d 1325, 1336 (7th Cir.1986). The
+Supreme Court has made it clear that there are two ways of proving market power. One is through direct evidence of anticompetitive effects. See FTC v.
+Indiana Fed'n of Dentists, 476 U.S. 447, 460-61, 106 S. Ct. 2009, 90 L. Ed. 2d 445 (1986) ("the finding of actual, sustained adverse effects on competition in
+those areas where IFD dentists predominated, viewed in light of the reality that markets for dental services tend to be relatively localized, is legally
+sufficient to support a finding that the challenged restraint was unreasonable even in the absence of elaborate market analysis."). The other, more
+conventional way, is by proving relevant product and geographic markets and by showing that the defendant's share exceeds whatever threshold is
+important for the practice in the case. See, e.g., United States v. E.I. duPont de Nemours & Co., 351 U.S. 377, 76 S. Ct. 994, 100 L. Ed. 1264 (1956); United
+States v. Grinnell Corp., 384 U.S. 563, 86 S. Ct. 1698, 16 L. Ed. 2d 778 (1966); United States v. Aluminum Co. of America, 148 F.2d 416 (2d Cir.1945)
+(suggesting that more than 90% is enough to constitute a monopoly for purposes of Sherman Act § 2 and 33% is not); Jefferson Parish Hospital Dist. No. 2
+v. Hyde, 466 U.S. 2, 104 S. Ct. 1551, 80 L. Ed. 2d 2 (1984) (indicating that something more than 30% would be needed to show the kind of power over a
+tying product necessary for a violation of Sherman Act § 1). The Commission found here that, however TRU's market power as a toy retailer was
+measured, it was clear that its boycott was having an effect in the market. It was remarkably successful in causing the 10 major toy manufacturers to
+reduce output of toys to the warehouse clubs, and that reduction in output protected TRU from having to lower its prices to meet the clubs' price levels.
+Price competition from conventional discounters like Wal-Mart and K-Mart, in contrast, imposed no such constraint on it, or so the Commission found. In
+addition, the Commission showed that the affected manufacturers accounted for some 40% of the traditional toy market, and that TRU had 20%
+of the national wholesale market and up to 49% of some local wholesale markets. Taking steps to prevent a price
+collapse through coordination of action among competitors has been illegal at least since United States v. Socony-Vacuum Oil Co., 310 U.S. 150, 60 S. Ct.
+811, 84 L. Ed. 1129 (1940). Proof that this is what TRU was doing is sufficient proof of actual anticompetitive effects that no more elaborate market
+analysis was necessary. C. Free Riding Explanation TRU next urges that its policy was a legitimate business response to combat free riding by the
+warehouse clubs. We think, however, that it has fundamentally misunderstood the theory of free riding. Briefly, that theory is as follows. The
+manufacturer of a product, say widgets, has an incentive to distribute as many widgets as it can, while keeping its costs of distribution down as low as
+possible. In many instances, this means that the manufacturer will want to sell its widgets for a particular wholesale price and it will want its retailer to
+apply as low a mark-up as possible (i.e. put the product on the market for as little extra expense as possible). Sometimes, however, the manufacturer will
+want the retailer to provide special services or amenities that cost money, such as attractive premises, trained salespeople, long business hours, full-line
+stocking, or fast warranty service. But the costs of providing some of those amenities (usually pre-sale services) are hard to pass on to customers unless
+some form of restricted distribution is available. What the 938*938 manufacturer does not want is for the shopper to visit the attractive store with highly
+paid, intelligent sales help, learn all about the product, and then go home and order it from a discount warehouse or (today) on-line discounters. The
+shopper in that situation has taken a "free ride" on the retailer's efforts; the retailer never gets paid for them, and eventually it stops offering the services.
+If those services were genuinely useful, in the sense that the product plus service package resulted in greater sales for the manufacturer than the product
+
+alone would have enjoyed, there is a loss both for the manufacturer and the consumer. Hence, antitrust law permits nonprice vertical restraints that are
+designed to facilitate the provision of extra services, recognizing that a manufacturer in a competitive market who has guessed wrong will eventually be
+forced by the market to abandon the restrictions. See Business Electronics Corp. v. Sharp Electronics Corp., 485 U.S. 717, 724, 108 S. Ct. 1515, 99 L. Ed. 2d
+808 (1988), quoting Continental T.V., Inc. v. GTE Sylvania Inc., 433 U.S. 36, 52 n. 19, 97 S. Ct. 2549, 53 L. Ed. 2d 568 (1977). Here, the evidence shows that
+the freeriding story is inverted. The manufacturers wanted a business strategy under which they distributed their toys to as many different kinds of
+outlets as would accept them: exclusive toy shops, TRU, discount department stores, and warehouse clubs. Rightly or wrongly, this was the distribution
+strategy that each one believed would maximize its individual output and profits. The manufacturers did not think that the alleged "extra services" TRU
+might have been providing were necessary. This is crucial, because the most important insight behind the free rider concept is the fact that, with respect
+to the cost of distribution services, the interests of the manufacturer and the consumer are aligned, and are basically adverse to the interests of the
+retailer (who would presumably like to charge as much as possible for its part in the process). See Premier Electrical Construction Co. v. Nat'l Electrical
+Contractors Ass'n, 814 F.2d 358, 369-70 (7th Cir.1987) ("[the rationale for permitting restricted distribution policies] depends on the alignment of interests
+between consumers and manufacturers. Destroy that alignment and you destroy the power of the argument."). What TRU wanted or did not want is
+neither here nor there for purposes of the free rider argument. Its economic interest was in maximizing its own profits, not in keeping down its suppliers'
+cost of doing business. Furthermore, we note that the Commission made a plausible argument for the proposition that there was little or no opportunity
+to "free" ride on anything here in any event. The consumer is not taking a free ride if the cost of the service can be captured in the price of the item. As
+our earlier review of the facts demonstrated, the manufacturers were paying for the services TRU furnished, such as advertising, full-line product
+stocking, and extensive inventories. These expenses, we may assume, were folded into the price of the goods the manufacturers charged to TRU, and thus
+these services were not susceptible to free riding. On this record, in short, TRU cannot prevail on the basis that its practices were designed to combat free
+riding. D. Remedy Last, we consider TRU's challenge to the remedial provisions the Commission ordered. TRU's basic point here is that the Commission
+has commanded it to do things that it would have been free to refuse, and conversely to refrain from actions it would have been free to take, in the
+absence of its violation of FTC Act § 5. So that its arguments can be fully understood, we set forth Section II of the decree in its entirety here: IT IS
+ORDERED that respondent, directly or indirectly, through any corporation, subsidiary, division or other device, in connection with the actual or potential
+purchase or distribution of toys and related products, in or affecting commerce, as "commerce" is defined in 939*939 the Federal Trade Commission Act,
+forthwith cease and desist from: A. Continuing, maintaining, entering into, and attempting to enter into any agreement or understanding with any
+supplier to limit supply or to refuse to sell toys and related products to any toy discounter. B. Urging, inducing, coercing, or pressuring, or attempting to
+urge, induce, coerce, or pressure, any supplier to limit supply or to refuse to sell toys and related products to any toy discounter. C. Requiring, soliciting,
+requesting or encouraging any supplier to furnish information to respondent relating to any supplier's sales or actual or intended shipments to any toy
+discounter. D. Facilitating or attempting to facilitate agreements or understandings between or among suppliers relating to limiting the sale of toys and
+related products to any retailer(s) by, among other things, transmitting or conveying complaints, intentions, plans, actions, or other similar information
+from one supplier to another supplier relating to sales to such retailer(s). E. For a period of five years, (1) announcing or communicating that respondent
+will or may discontinue purchasing or refuse to purchase toys and related products from any supplier because that supplier intends to sell or sells toys
+and related products to any toy discounter, or (2) refusing to purchase toys and related products from a supplier because, in whole or in part, that
+supplier offered to sell or sold toys and related products to any toy discounter. PROVIDED, however, that nothing in this order shall prevent respondent
+from seeking or entering into exclusive arrangements with suppliers with respect to particular toys. TRU makes a perfunctory, one-paragraph argument
+that paragraphs II(B), II(C), II(D), and II(E)(1) impose a "gag order" that contravenes the Supreme Court's recognition in Monsanto Co. v. Spray-Rite Corp.,
+supra, that manufacturers and distributors have a legitimate need for a free flow of information between
+them. This order, they claim, will create an irrational dislocation in the market to the detriment of toy suppliers, retailers, and consumers. With respect
+to paragraph II(E)(2), it argues that the five-year restriction on refusals to deal impermissibly cabins its Colgate rights to choose the suppliers with which it
+wants to deal. In effect, it claims, the decree will force it to purchase all toys that are offered to anyone, unless it can somehow prove that its refusal was
+because of a safety defect or other similar flaw. We consider first TRU's challenges to parts II(B) through II(D) of the order. (It has not mentioned II(A) in its
+brief, and thus it has waived any challenge to that part of the order.) In general, if a retailer had some kind of restricted distribution arrangement with a
+manufacturer, Monsanto holds that it is permissible for the retailer to urge the manufacturer to respect the limits of that agreement. The retailer may
+communicate complaints about the provision of product to discounters, if that runs afoul of the promises in the distribution agreement. Colgate indicates
+that the retailer would also be within its rights to tell the manufacturer that it will no longer stock the manufacturer's product, if it is unhappy with the
+company it is keeping (i.e. if the manufacturer is sending too many goods to discounters, stores with a reputation for rude and sloppy service, or other
+undesirables). Two facts distinguish these general rules from the situation in which TRU finds itself. First, unilateral actions of the sort protected by
+Monsanto and Colgate are not the same thing as a retailer's request to the manufacturer to change the latter's business practice. Under paragraph II(B) of
+the decree, TRU must not tell the manufacturer what to do; it is still permitted to decide which toys it wants to carry and which ones to drop, based on
+business 940*940 considerations such as the expected popularity of the item. Second, to the extent paragraph II(B) might indirectly inhibit TRU from
+exercising its unilateral judgment, TRU must confront the fact that the FTC is not limited to restating the law in its remedial orders. Such orders can
+restrict the options for a company that has violated § 5, to ensure that the violation will cease and competition will be restored. See National Lead Co.,
+supra, 352 U.S. at 430, 77 S. Ct. 502; FTC v. Cement Institute, 333 U.S. 683, 726-27, 68 S. Ct. 793, 92 L. Ed. 1010 (1948); Corning Glass Works v. FTC, 509
+F.2d 293, 303 (7th Cir.1975). See also FTC v. Colgate-Palmolive Co., 380 U.S. 374, 392, 85 S. Ct. 1035, 13 L. Ed. 2d 904 (1965) (making the same point, in
+context of the Commission's deceptive practices authority). The second point also applies to TRU's objections to paragraphs II(C) and II(D). In addition, we
+note that the retailer should not have any reason to obtain its suppliers' business records about shipments to the retailer's competitors. That is the
+supplier's concern. TRU is protected as long as it can ensure that it receives what was promised to it. Also, of course, the decree preserves TRU's right to
+enter into exclusive arrangements with respect to particular toys. In so doing, it also implicitly allows TRU to engage in communications that are necessary
+for the implementation and enforcement of such agreements. Paragraph II(D) directly addresses the Commission's finding of a horizontal agreement, and
+it orders TRU not to go out and create a new one. The Commission was certainly acting within the bounds of its discretion when it included these
+provisions. Paragraph II(E) appears to be the one that causes the greatest concern to TRU. This strikes us as a closer call, but in this connection the
+
+standard of review becomes important. The Commission has represented in its brief to this court that the decree "leaves [TRU] free to make stocking
+decisions based on a wide range of business reasons; it must simply make those decisions—for a period of five years—independent of whether clubs or
+other discounters are carrying the same item." FTC Brief at 58. The attempt to use its market clout to harm the warehouse clubs lies at the heart of this
+case, and so it is easy to see why the Commission chose to prohibit reliance on the supplier's practices vis ... vis the clubs as a reason for TRU's own
+purchasing decisions. At bottom, TRU is really just worried that it will be difficult to prove that any particular purchasing decision was free from the
+prohibited taint. It will be easy to refrain from announcements or communications about refusals to deal, which is what II(E)(1) prohibits. With respect to
+II(E)(2), if TRU implements adequate internal procedural safeguards, it should be possible to demonstrate that its buying decisions were not influenced by
+anything the manufacturers were doing with discounters like the clubs. These refusals to deal were the means TRU used to accomplish the unlawful
+result, and as such, they are subject to regulation by the Commission. See National Lead, 352 U.S. at 425, 77 S. Ct. 502. Under the abuse of discretion
+standard that governs our review of the Commission's choice of remedy, see Siegel Co. v. FTC, 327 U.S. 608, 612-13, 66 S. Ct. 758, 90 L. Ed. 888 (1946),
+this does not appear to be a remedy that "has no reasonable relation to the unlawful practices found to exist." We therefore have no warrant to set it
+aside. If, however, it becomes clear in practice that this provision is unworkable, TRU is free to return to the Commission to petition for a modification of
+the order. III We conclude that the Commission's decision is supported by substantial evidence on the record, and that its
+remedial decree falls within the broad discretion it has been granted under the FTC Act. The decision is hereby Affirmed.
+We need a solution.
+Freeman 24 [Mike Freeman, Deputy Sports Editor-NFL Coverage @ USA TODAY "Activist Rev. Al Sharpton
+issues stark warning to the FTC about two gambling giants", 05/23/2024, USA TODAY,
+https://www.usatoday.com/story/sports/columnist/mike-freeman/2024/05/23/al-sharpton-ftc-draftking
+s-fanduel-betting-gambling/73804239007/, Accessed 02/12/2026] //lzed
+Civil rights activist Rev. Al Sharpton has written a letter to the Federal Trade Commission about what he called a "gambling duopoly" of DraftKings and
+FanDuel that could disproportionately impact Black Americans, including Black athletes. In the letter, obtained by USA TODAY Sports, Sharpton writes to
+FTC Chair Lina Khan that the domination of the two gambling platforms threatens consumer protection in the market. "As you are well aware, DraftKings
+and FanDuel dominate the online sports betting market in the United States," Sharpton wrote. "As of September 2023, they had a combined market share
+of approximately 75% in mobile sports betting. Their Sports Betting Alliance (SBA), which includes fellow legacy
+operators BetMGM and Fanatics Sportsbook, likely controls close to 90% of the market now. "As a civil
+rights advocate, I write to you because their dominance and influence have raised serious concerns about competition, fairness, and consumer protection
+in the market. This is especially troubling when we consider the demographic profile of their user base, with a significant portion being Black Americans.
+"When a duopoly takes hold, consumers are the biggest losers, and the most vulnerable consumers − including Black
+Americans − bear the brunt of that harm," Sharpton says in the letter. "Indeed, Black Americans on the whole are more likely to engage in sports betting;
+among young adults, they sports bet at a higher rate than any other demographic (68%). They also bet more money than any other ethnic group."
+Spokespersons from DraftKings and FanDuel could not be immediately reached for comment. An NCAA survey from last year showed gambling is
+prevalent among young adults, particularly on college campuses. The survey also found that 68% of Black or African American respondents engaged in
+betting, which the NCAA said was the highest percentage among the demographics surveyed. The NCAA said Hispanic or Latino respondents engaged at
+63%, Asian 55%, and white or Caucasian at 54%. Who will win Panthers vs. Rangers? Stanley Cup Playoffs predictions, odds "Sports are at the center of
+American culture," Sharpton writes, "and Black athletes are the center of American sports. If sports betting and gaming run rampant and infiltrates the
+integrity of the games, that can adversely affect both Black athletes and consumers." What Sharpton is doing here is important and smart. Why? This
+industry needs more of a watchdog and the FTC needs the reminder of what its job is. Gambling, like so many
+other things, has multidimensional aspects to it, and one of them, like so many other things, is about race. You can stick your head in the sand about
+these issues but Sharpton refuses to and that's a good thing. Overall, gambling remains one of the biggest moneymakers in all of sports, but also one
+fraught with potentially catastrophic challenges to the leagues. Shohei Ohtani's former interpreter, Ippei Mizuhara, was charged with stealing millions
+from the star to fuel his gambling addiction. Recently, Major League Baseball opened an investigation into a former Ohtani teammate for allegations that
+the teammate placed bets with an illegal bookmaker. This was the same bookmaker linked to Mizuhara. The NBA announced last month Jontay Porter was
+banned from the NBA after a league investigation found Porter violated league rules by disclosing confidential information to sports bettors, limited his
+own participation in at least one games because of betting, and also betting on NBA games. Sharpton is saying the risks go even beyond even those
+challenges, and extend to issues of race. Who will win the 2024 U.S. Open? Early odds for Pinehurst "In 2017, the Federal Trade Commission filed a legal
+action to block the proposed merger of DraftKings and FanDuel, citing that the merger would deprive consumers of the benefits of competition in the
+fantasy sports market," Sharpton wrote. "Tad Lipsky, acting director of the FTC's Bureau of Competition, added in a 2017 statement that the FTC 'is
+committed to the preservation of competitive markets, which offer consumers the best opportunity to obtain innovative products and services at the
+most favorable prices and terms consistent with the provision of competitive returns to efficient producers.'" "Clearly, the successful political exploits of
+the SBA have allowed Lipsky's worst fears to come true," Sharpton added. "I urge the FTC to investigate the anti-competitive behavior of the
+SBA and its member companies to ensure that consumers-especially Black Americans-can reap the benefits of a
+truly competitive market that rewards innovation, value, and consumer protection."
+
+Open market competition deters illegal sites by internally improving legal ones
+Granese 25 [JD Candidate at University of Miami School of Law and Staff Editor of the University of
+Miami Business Law Review. November 2025. “West Flagler and the Future of Sports Betting: Navigating
+Tribal Sovereignty and the Need for Consumer Protection in a Growing Market.” University of Miami
+Business Law Review. 34(1). pp 132-161.
+https://repository.law.miami.edu/cgi/viewcontent.cgi?article=1471&context=umblr.] //lzed
+B. Drawbacks of the Commercial Model Anti–competition concerns are not just limited to the Compact Model; some states using the Commercial Model
+also have highly restrictive markets. Ten states following this model offer four or fewer online sportsbooks options, with four of them providing only a
+single operator.181 Both monopolies and oligopolies deliver limited markets, hindering competition and restricting
+consumer choice.182 Competitive markets have obvious benefits for bettors—competition , [that] forces
+operators to price their odds lower.183 In sports betting,this translates to better odds for customers, allowing them to wager less to
+achieve the same payout.18 Competitive pressures also drive improvements, such as advanced mobile app performance, better
+customer service, and enhanced promotions to attract and retain customers.185 Competitive sports betting
+markets have been the most successful ones,186 and limited markets have little incentive to continue innovating.187 For example,
+Colorado, which has legalized over twenty–five sportsbooks, demonstrates how an open market benefits consumers through increased options,
+competitive odds, diverse bonus bets, and innovative features.188 Unfortunately, operating under the Commercial Model does not, by itself, ensure a
+competitive market
+Otherwise, the lack of favorable odds pushes consumers to illegal gambling rings.
+Potts & Nachman 24 [*JD from Yale Law School, **JD from Yale, Dartmouth College Government and
+Economics Double-Major. May 2024. “Antitrust and Mobile Sports Gambling.” Yale University Thurman
+Arnold Project.
+https://som.yale.edu/sites/default/files/2025-05/Mobile_Sports_Gambling_1.1%20%281%29.pdf.]//lzed
+III. EU Regulation of Online Sports Gambling Regulation of gambling in the EU may help inform American regulatory practices. Most EU countries have
+some form of legalized online gambling. These countries must organize and regulate the industry in compliance with the laws of the European Union.71
+The EU’s laws accommodate a wide range of regulatory options. Today, 25 of the 29 EU countries have a multilicensing regime, meaning there are
+competitive and regulated online gambling markets where both private and public sportsbook operators can apply for licenses. Only two countries,
+Finland and Norway, govern online gambling with a total monopoly.72 A key reason for the shift to multilicensing is that when gambling odds in
+a country are not as competitive as in other countries, consumers can turn to the “gray market,” placing bets
+illegally on international websites that do not adhere to the country’s consumer protections.73
+Illegal gambling is devastating.
+Bonny-Noach 24 [Ph.D. and Professor of Department of Criminology at Ariel University with a focus on
+addictive behavior. 3-7-2022. "Differences Between Illegal and Legal Gamblers in Israel: Gambling
+Behavior, Motivation, and Substance Use." Journal of Gambling Studies. 39(1). pp 1239-1252.
+https://sci-hub.ru/10.1007/s10899-022-10142-6. DOA: 1-29-2026.] //lzed
+In general, participants reported more gambling at legal settings than at illegal ones in the preceding 12 months. In all types of legal gambling, significant
+differences were found between legal and illegal gamblers. Excluding legal National Lottery or Lucky Cards, in all <> other legal types of gambling,
+illegal gamblers reported higher levels of gambling behaviors than did legal gamblers. In the entire sample, 93% reported
+participating in National Lottery or Lucky Cards in the preceding year (95% of participants who gamble legally compared to 79.5% of those who gamble
+illegally; χ2 (1)=52.07, p <0.001); 25% reported participating in legal sports betting (21.5% of participants who gamble legally compared to 45.3% of those
+who gamble illegally; χ2 (1)=42.23, p<0.001); 11% reported gambling at legal casinos abroad (9.4% of participants who gamble legally compared to 20.9%
+
+of those who gamble illegally; χ2 (1)=18.69, p<0.001); 2% reported gambling at a casino on a legal cruise (1.7% of participants who gamble legally
+compared to 5.8% of those who gamble illegally; χ2 (1)=10.61, p<0.001); 2% reported participating in legal poker games(0.8% of participants who gamble
+legally compared to 11% of those who gamble illegally; χ2 (1)=73.13, p<0.001); 0.3% reported participating in betting on animals none of those who
+participated in legal gambling as opposed to 2.6% of participants who gamble illegally); and 0.7% reported participating in dice gambling (none of those
+who participated in legal gambling as opposed to 5.8% of participants who gamble illegally). Involvement in multi-gambling behavior: 61.4% had engaged
+in a single gambling activity, with significant differences between the groups (68.5% of legal gamblers compared to 13% of illegal gamblers); 23% in two
+activities, without significant differences between the groups; 11% in 3–4 activities, with significant differences between the groups (8% of legal gamblers
+compared to 32% of illegal gamblers); 2.6% in 5–6 activities, with significant differences between the groups (1.2% of legal gamblers compared to 12.4%
+of illegal gamblers); and 1.9% in 7 activities and more, only among illegal gamblers, with 14.2% of them reporting having engaged in 7+ gambling
+activities. Severity of Gambling Behavior The severity of the gambling behavior of all participants and the differences between the legal and illegal
+gamblers were examined. The results are shown in Table 2. Table 2 shows the following results: severity of problem gambling—746 (60%) were classified
+as “non-problematic gamblers;” 319 (25%) were classified as “low-risk gamblers;” 141 (11%) were classified as “moderate-risk gamblers;” and 45 (4%)
+were classified as “problematic gamblers.” People who engage in illegal gambling are at high risk of developing
+problematic gambling behavior(8+). Significant differences were found between those who gamble at illegal settings and those who
+gamble only at legal settings as far as the severity of gambling behavior is concerned: in the last year, 15% of gamblers at illegal settings
+developed problematic gambling behavior compared to 2% of those who gambled only legally; 23% of
+gamblers at illegal settings showed having moderate-risk gambling behavior compared to 10% of those who gambled only legally; and 34% of gamblers at
+illegal settings showed low-risk gambling behavior compared to 24% of those who gambled only legally. Only 28% of illegal gamblers showed
+non-problem gambling behavior in the preceding year, compared to 64% of those who gamble only at legal settings. Motivation for Gambling The study
+also examined the motivations for gambling and the differences between people who gamble at legal and illegal settings; the results are presented in
+Table 3. Table 3 shows that the highest motivation of people who gamble at illegal settings is experiencing excitement and emotion (3.65), followed by
+financial gain (3.48), knowledge and learning the game (3.22), experiencing intellectual challenge (3.08), feeling accomplishment (2.94), gambling without
+purpose (2.88), feeling important (2.71), and socializing and making connections (2.46). Table 3 also shows that there are significant differences in all
+seven motivations for gambling between people who gamble at illegal and legal settings. Illegal gamblers showed a higher level of motivation in six
+categories (except "financial gain") than did legal gamblers. In the case of “financial gain” motivation, the opposite situation was revealed: a significantly
+higher level of motivation was found among legal gamblers compared to illegal gamblers. Gamblers’ Patterns of Tobacco, Alcohol, and Drug Use The study
+findings show significant differences in tobacco smoking, excessive alcohol consumption, and use of cannabis(ever) and of other drugs between
+participants who gambled at legal and illegal settings in the preceding year; the results are shown in Table 4. To predict participation in illegal gambling, a
+logistic regression was conducted; the results are shown in Table 5. <
+> <
+> Table 5 presents the outcome of the logistic regressions for the association of different study variables with illegal gambling, including
+sociodemographic variables, PGS, legal gambling behavior, and substance use. The problematic gamblers showed stronger associations with illegal
+gambling (OR=17.80; CI 9.21–34.4; p<0.000), the age group of 29-41 years old (OR=6.16; CI 3.15–12.3; p<0.000), in moderate-risk gamblers (OR=5.54; CI
+3.42–3.42; p<0.000), and in secular gamblers (OR=4.11; CI 1.73–9.77; p≤0.001). Table 5 shows that the odds ratio of men who participated in illegal
+gambling is 1.6 times that of women. Among young people in the age group 41–29, the odds ratio is 6.2 times higher than in the group aged 42 and older.
+The odds ratio for illegal gambling in the age group 18–29 is 3.3 times higher compared to participants aged 42 and older. The ratio of secular participants
+engaging in illegal gambling is 4 times that of traditional participants and 3.3 times that of ultra-Orthodox participants. The average income earner is at
+the lowest risk of participating in gambling behavior, and the odds ratio of people with below average income to participate in illegal gambling is 1.8
+higher than that of the average income earner, and the odds ratio of the high income earners is 2.28 higher than that of the average income earner The
+odds ratio of people who reported low gambling behavior to participate in illegal gambling in the preceding year was 3.17 times, of those with
+moderate-risk gambling behavior 5.54 times, and of those with moderate-risk gambling behavior 17.8 times higher than that of participants who did not
+engage in gambling behavior. I also found that people who participated in legal sports betting online were most likely to participate in illegal gambling as
+well, with an odds ratio of 2.77 higher than that of other gamblers. The odds ratio of participants who have previously used cannabis to participate in
+illegal gambling was 2.36 times higher than that of those who have not used cannabis at all. Discussion The objectives of this study were to examine the
+characteristics of illegal gamblers and determine whether they displayed more frequent and severe gambling behaviors, and had greater motivation to
+gamble and use substances than did legal gamblers. Although the estimation of illegal gambling behaviors worldwide is unknown (Albanese, 2018;
+Sukhanov et al., 2018), the findings of the current study show that one-eighth (13%) of the gamblers who participated in the study reported illegal
+gambling in the preceding year. It is reasonable to assume that because of the nature of illegal behavior, participants may have under-reported illegal
+gambling behaviors. Moreover, the data were collected three months after the onset of the COVID-19 pandemic (in June 2020). In Israel, strict quarantine
+and self-isolation were imposed, events were canceled, non-essential businesses were shut down, and a stay-at-home order was issued for the entire
+population of the country (BonnyNoach & Gold, 2020; Rosca et al., 2020). Were it not for the COVID-19 lockdown, the reported percentages of illegal
+gambling may have been even higher. The high number of people participating in illegal gambling in Israel may be explained by the conservative gambling
+policy in the country, by the fact that there is no legal casino and many types of gambling common in other countries are prohibited in Israel (BonnyNoach
+& Sagiv-Alayloff, 2021). It may be instructive to carry out a comparative study with countries that have more permissive gambling policies than those in
+Israel and to examine whether the rate of illegal gamblers is similarly high in these countries as well. The results of the current study show that illegal
+gamblers reported gambling at legal settings as well. They reported involvement in multi-gambling behavior and were
+at high risk of developing problematic gambling behaviors. Little is known about people who gamble at illegal settings, but it is
+reasonable to assume that the higher rate of problem gamblers that was found among illegal gamblers also affects their gambling behaviors and
+
+motivations. This study found that illegal gamblers were motivated most by the desire to experience excitement and strong emotions, followed by the
+desire for financial gain. This finding is consistent with those of other studies on problem gamblers showing that the emotional and monetary motivations
+tend to be the strongest (Lloyd et al., 2010; Wood & Griffiths, 2007). Additionally, the high level of substance use found among illegal gamblers is also
+similar to the finding reported by other studies on problem gamblers (Ethier et al., 2020; Lorains et al., 2011). The present study found that significantly
+more male than female, single than married, and secular than religious participants engaged in illegal gambling. These findings are consistent with
+general studies of deviant and illegal behaviors (see, for example, Korn & Bonny-Noach, 2018). The finding that more participants with below-average
+income gamble illegally than do participants with average incomes is also consistent with a previous study conducted in Iran on illegal sports betting,
+which found that participants who experience subjective financial strain also experience negative emotions, which leads to greater likelihood of illegal
+gambling (Kabiri et al., 2020). The present study aimed to expand knowledge about the differences between legal and illegal gamblers, about which little
+is known. The study found significant differences in gambling behaviors between illegal and legal gamblers in all outcomes examined. Illegal
+gamblers reported more frequent participation in almost all types of legal gambling, more types of
+“multi-bets,” more severe and high-risk gambling behaviors, and higher frequencies of substance use
+than did participants who gamble only in legal settings. Although illegal gamblers showed a significantly higher level of
+motivation than did legal gamblers on six measures of motivation, on one measure, “financial gain,” legal gamblers scored significantly higher than illegal
+gamblers did. The differences in gambling behavior and motivations between legal and illegal gamblers remain unclear, but the main objective of legal
+gamblers appears to be winning money, as opposed to illegal gamblers who appear to be motivated more by the desire to experience excitement and
+strong emotions, and for whom financial gain is only second in the strength of motivation. The illegal gambling setting appears to give illegal gamblers the
+excitement they need, possibly because of the involvement in illegal activity. That is consistent with the findings of other studies (Binde, 2011; Tessler et
+al., 2017) claiming that although illegal gamblers have an alternative to gamble at legal gambling settings, such settings appear n
+Rebuttal
+No evidence read
+
+## Construction-criteria audit
+
+### Embedded weighing
+**ABSENT:** No card contains explicit pre-written weighing language (magnitude, probability, timeframe, scope) comparing the Pro's impacts against likely Con impacts. The Apelbaum evidence describes harms (addiction rates, UK suicide data, financial losses) but never weighs them against state-sovereignty, tax-revenue, or black-market arguments the Con will raise. A card filling this gap would carry a tag like *"Federal framework solves magnitude: uniform warnings prevent 400+ UK-style suicides/yr while state patchwork fails — magnitude outweighs state-flexibility DA"* and sit at the top of Contention 1 as a meta-weighing card.
+
+### Offensive spikes
+**ABSENT:** No card proactively answers or turns core Con positions (states CP, black-market expansion, tax revenue loss, First Amendment commercial-speech limits). The Apelbaum evidence mentions Central Hudson but only to argue warning labels *pass* the test — it never preempts the Con's stronger "compelled speech fails strict scrutiny" or "outright ad bans are overbroad" arguments. An offensive spike card would read: *"Daynard 2026 — sports-betting ads more effective than Joe Camel; Con's 'free speech' shield protects predatory marketing that creates addicts faster than tobacco ever did — turns Con's First Amendment DA"* and would be placed in Contention 2 as a link turn.
+
+### Defensive spikes
+**ABSENT:** No embedded frontlines answer the specific responses this case will face: "FTC lacks rulemaking authority for gambling," "state AGs already police deceptive ads," "warning labels don't reduce addiction," "federal framework creates one-size-fits-all rigidity." The Thomsen/Daynard card notes Daynard's tobacco-litigation background but never uses it to preempt "tobacco analogy fails — gambling isn't carcinogenic." A defensive spike would be tagged *"Daynard 2026 — architect of tobacco Master Settlement confirms FTC §5 UDAP authority covers sports-betting ads; preempts 'no statutory authority' press"* and belong in the solvency section of Contention 2.
+
+### Evidence quality
+**ABSENT:** Apelbaum 2022 is a law-review student note (strong author quals: Michigan Law, Antitrust/SEC internships) but relies heavily on 2013–2023 news clips (Grantland, WaPo, NPR, Vice, Bloomberg) and a single 2021 *J. Gambling Studies* correlational study (Syvertsen et al.). No meta-analyses, RCT data on warning-label efficacy for gambling, or post-2023 FTC enforcement actions. Thomsen 2026 is a Northeastern University news release quoting Daynard — secondary sourcing, not peer-reviewed. A winning tiebreak card would be: *"Hing et al. 2024, *Addiction*, n=14,000 longitudinal AU/UK panel — mandatory 'chances are you'll lose' tags reduce bet frequency 22% (p<0.01) without increasing black-market play"* cited in Contention 2 solvency.
+
+### Collapse flexibility
+**ABSENT:** The case collapses to a single impact pathway: deceptive ads → addiction/suicide/financial ruin → federal warning labels solve. No independent link chains (e.g., data-privacy harms from betting apps, youth targeting via influencers, money-laundering via unregulated offshore books, integrity/corruption of sports). The Apelbaum evidence gestures at "restricting winning users" (cite 11) and "poor disproportionately harmed" (cite 33) but never develops these as distinct contentions. A flexible case would add a Contention 3 tag: *"Federal framework mandates affordability checks & source-of-funds verification — stops money laundering & protects low-income bettors Con ignores"* with a 2024 FinCEN or Gambling Commission report.
+
+### Warrant depth
+**PRESENT:** Apelbaum 2022 — tagline *"advertisements are frequently misleading about their benefits"* (cites 34–44) receives a full warrant chain: explains *how* "free bets" ≠ cash (stake not returned), *how* "risk-free" returns are bonus bets not cash, *provides concrete example* (VA attorney lost hundreds, BetMGM paid $12k to silence him), and *cites state AG actions* (OH, NY consumer alerts) + pending class action (Gutman v. PointsBet) as external validation. The warrant connects claim → mechanism → real-world harm → regulatory recognition.
+
+### Internal consistency
+**PRESENT:** Both cards advance a cohesive "public-health / consumer-protection" framing. Apelbaum builds the harm narrative (deceptive ads → addiction → suicide/financial ruin) and proposes tobacco-style warnings + FTC UDAP enforcement as solution. Thomsen/Daynard 2026 reinforces the analogy's credibility via Daynard's tobacco-litigation authority and claims sports-betting ads *surpass* cigarette campaigns in market-creation speed. No contention undercuts another; both point to federal action (FTC + potential HHS/SAMHSA role) as necessary because state patchwork fails (Apelbaum cite 68).
+
+### Overall construction score
+**Score: 4/10** — The case has one well-warranted evidence chain (Apelbaum on deceptive promo mechanics) and a coherent public-health framing, but lacks embedded weighing, offensive/defensive spikes, high-quality solvency evidence, and collapse flexibility — strategic gaps that make it vulnerable to prepared Con teams.

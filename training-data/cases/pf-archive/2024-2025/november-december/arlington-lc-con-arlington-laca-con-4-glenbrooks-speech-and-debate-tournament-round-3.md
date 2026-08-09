@@ -1,0 +1,1255 @@
+---
+title: Arlington LC (Con) — 4. Glenbrooks Speech and Debate Tournament, 2024-2025 november-december PF case
+tags: [case, public-forum, pf-archive, season-2024-2025, cycle-november-december, side-con, top100-rank-35]
+team: Arlington LC
+elo_rank: 35
+season: 2024-2025
+cycle: november-december
+resolution: "The United States should substantially reduce its military support of Taiwan."
+side: Con
+tournaments: ["4. Glenbrooks Speech and Debate Tournament"]
+source_doc: Arlington-LaCa-Con-4.-Glenbrooks-Speech-and-Debate-Tournament-Round-3.pdf
+---
+
+Open-source case doc read by Arlington LC (season Elo rank #35) on the 2024-2025 november-december PF topic — "Resolved: The United States should substantially reduce its military support of Taiwan." — at: 4. Glenbrooks Speech and Debate Tournament.
+
+C1 is Farm Bill (1:00)
+The Farm bill just expired
+HPR 24 (HawaiʻI Public Radio, 11-8-2024, "Presidential election outcome could motivate Congress to push for a new Farm Bill", Hawai'i
+Public Radio, https://www.hawaiipublicradio.org/local-news/2024-11-08/presidential-election-outcome-new-farm-bill // scarman)
+. The 2018 Farm Bill expired in September with no replacement, as federal lawmakers have spent
+over a year arguing over the details of the proposed $1.5 trillion legislation. Congress went on break in October,
+and following the election will return to Washington to continue working on the bill. The Farm Bill supports a breadth of food-related efforts,
+although a large majority — around 75%, according to Tokuda — of it is food money, including funding for programs to feed low-income
+households, such as the federal Supplemental Nutrition Assistance Program.
+But a new one is likely now
+HPR 24 (HawaiʻI Public Radio, 11-8-2024, "Presidential election outcome could motivate Congress to push for a new Farm Bill", Hawai'i
+Public Radio, https://www.hawaiipublicradio.org/local-news/2024-11-08/presidential-election-outcome-new-farm-bill // scarman)
+There could be a push to pass a federal Farm Bill before President Joe Biden leaves office in
+January. The presidential election will usher in a new administration and a Republican-controlled Senate,
+prompting congressional lawmakers focused on agriculture to pass a Farm Bill within the next couple of
+months. “I think for the Republicans even — they're, yes, going to potentially control the Senate, they have the White House, and potentially
+the House as well next year — there's a lot of uncertainty in terms of the regulations, policies and funding levels the Trump
+administration will want to impose,” said Hawaiʻi U.S. Rep. Jill Tokuda, who sits on the U.S. House Agriculture Committee, on
+Thursday during the first day of the Hawaiʻi Agriculture Conference in Honolulu. Tokuda said even Republican lawmakers in
+agriculture are motivated to get a bill passed by January. “There will be a whole ‘nother (Congressional Budget Office) score
+— the cost of this now $1.5 trillion Farm Bill, the largest we've ever seen in history. And so there is a concern that a conservative administration
+will want to cut,” she added.
+However, keeping the coalition together is key.
+McCullough 24 [Currey McCullough, 5-28-2024, RFD-TV, “Senate leaders respond to House Ag
+Committee’s Farm Bill passage,”
+https://www.rfdtv.com/senate-leaders-respond-to-house-ag-committees-farm-bill-passage, Willie T.]
+The House version of the Farm Bill has made it through a pivotal phase, after passing the Ag Committee. We are now hearing from leaders on the
+Senate side. Chairwoman Debbie Stabenow expressed optimism about advancing the 2024 Farm bill but acknowledged challenges in achieving
+consensus. Ranking Member John Boozman praised progress but emphasized the need to address inflation and market challenges. House Ag
+Chair GT Thompson says he will coordinate with the Senate and hopes to have a floor vote by September. As the process for a new
+Farm Bill gains momentum, bipartisan support emerges as crucial for its further progression, according to the
+American Farm Bureau Federation’s Government Affairs Director. “With the tight margins in the House--Republicans
+have a majority of five--we need the bill to be a bipartisan bill, otherwise, this will not make it to the
+House floor. We know that there are some Republicans who will vote against any new spending. And so, this
+bill, if it has a chance to make it in this Congress, needs to be done with bipartisanship, and that’s what we hope to see,” said Joe Gilson. Gilson
+says history shows the Farm Bill has always been a bipartisan effort, bringing broad swaths of food and agriculture together. “The Farm Bill has
+always been done in a bipartisan basis with a coalition of nutrition, environmental and farm commodity organizations, and constituents from
+across the country supporting this. We need to keep that coalition together to get the bill across the finish line, and
+farmers and ranchers across the country need to see investments made in the farm safety net.” He adds that he supports the bill by Chairman
+
+Thompson, which includes more spending in the farm safety net, provisions for interstate commerce, dairy program improvements, and increased
+conservation resources for famers.
+The aff is unpopular and spikes polarizaition.
+Glaser 15 [Charles L. Glaser, 2015, "A U.S.-China Grand Bargain? The Hard Choice between Military Competition and
+Accommodation", JSTOR,
+https://www.jstor.org/stable/24480607?seq=6, ellipses in original // recut by scarman]
+Many domestic barriers exist to ending the U.S. commitment to Taiwan. Beyond the risks noted above, which
+will fuel policy-based resistance, the United States' long-standing commitment to and involvement with Taiwan have created
+historical and ideological connections. Most concretely, the United States is committed under the Taiwan Relations
+Act to "consider any effort to determine the future of Taiwan by other than peaceful means ... of
+grave concern to the United States" and to "provide Taiwan with arms of a defensive character."14 Thus,
+ending the U.S. commitment to Taiwan would require repeal of the Taiwan Relations Act by the U.S. Congress, where repeal
+would almost certainly face influential opponents. In addition, for many American observers, geopolitical accommodation
+would be a glaring, concrete admission of American decline that lashed with their image of the United States as the globe's sole
+superpower.15
+And Dems hate the plan
+Chhabra 24 [Sasha B. Chhabra, 10-13-2024, "Taiwan needs bipartisan support", Taipei Times,
+https://www.taipeitimes.com/News/editorials/archives/2024/10/13/2003825196// recut by scarman]
+Despite this setback, the Democratic Party has long been strongly supportive of Taiwan, even including
+explicit support for Taiwan in its party platform this year, something the Republicans did not include. The Taiwan
+Relations Act was drafted by a Democratic congressman, passed with overwhelming bipartisan support in a
+Democrat-controlled Congress and signed by then-US president Jimmy Carter, a lifelong Democrat (who recently
+turned 100 years old). Nancy Pelosi, the former US House of Representatives speaker and the most powerful Democrat in
+Congress in the past century, has been one of Taiwan’s strongest supporters in Washington. Pelosi in 2022 pushed
+forward with a high-profile visit, despite the rumored objections of US President Joe Biden, who himself voted for the Taiwan Relations Act
+and has vowed four times to defend Taiwan. Her visit echoed a 1997 visit by then-US House of Representatives speaker Newt Gingrich, a
+Republican, emphasizing the longstanding robust bipartisan congressional support for Taiwan.
+And the Taiwan lobby backlashes forcing discussions about Taiwan instead of the
+farm bill
+Medeiros 23 (Evan S Medeiros, 10-20-2023, "", “The New Domestic Politics of U.S.-China Relations”, Asia Society Policy Institue
+https://asiasociety.org/sites/default/files/2023-12/ASPI%20CCA%20The%20New%20Domestic%20Politics%20of%20U.S.-China%20Relations.pdf //
+recut by scarman)
+The Taiwan lobby has been a key interest group at the center of U.S. debates about China for decades, though
+its influence has waxed and waned. This is a collection of government and nongovernment experts and organizations that seek to advance
+Taiwan’s interests before the U.S. Congress, the executive branch, the media, and the broader public. Their activities and influence on
+policymaking have changed substantially in the past 15 years. During the George Bush administration, this group’s influence in Washington
+generally declined given the tensions between the United States and Taiwan from 2002 to 2008 and the well-known dislike by President Bush of
+
+Taiwanese president Chen Shui-Bian (who left office in 2008). During the Obama administration, Taiwan’s official representatives in Washington
+— in contrast to the 1980s and 1990s — worked more with the administration than through Congress to advance Taiwan’s agenda. Taiwan
+believed that progress was easier in this era given the positive relations between Beijing and Taipei following President Ma’s 2008 election and
+used that to grow U.S.-Taiwan cooperation. During the Trump administration and up to today, Taiwan’s representatives and advocates have been
+pulling on all levers — Congress, the executive branch, think tanks, and the media — to get more attention to
+Taiwan’s situation and more U.S. cooperation with Taiwan, especially defense cooperation. As a result of these efforts, and of China’s
+increasing assertiveness in the region and especially across the Taiwan Strait, both the Trump and the Biden administrations increased their
+interactions with Taiwan, such as by offering new types of access and privileges. Notably, in June 2023, the United States and Taiwan signed their
+first trade agreement, called the U.S.-Taiwan Initiative on 21st Century Trade.43
+The Farm Bill restores forests via wildfire management.
+Elbein 23 [Saul Elbein, 3-24-2023, Legislators, lobbyists look to farm bill to save American forests, Hill,
+https://thehill.com/policy/future-of-farming/3903990-legislators-lobbyists-look-to-farm-bill-to-save-american-forests/, Willie T.]
+Congress and the U.S. Forest Service are looking to the farm bill to pour new life into the nation’s fire-plagued
+forests. Against the backdrop of looming threats such as wildfires, legislators and lobbyists alike want to use
+the mammoth bill, worth more than a trillion dollars, to garner federal funding and create markets to pay for efforts to conserve and
+restore woodlands. With the 2018 Agriculture Improvement Act expiring in September, negotiations over the next farm bill
+— a massive grab-bag of programs that helps pay for virtually every aspect of American food — will likely peak in late summer.
+That timing means that hearings will likely be backlit by worsening Western wildfires, a continuing
+catastrophe that will help keep a focus on forestry front and center amid the larger, sprawling
+negotiations. For the U.S. Forest Service, the final legislation could empower — or constrain — the agency’s
+efforts to reverse more than a century of mismanagement of the country’s forests in just a decade. For
+industry, it could enable the creation of lucrative new markets and, if its boosters’ biggest dreams come true, lay the
+groundwork for the triumphant return of wood products to the American home. And for millions of acres of American woodlands, it could mean a
+new golden age — or at least a path to survival. Reducing America’s fire risk Over the next 10 years, the Biden administration plans to
+double the level of “fuel treatments” — tree-clearing and prescribed burns — carried out in wildfire-prone
+Western forests. Loggers and firefighters will traipse across 20 million acres of American forest (the approximate size of Kansas), using fire and
+saws to clear out brush, shrubs and small trees in an effort to mitigate fire risk. The Forest Service needs money or
+support from the farm bill for those efforts. In the past, funds from the bill have gone toward everything from paying for
+large-scale fuel reduction (the Landscape-scale Restoration Program) to giving the agency authority to make independent forest-management
+deals with state forestry agencies (the Good Neighbor Authority). Congress can also pass legislation directing the secretary of Agriculture to
+prioritize certain conservation ends — carbon storage, fuel reduction, water quality — over others, and make it easier (or more difficult) for
+landowners to use techniques like prescribed burns, or to integrate forestlands with farms. The need for risk reduction is urgent. Thanks to
+decades of “mismanagement,” in Western forests where trees had historically been “in the tens per acre, densities reached hundreds, thousands
+per acre,” said Marcos Robles, a forest ecologist with the Arizona Nature Conservancy. These forests are in a race against time,
+Robles told The Hill: not only are their close-packed ranks extremely vulnerable to sudden wildfire, but a study
+he co-authored showed that the often-harsh climate of the West is growing ever less hospitable to young
+conifers. That study found that by midcentury, 7 million acres of Western forests — three times the size of
+Yellowstone — are in danger of transforming into something else: shrubland, grassland or savannah.
+Getting out ahead of that crisis will require land management on a staggering scale, according to the Forest Service, as the agency seeks to correct
+in just one decade the damage of the past century.
+North American Forests are key.
+
+Skene 21 [Jennifer Skene, Natural Climate Solutions Policy Manager, International Program at the NRDC, Visiting Clinical Lecturer in
+Law at Yale Law School, JD from Yale Law School, “Our Climate Future Is Rooted in North America’s Forests”,
+https://www.nrdc.org/bio/jennifer-skene/our-climate-future-rooted-north-americas-forests]
+Forest protection, once the “forgotten” climate solution, has become an integral pillar of climate discussions. But
+while attention has largely focused on forests like those of the Amazon and Indonesia, the climate doesn’t hinge just on what
+happens in the tropics. It also depends on the boreal; the temperate rainforests of the Pacific; the conifer
+forests of the Rockies; the Northeastern coastal forests; the Southern wetland forests. These forests in
+North America are being lost or stripped of carbon rich mature trees right under our noses and need to remain standing and
+intact if we are going to achieve a climate-safe, sustainable future. As the Biden administration looks to act on its
+historic commitment to reducing U.S. greenhouse gas emissions by at least 50% by 2030, it needs to embrace a bold new vision for forest
+protection that looks at how we can protect the climate-critical forest resources in our own backyard.
+North America’s forests, the homelands of Indigenous communities and havens of rich biodiversity, are some of the
+most carbon-dense areas on Earth. These forests are part of the global forest respiratory system that,
+each year, absorbs one-third of human-caused greenhouse gas emissions. They are also gatekeepers of vast
+stores of carbon locked safely out of the atmosphere in their soils and biomass. The Canadian boreal forest alone
+stores twice as much carbon as the world’s oil reserves, while U.S. forests collectively absorb the equivalent of about 12
+percent of the nation’s annual carbon pollution. Their sentry stands between us and climate
+catastrophe.
+Extinction.
+Kemp et al. 22 [*Luke Kemp, Centre for the Study of Existential Risk, University of Cambridge; *Chi Xu, School of Life
+Sciences, Nanjing University; *Joanna Depledge, Cambridge Centre for Environment, Energy and Natural Resource Governance,
+University of Cambridge; *Timothy Lenton, Global Systems Institute, University of Exeter; August 1st, 2022, “Climate Endgame:
+Exploring catastrophic climate change scenarios”, https://www.pnas.org/doi/10.1073/pnas.2108146119#sec-3] recut brett
+Worst-Case Climate Change Despite 30 y of efforts and some progress under the United Nations Framework Convention on Climate Change (UNFCCC) anthropogenic greenhouse
+gas (GHG) emissions continue to increase. Even without considering worst-case climate responses, the current trajectory puts the world on track for a
+temperature rise between 2.1 °C and 3.9 °C by 2100 (11). If all 2030 nationally determined contributions are fully implemented, warming of 2.4 °C (1.9 °C to 3.0 °C) is expected
+by 2100. Meeting all long-term pledges and targets could reduce this to 2.1 °C (1.7 °C to 2.6 °C) (12). Even these optimistic assumptions lead to dangerous Earth system
+trajectories. Temperatures of more than 2 °C above preindustrial values have not been sustained on Earth’s surface since before the Pleistocene
+Epoch (or more than 2.6 million years ago) (13). Even if anthropogenic GHG emissions start to decline soon, this does not rule out high future GHG concentrations or extreme climate change,
+particularly beyond 2100. There are feedbacks in the carbon cycle and potential tipping points that could generate high GHG concentrations (14)
+that are often missing from models. Examples include Arctic permafrost thawing that releases methane and CO2 (15), carbon loss due to intense droughts
+and fires in the Amazon (16), and the apparent slowing of dampening feedbacks such as natural carbon sink capacity (17, 18). These are likely to not be proportional
+to warming, as is sometimes assumed. Instead, abrupt and/or irreversible changes may be triggered at a temperature threshold. Such changes are evident in
+Earth’s geological record, and their impacts cascaded across the coupled climate–ecological–social system (19). Particularly worrying is a “tipping cascade” in which multiple tipping
+elements interact in such a way that tipping one threshold increases the likelihood of tipping another (20). Temperature rise is crucially dependent on
+the overall dynamics of the Earth system, not just the anthropogenic emissions trajectory. The potential for tipping points and higher concentrations despite lower anthropogenic emissions is
+evident in existing models. Variability among the latest Coupled Model Intercomparison Project Phase 6 (CMIP6) climate models results in overlap in different scenarios. For example, the top
+(75th) quartile outcome of the “middle-of-the-road” scenario (Shared Socioeconomic Pathway 3-7.0, or SSP3-7.0) is substantially hotter than the bottom (25th) quartile of the highest emissions
+(SSP5-8.5) scenario. Regional temperature differences between models can exceed 5 °C to 6 °C, particularly in polar areas where various tipping points can occur (SI Appendix). There are even
+more uncertain feedbacks, which, in a very worst case, might amplify to an irreversible transition into a “Hothouse Earth” state (21) (although there may
+be negative feedbacks that help buffer the Earth system). In particular, poorly understood cloud feedbacks might trigger sudden and irreversible global warming (22). Such effects remain
+underexplored and largely speculative “unknown unknowns” that are still being discovered. For instance, recent simulations suggest that stratocumulus cloud decks might abruptly be lost at CO2
+
+concentrations that could be approached by the end of the century, causing an additional ∼8 °C global warming (23). Large uncertainties about dangerous surprises are reasons to prioritize rather
+than neglect them. Recent findings on equilibrium climate sensitivity (ECS) (14, 24) underline that the magnitude of climate change is uncertain even if we knew future GHG concentrations. According to the IPCC, our best estimate for ECS is a 3 °C temperature rise per doubling of
+CO2, with a “likely” range of (66 to 100% likelihood) of 2.5 °C to 4 °C. While an ECS below 1.5 °C was essentially ruled out, there remains an 18% probability that ECS could be greater than 4.5 °C (14). The distribution of ECS is “heavy tailed,” with a higher probability of very high values
+of ECS than of very low values. There is significant uncertainty over future anthropogenic GHG emissions as well. Representative Concentration Pathway 8.5 (RCP8.5, now SSP5-8.5), the highest emissions pathway used in IPCC scenarios, most closely matches cumulative emissions to date
+(25). This may not be the case going forward, because of falling prices of renewable energy and policy responses (26). Yet, there remain reasons for caution. For instance, there is significant uncertainty over key variables such as energy demand and economic growth. Plausibly higher
+economic growth rates could make RCP8.5 35% more likely (27). Why Explore Climate Catastrophe? Why do we need to know about the plausible worst cases? First, risk management and robust decision-making under uncertainty requires knowledge of extremes. For example, the minimax
+criterion ranks policies by their worst outcomes (28). Such an approach is particularly appropriate for areas characterized by high uncertainties and tail risks. Emissions trajectories, future concentrations, future warming, and future impacts are all characterized by uncertainty. That is, we can’t
+objectively prescribe probabilities to different outcomes (29). Climate damages lie within the realm of “deep uncertainty”: We don’t know the probabilities attached to different outcomes, the exact chain of cause and effect that will lead to outcomes, or even the range, timing, or desirability of
+outcomes (, 30). Uncertainty, deep or not, should motivate precaution and vigilance, not complacency. Catastrophic impacts, even if unlikely, have major implications for economic analysis, modeling, and society’s responses (31, 32). For example, extreme warming and the consequent
+damages can significantly increase the projected social cost of carbon (31). Understanding the vulnerability and responses of human societies can inform policy making and decision-making to prevent systemic crises. Indicators of key variables can provide early warning signals (33).
+Knowing the worst cases can compel action, as the idea of “nuclear winter” in 1983 galvanized public concern and nuclear disarmament efforts. Exploring severe risks and higher-temperature scenarios could cement a recommitment to the 1.5 °C to 2 °C guardrail as the “least unattractive”
+option (34). Understanding catastrophic climate scenarios can also inform policy interventions, including last-resort emergency measures like solar radiation management (SRM), the injection of aerosols into the stratosphere to reflect sunlight (35). Whether to resort to such measures depends
+on the risk profiles of both climate change and SRM scenarios. One recent analysis of the potential catastrophic risk of stratospheric aerosol injection (SAI) found that the direct and systemic impacts are under-studied (36). The largest danger appears to come from “termination shock”: abrupt
+and rapid warming if the SAI system is disrupted. Hence, SAI shifts the risk distribution: The median outcome may be better than the climate change it is offsetting, but the tail risk could be worse than warming (36). There are other interventions that a better understanding of catastrophic
+climate change could facilitate. For example, at the international level, there is the potential for a “tail risk treaty”: an agreement or protocol that activates stronger commitments and mechanisms when early-warning indicators of potential abrupt change are triggered. The Potential for
+Climate Catastrophe There are four key reasons to be concerned over the potential of a global climate catastrophe. First, there are warnings from history. Climate change (either regional or
+global) has played a role in the collapse or transformation of numerous previous societies (37) and in each of the five mass extinction events in Phanerozoic
+Earth history (38). The current carbon pulse is occurring at an unprecedented geological speed and, by the end of the century, may surpass thresholds that triggered previous
+mass extinctions (39, 40). The worst-case scenarios in the IPCC report project temperatures by the 22nd century that last prevailed in the Early Eocene, reversing 50 million years of
+cooler climates in the space of two centuries (41). This is particularly alarming, as human societies are locally adapted to a specific climatic niche. The rise of
+large-scale, urbanized agrarian societies began with the shift to the stable climate of the Holocene ∼12,000 y ago (42). Since then, human population density peaked within a
+narrow climatic envelope with a mean annual average temperature of ∼13 °C. Even today, the most economically productive centers of human activity are
+concentrated in those areas (43). The cumulative impacts of warming may overwhelm societal adaptive capacity. Second, climate change
+could directly trigger other catastrophic risks, such as international conflict, or exacerbate infectious disease spread, and spillover risk. These could be
+potent extreme threat multipliers. Third, climate change could exacerbate vulnerabilities and cause multiple, indirect stresses (such as
+economic damage, loss of land, and water and food insecurity) that coalesce into system-wide synchronous failures. This is the path of systemic risk. Global
+crises tend to occur through such reinforcing “synchronous failures” that spread across countries and systems, as with the 2007–2008 global financial crisis (44). It is
+plausible that a sudden shift in climate could trigger systems failures that unravel societies across the globe. The potential of systemic climate risk is marked:
+The most vulnerable states and communities will continue to be the hardest hit in a warming world, exacerbating inequities. Fig. 1 shows how projected population
+density intersects with extreme >29 °C mean annual temperature (MAT) (such temperatures are currently restricted to only 0.8% of Earth’s land surface area). Using the medium-high scenario of
+emissions and population growth (SSP3-7.0 emissions, and SSP3 population growth), by 2070, around 2 billion people are expected to live in these extremely hot areas. Currently, only 30
+million people live in hot places, primarily in the Sahara Desert and Gulf Coast (43). Extreme temperatures combined with high humidity can negatively affect outdoor
+worker productivity and yields of major cereal crops. These deadly heat conditions could significantly affect populated areas in South and southwest Asia(47). Fig. 2 takes a
+political lens on extreme heat, overlapping SSP3-7.0 or SSP5-8.5 projections of >29 °C MAT circa 2070, with the Fragile States Index (a measurement of the instability of states). There is a
+striking overlap between currently vulnerable states and future areas of extreme warming. If current political fragility does not improve significantly
+in the coming decades, then a belt of instability with potentially serious ramifications could occur. Finally, climate change could irrevocably
+undermine humanity’s ability to recover from another cataclysm, such as nuclear war. That is, it could create significant latent risks (Table
+1): Impacts that may be manageable during times of stability become dire when responding to and recovering from catastrophe. These different
+causes for catastrophic concern are interrelated and must be examined together.
+It happens fast
+Garrison ’21 [Jim; 2021; PhD from the University of Cambridge, MA from Harvard University, BA from the University of Santa Clara;
+Ubiverse, “Human Extinction by 2026? Scientists Speak Out,” https://ubiverse.org/posts/human-extinction-by-2026-scientists-speak-out]
+This may be the most important article you will ever read, from Arctic News June 13, 2021. It is a presentation of current climate data
+around planet earth with the assertion that if present trends continue, rising temperatures and CO2 emissions could make
+human life impossible by 2026. That's how bad our situation is. We are not talking about what
+might happen over the next decades. We are talking about what is happening NOW. We are entering a time
+of escalating turbulence due to our governments' refusal to take any kind of real action to reduce global warming. We must immediately and with
+every ounce of awareness and strength that we can muster take concerted action to REGENERATE human community and
+
+C2 is Israel (0:45)
+Israel-Iran is manageable right now
+Rubin 24 (Shira Rubin, Education: Hebrew University, MA in Middle Eastern and Islamic Studies; New York
+University, BA in Middle Eastern and Islamic Studies. Shira Rubin is a journalist for The Washington Post based in
+Tel Aviv, covering news from Israel, the Palestinian territories and the region. Before joining The Post, Rubin
+worked as a freelance foreign correspondent from Israel, the Palestinian territories, Jordan, France, Germany and
+Britain. At the height of the wave of Syrian migration to Europe, Rubin reported from Turkey and Greece on the
+proliferation of social media-hosted human smuggling networks and on the mental health crisis among refugee
+communities. In the months prior to the Arab Spring revolutions, Rubin was a U.S. State, 10-15-2024, "Netanyahu
+tells U.S. that Israel will strike Iranian military, not nuclear or oil, targets, officials say," Washington Post,
+https://www.washingtonpost.com/world/2024/10/14/israel-iran-strike-nuclear-oil-military/, accessed 10-21-2024
+//GFS AL)
+TEL AVIV — Israeli Prime Minister Benjamin Netanyahu has told the Biden administration he is willing to strike military
+rather than oil or nuclear facilities in Iran, according to two officials familiar with the matter,suggesting a more
+limited counterstrike aimed at preventing a full-scale war. In the two weeks since Iran’s latest missile barrage on
+Israel, its second direct attack in six months, the Middle East has braced for Israel’s promised response, fearing the two countries’
+decades-long shadow war could explode into a head-on military confrontation. It comes at a politically fraught time for Washington, less than
+a month before the election; President Joe Biden has said publicly he would not support an Israeli strike on nuclear-related sites. When Biden
+and Netanyahu spoke Wednesday — their first call in more than seven weeks after months of rising tensions between the two men — the
+prime minister said he was planning to target military infrastructure in Iran, according to a U.S. official and an official familiar with the matter.
+Like others in this story, they spoke on the condition of anonymity to discuss sensitive deliberations. Israeli Defense Minister Yoav Gallant
+vowed Tuesday that Israel would respond to the Iranian attack, saying its response would be “precise, painful and surprising.” But, he added,
+“we are not interested in opening additional fronts or new conflicts.” �� Follow World news Follow The White House had no immediate
+comment. The Israeli prime minister’s office said in a statement that “we listen to the opinions of the
+United States, but we will make our final decisions based on our national interest.” The retaliatory action
+would be calibrated to avoid the perception of “political interference in the U.S. elections,” the official familiar with the matter said, signaling
+Netanyahu’s understanding that the scope of the Israeli strike has the potential to reshape the
+presidential race. An Israeli strike on Iranian oil facilities could send energy prices soaring, analysts say, while an attack on the country’s
+nuclear program could erase any remaining red lines governing Israel’s conflict with Tehran, triggering further escalation and risking a more
+direct U.S. military role. Netanyahu’s stated plan to go after military sites instead, as Israel did after Iran’s attack in April, was met with relief in
+Washington. Netanyahu was in a “more moderated place” in that discussion than he had previously
+been, said the U.S. official, describing the call between the two leaders. The apparent softening of the prime minister’s
+stance factored
+into Biden’s decision to send a powerful missile defense system to Israel, both officials said. After that call, the
+president was more inclined to do it, the U.S. official said. On Sunday, the Pentagon announced that it was deploying its anti-ballistic Terminal
+High Altitude Area Defense, or THAAD, battery system to Israel, along with about 100 U.S. military personnel. U.S. officials announced Tuesday
+that an advance team of personnel and initial components for the system had arrived in Israel the previous day. More personnel and
+components would continue to arrive in the coming days, they said. The deployment of the system “underscores the
+United States’ commitment to the defense of Israel,” the Pentagon said. A U.S. missile defense system called Terminal High
+Altitude Area Defense, or THAAD, at a golf course in Seongju, South Korea, on June 7, 2017. (Kim Jun-Beom/Yonhap/AP) The Israeli strike on
+Iran would be carried out before the U.S. elections on Nov. 5, the official familiar with the matter said, because a lack of action could be
+interpreted by Iran as a sign of weakness. “It will be one in a series of responses,” she said. Zohar Palti, a former intelligence director for Israel’s
+Mossad intelligence agency, said Netanyahu would need to balance Washington’s appeals for moderation with the public demand in Israel for
+an overwhelming response. “The Iranians have lost every measure of restraint that they used to have,” he said. “Without the U.S. weapons,
+Israel cannot fight,” Palti acknowledged. “But it is Israel who takes the risks” and “knows how to do the job.” On Thursday night, the official
+
+familiar with the matter said, Netanyahu convened his security cabinet for three hours to discuss the options on the table, but he did not seek
+official authorization for the attack from his cabinet — keeping the timing intentionally open-ended. Within the Israeli defense establishment,
+there is concern that the strike will not be forceful enough — or public enough — to deter Iran from another direct attack on Israel, or from
+developing nuclear weapons. “The Israeli military wants to hit Iran’s military leadership, because it doesn’t hurt the people and it doesn’t erupt
+the region into a larger war,” said Gayil Talshir, a political scientist at Hebrew University who is in contact with senior members of Israel’s
+defense establishment. “But that is not how Netanyahu is thinking.” In April, after a U.S.-led military coalition helped Israel intercept hundreds
+of Iranian drones and missiles — a large but well-choreographed attack — Israel responded with a pinpoint strike on an air base in Isfahan, in
+central Iran. Israeli officials mostly kept quiet after the attack, with the exception of far-right National Security Minister Itamar Ben Gvir, who
+posted on social media that the response was “lame!” An Iranian salvo of ballistic missiles flies over Israel amid cross-border hostilities between
+Hezbollah and Israel, as seen from Tel Aviv on Oct. 1. (Ammar Awad/Reuters) On Oct. 1, after successful Israeli operations against Iran and its
+proxies, including the assassination of Hezbollah leader Hasan Nasrallah, Tehran fired nearly 200 ballistic missiles at Israel — this time without
+warning — killing a Palestinian man in the West Bank and hitting at least two military installations. Amir Saeid Iravani, Iran’s ambassador to the
+United Nations, said the attack was meant to “restore balance and deterrence.” “When we responded last time, they didn’t get the message,”
+Palti said. “So the alternative now is between restraint or retaliation, and the answer is obvious.” But Israel is already fighting on multiple
+fronts. Late last month, thousands of Israeli troops invaded southern Lebanon for the first time in nearly two decades and, last week, the
+military unleashed yet another punishing offensive in northern Gaza. When it comes to Tehran, figures close to Netanyahu’s team have signaled
+strategic patience. “Just as we waited with [Hezbollah in] Lebanon, and with [Hamas in Gaza] in the south, now I think we will have to wait with
+Iran,” Natan Eshel, an adviser to the Netanyahu family, said in a leaked message to Israeli media Sunday. “We will get to the same point in the
+north, we will finish it, and then get to Iran, which is not going anywhere.” On timing, too, Netanyahu appeared to be taking cues from
+Washington: The United States is “giving Israel and the Netanyahu government a bear hug, but for Hezbollah,” said a former senior Israeli
+defense official who is familiar with current security discussions. “It is sending THAAD and promising all kinds of weapons that we need to finish
+off Hezbollah, saying that we can deal with Iran later.” While the White House has pushed unsuccessfully for a cease-fire in Gaza for months,
+leading to mounting friction between Netanyahu and Biden, it has so far given full backing to Israel’s ground operations in Lebanon, even amid
+a growing international outcry over the civilian toll of the war and Israeli clashes with U.N. peacekeepers tasked with monitoring the border
+zone. As part of consultations with the United States, the official familiar with the matter said, Israel has told Washington it intends to wrap up
+operations in Lebanon in the coming weeks. Netanyahu’s increased coordination with Washington comes after
+high-profile strikes carried out without advance warning to Israel’s closest ally — including a strike on Iranian
+commanders near a diplomatic facility in Damascus, Syria, and the assassination of Hamas leader Ismail Haniyeh in Tehran — which
+surprised and angered U.S. officials.
+Israeli’s linked to Taiwan
+Hioe 24 [Brian Hioe, Brian Hioe is one of the founding editors of New Bloom. He is a freelance journalist, as well
+as a translator. A New York native and Taiwanese-American, he has an MA in East Asian Languages and Cultures
+from Columbia University and graduated from New York University with majors in History, East Asian Studies, and
+English Literature. He was Democracy and Human Rights Service Fellow at the Taiwan Foundation for Democracy
+from 2017 to 2018 and is currently a Non-Resident Fellow at the University of Nottingham's Taiwan Studies
+Programme, "Tsai Administration Seeks to Reassure on US Support After Aid Package", 4/23/24, New Bloom,
+https://newbloommag.net/2024/04/23/us-aid-package-reassure/] // GFS LZ
+THE US HOUSE APPROVED 8 billion USD in foreign aid for Taiwan last week. This came as part of a package that contained an overall 95 billion USD in
+foreign aid, which included 60.8 billion USD for Ukraine and 26 billion USD for Israel. That aid for Taiwan, Ukraine, and Israel were
+combined in a single package illustrates how the three issues are linked for the US. Nevertheless, passage of
+the package was delayed by pushback from Republicans aligned with former US president Donald Trump, popularly referred to as MAGA Republicans,
+against aid for Ukraine. MAGA Republicans have often framed Ukraine as a freeloader coasting off of US munificence. To this extent, this has sometimes
+included embrace of conspiracy theories about Ukraine, as well as unusually positive views of Russia. To date, MAGA Republicans have called for greater
+support for Taiwan. Sometimes this has been with the suggestion that aid for Ukraine should be decreased and aid for Taiwan increased. Yet such views
+raise questions as to what the stances of such individuals might be on US support for Taiwan down the line. Indeed, as the US presidential elections
+approach, there are rising concerns about what the implications for Taiwan of a second Trump presidency could be. Although Trump took a phone call
+from President Tsai Ing-wen before the start of his first term, Trump later proved unusually conciliatory of Chinese president Xi Jinping. The Trump-Tsai
+phone call initially led to rosy perceptions of Trump in Taiwan, seeing him in line with Republicans traditionally antagonistic to China on anti-Communist
+grounds. But there is now greater awareness of the times that Trump has unpredictably flip-flopped on his stances. Incidents such as Trump verbally
+comparing Taiwan to the size of a pen and China to the size of the desk used in the Oval Office have now been widely reported on in Taiwan. Individuals
+present in the first Trump administration who held his Taiwan policy in check have now burned their bridges with Trump and will not be in the second
+Trump administration. To this extent, the Tsai administration has emphasized the importance of US aid for Ukraine. This is with domestic implications in
+mind. Namely, the pan-Blue camp has increasingly leaned into casting doubt on the reliability of the US as an ally in wartime. This has been the case after
+the war in Ukraine, with attempts to attack the Tsai administration by framing Taiwan as potentially seeing retaliation if it becomes too close with the US.
+
+Analogy is drawn with Ukraine, by way of the suggestion that Ukraine was only attacked by Russia because it became too close to NATO, suggesting that
+this would occur with strengthened ties with the US. FORMER US PRESIDENT DONALD TRUMP. PHOTO CREDIT: GAGE SKIDMORE/FLICKR/CC BY-SA 2.0
+DEED Furthermore, Ukraine is framed as indicating how the US would not become involved in a conflict between Taiwan and China but only seek to
+provide arms from afar. But this has also involved casting doubt on the weapons systems that Taiwan provides to the US, with the suggestion that foists
+useless, dangerous, and outdated arms onto Taiwan in order for its military-industrial complex to profit. Consequently, the Tsai administration, as well as
+the succeeding Lai administration, have emphasized US support for Ukraine, in that lack of US support for Ukraine will give ammunition to the pan-Blue
+camp. Apart from that such narratives have been embraced by the pan-Blue camp, so, too, have such narratives become bound up with Chinese
+disinformation. This would be a means of discouraging resistance in Taiwan that would take place with the expectation of eventual aid from afar. After all,
+China would face steep challenges in mounting an invasion of Taiwan, not only in terms of the loss of life but the significant economic impact that would
+ensue. That being the case, the Chinese government would prefer to take Taiwan without having to engage in an actual armed conflict. Either way, the
+alignment of Taiwan and Israel proves an uncomfortable one in light of Israel’s genocide of Palestinians in Gaza. While most in Taiwan
+are not attentive to what is occurring in Gaza, the framing aligns defense of Ukraine and Taiwan uncomfortably with Israel’s mass violations of human
+rights. Yet this is not exactly a newalignment where US geopolitical directives are concerned, in terms of attempts to
+contain China or Russia. It is generally expected that the package will not have subsequent difficulties being singed into law. But as there were delays in
+the approval of the package, the Tsai administration has sought to reassure that this indicates continued US support of Taiwan, as well as that such
+support occurs on a bipartisan consensus. It is another question entirely as to whether the Taiwanese public accepts this narrative, however
+Thus,
+Hsiao ‘23 (Global Taiwan Institute, Russell Hsiao is the executive director of the Global Taiwan Institute and the
+editor-in-chief of the Global Taiwan Brief, 11-15-2023, "Assessing the Knock-On Effects of Taiwanese
+Perceptions toward the Israel-Hamas War,"
+https://globaltaiwan.org/2023/11/assessing-the-knock-on-effects-of-taiwanese-perceptions-toward-the-israel-ha
+m as-war/, accessed 10-11-2024 //GFS AL) **brackets for problematic language
+Effects of the Israel-Hamas on American Public Opinion For both Beijing and Taipei, it will also be critical to keep tabs on the implications of the
+Israel-Hamas war for American public attitudes toward the defense of Taiwan—as well as the overall US wherewithal and capacity to militarily
+intervene in the event of a military conflict. As noted earlier, a key to forecasting the effects on Taiwanese perception will also be to understand
+the US reaction to these events. In the case of the Ukraine War, Washington’s decision to not intervene directly contributed to heightened
+doubts about the likelihood of US intervention in the event of a military conflict in the Taiwan Strait. Accordingly, the US response to the
+Israel-Hamas war—depending on the scale and level of support—will likely have a reverberating effect on public perceptions within Taiwan
+concerning US commitment to its defense. It stands to reason thatstronger perceived support for Israel from the United
+States will likely buoy perceptions in Taipei that the US would be more likely to defend Taiwan
+against a PRC attack. Conversely, a perceived lack of support will likely contribute to deteriorating
+confidence in US support in the event of a military conflict. It is also worth pointing out that Ukraine and Israel are
+not necessarily viewed as equally critical to US foreign and security policy. While debates continue to rage within the US Congress about
+whether supporting Ukraine is a vital US interest—with some arguing that doing so serves as an unnecessary drain on resources—there is
+strong, bipartisan Congressional and public support for Israel. Indeed, according to an NPR/PBS poll: “Overall, 65 percent said the US
+should support Israel publicly. That was true of big majorities of both parties—77 percent of Republicans and 69 percent of Democrats.” To be
+sure, American public opinion on US foreign policy is far from monolithic. Such diversity of thought would also impact support for Taiwan’s
+defense, depending on whether Taiwan is seen more like Ukraine or Israel in the eyes ofthe American public. Impact of the
+Israel-Hamas War on Support for the Defense of TaiwanRelevant to this analysis is a Chicago Council on Global Affairs survey, released in
+October 2023, that revealed how the Ukraine War has contributed to declining US support for militarily intervening in Taiwan’s defense. The
+poll “finds evidence that US involvement in the war between Russia and Ukraine has played a role in American attitudes on foreign policy,
+from dampening public support for defending US allies and maintaining US military bases abroad to
+continued financial and military assistance to Kyiv.” Indeed, the Ukraine War is likely dampening the American public’s willingness to commit
+troops to come to Taiwan’s defense. As kinetic military conflict reignites in the Middle East [West Asia] —and is likely to
+continue for months, if not years—how will public support for the defense of Taiwan shift in the coming months as these simultaneous
+conflicts wear on? While it is still too early to predict with any certainty, anecdotal evidence suggests that Taiwan is seen as more
+analogous to Israel than to Ukraine. Despite growing fissuresin the Democratic Party, Israel continues to
+enjoy broad Congressional and public support, much like Taiwan. Secondly, Taiwan’s crucial role in the United States’
+strategic competition with the People’s Republic of China means that the same factors present in a dampening of public support for defending
+US allies in the Ukraine War may not be present in this current case. Yet, it is important to note that there appears to be a general sense
+
+of war fatigue prevailing in the United States, and how these simultaneous conflicts play out in the months to come could have
+unexpected and compounding effectsthat would be hard to forecast, especially with presidential elections on the
+horizon in both countries. The main point: Though it remains unclear how exactly the Israel-Hamas conflict will impact Taiwan, it is already
+influencing public perceptions, both in Taiwan and the United States. With wars raging in both Ukraine and the Middle East, it will be crucial to
+monitor public opinion and learn critical lessons.
+Empirically,
+Temko ‘21 [Ned Temko, Ned Temko, who is based in London, writes The Christian Science Monitor’s Patterns
+column. It was launched in 2019 in the tradition of the Patterns of Diplomacy column of Joseph C. Harsch, whose
+insights in the decades following World War II made him one of American journalism’s most respected and
+influential commentators on world events. After wire-service postings in Lisbon and Brussels, Ned began writing
+for the Monitor in Beirut as Middle East correspondent in the late 1970s. In 1981, he became the newspaper’s
+Moscow correspondent. In 1984, he returned to the Middle East, based in Jerusalem, and in late 1985, he moved
+to Johannesburg as Southern Africa correspondent. Two years after that, he relocated to London to become
+Middle East, Europe, and Africa bureau chief for Monitor television, which launched in 1988 and closed down in
+1992. Along the way, he witnessed and reported on the some of the last century’s most consequential events: the
+aftermath of the Portuguese revolution; the Egypt-Israel peace process; the U.S. embassy hostage crisis in Iran; the
+final years of the Soviet Union and the passing of Leonid Brezhnev in Moscow; and the final, violent stages of
+apartheid in South Africa. He also covered the fall of the Berlin Wall, and returned to South Africa from London for
+the release of Nelson Mandela. From 1990 until rejoining the Monitor as columnist, he worked as editor-in-chief of
+London’s Jewish Chronicle newspaper, and then as Chief Political Correspondent, covering British domestic politics,
+for London’s Observer weekly. He also ghost-wrote/co-authored several memoirs by leading political figures. Ned
+has a degree in political science, magna cum laude, from Williams College. He speaks fluent French and
+Portuguese, as well as (now rusty) Russian, Japanese, Hebrew and Arabic, as well as (even rustier) Hindustani.
+"Ignored in Afghanistan pullout, NATO allies fear ‘America First’", 08/25/2021, The Christian Science Monitor,
+https://www.csmonitor.com/World/2021/0825/Ignored-in-Afghanistan-pullout-NATO-allies-fear-America-First] //
+GFS LZ
+t’s not so muchAmerica’s exit from Afghanistan, as the manner of it. And it has left U.S. allies – from Europe through the
+Middle East to Asia – asking themselves a deeply unsettling question: How far can we rely on Washington to help safeguard our vital security
+interests? The core reason for their concern is that a war launched and prosecuted for two decades alongside America’s partners in the transatlantic
+NATO alliance was ended in a matter of weeks – by a unilateral U.S. decision, on a unilateral U.S. timetable, with little consultation and
+virtually no meaningful input from the allies. Clearly aware of allied angst, the Biden administration is insisting that the Afghan withdrawal was a
+special case – an overdue end to a “forever war” – and that, in the words of national security adviser Jake Sullivan, America’s bonds with long-standing
+partners are “sacrosanct.” WHY WE WROTE THIS Washington’s hasty exit from Afghanistan was barely coordinated with its
+NATO allies. Many of America’s friends around the world wonder if its domestic politics now trump international alliances. But there have been growing
+signs that such assurances are unlikely to prove sufficient to allay allied concerns. The broader message being drawn – not just
+by NATO’s European members, but by allies further afield – is that the strength of their own ties with Washington could depend on American domestic
+politics, over which they have no control. On the heels of Donald Trump’s presidency, when he openly questioned the value of U.S. alliances overseas,
+they worry that the traditional bipartisan consensus in Washington, which ensured that the United States would unquestionably provide security ballast
+worldwide, may now be a thing of the past. More European autonomy? Europe is suffering an especially strong case of the jitters. In Germany, Armin
+Laschet, the man most likely to succeed Chancellor Angela Merkel when she steps down next month, called the pullout “the greatest debacle that NATO
+has experienced since its foundation.” Recommended TRUST His own party calls him traitor. Can Japan’s new PM rebuild trust in politics? In Britain, the
+NATO country that contributed the most troops in Afghanistan after the U.S., Washington’s behavior has left a particularly sour taste. That was clear in
+Parliament a few days ago, when former Prime Minister Theresa May asked, “What does [the pullout] say about us as a country? What does it say about
+NATO, if we are entirely dependent on a unilateral decision by the U.S.?” John Macdougall/Reuters German Chancellor Angela Merkel attends a news
+conference in Berlin, Aug. 24, 2021, after a virtual Group of Seven summit on the crisis triggered by the Taliban's return to power in Afghanistan.
+Washington turned down pleas by European allies to extend the Aug. 31 deadline for a U.S. withdrawal so as to allow their nationals to evacuate. The
+position of the current prime minister, Boris Johnson, was made no easier by President Joe Biden’s initial public defense of the decision to leave
+Afghanistan, framed in exclusively U.S. domestic political terms without even mentioning NATO. And this past weekend, British newspapers reported that
+
+the White House took 36 hours to return Mr. Johnson’s call last week. No one in London is suggesting that this means NATO is finished, or that its own
+often-trumpeted “special relationship” with the Americans is over. But there have been calls for a new, more sober assessment of security plans – and
+suggestions that French President Emmanuel Macron is right to suggest that Europe needs to invest in greater “security autonomy” from the United
+States. Nor are the Europeans alone. One of Israel’s leading security commentators wrote a few days ago that “the real effect on America’s
+allies, especially Israel and the pro-Western Arab regimes, is that America, now and for the foreseeable future, has a heightened awareness of its own
+limitations,” and that this meant the allies would have to be readier “to fend for themselves.” From Ukraine to Taiwan Such
+concerns are being felt most acutely by allies bordering Washington’s two main strategic rivals: Russian neighbor Ukraine and the island democracy of
+Taiwan off the eastern coast of China. While Mr. Sullivan’s remarks were clearly intended to assuage their worries, both Moscow and Beijing have wasted
+no time in trying to stoke them. Recommended Vance shows polish, Walz hits him on Jan. 6 in notably civil VP debate A Russian security spokesperson
+and a commentator in the Chinese state media struck a strikingly similar tone in their statements last week. “Pay attention to Afghanistan,” their message
+ran. “That’s what happens when you rely on Washington.” About these ads Ukrainian President Volodymyr Zelenskyy, who is due in Washington later this
+month, was already nervous. He is frustrated by what he feels is insufficient U.S. support against Russian encroachment on his country, and support for
+Kyiv’s bid to join NATO. Taiwan has less reason for immediate concern: The Biden administration has moved to strengthen both its political and security
+commitment. But that didn’t stop President Tsai Ing-wen from drawing a lesson from the Afghanistan pullout. “The only option for Taiwan is to make
+itself stronger, more united and more determined to defend itself,” she said last week. It wasn’t a realistic option, she added, to rely “on the momentary
+goodwill” of another country. The key question now is how far allied worries are justified, and how Washington will respond. Get stories that empower
+and uplift. By signing up, you agree to our Privacy Policy. That may prove a delicate, high-stakes challenge. While President Biden’s eagerness to get out
+of Afghanistan was in keeping with Mr. Trump’s “America First” agenda, he has also stressed his determination to restore U.S. international leadership
+and to reinforce U.S. alliances. They are critical, he says, to curbing Chinese and Russian autocratic ambitions, and to addressing global challenges like
+climate change. Now, will America’s allies trust Washington enough to follow his lead?
+Conditional support would not act as leverage
+Borger ‘24 (Julian Borger, Julian Borger is the Guardian's senior international correspondent based in London. He
+was previously a correspondent in the US, the Middle East, eastern Europe and the Balkans. He is the author of
+two books: I Seek A Kind Person and The Butcher's Trail. Click here for Julian's public key, 4-1-2024, "Why do arms
+continue to flow from US to Israel despite ceasefire resolution?," Guardian,
+https://www.theguardian.com/us-news/2024/apr/01/flow-of-arms-from-us-to-israel-continues-despite-ceasefirea bstention, accessed 10-22-2024 //GFS AL)
+“If you begin this process of conditioning weapons, it will be seen as a very strong message to the world community that America no longer has Israel’s
+back,” the former senior official said. “Hamas is the least of Israel’s problems. Putting conditions on arms would be a message to Hezbollah, to the
+Iranians, and the Syrians and the Houthis, who are looking around and trying to see if they can break Israel apart.” The Biden administration also believes
+that conditionality would not work as leverage on Benjamin Netanyahu’s rightwing coalition, which galvanises its core
+supporters by defying Washington. “The idea that the Israelis would simply roll over and say: we give up? I don’t buy it,” Miller said. “It’s not just
+Netanyahu. It’s the entire government, it’s the public, which does not prioritise aid deliveries. They have not been exposed to the appalling humanitarian
+catastrophe in Gaza.” The Israeli government would not just ignore US signals, political observers say.
+Netanyahu would go further, most likely coming to the US to make common cause with Republicans, and imply that Biden had
+betrayed Israel in the face of terrorism. Netanyahu did the same to Barack Obama in 2015 when Republicans invited him to address a joint session of
+Congress. The current speaker, Michael Johnson, has said he plans to invite Netanyahu again at the height of an election year, an election in which the
+Israeli leader clearly favours Donald Trump.
+Nuclear war McConnell ’10 (Scott; PhD in History from Columbia University, Founding Editor of The American
+Conservative, Former Editorial Page Editor of The New York Post, and Writer for Fortune, The New Criterion,
+National Review, and Commentary. Winter 2017; “The Special Relationship with Israel: Is It Worth the Costs?”;
+Middle East Policy Council; Volume 17; Number 4
+https://mepc.org/journal/special-relationship-israel-it-worth-costs //GFS AL)
+NO EXIT
+So why does the United States stay in the relationship? Surely domestic politics accounts for a good deal of the explanation. But there is another, strategic, reason
+that is seldom mentioned publicly. It was expounded clearly by Ariel Roth, a professor at Johns Hopkins University and an Israeli army veteran. In an essay in
+International Studies Perspectives, Roth argued that the key U.S. interest in the Middle East is stability and unfettered access to the
+region’s oil. This is indisputable; it is the point James Forrestal made to President Truman more than 60 years ago. And what is the greatest threat
+to stability? Well, says Roth, it is Israel itself. Because of its unique history and the heavy weight of the
+Holocaust in the consciousness of Israeli leaders, Israel is uniquely terrified of being “alone” in the
+
+international arena. As a result, any suspicion on the part of its leaders that the United States is
+backing away from it might incite Israel to behave more aggressively than it already does. Those who
+decry the special relationship “are blinded to how Israel’s sense of vulnerability causes. . . behaviors that have the potential to undermine
+American interests.” Israel needs constant “reassurance” that it “does not stand alone.” Supporting Israel
+through “constant affirmation” and generous arms shipments is the best way to pursue American interests
+“without the fear of a panicked and unrestrained Israel bringing a cataclysm to the Middle East.”20
+This claim is at once alarming and compelling. Roth is asserting that the principal ally of the United States in the twenty-first century — its main source of strategic
+advice, the nation whose leaders have an unequaled access to American political leadership — is not a rational actor. The United States is in the position of a wife
+whose spouse is acting erratically.A “panicked and unrestrained Israel,” armed with an estimated 200 nuclear
+weapons, could do an extraordinary amount of damage. The only conclusion one can draw is that the specialrelationship
+would now be very difficult to exit, even if Israel had no clout whatsoever within the American political system, even if the United States desired
+emphatically to pursue a more independent course. I submit that this argument has long been internalized by those U.S. officials who recognize that the special
+relationship brings the United States far more trouble than benefits. It is the principal reason no major American figure has ever advocated simply walking away
+from Israel. Even those who argue that America should make its aid conditional on a more forthcoming Israeli attitude towards peace with the Arabs invariably
+recommend that the necessary Israeli territorial withdrawals be rewarded by iron-clad American defense guarantees and other sweeteners. Most intelligent people
+understand there is something uniquely evil about the Holocaust and the circumstances under which Israel came into existence, even as they are uneasy with the
+current special relationship. For those who recommend a U.S. security guarantee following a peace settlement, the overture made by the Arab League — offering
+full recognition and normalized relations with an Israel that relinquished its 1967 conquests and allowed a viable Palestinian state — is a development of enormous
+promise. Regrettably Israel has ignored this opening. Can the costs of America’s special relationship with Israel be quantified? Is it, as A.F.K. Organski put it in his
+1990 book, the “$36 billion dollar bargain?” That figure, derived from military and financial assistance to Israel form 1951 to 1983, led Organski to conclude, not
+surprisingly, that Israel’s net value as a Cold War ally is blindingly obvious. Or is the figure closer to $3 trillion, as economist Thomas Stauffer estimated after
+factoring in the rise in the price of oil, the financial assistance to neighboring states, the cost of the agreements to guarantee Israel’s oil supplies and myriad other
+factors?21 I believe the answer is nearer to Stauffer’s figures, but it is plainly a judgment call. The essence of the relationship is not its dollar cost, but the fact that
+the United States has come to perceive its interests in the Middle East through Israel’s eyes. This is what renders it special. One can debate how important Israel was
+in encouraging the United States to invade Iraq, but there is no doubt that, if Israel had opposed the invasion, no American politician would have supported it. The
+same can be said about the possibility of an attack on Iran. This is also the case with the outbreak of Islamophobia in the United States. The editor of a major liberal
+magazine — a high-profile intellectual — has written that he doesn’t feel First Amendment protections should apply to Muslims. Would Martin Peretz have arrived
+at this independently of his feelings for Israel? It would be hard to find a knowledgeable person who believes so. Peretz is hardly alone. Thus, one can likely chalk up
+a portion of America’s retreat from its own liberal principles to Israel. In the coming years, as the prospect of a two-state solution disappears, it is likely that Israel
+will continue its inexorable march toward becoming a state between the Jordan River and the sea, with one set of laws for Jews, who will have the rights of citizens,
+and another for Arabs, who will be denied full citizenship. What will it cost America’s broader relationship with the Muslim world to maintain a special bond with a
+state based on this kind of ethnic discrimination? That also would be difficult to quantify. And yet this scenario may be impossible to escape. The threat of
+Israel’s turning itself into a nuclear-armed desperado striking at will at the oil states in the Gulf
+cannot, alas,be entirely dismissed. That may be, as Ariel Roth argues, a compelling reason to maintain the
+special relationship pretty much unchanged.
+Independently, causes global recession
+Siddique 24 (Abubakar Siddique, 10-9-2024, "Would An All-Out Israel-Iran War Send Oil Prices Skyrocketing?",
+RadioFreeEurope/RadioLiberty, https://www.rferl.org/a/iran-isreal-middle-east-energy-oil-gas/33151245.html // scarman)
+The prospect of an all-out war in the Middle East increased after Iran launched a massive missile attack on Israel on October 1. Israel
+has threatened retaliation, fueling concerns of a disruption to the flow of oil and gas from the energy-rich region. Global oil prices have already
+soared 9 percent since Iran's attack, which came amid Israel's yearlong war in the Gaza Strip and its invasion of southern Lebanon earlier this
+month. A full-scale conflict between Israel and Iran could upend the international energy supply and send
+shock waves throughout the global economy, experts warn. "Major disruption of regional oil and gas exports is likely to have
+a material impact on the global economy," said Farzan Sabet, senior research associate at the Geneva Graduate Institute.
+And,
+Mcdonough 24 [ 10-19-2024, "Abandoning Taiwan would create a far more dangerous world:
+J. Michael Cole for Inside Policy," Macdonald-Laurier Institute,
+https://macdonaldlaurier.ca/abandoning-taiwan-create-far-dangerous-world]//PJS It is also hard to
+swallow the argument that abandoning Taiwan to its fate would somehow fix the West’s problem with
+China under Xi Jinping. It is already perfectly clear that China is on a trajectory that has bucked all
+academic assumptions about the rise of a middle class and the attendant democratization of that
+
+country. Instead, China has accumulated power so as to challenge the longstanding Western-led liberal
+order and its institutions. More than ever, as part of an axis of revisionist, repressive states like Russia
+and Iran, it has drawn the contours of a clash of ideologies on a global scale – a new cold war that forces all of us to choose sides. The
+abandonment of one of Asia’s great success stories in democratization, of a country whose economy is increasingly important to ongoing
+efforts to build a new global supply chain as an alternative to the current one (which has become unhealthily reliant on a mercantilist
+authoritarian giant), would be as foolish as it would be self-defeating. Not only would abandoning Taiwan be morally wrong and risk fuelling
+fears of similar abandonment in other countries that fall within China’s coveted “sphere of influence,” it would also demonstrate
+collective weakness in the face of aggression. It would reward rules-breaking and belligerence, empowering a political party that not
+only represses its own people, but that, arguably, constitutes the greatest danger to international stability and the
+rules-based order. As they choose their positions in this world of great power rivalry, Taiwan’s neighbours need to realize that helping Taiwan
+deter Chinese aggression, and getting involved in defending Taiwan should that deterrence fail, isn’t simply an exercise in altruism. More than
+ever, countering the CCP’s darker ambitions and, where possible, encouraging the better angels of its nature, is also a rational decision for each
+to make in the interest of their own national security. Whatever their motives, advocates of Taiwan’s abandonment seek to constrain our
+imagination. They want us to believe, despite all the evidence to the contrary, that we live in a fantastical world of a China that never came
+to be, and that this imagined China would remain even after the monumental folly that would be the “gifting” of Taiwan to the PRC.
+Nuke war
+Edelman 11 (Eric Edelman, 1-1-11,“The Dangers of a Nuclear Iran,” Foreign Affairs,
+https://www.foreignaffairs.com/articles/persian-gulf/2011-01-01/dangers-nuclear-iran/., Willie T.// recut by scarman) The reports of the
+Congressional Commission on the Strategic Posture of the United States and the Commission on the Prevention Of Weapons of Mass Destruction
+Proliferation and Terrorism, as well as other analyses, have highlighted the risk that a nuclear-armed Iran could trigger
+additional nuclear proliferation in the Middle East, even if Israel does not declare its own nuclear arsenal. Notably,Algeria,
+Bahrain, Egypt, Jordan, SaudiArabia,Turkey, and the UnitedArab Emirates— all signatories to the Nuclear Nonproliferation
+Treaty (npt)—have
+recently announced or initiated nuclear energy programs. Although some of these states have legitimate economic
+rationales for pursuing nuclear power and although the low-enriched fuel used for power reactors cannot be used in nuclear weapons,these
+moves have been widely interpreted as hedges against a nuclear-armed Iran. The npt does not bar states from
+developing the sensitive technology required to produce nuclear fuel on their own, that is, the capability to enrich natural uranium and separate
+plutonium from spent nuclear fuel. Yet enrichment and reprocessing can also be used to accumulate weapons-grade enriched uranium and
+plutonium—the very loophole that Iran has apparently exploited in pursuing a nuclear weapons capability. Developing nuclear weapons remains a
+slow, expensive, and di⁄cult process, even for states with considerable economic resources, and especially if other nations try to constrain aspiring
+nuclear states’ access to critical materials and technology. Without external support, it is unlikely that any of these aspirants could develop a
+nuclear weapons capability within a decade.¶ There is, however, at least one state that could receive significant outside
+support: Saudi Arabia. And if it did, proliferation could accelerate throughout the region. Iran and Saudi Arabia
+have long been geopolitical and ideological rivals. Riyadh would face tremendous pressure to respond in some form to a
+nuclear-armed Iran, not only to deter Iranian coercion and subversion but also to preserve its sense that Saudi
+Arabia is the leading nation in the Muslim world. The Saudi governmentis already pursuing a nuclear power
+capability, which could be the first step along a slow road to nuclear weapons development. And concerns persist that it might be able
+to accelerate its progress by exploiting its close ties to Pakistan. During the 1980s, in response to the use of missiles
+during the Iran-Iraq War and their growing proliferation throughout the region, Saudi Arabia acquired several dozen css-2
+intermediate-range ballistic missiles from China. The Pakistani government reportedly brokered the deal, and it
+may have also oªered to sell Saudi Arabia nuclear warheads for the css-2s, which are not accurate enough to deliver conventional warheads
+eªectively. There are still rumors that Riyadh and Islamabad have had discussionsinvolving nuclear weapons,
+nuclear technology, or security guarantees. This “Islamabad option” could develop in one of several diªerent ways. Pakistan could
+sell operational nuclear weapons and delivery systems to Saudi Arabia, or it could provide the Saudis with the infrastructure, material, and
+technical support they need to produce nuclear weapons themselves within a matter of years, as opposed to a decade or longer.Not only has
+Pakistan provided such support in the past, but it is currently building two more heavy-water reactorsfor
+plutonium production and a second chemical reprocessing facility to extract plutoniumfrom spent nuclear fuel. In other words, it might
+accumulate more fissile material than it needsto maintain even a substantially expanded arsenal of its own. Alternatively,
+Pakistan might oªer an extended deterrent guarantee to Saudi Arabia and deploy nuclear weapons, delivery systems, and troops on Saudi territory,
+a practice that the United States has employed for decades with its allies. This arrangement could be particularly appealing to both Saudi Arabia
+and Pakistan. It would allow the Saudis to argue that they are not violating the npt since they would not be acquiring their own nuclear weapons.
+
+And an extended deterrent from Pakistan might be preferable to one from the United States because stationing foreign Muslim forces on Saudi
+territory would not trigger the kind of popular opposition that would accompany the deployment of U.S. troops. Pakistan, for its part, would gain
+financial benefits and international clout by deploying nuclear weapons in Saudi Arabia, as well as strategic depth against its chief rival, India.
+The Islamabad option raises a host of difficult issues, perhaps themost worrisome being how India would
+respond. Would it target Pakistan’s weapons in Saudi Arabia with its own conventional or nuclear
+weapons? How would this expanded nuclear competition influence stability during a crisis in either the Middle
+East or SouthAsia? Regardless of India’s reaction, any decision by the Saudi governmentto seek out nuclear
+weapons, by whatever means,would be highly destabilizing. It would increase the incentives of other nations
+in the Middle East to pursue nuclear weapons of their own.And it could increase their ability to do so by eroding the
+remaining barriersto nuclear proliferation: each additional state that acquires nuclear weapons weakens the nonproliferation regime,
+even if its particular method of acquisition only circumvents, rather than violates, the NPT.¶ n-player competition¶ Were Saudi Arabia to acquire
+nuclear weapons,the Middle East would count three nuclear-armed states, and perhaps more before long. It is unclear
+how such an n-player competition would unfold becausemost analyses of nuclear deterrence are based on the U.S.-
+Soviet rivalry during the Cold War. It seems likely, however, that the interaction among three or
+more nuclear-armed powers would be more prone to miscalculation and escalation than a bipolar
+competition. During the Cold War, the United States and the Soviet Union only needed to concern themselves with an attack from the
+other.Multipolarsystems are generally considered to be less stable than bipolar systems because coalitions can
+shift quickly, upsetting the balance of power and creating incentives for an attack. More important, emerging nuclear powers in
+the Middle East might not take the costly steps necessary to preserve regional stability and avoid a nuclear
+exchange. For nuclear-armed states, the bedrock of deterrence is the knowledge that each side has a secure second-strike capability, so that no
+state can launch an attack with the expectation that it can wipe out its opponents’ forces and avoid a devastating retaliation. However,
+emerging nuclear powers might not invest in expensive butsurvivable capabilitiessuch as hardened missile silos or
+submarinebased nuclear forces.Given this likely vulnerability, the close proximity of states in the Middle East,
+and the very short flight times of ballistic missiles in the region, any new nuclear powers might be
+compelled to “launch on warning” of an attack or even, during a crisis, to use their nuclear forces
+preemptively. Their governments might also delegate launch authority to lower-level commanders,
+heightening the possibility of miscalculation and escalation. Moreover, if early warning systems
+were not integrated
+into robust command-and-control systems, the risk of an unauthorized or accidental launch would
+increase further still. And without sophisticated early warning systems, a nuclear attack might be
+unattributable or attributed incorrectly. That is, assuming that the leadership of a targeted state
+survived a first strike, it might not be able to accurately determine which nation was responsible.
+And this uncertainty, when combined with the pressure to respond quickly,would create a
+significant risk that it would retaliate against the wrong party, potentially triggering a regional
+nuclear war.
+Extinction
+Steven Starr 2015 [terminalizes]: Nuclear War: An Unrecognized Mass Extinction Event Waiting to Happen: Dynamics of Possible
+Nuclear Extinction Symposium, 02-28-15.” Nuclear War: An Unrecognized Mass Extinction Event Waiting to Happen | Dynamics of Possible
+Nuclear Extinction Symposium, 02-28-15, https://ratical.org/radiation/NuclearExtinction/StevenStarr022815.html//WWU
+A war fought with 21st century strategic nuclear weapons would be more than just a great
+catastrophe in human history. If we allow it to happen, such a war would be a mass
+extinction event that ends human history. There is a profound difference between
+extinction and “an unprecedented disaster,” or even “the end of civilization,” because even
+after such an immense catastrophe, human life would go on. But extinction, by definition, is an event of utter finality, and a nuclear war that could
+cause human extinction should really be considered as the ultimate criminal act. It certainly would be the crime to end all crimes. The world’s
+leading climatologists now tell us that nuclear war threatens our continued existence as a species. Their studies predict that a large nuclear war,
+especially one fought with strategic nuclear weapons, would create a post-war environment in which for many years it would be too
+cold and dark to even grow food. Their findings make it clear that not only humans, but most large animals and many other
+forms of complex life would likely vanish forever in a nuclear darkness of our own making. The environmental consequences of nuclear war
+would attack the ecological support systems of life at every level. Radioactive fallout, produced not only by nuclear bombs, but also by the
+
+destruction of nuclear power plants and their spent fuel pools, would poison the biosphere. Millions of tons of
+smoke would act to destroy Earth’s protective ozone layer and block most sunlight from
+reaching [the] Earth’s surface, creating Ice Age weather conditions that would last for
+decades. Yet the political and military leaders who control nuclear weapons strictly avoid any direct public discussion of the consequences of
+nuclear war. They do so by arguing that nuclear weapons are not intended to be used, but only to deter. Remarkably, the leaders of the Nuclear
+Weapon States have chosen to ignore the authoritative, long-standing scientific research done by the climatologists, research that predicts
+virtually any nuclear war, fought with even a fraction of the operational and deployed nuclear arsenals, will leave the Earth essentially
+uninhabitable.
+C3 Bubbles (1:00)
+AI bubbles huge
+Tully ‘24 (Shawn Tully, 2-28-2024, "As Apollo’s chief economist declares the Nvidia-inflated AI bubble ‘bigger than
+the 1990s tech bubble,’ here’s what happened to the 10 priciest stocks from that era," Fortune,
+https://fortune.com/2024/02/28/is-there-ai-stock-bubble-lessons-from-dot-com-crash-stock-valuations/)
+Torsten Slok, partner and chief economist for the mega–alternative asset manager Apollo Global
+Management, issued a brief on Sunday that in a single graphic, provided more useful information than
+any of the Wall Street analysts’ writings predicting that the AI “revolution” would keep pushing stocks
+to fresh heights. Slok’s report featured a bar chart showing the median P/E multiple for the 10 most valuable U.S. companies at five-year
+intervals from 1990 to 2020, and as of late February 2024, as well as displaying the overall numbers for the S&P 500, and the index excluding the
+top ten. His telling headline: “The current AI bubble is bigger than the 1990s tech bubble.” The source of that
+assessment? Slok’s graph shows that the top 10 P/E multiple is now hovering at around 40, far above
+the readings in the 23 to 26 range between 1995 as the dotcom frenzy gathered momentum and the
+craze’s near-apex in 2000. His conclusion: “The top 10 companies in the S&P 500 today are more
+overvalued than during the tech bubble.” Slok’s analysis pointed me to examine the list of stocks that commanded those huge
+valuations in 2000, those still in the top 10 club over two decades later, and how the individual names, and the batch as a portfolio, have fared
+through today. I also decided to use a different metric from Slok’s by replacing the median multiples with one based on the combined P/E for
+the whole group, in other words, their total market cap divided by all-in profits—as if they were one giant enterprise. That way, I could
+determine how investors would have fared holding a cap-weighted assemblage for the entire big 10, and what that might tell us about the odds
+that today’s buyers will greatly profit from holding Nvidia and the other trillion-plus tech glamour names, and hence going all in on the AI theme
+Wall Street’s selling and that so far, Main Street and fund managers are buying in droves.
+TSMC is key to the AI boom
+Barrons 10-17 (barrons, 10-17-2024, "TSMC Is the Chip Sector’s Hero. Why That’s a Risk for U.S. Tech and
+5 Other Things to Know Today.,"
+https://www.barrons.com/articles/tsmc-stock-market-what-to-know-today-35b5d658, accessed 10-20-2024
+//GFS AL)
+Taiwan Semiconductor Manufacturing has ridden to the rescue. The chip manufacturer’s earnings, often seen as a
+bellwether for semiconductor demand,should reassure investors about the artificial-intelligence trade but it’s a reminder
+of the U.S. technology sector’s heavy reliance on the Taiwanese company. TSMC’s 2330 +4.83% third-quarter profit crushed expectations
+
+while the company raised its revenue guidance for the year. That should be enough to reassure stockholders in Nvidia and other AI
+plays that there’s no sign of a popping bubble yet. Newsletter Sign-up The Barron's Daily A morning briefing on what you
+need to know in the day ahead, including exclusive commentary from Barron's and MarketWatch writers. Preview Subscribe How to square
+TSMC’s results with disappointing guidance from chip-making equipment provider ASML is now the question. The answer seems to be that
+TSMC is increasing its dominance over rivals Samsung Electronics and Intel as it takes the majority of
+the market share in AI chips. From a purely free-market perspective, that’s not an issue. But from a geopolitical perspective, having
+a company headquartered roughly 100 miles off the shore of China as the single crucial supplier to the U.S. tech industry, given the tensions
+between the two countries, is an uncomfortable situation. TSMC is building factories in Arizona, with initial production expected next year.
+However, it won’t be producing its current most advanced chips on American soil until 2028 at the earliest, by which
+time they could be outdated. Even with tens of billions of dollars’ worth of subsidies, the U.S. only aims to have a 20%
+share of global leading-edge chip production by the end of the decade compared with a 37% share of
+semiconductor manufacturing in 1990. In the short term, TSMC’s results are a boost for the market. In the long term,
+they expose the soft underbelly of the AI-chip boom.
+Pullout kills investors
+Baker Institute ‘23 (Baker Institute, 9-27-2023, "Silicon Hegemon: Could China Take Over
+Taiwan’s Semiconductor Industry Without Invading?,"
+https://www.bakerinstitute.org/research/silicon-hegemon-could-china-take-over-taiwans-semiconductor-industr
+y without-invading, accessed 10-19-2024 //GFS AL)
+Such a gambit could tempt Beijing with a favorable risk/reward balance. For the U.S., it would be one thing to respond militarily to fight off an attempted invasion of Taiwan by the PRC, but quite another to throw the first kinetic
+punch[11] against a blockade or related contingency imposed by Beijing. The PRC’s proximity to Taiwan would also allow it to dial the intensity of a quarantine up and down and use various kinds of interference, ranging from
+maritime militia[12] vessels up to PLA Navy warships. Commercial shippers (and especially, their insurers) hate uncertainty and generally avoid an area as soon as the first missile is fired — which is what happened during Beijing’s
+surrounding of Taiwan with military exercises in August 2022, after then-U.S. House Speaker Nancy Pelosi visited Taipei,[13] and which has been shown throughout Russia’s war on Ukraine.[14] Finally, the ambiguous character of
+intermittent or informal interruptions would complicate U.S. risk assessment, could impose difficulties on decision-making, and thereby make direct intervention more challenging. Multiple additional questions arise: What happens
+if Beijing’s conquest were catalyzed by an offshore military presence that never touches the fabrication plants physically? And most importantly, what if the PRC’s actions did not trigger a U.S. military response? Taiwan chip
+manufacturer TSMC and its key suppliers — including Arm (British), ASML (Dutch), and Shin-Etsu (Japanese) — are currently responsive to significant U.S. economic restrictions aimed at Chinese technology, presumably because they
+would rather lose access to the PRC market than attract Washington’s ire. But if a U.S. administration were ever to lack the resolve to ensure air
+and maritime passage to Taiwan (using force, if necessary), their attitude might well change. The bottom line is that
+seizing Taiwan’s semiconductor infrastructure without firing a shot to become the world’s “silicon hegemon”[15] would be an audacious and
+brazen move. It could very possibly fail; which in turn, might discourage Xi from ever making such a move in the first place. But what if he were
+to take such a risk, and succeeded? Our essay examines this low-probability, high-impact contingency seriously because it would bring about
+extremely dangerous strategic downsides for the U.S. and its allies and partners. Consequences for American, Allied, and Partner Interests If
+China succeeded in becoming the silicon hegemon by coercing Taiwan economically, Beijing would
+have considerable leverage over the chip industry, given TSMC’s heft. As a result, it would have significant power over the
+U.S. tech industry (Apple, Nvidia, etc.) and its consumers. Washington could try to ban new chipmaking tools from being sent to Taiwan, but
+Beijing would have major retaliatory options. It is very plausible that American allies and partners, as well as powerful constituencies within the
+U.S., would be unwilling to cut off supplies and services to a TSMC now majority-owned by the PRC — because the consequences to their
+economies would be dire. The PRC would likely employ chip supplies as a carrot and stick to actively promote division between the remaining
+silicon allies — the U.S., Japan, South Korea, and the Netherlands. For over a year, U.S. policymakers have avoided meaningfully sanctioning the
+oil flows that fund Russia’s war in Ukraine because they fear the economic impacts at home.[16] In doing so, they risk influencing
+the PRC’s perceptions about American resolve and willingness to bear financial costs in pursuit of
+geostrategic objectives. TSMC’s global economic importance — and its ability to affect business and consumer interests in the U.S. — is
+several times greater than that of Russia’s oil sector. China could also try to manipulate the environment by continuing chip sales even to
+American companies; this would likely empower accommodationist voices among key chip consumers and, over time, erode
+American policymakers’ willingness to confront Beijing. Washington’s carefully crafted export controls would be
+overwhelmed, and the PRC would not only be back in the technological car with the U.S. — it would arguably be in the driver’s seat.[17] Even if
+
+the U.S. and allies such as the Netherlands and Japan still maintained jurisdiction over the firms that provide chip designs, lithography
+equipment, and the chemicals and components necessary for chipmaking, PRC control of production would be a strategic
+trump card. If the PRC’s counterparties accepted the arrangement and locked in dependency on it (a pattern seen in other markets with
+near-monopoly suppliers, inelastic demand, and few or no substitutes), the technological competitive order would shift to the detriment of U.S.
+and allied prosperity and security. TSMC could be prohibited from investing in advanced overseas facilities such
+as the plants it is currently building in Arizona. As a result, new facilities (even those serving export markets) would
+increasingly be located in China. Beijing would have a definite incentive to repeat its previous pattern of action:
+strong-arming foreign suppliers to set up shop in the PRC and then either share their core intellectual
+property, or else have it be pilfered. The PRC already hosts the world’s premier electronics hardware manufacturing cluster. Using
+its dominance in chip production to force design intellectual property and supplier migration into an ecosystem controlled by (and likely
+physically domiciled in) the PRC would align with Beijing’s previous geo-economic policy actions. Just as PRC industrial policy has warped value
+chains in metals, materials, and many manufactured goods over the past three decades, a similar process could unfold with semiconductors.
+The end result would likely be an enhanced version of “dual circulation” policies and amplified coercive power in the PRC’s hands. [18] How to
+Keep
+Taiwan’s Semiconductor Industry Out of Beijing’s Hands For all these reasons, it is far better to deter the PRC from everseizing
+control of Taiwanese semiconductor capabilities to become a silicon hegemon in the first place. Preventing a potential hostile
+takeover of TSMC (and other Taiwan-based chipmakers) will require a holistic set of military, regulatory, and policy responses to help shore up
+and safeguard Taiwan comprehensively. Military Responses On the military front, six concrete areas for investment stand out: Air defense.
+Anti-ship missiles and loitering munitions. Coastal “kill zone” artillery. Mines. Information warfare (particularly electronic warfare: including
+jammers and decoys). Resilience of critical infrastructure.[19] Crucially, each of these areas requires affordability, large numbers, mobility, and
+lethality against the types of air and maritime assets the PRC would need to employ near the island to impose a blockade. Taiwanese leaders
+would still face tough decisions about whether or not to fire on PRC quarantine or blockade forces. However, having the credible
+capacity to engage those forces on a large and sustained scale would complicate Beijing’s
+decision-making, reinforce Taiwanese deterrence, and increase the probability of Xi avoiding such a move to begin with. Regulatory and
+Policy Responses On the regulatory and policy fronts, Taiwan also has many options for hardening its chipmakers against coerced takeover.
+These explicitly confront the reality that to protect against a capable government requires a capable government. A Golden Share for Taiwan’s
+Government. Perhaps the most direct way to preempt any attempts by the PRC to acquire TSMC would be to grant Taiwan’s government a
+“golden share” in the company, giving it veto power over others attempting to acquire a controlling stake. The United Kingdom has done this
+with Rolls-Royce, ensuring that 10 Downing Street can block takeovers by foreign bidders and restrict foreign investors from holding more than
+15% of the enterprise’s shares.[20] Golden shares would formalize the ad hoc process Taiwan has used to ward off past takeover attempts by
+PRC entities. For instance, when the PRC state-backed chip firm Tsinghua Unigroup made an offer for stakes in three Taiwanese chip testing and
+packaging firms in late 2015, Taipei launched an intensive review process premised on national security grounds and ultimately terminated all
+three proposed deals.[21] Formalizing the system by issuing golden shares would shrink Beijing’s space to create and/or exploit divisions
+between commerce-focused and national security-focused domestic constituencies in Taiwan. Taiwan’s National Development Fund,
+established by the Executive Yuan in 1973, is already TSMC’s largest shareholder[22] and would be a logical entity in which to vest golden share
+authority. The semantics of Taiwanese legislators codifying PRC entities as “foreign” would raise hackles in Beijing, but there are many possible
+workarounds — including, in particular, a focus on physical domicile in Taiwan. After all, China’s recent geoblock on websites in Fujian and other
+provinces, which prevented access by overseas IP addresses, also excluded IP addresses from Taiwan.[23] Emphasize TSMC as a Top-level
+Security Asset. Taiwan’s Investment Commission, which among its core responsibilities screens and approves inbound
+investments,[24] could also publicly emphasize TSMC’s importance as an apex economic security asset. Such statements would strongly
+suggest to Beijing and its proxies that it would be difficult to leverage Taiwanese regulators. PRC interests would be sensitive to the political
+warnings embedded in such a message, given that national security concerns helped scuttle PRC firms’ attempted purchases of Unocal
+(2005)[25] and Rio Tinto (2008-09), among others. TSMC would, however, be uncharted territory because 1) it is far more important to Taiwan’s economy than
+either of those firms was to their respective countries, 2) Beijing does not recognize Taiwan as a sovereign entity, 3) Taiwan’s semiconductor industry is arguably the most critical and geographically-concentrated global economic
+input source, and 4) the PLA could not deploy forces to the Gulf of Mexico or off Western Australia to coerce a transaction as it potentially could vis-à-vis Taiwan. Employee Stock Ownership Plan. Finally, TSMC could grant
+substantial blocks of shares as part of an employee stock ownership plan. Company employees already participate in a profit-sharing arrangement,[26] so there is precedent for granting stock options or outright ownership. The
+company could further include change of control[27] clauses, which would void the grants if TSMC came under constructive control of any entity for which the PRC is the ultimate beneficiary. TSMC could amplify the change of
+control clause’s effect by pricing the granted options so they are “in the money” at the time of granting (i.e., allowing employees to buy stock below its current trading price and thus making the grants rapidly monetizable). The
+resulting vested economic stakes would help disincentivize management and employees from being receptive to overtures from PRC-associated buyers. Potential Assistance from the US and Allies Taiwan could likely also count on
+help from the U.S., and perhaps key American allies such as Japan and Australia. Invalidation of Coerced Share Sales. One measure would involve U.S. authorities invalidating coerced purchases of TSMC shares. U.S.-domiciled
+entities hold 41% of the TSMC shares traded on the Taiwan Stock Exchange and 68% of the company’s sponsored American depository receipts (ADRs)[28] trading on the New York Stock Exchange. PRC institutional investors appear
+to directly hold few, if any, shares and would thus attract substantial attention if they began building material positions. TSMC representatives could seek a court order to freeze shares if transactions were predicated upon, or in
+collusion with, PRC military coercion against Taiwan. The U.S. Securities and Exchange Commission could also potentially bring urgent enforcement actions based on fraud or market manipulation causes of action. Military
+Intervention to Break Blockade. The U.S. could also lead a military intervention to break a PRC quarantine or blockade. Consider the global reaction 33 years ago to the invasion of Kuwait by former Iraqi leader Saddam Hussein and
+the positioning of his armored divisions beside the world’s most important oil production zone. The United States found Iraq’s action intolerable and after a roughly six-month buildup and intensive diplomacy to build a supporting
+coalition, forcibly ejected Saddam’s forces from Kuwait. International reactions to a military-backed hostile takeover of TSMC by the PRC would almost certainly be extremely negative. But would they translate into the same degree
+of military action against China? Unlike Iraq at the time of the Gulf War, the PRC is a nuclear-armed power with a massive, highly capable military, and the country’s industrial base is extremely important to the global supply chain.
+Furthermore, PRC leaders have closely studied the Gulf War and presumably would not repeat Iraq’s mistake in allowing a foreign military force to build for months along its borders without striking pre-emptively. Beijing has also
+almost certainly absorbed a key lesson from Russia’s war against Ukraine: Potential third-country intervenors are exceedingly cautious in the face of nuclear coercion, especially when their own territory has not been directly
+attacked. There are many reasons why Washington might well intervene militarily, and forms in which it might do so; but for many allies and partners the strongest contributions might come instead in the form of economic
+statecraft. Global Sanctions. The U.S. could lead a global sanctions effort against the PRC, including embargoes on the provision of critical software and raw material inputs to TSMC. In August 2022 TSMC Chair Mark Liu told CNN
+that “Nobody can control TSMC by force. If you take a military force or invasion, you will render [the] TSMC factory not operable.”[29] TSMC is not a standalone magical chip factory that conjures world-leading semiconductors from
+thin air. Rather, it is a key culmination point in which exquisite chip designs made with British or American software are etched onto high-purity silicon wafers by extreme ultraviolet lithography machines from a single company in
+the Netherlands via photoresists and specialty chemicals coming from a handful of largely Japanese suppliers. TSMC’s singular importance as a manufacturer of bleeding-edge[30] semiconductors is matched by a supplier ecosystem
+that is equally singularly located in the United States or countries allied with it. All of these countries presumably wish to avoid economic, political, and military coercion by a PRC silicon hegemon. Possible Limits on Actual Control.
+
+Finally, despite having acquired financial control over Taiwanese semiconductor assets, Beijing could face limits on its practical control over them. Even if a PRC air and sea cordon made it difficult for the U.S. and its allies to
+exfiltrate key Taiwanese semiconductor personnel from the island, Beijing could discover that compelling people to do things and do them well is much harder than using coercion to dissuade them from acting. For instance, TSMC’s
+local workers might refuse to work for a Beijing-controlled entity and perhaps even engage in quiet sabotage of key fab equipment. Even a small amount of “quiet quitting” or simple refusal to execute tasks with the precision
+clockwork and extra-mile mindset[31] that have made TSMC a world leader could devastate the firm’s productive capacity. Taiwanese executives, many of whom are also U.S. citizens and/or have children who are U.S. citizens,
+would likely have great pause working for a PRC-controlled entity. High-profile businesspeople have already disappeared repeatedly in the PRC, apparently at Beijing’s whim: it seems that the success and profiles of Alibaba founder
+Jack Ma and prominent investment banker Bao Fan, for example, became intolerable for the CCP. Global Impact and International Repercussions. More broadly, it is important to emphasize the international outrage and concrete
+penalties that would result from any PRC action that threatened chip supply. An endangered chip supply would endanger trillions of dollars globally, and the actions that put it in peril would invite an international backlash. The
+United Nations or other international bodies could be used to address the criticality of Taiwanese chips well before any sort of threat against them, since access to these chips impacts all nations. International support or clear
+statements of support for chip access might help set conditions for possible U.S.-led intervention to break a blockade or other interference, should it ever prove necessary. Clear statements from the United States and its allies and
+partners could dissuade the PRC from ever engaging in export-affecting activities around Taiwan. The Bottom Line: Prevent China from Ever Becoming the Silicon Hegemon Over the past eight decades Asian growth has been a prime
+mover of the global economy — first in the “Asian Tigers” (Hong Kong, Singapore, South Korea, and Taiwan) and more recently in the PRC. It is crucial to protect the progress made over those 80 years of great power peace from
+eroding, or outright rupturing, as a result of the CCP’s revisionist impulses. American policy increasingly emphasizes containing those impulses, including in the tech space. But Washington does not seek regional domination in the
+way that the PRC under Xi likely would. While Beijing likely disagrees, eight decades of lived experience strongly suggest there is a place for both global titans to grow and prosper in an order that rejects conquest by force. History
+shows that China grew into a quasi-superpower without annexing Taiwan or its superlative semiconductor industrial base. Yet the emotive commitment of the PRC under Xi to “reunify” Taiwan with the PRC means that the existing
+peaceful and prosperous order so painstakingly built from the ashes of World War II will not survive spontaneously. Given the risks involved, it is best to hold the line through this decade of maximum danger through deterrence and
+thereby prevent Xi from ever reopening such a disastrous Pandora’s Box. Ultimately, however, that increasingly precarious peace may need to be defended with military strength. Washington’s approach must
+therefore
+anchor to the time-tested maxim of “si vis pacem, para bellum”: if you want peace, prepare for war. A lack of capacity or will to defend free maritime and
+air passage to and from Taiwan would open the doors to strategic catastrophe for the United States and its allies and
+partners. We need to think through the previously unthinkable and be ready to deter aggression — aiming to stop disaster before it can
+happen — and prevent China from ever becoming the silicon hegemon in the first place.
+Independently, Taiwan only gives chips because of aid
+CFR, 7-6-2023, "Will China’s Reliance on Taiwanese Chips Prevent a War?", Council on Foreign
+Relations, https://www.cfr.org/blog/will-chinas-reliance-taiwanese-chips-prevent-war //JM
+Even if the United States is able to reshore some semiconductor manufacturing, it will likely continue to rely on Taiwan for
+decades for its computing needs. Companies with billions of dollars at their disposal have thus far failed to catch TSMC, which
+continues to invest over $30 billion annually into its business. TSMC has also stated it has no intention of moving research and
+development or its most advanced chipmaking capabilities from Taiwan. As a result, the
+United States will
+continue to have a massive economic, as well as a strategic, stake in preserving peace
+in the Taiwan Strait.
+With Kuo 23 quantifying that
+Mercy A. Kuo, 8/7/23, "US and Taiwan: Semiconductor Supply Chain Partnership", No Publication,
+https://thediplomat.com/2023/08/us-and-taiwan-semiconductor-supply-chain-partnership/ //JM
+Taipei has to balance the potential for “hollowing out” the crucial Taiwan chip industry with being a team player in the global
+ecosystem. Taiwan has supported various U.S.-led initiatives in the semiconductor sector, including observing U.S. restrictions on
+sales to Huawei, complying with export controls, and joining the Chip 4 alliance as a key member. There is only so much that
+Taiwan can do on its own, but they have consistently partnered with the U.S. and its allies in their attempts to counteract China.
+Taiwan wants to be part of the solution, despite anxiety at home over a potential erosion of Taiwan’s star industry. Assess
+Washington’s strategy for engaging allies in protecting the future of Taiwan’s critical contributions to the semiconductor supply chain
+in the international arena. It is encouraging that Washington is focusing on this important sector and Taiwan’s crucial role. Allowing
+Taiwan companies to take advantage of CHIPS and Science Act incentives and including Taiwan in the Chip 4 alliance are both
+positive steps forward. Taiwan should have a seat at the table, and the U.S. leadership bringing Taiwan into the fold is heartening. It
+is concerning, however, that the discussion on friend-shoring in the semiconductor supply chain appears to exclude Taiwan. The
+U.S. needs to include Taiwan in this discussion, allowing others to take advantage of their skills and experience. Taiwan will
+remain a critical semiconductor partner for the foreseeable future, and the
+U.S. must do everything it can to help ensure that Taiwan remains close –
+
+not just to the United States but to our allies as well.
+The Aff Pops the bubble
+Wang ‘24 (Calvin Wang, 3-24-2024, "The Panther Press," No Publication,
+https://www.metropantherpress.com/issues/nvidias-ai-bubble, accessed 10-20-2024 //GFS AL)
+Like the dotcom bubble,the current “AI gold rush” is based on technological advancement. Both are causing the market
+to reach record highs, and both are quite emotion fueled. Though unlike the dotcom companies, Nvidia is actually making a profit.
+When there’s a gold rush, the smartest thing to do is to sell shovels, and that’s exactly what Nvidia is doing. The way I see it, the problem is with
+non-tech based companies that are benefiting from the AI gold rush. Do fast food companies like Wendy’s and Wingstop really become much
+more valuable after adding AI to their products, or is that just goofy investing from people that get a little too excited from a mere mention of
+AI? How much more valuable are car companies after they add an AI chatbot? In my opinion, not at all. In fact, Nvidia and other big high tech
+companies like Microsoft, Apple, AMD, etc. aren’t safe either. To me, it feels as if all companies need to do is say “AI” and they receive a sudden
+bump in value. Nvidia is incredibly profitable right now because they are one of the only companies that are able to make the best
+GPUs for AI. This is because they have deals with the Taiwanese microchip factories, namely TSMC, the top microchip
+manufacturing company in the world. TSMC makes the chips for Apple, Nvidia, AMD, Qualcomm, Sony, and more. They aren’t the only one as
+Samsung and Intel also make chips of the same caliber, but TSMC still outshines them due to their superior process and large numbers of highly
+skilled workers. Companies haven’t been building factories like TSMC’s due to the sheer amount of money that would have to be invested, but
+now, the potential profits could outweigh the potential risks. So, there was nothing stopping another group from making a factory on the same
+level as TSMC except for money, and it looks like there’s quite a bit of money to go around for AI now. Nonetheless, around 90 percent
+of the world’s advanced microchips are produced in Taiwan. This is important to factor in, given the tense China-Taiwan relations
+right now. It’s dangerous for US-based companies to rely so heavily on Taiwan, since if Taiwan were to be invaded by China or imports
+were disrupted in any way due to political relations,that would be disastrous for the tech companies that rely so heavily
+on the production of chips in Taiwan. TSMC has acknowledged this, and is currently making a factory in Arizona. This simply highlights how
+vulnerable the West is to losing such an important manufacturer. If the West were to lose Taiwan, and the current AI craze is a
+bubble, it would be one terrible pop. If there were to be a new company invented that can create GPUs/microchips of the same
+caliber at the same rate, it would decrease the value of Nvidia as well. Banking so much on Nvidia being the only successful company in terms
+of AI training is, in my opinion, a terrible idea. There will always be competitors rising, and a reason for many crashes in the past were due to
+people thinking that one industry or one company would hold all the profits forever and keep rising in value, when in reality it doesn’t play out
+like that. If Nvidia announces any kind of decrease in profits next quarter, no matter how small, I would
+bet money that it would lead to some kind of crash in the tech sector.
+It’s devastating, empirically
+McCullough ‘18 (Brian Mccullough, 12-4-2018, "A revealing look at the dot-com bubble of 2000 — and how
+it shapes our lives today," ideas.ted,
+https://ideas.ted.com/an-eye-opening-look-at-the-dot-com-bubble-of-2000-and-how-it-shapes-our-lives-today/)
+So, who ended up holding the bag? Average investors. Over the course of the year 2000, as the stock market began its meltdown, individual
+investors continued to pour $260 billion into US equity funds. This was up from the $150 billion invested in the market in 1998 and $176 billion
+invested in 1999. Everyday people were the most aggressive investors in the dot-com bubble at the very moment the bubble was at its height —
+and at the moment the smart money was getting out. By 2002, 100 million individual investors had lost $5 trillion in
+the stock market. A Vanguard study showed that by the end of 2002, 70 percent of 401(k)s had lost at
+least one-fifth of their value; 45 percent had lost more than one-fifth.
+Recession
+Liberto ‘22 (Daniel Liberto, 12-1-2022, "How Do Asset Bubbles Cause Recessions?," Investopedia,
+
+https://www.investopedia.com/articles/investing/082515/how-do-asset-bubbles-cause-recessions.asp
+, accessed 10-21-2024 //GFS AL)
+Sometimes a real economic shock, such as a spike in oil prices, helps trigger a cutback in monetary injections. When the flow of new money stops, or even slows
+substantially,this can cause the asset bubble to burst.This sends prices falling precipitously and wreaks havoc for latecomers to the game, most
+of whom lose a large percentage of their investments. The bursting of the bubble is also the final realization of the Cantillon Effect. What
+unfolds is not just a change in relative prices on paper during the rise of the bubble, but a large-scale transfer of real wealth and income
+from the latecomers to the early recipients of the newly created money who started the bubble. This redistribution of wealth and
+incomefrom late investors to the early recipients of newly created money and credit who got in on the ground floor is what makesthe formation and collapse of asset
+pricebubbles very much like a pyramid or Ponzi scheme. When this process is driven by money in its modern form of a fiat currency mostly made of fractional reserve credit
+created by the central bank and the banking system, then the bursting of the bubble not only induces losses to thethen-currentholders of the
+bubble assets,but it also canlead to a process of debt deflation thatspreads beyond those exposed directly to the bubble assets to all other debtors as well. This means that
+any sufficiently largebubble can crash the entire economy into recessionunder the right monetary conditions.
+US Recession spills over
+Marc Stocker, xx-xx-xx17, "," No Publication,
+https://documents1.worldbank.org/curated/en/649771486479478785/pdf/WPS7962.pdf Since the
+U.S. dollar is the most widely used currency in global trade and financial transactions,
+changes in U.S. monetary policy and investor sentiment play a major role in driving
+global financing conditions. At the same time,the global economy is important for the United
+States.
+Nuke war
+Maavak ‘21 (Dr. Mathew Maavak 02/17/2021 “Horizon 2030: Will Emerging Risks Unravel Our Global
+Systems?” Maavak PhD in Risk Foresight from the Universiti Teknologi Malaysia, External Researcher
+(PLATBIDAFO) at the Kazimieras Simonavicius University, Expert and Regular Commentator on Risk-Related
+Geostrategic Issues at the Russian International Affairs Council, Salus Journal – The Australian Journal for Law
+Enforcement, Security and Intelligence Professionals, Volume 9, Number 1, p. 2-8
+https://search.informit.org/doi/abs/10.3316/informit.673954589035546)
+Various scholars and institutions regard global social instability as the greatest threatfacing this decade. The catalyst has been
+postulated to be a Second Great Depression which, in turn, will have profound implicationsfor global security and
+national integrity. This paper, written from a broad systems perspective, illustrates how emerging risks are getting more complex and
+intertwined; blurring boundaries between the economic, environmental, geopolitical, societal and technological taxonomy used by the World Economic Forum
+for its annual global risk forecasts. Tight couplings in our global systems have also enabled risks accrued in one area to
+snowball into a full-blown crisis elsewhere. The COVID-19 pandemic and its socioeconomic fallouts exemplify this systemic chain-reaction.
+Onceinexorable forces of globalization are rupturing as the current global system can no longer be sustained due to poor governance and runaway wealth
+fractionation. The coronavirus pandemic is also enabling Big Tech to expropriate the levers of governments and mass communications worldwide. This paper
+concludes by highlighting how this development poses a dilemma for security professionals. Key Words: Global Systems, Emergence, VUCA, COVID-9, Social
+Instability, Big Tech, Great Reset INTRODUCTION The new decade is witnessing rising volatility across global systems. Pick any random “system” today and chart out
+its trajectory: Are our education systems becoming more robust and affordable? What about food security? Are our healthcare systems improving? Are our pension
+systems sound? Wherever one looks, there are dark clouds gathering on a global horizon marked by volatility, uncertainty, complexity and ambiguity (VUCA). But
+what exactly is a global system? Our planet itself is an autonomous and selfsustaining mega-system, marked by periodic cycles and elemental vagaries. Human
+
+activities within however are not system isolates as our banking, utility, farming, healthcare and retailsectors etc. are increasingly
+entwined. Risks accrued in one systemmay cascade into an unforeseen crisis within and/or without (Choo, Smith & McCusker,
+2007). Scholars call this phenomenon “emergence”; one where the behaviour of intersecting systemsis determined by complex and
+largely invisible interactions at the substratum(Goldstein, 1999; Holland, 1998). The ongoing COVID-19 pandemic is a case in point. While
+experts remain divided over the source and morphology of the virus, the contagion has ramified into a global health crisis and supply chain nightmare. It is also
+tilting the geopolitical balance. China is the largest exporter of intermediate products, and had generated nearly 20% of global imports in 2015 alone (Cousin, 2020).
+The pharmaceutical sector is particularly vulnerable. Nearly “85% of medicines in the U.S. strategic national stockpile” sources components from China (Owens,
+2020). An initial run on respiratory masks has now been eclipsed by rowdy queues at supermarkets and the bankruptcy of small businesses. The entire global
+population – save for major pockets such as Sweden, Belarus, Taiwan and Japan – have been subjected to cyclical lockdowns and quarantines. Never before in
+history have
+humans faced such a systemic, borderless calamity. COVID-19 represents a classic emergent crisis that necessitates real-time response and adaptivity in a
+real-time world, particularly since the global Just-in-Time (JIT) production and delivery system serves as both an enabler and vector for transboundary risks. From
+a systems thinking perspective, emerging risk management should therefore address a whole spectrum of activity across the economic, environmental,
+geopolitical, societal and technological (EEGST) taxonomy. Every emerging threat can be slotted into this taxonomy – a reason why it is used by the World
+Economic Forum (WEF) for its
+annual global risk exercises (Maavak, 2019a). As traditional forces of globalization unravel, security professionals should take cognizance of emerging threats
+through a systems thinking approach. METHODOLOGY An EEGST sectional breakdown was adopted to illustrate a sampling of extreme risks facing the world for the
+2020-2030 decade. The transcendental quality of emerging risks, as outlined on Figure 1, below, was primarily informed by the following pillars of systems thinking
+(Rickards, 2020): • Diminishing diversity (or increasing homogeneity) of actors in the global system (Boli & Thomas, 1997; Meyer, 2000; Young et al, 2006); •
+Interconnections in the global system (Homer-Dixon et al, 2015; Lee & Preston, 2012); • Interactions of actors, events and components in the global system
+(Buldyrev et al, 2010; Bashan et al, 2013; Homer-Dixon et al, 2015); and • Adaptive qualities in particular systems (Bodin & Norberg, 2005; Scheffer et al, 2012) Since
+scholastic material on this topic remains somewhat inchoate, this paper buttresses many of its contentions through secondary (i.e. news/institutional) sources.
+ECONOMY According to Professor Stanislaw Drozdz (2018) of the Polish Academy of Sciences, “a global financial crash of a previously unprecedented scale
+is highly probable” by the mid- 2020s. This will lead to a trickle-down meltdown, impacting all areas of human activity. The
+economist John Mauldin (2018) similarly warns that the “2020s might be the worst decade in US history” and may lead to a Second Great
+Depression. Other forecasts are equally alarming. According to the International Institute of Finance, global debt may have surpassed $255 trillion by 2020 (IIF,
+2019). Yet another study revealed that global debts and liabilities amounted to a staggering $2.5 quadrillion (Ausman, 2018). The reader should note that these
+figures were tabulated before the COVID-19 outbreak. The IMF singles out widening income inequality as the trigger for the next Great Depression (Georgieva,
+2020). The wealthiest 1% now own more than twice as much wealth as 6.9 billion people (Coffey et al, 2020) and this chasm is widening with each passing month.
+COVID-19 had, in fact, boosted global billionaire wealth to an unprecedented $10.2 trillion by July 2020 (UBS-PWC, 2020). Global GDP, worth $88 trillion in 2019,
+may have contracted by 5.2% in 2020 (World Bank, 2020). As the Greek historian Plutarch warned in the 1st century AD: “An imbalance between rich and poor is the
+oldest and most fatal ailment of all republics” (Mauldin, 2014). The stability of a society, as Aristotle argued even earlier, depends on a robust middle element or
+middle class. At the rate the global middle class is facing catastrophic debt and unemployment levels, widespread social disaffection may morph into outright
+anarchy (Maavak, 2012; DCDC, 2007). Economic stressors, in transcendent VUCA fashion,may also induce radical geopolitical
+realignments. Bullions now carry more weight than NATO’ssecurity guaranteesin Eastern Europe. After Poland
+repatriated 100 tons of gold from the Bank of England in 2019, Slovakia, Serbia and Hungary quickly followed suit. According to former Slovak Premier Robert
+Fico,this erosion in regional trust was based on historical precedents – in particular the 1938 Munich Agreement which ceded
+Czechoslovakia’s Sudetenland to Nazi Germany. As Fico reiterated (Dudik & Tomek, 2019): “You can hardly trust even the closest allies after the Munich
+Agreement… I guarantee that if something happens, we won’t see a single gram of this (offshore-held) gold. Let’s do it (repatriation) as quickly as possible.”
+(Parenthesis added by author). President Aleksandar Vucic of Serbia (a non-NATO nation) justified his central bank’s gold-repatriation program by hinting at
+economic headwinds ahead: “We see in which direction the crisis in the world is moving” (Dudik & Tomek, 2019). Indeed, with two global Titanics –
+theUnited States and China – set on a collision course with a quadrillions-denominated iceberg in the middle, and a viral outbreak on its tip,the
+seismic ripples will be feltfar, wide and for a considerable period. A reality check is nonetheless needed here: Can additional bullions
+realistically circumvallate the economies of 80 million plus peoples in these Eastern European nations, worth a collective $1.8 trillion by purchasing power parity?
+Gold however is a potent psychological symbol as it represents national sovereignty and economic reassurance in a potentially hyperinflationary world. The portents
+are clear: The current global economic system will be weakened by rising nationalism and autarkic demands. Much uncertainty remains ahead. Mauldin (2018)
+proposes the introduction of Old Testament-style debt jubilees to facilitate gradual national recoveries. The World Economic Forum, on the other hand, has long
+proposed a “Great Reset” by 2030; a socialist utopia where “you’ll own nothing and you’ll be happy” (WEF, 2016).In the final analysis, COVID-19 is not the root cause
+of the current global economic turmoil; it is merely an accelerant to a burning house of cards that was left smouldering since the 2008 Great Recession (Maavak,
+2020a). We also see how the four main pillars of systems thinking (diversity, interconnectivity, interactivity and “adaptivity”) form the mise en scene in a VUCA
+decade. ENVIRONMENTAL What happens to the environment when our economies implode? Think of a debt-laden
+workforce atsensitive nuclear and chemical plants, along with a concomitantsurge in industrial accidents?
+Economic stressors, workforce demoralization and rampant profiteering – rather than manmade climate change – arguably pose the biggest
+threatsto the environment. In a WEF report, Buehler et al (2017) made the following pre-COVID-19 observation: The ILO estimates that the annual cost to
+the global economy from accidents and work-related diseases alone is a staggering $3 trillion. Moreover, a recent report suggests the world’s 3.2 billion workers are
+increasingly unwell, with the vast majority facing significant economic insecurity: 77% work in part-time, temporary, “vulnerable” or unpaid jobs. Shouldn’t this
+phenomenon be better categorized as a societal or economic risk rather than an environmental one? In line with the systems thinking approach, however, global
+risks can no longer be boxed into a taxonomical silo. Frazzled workforces may precipitate another Bhopal (1984), Chernobyl (1986), Deepwater
+Horizon (2010) or Flint water crisis (2014). These disasters were notably not the result of manmade climate change. Neither was the Fukushima nuclear disaster
+(2011) nor the Indian Ocean tsunami (2004). Indeed, the combustion of a long-overlooked cargo of 2,750 tonnes of ammonium nitrate had nearly levelled the city of
+Beirut, Lebanon, on Aug 4 2020. The explosion left 204 dead; 7,500 injured; US$15 billion in property damages; and an estimated 300,000 people homeless (Urbina,
+2020). The environmental costs have yet to be adequately tabulated. Environmental disasters are more attributable to Black Swan events, systems breakdowns and
+corporate greed rather than to mundane human activity.Our JIT world aggravates the cascading potential of risks(Korowicz, 2012).
+Production and delivery delays, caused by the COVID-19 outbreak, will eventually require industrial overcompensation. This will
+further stress senior executives, workers, machines and a variety of computerized systems. The trickle-down effects will likely include substandard products,
+
+contaminated food and a general lowering in health and safety standards (Maavak, 2019a). Unpaid or demoralized sanitation workers may also resort to
+indiscriminate waste dumping. Many cities across the United States (and elsewhere in the world) are no longer recycling wastes due to prohibitive costs in the global
+corona-economy (Liacko, 2021). Even in good times, strict protocols on waste disposals were routinely ignored. While Sweden championed the global climate
+change narrative, its clothing flagship H&M was busy covering up toxic effluences disgorged by vendors along the Citarum River in Java, Indonesia. As a result,
+countless children among 14 million Indonesians straddling the “world’s most polluted river” began to suffer from dermatitis, intestinal problems,
+developmental disorders, renal failure, chronic bronchitis and cancer (DW, 2020). It is also in cauldrons like the Citarum River where pathogens may mutate with
+emergent ramifications. On an equally alarming note, depressed economic conditions have traditionally provided a waste disposal boon for organized crime
+elements. Throughout 1980s, the Calabriabased ‘Ndrangheta mafia – in collusion with governments in Europe and North America – began to dump radioactive
+wastes along the coast of Somalia. Reeling from pollution and revenue loss, Somali fisherman eventually resorted to mass piracy (Knaup, 2008). The coast of
+Somalia is now a maritime hotspot, and exemplifies an entwined form of economic-environmental-geopolitical-societal emergence. In a VUCA world, indiscriminate
+waste dumping can unexpectedly morph into a Black Hawk Down incident. The laws of unintended consequences are governed by actors, interconnections,
+interactions and adaptations in a system under study – as outlined in the methodology section.Environmentally-devastating industrial sabotages – whether by
+disgruntled workers, industrial competitors, ideological maniacs or terrorist groups – cannot be discounted in a VUCA world. Immiserated societies, in stark defiance
+of climate change diktats, may resort to dirty coal plants and wood stoves for survival. Interlinked ecosystems, particularly water resources,may be
+hijacked by nationalist sentiments. The environmental fallouts of critical infrastructure (CI) breakdowns loom like a Sword of Damocles
+over this decade. GEOPOLITICAL The primary catalyst behind WWII wasthe Great Depression. Since history often repeats
+itself, expectfamiliar bogeymen to reappearin societies roiling with impoverishment and ideological clefts. Anti-Semitism–
+a societal risk on its own –may reach alarming proportionsin the West (Reuters, 2019), possibly forcing Israelto undertake reprisal
+operationsinside allied nations. If that happens, how will affected nationsreact? Will security resources be reallocated to protect certain
+minorities (or the Top 1%) while larger segments of society are exposed to restive forces? Balloon effectslike these present a classic VUCA
+problematic. Contemporary geopolitical risksinclude a possible Iran-Israelwar;US-Chinamilitary confrontation
+over Taiwan orthe South China Sea;North Korean proliferation of nuclear andmissile technologies; an
+India-Pakistan nuclear war; an Iranian closure of the Straits of Hormuz; fundamentalist-driven implosion in the
+Islamic world; or a nuclear confrontation betweenNATOand Russia. Fears that the Jan 3 2020 assassination of Iranian Maj.
+Gen. Qasem Soleimani might lead to WWIII were grossly overblown. From a systems perspective, the killing of Soleimani did not fundamentally change the
+actor-interconnection-interaction adaptivity equation in the Middle East. Soleimani was simply a cog who got replaced.
+
+C4 is defense (0:50)
+No recession now
+Bartash 24 (Jeffry Bartash, 10-24-2024, "The U.S. economy has not only avoided recession. It’s growing
+faster.", MarketWatch,
+https://www.marketwatch.com/story/the-economy-avoided-recession-and-then-it-sped-up-heres-why-6721f6bc // scarman)
+Instead, a widely forecast recession never materialized and the economy even sped up. Now
+some forecasters are raising their estimates for economic growth in 2025. “We don’t see
+where the weakness is going to come from,” said senior U.S. economist Matthew Martin of Oxford Economics.
+“We are continually putting our forecasts higher.” Oxford just raised its estimate for gross domestic product
+in 2025 to 2.5% from 2.0%. The U.S. grew nearly 3% in 2023 and could turn in a similar performance
+this year. GDP is the official scorecard of the economy. Until very recently, analysts believed the economy could only grow only
+about 1.8% a year under ideal conditions. Now that assumption is being questioned.
+The U.S. recession that was supposed to happen now appears to have become the economic expansion that just won’t end. The
+economy is on track to show unexpectedly brisk growth for the second quarter in a row. And it shows little sign of hitting the brakes.
+This wasn’t supposed to happen. In the spring of 2023, Wall Street SPX 0.02% DJIA 0.11% economists and Federal Reserve
+leaders believed the economy would slow sharply this year in response to high interest rates put in place to tame runaway inflation.
+High borrowing costs typically depress the economy. “A lot of people had been expecting a recession,” noted Olu Omodunbi, chief
+economist at Huntington Private Bank in Columbus, Ohio.
+And, Defense spending’s up
+Scott Sacknoff 24, manager of the SPADE Defense Index, a modified capitalization-weighted index
+made up of companies operating in the defense, homeland security and government space sectors,
+"With the world on edge, defense stocks soar", Defense News, 8-8-2024,
+https://www.defensenews.com/opinion/2024/08/08/with-the-world-on-edge-defense-stocks-soar/,
+cameron recut leon
+The result of these actions has hardened the resolve of nations and brought security front and center to
+political discussions. In 2023, government spending on defense increased to a record $2.443 trillion for the
+procurement of military equipment and supplies to combat threats; to support allies; and to bolster border security.
+According to the Stockholm International Peace Research Institute think tank, this is the ninth consecutive year of increases,
+with last year’s gain of 6.8% the highest level ever recorded. These resources have funneled through to the global
+corporations that build, maintain, support and sell the weaponry and supplies. In the U.S. alone, defense spending grew from
+$721.5 billion in fiscal 2020 (before President Joe Biden took office) to a proposed fiscal 2025 national defense
+budget of about $926.8 billion; a 28.5% increase.
+It’s key to the overall market
+Sheetz ‘19 [Michael Sheetz, 09-09-2019, “Goldman has the perfect stocks to buy amid the recession
+and trade war fears gripping the market”, CNBC,
+https://www.cnbc.com/2019/09/09/goldman-sachs-perfect-stocks-for-market-fears-of-recession-trade-w
+ar.html] leon
+Whether a recession is just around the corner is a hotly debated topic among U.S. stock market investors, especially as the trade war with China
+drags on and some economic indicators flash warning signs. Expecting the U.S. to narrowly avoid a recession, Goldman Sachs
+recommends one group of stocks with a good track record in this type of precarious environment:
+aerospace and defense companies. As a bonus, Goldman Sachs analyst David Kostin said, aerospace and defense stocks come “with
+the lowest exposure to China.” Kostin’s recommendation comes as a response to the decline in the ISM manufacturing index, which
+last week fell below 50 points for the first time in three years. A reading below 50 indicates a contraction. While some may raise concern about
+
+the drop, Kostin called the index “an inconsistent predictor of US recessions.” But Kostin noted that, when a recession didn’t occur
+following the ISM dropping below 50, aerospace and defense stocks outpaced the growth of the S&P
+500 in the six months after. So in other words, when economic conditions deteriorate but ultimately do not
+lead to a recession, the stock market typically does well in this period with defensive-type stocks
+outperforming. The S&P 500 has historically gained 22% in the six months following an ISM contraction that doesn’t lead to a recession.
+And aerospace/defense stocks do even better, gaining an additional 2.5% during the same period, Goldman found. “During the past 10 years,
+Aerospace & Defense has been least sensitive to US and global economic growth across Industrials
+subsectors,” Kostin said.
+Pull kills stocks
+Tago ’12 [Atsushi Tago. Associate Professor of International Relations at Graduate School of Law, Kobe
+University and Gerald Schneider is Professor of International Politics at the University of Konstanz,
+Germany, “The Political Economy of Arms Export Restrictions: The Case of Japan”, Japanese Journal of
+Political Science, Sept 2012,
+https://www.researchgate.net/publication/233780864_The_Political_Economy_of_Arms_Export_Restric
+tions_The_Case_of_Japan] leon
+Unanticipated political events and developments do not only influence the general market, but have also substantial redistributive effects.
+Herron et al. (1999) for instance show that the altering prospects of US presidential candidates in the 1992 elections have affected the stock
+returns of 15 out of 74 sectors. In the view of these authors, ‘the pro Clinton bias of aerospace and defense is a function of Clinton’s interest in
+industrial policy and worker training initiatives’. The developments in the era of George W. Bush might have changed the partisanship of the US
+defense sector. Halliburton, for which Vice President Cheney was the CEO from 1995to 2000, cashed in orders worth 11 billion dollars in the
+period from 2002 to 2002 in Afghanistan and Iraq.13 234 The defense sector, which almost completely depends on
+government orders, also responds to other political events. Bechtel and Schneider (2010) disclose that the summits of the
+European Union heads of state and government, who regularly convene within the European Council, can have considerable redistributive
+effects if these multilateral meetings end with a substantial decision. On average, the value of the sector increased by about 4 billion Euro
+following a summit decision that strengthened member states’ common defense policy and security objectives. Similarly, the returns of the
+defense sector strongly respond to military expenditures. Capelle-Blancard and Couderc (2008) show that publication of financial statements
+and other firm-relevant events influence the performance of defense stocks. Obviously, war events influence the stock market returns of the
+armament industry, too, although the effects are to some extent ambiguous. While an increase in the hostilities in the Korean War lowered the
+returns on investment in the armament and consumer goods industries, the development in the Vietnam War provoked growing returns (Kaun,
+1990). Berrebi and Klor (2010: 541) document in an analysis of Israeli Q2 249 firms similarly ‘that terrorism has a positive effect on the
+stock-market valuation of companies involved with defense, security or anti-terrorism products or clients, and a significantly negative effect on
+that of other companies’. According to DellaVigna and La Ferrara (2010), companies in highly corrupt countries violate arms embargoes more
+often than manufacturers that reside in states with lower levels of corruption. Chaney’s (2008) analysis of the Iraqi bond yield spread reveals
+moreover that traders reacted to overtures towards Iran, but did not respond systematically to events which politicians portrayed as milestones
+towards democracy. In this article, we develop, based on this emerging literature, a rational expectations model to account for
+the stock market reactions to defense policy statements and decisions on the Japanese arms
+exportation restrictions. We expect in line with the semi-strong version of the market efficiency thesis (Fama, 1965) that traders will
+absorb any information considered to be relevant for the profitability of a specific asset and that they know about its past performance on the
+market. The magnitude of a stock market reaction accordingly depends on how surprising a credible news
+report was. This hypothesis necessitates that we clearly differentiate between leaks and official statements in the empirical analysis. Media
+disclosures are by nature surprising, and we only need to assess whether the report is in favor or against the interests of the armament industry
+to anticipate either a positive or a negative effect. Official statements, by contrast, are often expected, not the least because of the piecemeal
+nature of Japanese policy reforms. The government cabinet typically decides on defense matters in December and announces a policy change or
+the preservation of the status quo as part of the review of Boei taiko (National Defense Program Guideline). Nevertheless, even
+anticipated policy changes have market effects if the decided changes fall short of the expectations of
+the traders or if they anticipated a much tamer reform than the one finally delivered. In other words, the
+financial sector reacts negatively to announcements which dash its hopes for an easing of the arms
+exportation policy and positively to what it considers to be exceptionally good news in the form of more
+radical changes. Obviously, the reactions depend on who is responsible for the policy announcement. As in other political systems,
+
+statements by the Prime Minister or the Defense Minister carry more credibility that the declared policy reforms will really be delivered than
+announcements by civil servants or junior ministers. However, this increased trustworthiness comes at the price of increasing leverage that
+high-level politicians possess and that may entice them to make ‘spontaneous’ remarks far away from the party line. One example was Prime
+Minister Abe, who had well-known credentials as a conservative, but who nevertheless showed some concern over the possible further easing
+of the arms export restrictions. We nevertheless expect that LDP politicians are more open towards a liberalization of the restrictions, not the
+least because of the close contacts this party has entertained over decades with the defense industry. If governments run by other parties
+reform the policy, the market reaction should, in other words, be more pronounced than the one attached to an equivalent move made by the
+traditional government party after World War II.
+Taiwan’s unique---it’s bipartisan, which leads to larger shocks.
+Glaser '15 [Charles L. Glaser, 2015, "A U.S.-China Grand Bargain? The Hard Choice between Military
+Competition and Accommodation", JSTOR, https://www.jstor.org/stable/24480607?seq=6, ellipses in
+original] leon + TM
+Many domestic barriers exist to ending the U.S. commitment to Taiwan. Beyond the risks noted above, which will
+fuel policy-based resistance, the United States' long-standing commitment to and involvement with Taiwan have
+created historical and ideological connections. Most concretely, the United States is committed under the
+Taiwan Relations Act to "consider any effort to determine the future of Taiwan by other than peaceful
+means ... of grave concern to the United States" and to "provide Taiwan with arms of a defensive
+character."14 Thus, ending the U.S. commitment to Taiwan would require repeal of the Taiwan Relations
+Act by the U.S. Congress, where repeal would almost certainly face influential opponents. In addition, for
+many American observers, geopolitical accommodation would be a glaring, concrete admission of American
+decline that lashed with their image of the United States as the globe's sole superpower.15
+Collapse wrecks the economy AND destroys defense firms.
+Miao ‘12 [Jianjun Miao, Pengfei Wang , and Lifang Xu. †Department of Economics, Boston University
+‡Department of Economics, Hong Kong University of Science and Technology, §Department of
+Economics, Hong Kong University of Science and Technology, “Stock Market Bubbles and
+Unemployment”,
+https://pdfs.semanticscholar.org/51ee/14529d89b630638b0ca428e929f56d7f3b48.pdf] leon
+Motivated by the preceding observations, we build a search model with credit constraints, based on Blanchard and Gali (2010). The Blanchard
+and Gali model is isomorphic to the Diamond-Mortensen-Pissarides (DMP) search and matching model of unemployment (Diamond (1982),
+Mortensen (1982), and Pissarides (1985)). Our key contribution is to introduce credit constraints in a way similar to Miao and Wang (2011a,b,c,
+2012a,b).4 The presence of this type of credit constraints can generate a stock market bubble through a positive feedback loop mechanism. The
+intuition is the following: When investors have optimistic beliefs about the stock market value of a firm’s
+assets, the firm wants to borrow more using its assets as collateral. Lenders are willing to lend more in the hope that
+they can recover more if the firm defaults. Then the firm can finance more investment and hiring spending. This generates higher firm value and
+justifies investors’ initial optimistic beliefs. Thus, a high stock market value of the firm can be sustained in
+equilibrium. There is another equilibrium in which no one believes that firm assets have a high value. In
+this case, the firm cannot borrow more to finance investment and hiring spending. This makes firm value indeed
+low, justifying initial pessimistic beliefs. We refer to the first type of equilibrium as the bubbly equilibrium and to the second type as the
+bubbleless equilibrium. Both types can coexist due to self-fulfilling beliefs. In the bubbly equilibrium, firms can hire more workers and hence the
+market tightness is higher, compared to the bubbleless equilibrium. In addition, in the bubbly equilibrium, an unemployed worker can find a job
+more easily (i.e., the job-finding rate is higher) and hence the unemployment rate is lower. [Insert Figure 2 Here.] After analyzing these two
+types of equilibria, we follow Weil (1987), Kocherlakota (2009) and Miao and Wang (2011a,b,c, 2012a,b) and introduce a third type of
+equilibrium with stochastic bubbles. Agents believe that there is a small probability that the stock market bubble
+may burst. After the burst of the bubble, it cannot re-emerge by rational expectations. We show that this shift of beliefs can also be
+self-fulfilling. After the burst of the bubble, the economy enters a recession with a persistent high
+
+unemployment rate. The intuition is the following. After the burst of the bubble, the credit constraints
+tighten, causing firms to reduce investment and hiring. An unemployed worker is then harder to find a
+job, generating high unemployment. Our model can help explain the high unemployment during the Great Recession. Figures 2
+and 3 plot the hires rate and the job-finding rate from the first month of 2001 to the last month of 2011 using the Job Openings and Labor
+Turnover Survey (JOLTS) data set.5 These figures reveal that both the job-finding rate and the hires rate fell sharply following the stock market
+crash during the Great Recession. In particular, the hires rate and the job-finding rate fell from 4.4 percent and 0.7, respectively, at the onset of
+the recession to about 3.1 percent and 0.25, respectively, in the end of the recession.
+Defense firms are key.
+Eaglen ‘24 [Mackenzie Eaglen, 2-16-2024, Most of the Money in the "Foreign Aid" Bill Would Stay in
+the U.S., American Enterprise Institute - AEI,
+https://www.aei.org/op-eds/most-of-the-money-in-the-foreign-aid-bill-would-stay-in-the-u-s/, accessed:
+10-3-2024] TM + leon
+The Senate has passed a $95 billion supplemental national security spending bill, with the majority of
+funds intended to provide military support for Israel, Ukraine, and Taiwan and humanitarian aid for
+civilians affected by those conflicts. While those opposed to backing Ukraine—such as Sen. Rand Paul—argue that such aid puts
+“Ukraine first and America last,” most of the package invests in backfilling U.S. weapons stocks and rebuilding parts of America’s defense
+industrial base. Far from being a “blank check” to foreign countries, $73 billion, or 77 percent, of the supplemental funding
+is domestically invested, with $59 billion going directly to U.S. defense companies—and their workers.
+The $24 billion in funding that does leave the United States largely consists of humanitarian aid and the cost of various operations shouldered by
+the U.S military. The Department of Defense receives the lion share of funding at $67 billion (70 percent), but other federal agencies—including
+the Departments of Energy, Homeland Security, State, and Health and Human Services—receive billions for national security initiatives. Funding
+to support Ukraine’s military accounts for 49 percent of the bill, at $48 billion. The Ukraine assistance focuses mostly on transferring equipment,
+with a large majority dedicated to sending the Ukranians U.S. equipment and then backfilling existing shortages in U.S. stocks. This has been
+true for most of the $67 billion in military aid supplied to Ukraine in earlier supplemental packages, which have primarily consisted of tranches
+of existing U.S. stocks. Specifically, previous aid to Ukraine has largely gone toward obligations and contracts under the Ukraine Security
+Assistance Initiative (USAI) and Presidential Drawdown Authority—which fund the transfer of equipment from U.S. stocks to Ukraine and their
+subsequent replacement. Funds spent through the USAI do not go directly to Ukraine, but rather function as a pool of funding that Ukraine can
+spend in the United States on American military hardware. Materiel aid to Ukraine has consisted of millions of munitions, more than 2 million
+155mm artillery shells, thousands of anti-air and anti-tank systems, and hundreds of armored vehicles. Without fresh funds to boost
+replacement orders, these systems will not be adequately replenished as “peacetime” Pentagon budgets simply don’t cover such rapid
+expenditure rates of essential weapons. For example, the United States has supplied Ukraine with more than 10,000 anti-tank Javelin missile
+systems. But this year’s White House defense budget request seeks to buy just 541 new ones. At that business-as-usual rate of replacement, the
+Pentagon would need about 20 years to get the Javelin stockpile back to pre-war levels. Similarly, the annual budget for the Army requests just
+$150 million for artillery shells, but the national security supplemental includes $5.9 billion for investments for 155mm artillery production. This
+would provide a needed boost to a sector that has been in decline and help the Army reach its long-stated goal of producing 100,000 rounds per
+month. Additionally, supplementary funding allows the United States military to replace the older and less
+sophisticated equipment that has been sent to Ukraine with modern equivalents, essentially jumpstarting
+modernization plans. Humvees and Bradleys near the end of their lifecycle are given new leases on life in Ukraine, and the Pentagon can invest
+in new replacements. Beyond Ukraine, the bill spends billions for Israel, Gaza and the West Bank, Taiwan, East Africa and other U.S. partners.
+There is $10.6 billion in direct military aid to Israel, with $4.4 billion of that funding spent in the United
+States to replenish stocks already transferred to Israel. Similarly, an additional $2.1 billion goes towards
+replenishing equipment transferred to Taiwan, including key anti-ship munitions crucial to US military deterrence in the
+Indo-Pacific region. Aside from backfilling aid to allies, the supplemental also includes key investments solely for U.S. capability, including $2.4
+billion to pay for recent U.S. military operations against the Houthis in the Red Sea. The Navy’s use of precision munitions is not adequately
+offset by the Pentagon’s planned annual purchases and requires extra funds over and above the regular military spending bill. Additional
+provisions, such as $133 million to enhance industrial capacity for cruise missile components, target specific domestic supply chain bottlenecks
+to ensure industry will be able to meet sustained demand. The U.S. even benefits from some of the money that is spent overseas. The national
+security supplemental provides $542 million to address the U.S. Indo-Pacific Command’s unfunded priorities. These “wish list” items include
+joint training with regional allies and investments in Guam’s defenses—an island with U.S. troops and facilities that are some of the “most
+strategically important U.S. bases in the Pacific” and which “constitute the island’s most important source of income and economic stability.”
+The legislation also provides $3.3 billion for American companies building submarines, an industry which has atrophied in recent decades. The
+goal is to reverse the shortfall in submarine availability and ensure that the United States both has an adequate supply of subs to meet both our
+
+own plans and support commitments to Australia and the United Kingdom. Outside of the Department of Defense, other agencies and
+legislative measures close out the proposed supplemental funding. The Department of State and the U.S. Agency for International Development
+(USAID) receive the second largest amount of resources, at a combined $25 billion. These efforts include $7.8 billion in direct budgetary
+assistance to Ukraine, and $7.1 billion for foreign military financing for military equipment for Israel, Indo-Pacific partners, and Ukraine. Unlike
+the aforementioned efforts to replenish U.S. stockpiles, this funding allows for U.S. allies to procure new American military hardware directly.
+Lastly, the national security supplemental includes leftover legislation from the previously cut border deal provisions, specifically the “Fend Off
+Fentanyl Act.” These provisions declare fentanyl trafficking a national emergency, enhance sanctions on drug traffickers, and provide the
+Department of Treasury with new authorities to prevent money laundering through drug trafficking. Branding the national security
+supplemental bill as one of “foreign aid” belies the reality that the funds primarily benefit the
+kickstarting of an American defense and aerospace manufacturing turnaround that our armed forces
+need to deter enemies and win if at war. America gave away her “arsenal of democracy” in the misguided belief the end of
+history happened in 1991 and companies took their cue and downsized, merged, or exited altogether. Now supporting two wars,
+Washington has discovered that the defense cranks cannot just turn back on again easily. Facilities need to be
+repurposed, workers need to be upskilled, supplies need to be reshored, and stockpiles need to be replenished and bigger than before. The
+United States is the ultimate beneficiary of the supplemental spending bill, as it should be.
+Thus, Deterrence strong now
+Hyten 19 [John, head of STRATCOM, “LAST LINE OF DEFENSE,” ] BJR
+Octavian R
+
+## Construction-criteria audit
+
+### Embedded weighing
+**ABSENT:** The case contains no explicit magnitude, probability, or timeframe comparisons between its own impacts (Farm Bill passage → forest restoration → climate mitigation → extinction avoidance vs. Israel-Iran stability) and likely Aff impacts (e.g., U.S.-China war over Taiwan, semiconductor collapse, alliance credibility). No card extends a "weighing" argument in the back half. A filling card would be a post-2023 piece (e.g., CSIS or RAND) tagging *"Extinction-level climate impacts outweigh regional conventional war — probability 1.0 vs. <0.1, magnitude 8B lives vs. thousands, timeframe <decade"* placed at the bottom of C1 or as a standalone "Weighing" module.
+
+### Offensive spikes
+**ABSENT:** No card preempts core Aff positions such as "reducing arms sales prevents accidental escalation," "Taiwan defense burden-sharing," or "semiconductor supply-chain resilience." The Glaser 15 and Chhabra 24 cards describe domestic political barriers but do not spin them as offensive reasons the plan fails/worsens the SQ. A filling card would be a 2023-24 think-tank piece tag *"Plan triggers immediate Taiwan lobby backlash → Congress attaches poison-pill amendments → defense-industrial base mobilizes opposition → plan dies in committee"* inserted after Medeiros 23 in C1.
+
+### Defensive spikes
+**ABSENT:** No embedded frontlines answer likely Con/Pro blocks: "Farm Bill passes regardless," "Israel-Iran war inevitable," "climate impact non-unique," or "extinction timeline speculative." The McCullough 24 card notes bipartisan necessity but does not defend against "lame-duck passage." A filling card would be a post-Nov-2024 Congressional Research Service or The Hill piece tag *"Lame-duck Farm Bill impossible — CBO re-score + Freedom Caucus opposition + Senate calendar congestion → passage delayed to 119th Congress"* placed after McCullough 24.
+
+### Evidence quality
+**C1 — Elbein 23** (Hill, 3-24-2023) — Author is a climate/environment journalist; cites specific Forest Service acreage targets (20M acres), programs (Landscape-scale Restoration, Good Neighbor Authority), and a peer-reviewed study (Robles et al.) on conifer loss. Dataset: Forest Service 10-yr plan + published ecology study. Wins evidence-comparison tiebreaks vs. generic "Farm Bill good" cards.  
+**C1 — Kemp et al. 22** (PNAS, 8-1-2022) — Four PhDs from Cambridge, Nanjing, Exeter; CMIP6 model ensemble, IPCC AR6 equilibrium climate sensitivity distributions, paleoclimate analogs. Gold-standard dataset for extinction-level warming.  
+**C2 — Rubin 24** (Washington Post, 10-15-2024) — Post Jerusalem correspondent, Hebrew U MA; direct sourcing from "two officials familiar with the matter." Recency (days before tournament) and access beat generic wire-service reports.
+
+### Collapse flexibility
+**C1 — Three independent link chains** visibly present:  
+1. *Political capital* (HPR 24, McCullough 24) → Farm Bill passage.  
+2. *Forest restoration* (Elbein 23) → fuel treatment → wildfire mitigation.  
+3. *Carbon sequestration* (Skene 21) → North American forests absorb 12% US emissions / boreal stores 2× oil reserves.  
+Each chain can be extended alone if opponent concedes/link-turns another.  
+**C2 — Single link** (Rubin 24: Netanyahu limits strike to military targets → escalation managed). No alternate Israel-Iran de-escalation pathways (diplomatic backchannels, US pressure, Iranian restraint) carded. A filling card would tag *"US-Israel strategic dialogue + Iranian economic crisis → mutual deterrence holds regardless of Netanyahu statement"* placed after Rubin 24.
+
+### Warrant depth
+**C1 — Elbein 23** — Tag "Farm Bill restores forests via wildfire management" receives full warrant: specific fuel-treatment acreage (20M), mechanisms (prescribed burns, Landscape-scale Restoration Program, Good Neighbor Authority), climate-driven urgency (Robles study: 7M acres conifer-to-shrubland transition by 2050).  
+**C1 — Skene 21** — Tag "North American Forests are key" warranted with carbon-density comparisons (boreal 2× oil reserves, US forests 12% annual emissions), global respiratory-system function (1/3 anthropogenic GHG absorbed), and policy relevance (Biden 50% by 2030 target).  
+**C2 — Rubin 24** — Tag "Israel-Iran is manageable right now" warranted with direct quote: Netanyahu "willing to strike military rather than oil or nuclear facilities … more limited counterstrike aimed at preventing a full-scale war." No warrant for *why* limited strike prevents escalation (e.g., Iranian red lines, US backchannel signaling).
+
+### Internal consistency
+**No direct contradiction** between C1 (domestic legislative/climate) and C2 (Middle East military) — they operate on separate theaters.  
+**Framing uniformity ABSENT:** C1 uses extinction-level systemic risk framing (Kemp 22, Garrison 21: "human life impossible by 2026"), while C2 uses bounded conflict-management framing ("manageable right now"). No card harmonizes these risk ontologies (e.g., "regional war risks are subsumed by climate existential risk on magnitude/probability"). A filling card would be a 2023-24 security-climate nexus piece tag *"Pentagon & IPCC converge: climate-driven instability > state-on-state conflict for existential risk prioritization"* placed as a bridging argument between contentions.
+
+---
+
+### Overall construction score
+**Score: 4/10** — High-quality evidence in C1 (Elbein, Skene, Kemp) and a timely C2 card (Rubin) are undermined by total absence of embedded weighing, offensive/defensive spikes, and framing coherence; C2 has single-link fragility; the case reads as two unconnected mini-cases rather than a unified strategic narrative.

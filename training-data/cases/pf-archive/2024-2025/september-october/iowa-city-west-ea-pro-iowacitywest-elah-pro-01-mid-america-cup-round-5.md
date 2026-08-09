@@ -1,0 +1,146 @@
+---
+title: Iowa City West EA (Pro) — 01 -- Mid America Cup, 2024-2025 september-october PF case
+tags: [case, public-forum, pf-archive, season-2024-2025, cycle-september-october, side-pro, top100-rank-21]
+team: Iowa City West EA
+elo_rank: 21
+season: 2024-2025
+cycle: september-october
+resolution: "The United States federal government should substantially expand its surveillance infrastructure along its southern border."
+side: Pro
+tournaments: ["01 -- Mid America Cup"]
+source_doc: IowaCityWest-ElAh-Pro-01----Mid-America-Cup-Round-5.docx
+---
+
+Open-source case doc read by Iowa City West EA (season Elo rank #21) on the 2024-2025 september-october PF topic — "Resolved: The United States federal government should substantially expand its surveillance infrastructure along its southern border." — at: 01 -- Mid America Cup.
+
+Because the border is a zone of extreme geopolitical significance, Bashir and I affirm the resolution. R<mark>esolved: The United States federal government should substantially expand its surveillance infrastructure along its southern border</mark>
+
+<mark>The criminal organizations that operate along the Southern border pose a danger to Americans, Mexicans, and those seeking a new life in America. </mark>
+
+<mark>Securing the border stops their operations, preventing their direct harm. Thus, </mark>
+
+In defense of the resolution, we offer a sole contention
+
+C1: Cartels
+
+<mark>Illegal Border Crossings are at an all-time high</mark>
+<mark>AP 24 [AP, "Illegal border crossings from Mexico reach highest on record in December before January lull", 2024, AP, https://apnews.com/article/immigration-border-crossings-mexico-biden-18ac91ef502e0c5433f74de6cc629b32#]//fuz</mark>
+
+<mark>Arrests for illegal border crossings from Mexico reached an all-time high in December since monthly numbers have been released, authorities said Friday, exposing a growing vulnerability for President Joe Biden in his campaign for a second term. The Border Patrol tallied [about 250,000]249,785 arrests on the Mexican border in December, up 31% from 191,112 in November and up 13% from 222,018 in December 2022, the previous all-time high.</mark>
+
+<mark>This is awful as cartels are getting stronger </mark>
+Stott 24 [MIchael Stott and Christine Murray, "Mexico's drug cartels are thriving.", 5/20/24, Financial Times, https://www.ft.com/content/fe04c6ed-73f8-4e17-852b-ce16fd6c3515]//AT
+
+<mark>Many of the cartels have expanded into lucrative new businesses.</mark> In a 2024 report, the US Drug Enforcement Administration called the Sinaloa and Jalisco cartels “transnational criminal organisations” <mark>because they are “involved in</mark> arms trafficking, money laundering, migrant smuggling, sex <mark>trafficking,</mark> bribery, extortion, <mark>and a host of other crimes”. The cartels control more territory than ever before,</mark> about a third of the country according to one estimate from the US military.
+
+<mark>Cartels have grown and will continue to do so</mark>
+Reardon 23 [Reardon, "Cutting cartel recruitment could be the only way to reduce Mexico’s violence", 2023, Science, https://www.science.org/content/article/cutting-cartel-recruitment-could-be-only-way-reduce-mexico-s-violence]
+
+The model showed that the criminal organizations collectively lost about 200 members per week. In total, about 37% of cartel members active over the past decade were either killed or incarcerated. But the total size of cartels grew by about 7000 people per year over the same period, meaning they must have recruited about 19,300 new members per year to make up for their losses. <mark>Mexico</mark>’s 150 <mark>cartels</mark> ultimately <mark>grew from 115,000 members to </mark>about <mark>175,000 people in a decade,</mark> according to the model—making the cartels the country’s fifth biggest “employer,” with a similar number of workers to Oxxo, the country’s largest corner shop chain. ADVERTISEMENT These numbers largely align with other estimates, Prieto-Curiel says. In an unrelated report in July, the U.S. Drug Enforcement Administration estimated that the two largest Mexican cartels, Sinaloa and Jalisco New Generation, employed more than 44,800 people in total. Prieto-Curiel’s model found a similar number—46,600 cartel members across the two groups. But <mark>actual operations</mark> might <mark>involve many more people</mark>: The model only accounts for those directly involved in work that puts them at risk of violence, and not members—such as bankers—who help move and launder cartels’ money. Next, the researchers projected what would happen to cartels under different government policies. Under current policies that focus on arresting cartel members, the model <mark>predicted cartels would grow by 26% by 2027, resulting in 40% more casualties</mark>. Doubling the number of cartel members in prison through police crackdowns would stem these increases a little, but violence would still continue to grow. Other policies such as peaceful negotiations with cartel leaders would have no meaningful effect. The only thing that would decrease violence, the algorithm found, was lowering the number of people who joined the organizations in the first place.
+
+<mark>Border Patrol is corrupt right now</mark>
+Bradley 23 [Bradley, "As cartel power rises, so do concerns about CBP corruption", 2023, NewsNation, https://www.newsnationnow.com/us-news/immigration/border-coverage/as-cartel-power-rises-so-do-concerns-about-cbp-corruption/]//nishu
+
+<mark>Border Patrol agents</mark> on the front lines <mark>accounted for 39% of</mark> the <mark>more than 26,000 CBP misconduct investigations.</mark>
+
+<mark>Corrupt agents allow for trafficking</mark>
+LaSusa 16 [LaSusa, "How Mexico Cartels Corrupt US Border Agents", 2016, InSightCrime, In a 7000-word exposé, reporters Melissa del Bosque and Patrick Michels chronicled various instances of misbehavior by agents at the Department of Homeland Security (DHS), including purchasing weapons for criminal groups, abusing confidential informants, and taking bribes to allow human smugglers and drug traffickers to cross the US-Mexico border. Furthermore, the Texas Observer investigation indicated that corruption at CBP frequently went unpunished. According to the article, the department in charge of overseeing CBP “became known for hoarding cases and then leaving them uninvestigated,” and “the office often refused offers of help from the FBI [Federal Bureau of Investigation] and other law enforcement agencies that also keep watch over customs officers and Border Patrol agents.”]
+
+In a 7000-word exposé, <mark>reporters</mark> Melissa del Bosque and Patrick Michels <mark>chronicled various instances of misbehavior by agents</mark> at the Department of Homeland Security (DHS), <mark>including</mark> purchasing weapons for criminal groups, abusing confidential informants, and <mark>taking bribes to allow</mark> human <mark>smugglers and </mark>drug<mark> traffickers to cross the US-Mexico border</mark>. Furthermore, the Texas Observer investigation indicated that corruption at CBP frequently went unpunished. According to the article, the department in charge of overseeing CBP “became known for hoarding cases and then leaving them uninvestigated,” and “the office often refused offers of help from the FBI [Federal Bureau of Investigation] and other law enforcement agencies that also keep watch over customs officers and Border Patrol agents.”
+
+<mark>Surveillance monitoring reduces corruption</mark>
+Olken 24 [Olken, "Monitoring Corruption: Evidence from a Field Experiment in Indonesia", 2024, The University of Chicago Press Journals, https://www.journals.uchicago.edu/doi/10.1086/517935]
+
+Overall, the <mark>results suggest that</mark> traditional top‐down <mark>monitoring can play an important role in reducing corruption, even in a highly corrupt environment.</mark>
+
+<mark>Furthermore, Europe’s border surveillance system has worked extremely well to combat serious crime. </mark>
+EU 24 [“The EU Schengen Information System Helps Combat Serious Crime and Terrorism.” Migration and Home Affairs, 26 Mar. 2024, home-affairs.ec.europa.eu/news/eu-schengen-information-system-helps-combat-serious-crime-and-terrorism-2024-03-26_en. Accessed 25 Sept. 2024.]
+
+<mark>The 29-year-old passenger landed in Amsterdam and claimed he had no passport. When the border guards ran his fingerprints against the Schengen Information System (SIS), they found out he was wanted by Germany for financing terrorist activities. This story shows how dozens of terrorist suspects are caught every year thanks to the Schengen Information System. It has been one year since the SIS was upgraded with new categories of alerts, including biometrics, such as palmprints, fingerprints and DNA records for missing persons, and additional tools to combat serious crime and terrorism. These upgrades further equip national authorities, providing them with more complete and reliable information to enhance security and border management in Europe.</mark>
+
+<mark>When you affirm, you place surveillance on the southern border which stops the Border Patrol from fueling corruption. This incentivizes them to stop cartels getting through the border</mark>
+
+Thus, there are three impacts related to cartels that the affirmative seeks to address.
+
+The first being Drug Trafficking
+
+<mark>Mexican cartels are the top suppliers of illicit drugs to the US</mark>
+CFR 22 [CFR, "Mexico’s Long War: Drugs, Crime, and the Cartels", 2022, Mexico’s Long War: Drugs, Crime, and the Cartels, https://www.cfr.org/backgrounder/mexicos-long-war-drugs-crime-and-cartels]
+
+<mark>Mexican drug cartels are leading suppliers of</mark> cocaine, heroin, methamphetamine, and other <mark>illicit narcotics to the United States</mark>. The cartels and the drug trade fuel rampant corruption and violence in Mexico, contributing to tens of thousands of homicides in the country each year. Since Mexico launched a war on the cartels in 2006, the United States has provided it with billions of dollars in security and counternarcotics assistance.
+
+<mark>Illicit narcotics kill many people each year</mark>
+Mann 24 [Mann, "U.S. drug deaths declined slightly in 2023 but remained at crisis levels", 2024, NPR, https://www.npr.org/sections/health-shots/2024/05/15/1251239829/us-drug-overdose-deaths-provisional-2023]//nishu
+
+That is a significant reversal from previous years, when street fentanyl and other <mark>toxic synthetic drugs including meth</mark>amphetamines <mark>sparked a</mark>n unprecedented <mark>surge in drug deaths</mark>. But <mark>the toll</mark> from the overdose crisis in 2023 <mark>remained devastatingly high, claiming 107,543 lives.</mark>
+
+The second impact the affirmative seeks to address is Human Trafficking
+
+The failure at the southern border is fueling a rise in human trafficking victims.
+<mark>Esposito 24 [Rep. Anthony D'Esposito (Anthony D’Esposito (R), a retired NYPD detective, represents New York’s 4th congressional district and serves as chairman of the House Homeland Security Subcommittee on Emergency Management and Technology), 2-14-2024, Biden’s open border is a boon for human traffickers; we must stop them, Hill,</mark>
+<mark>https://thehill.com/opinion/immigration/4465411-bidens-open-border-is-a-boon-for-human-traffickers-we-must-stop-them/] //viv While most Americans agree that human trafficking is an evil that should be fought, many are unaware that human trafficking might be happening in their own communities. The 2023 Modern Slavery Index confirms that an estimated 1.1 million</mark>
+<mark>victims are currently being exploited in the U.S., whether they are foreign nationals or American citizens.</mark>
+<mark>As a member of the House Committee on Homeland Security, and chair of the Subcommittee on Emergency Management and Technology, I recently conducted a joint hearing with the Subcommittee on Border Security and Enforcement to investigate how human trafficking is occurring along smuggling routes into the U.S. I heard firsthand how traffickers target vulnerable migrants along their journey, and how they target migrants after their arrival. As I listened, several facts became glaringly apparent. First, human traffickers are benefiting from the Biden administration’s failure to secure the Southwest border. Second, while traffickers exploit migrant vulnerability, vulnerability itself does not cause human trafficking — criminals commit crimes because they think they will be able to get away with it. We must support the efforts of our federal, state, and local law enforcement to bring traffickers to justice. Transnational criminal organizations, or cartels, are being empowered by the lawlessness at the Southwest border under the watch of Homeland Security Secretary Alejandro Mayorkas. Open borders facilitate the cartels’ billion-dollar business of human smuggling, drug trafficking, and human trafficking. It is important to understand the distinction between human smuggling and trafficking: the former is a crime of transportation across borders, whereas the latter involves the use of “force, fraud or coercion” to exploit someone else for personal gain. Whereas a migrant may agree to be smuggled, a victim of human trafficking never agrees to be trafficked. In many cases, a migrant who pays a considerable amount of money to be smuggled across the border may ultimately wind up a victim of trafficking, as well. In my home state of New York, thousands of migrants remain vulnerable to the horrors of human trafficking. For instance, in 2022, the Washington Post reported that the ruthless gang MS-13 has “increasingly turned to sex trafficking over the last decade to generate income alongside drug trafficking.” According to Polaris, the operator of the National Human Trafficking Hotline, having an unstable living situation, undocumented immigration status, and financial pressure make an individual uniquely vulnerable to human trafficking. A 2021 Polaris report demonstrated that migration, relocation, and unstable housing all put immigrants at greater risk of being trafficked. This is a reality that we cannot ignore in 2024, as cities grapple with how to care for the more than 3 million migrants who have been released by U.S. Customs and Border Protection since President Biden’s first day in office. Criminals thrive when federal and state law enforcement are too overwhelmed to hold them accountable.</mark>
+<mark>According to the U.S. State Department, less than half of one percent (0.4) of all human trafficking victims are identified throughout the world. And in the U.S., federal human trafficking convictions decreased by 48 percent between 2019 and 2022. Considering the impunity that traffickers unfortunately enjoy, we must prioritize the efforts of our federal, state, and local law enforcement to prevent human trafficking, identify victims, and remove these violent criminals from our streets. We must secure the Southwest border to disincentivize human smuggling and decrease the likelihood of migrant exploitation along every stage of their journey. We must work with governments in Latin America to hold the cartels accountable and further invest in training law enforcement to identify victims through programs such as DHS’s Blue Campaign and the Federal Law Enforcement Training Centers Human Trafficking Awareness Training.</mark>
+
+Victims are of immense importance in society - we cannot wait for another day
+<mark>Luttrell 23 [Cartels, 8-10-2023, OPINION: Human and drug trafficking fueled by cartels, Congressman Morgan Luttrell,</mark>
+<mark>https://luttrell.house.gov/media/in-the-news/opinion-human-and-drug-trafficking-fueled-cartels] //viv Of the many crises afflicting our nation under President Joe Biden, the most egregious is the human and drug trafficking being fueled by the cartels and transnational criminal organizations (TCOs) at the southern border, leaving no corner of our country untouched by this evil. Tragically, children and young adults are the most vulnerable victims of the cartels. Human trafficking is the world’s second-largest criminal industry, generating an estimated $150 billion annually and enslaving nearly 50 million people, as of 2021. That’s approximately six times the population of New York City. Even more devastating, approximately a fifth of all victims are children, with a child or teen sold into slavery every 30 seconds. Unfortunately, the Biden Administration’s destructive immigration policies are only making the problem worse, particularly at our southern border. As the human trafficking industry expands, the U.S. Department of State estimates between</mark>
+<mark>14,500 and 17,500 victims are trafficked within the United States each year, and an estimated 72% of these victims are immigrants. Painting an even grimmer picture, more than 370,000 unaccompanied children have come to our southern border unlawfully under President Biden, and studies show that 60% of unaccompanied migrant children are caught by cartels and exploited through child pornography and drug trafficking. Only 1% of victims are rescued. It’s a problem we cannot afford to ignore.</mark>
+
+ Trafficking brings detrimental impacts to victims
+<mark>Novotney 23 [Amy Novotney, 4-24-2023, "7 in 10 human trafficking victims are women and girls. What are the psychological effects?", https://www.apa.org,</mark>
+<mark>https://www.apa.org/topics/women-girls/trafficking-women-girls] //viv</mark>
+<mark> The physical and mental health effects of human trafficking are serious. It can cause a loss of basic human rights, loss of one’s childhood, disruption in families, and severe mental health consequences, including anxiety disorders, posttraumatic stress disorder (PTSD), depression, and substance abuse. Studies show that women who have been trafficked for sex have higher levels of fear, are more isolated, and have greater trauma and mental health needs than other victims of crime. Trafficked women and girls also encounter high rates of physical and sexual violence, memory loss, sexually transmitted diseases, and traumatic brain injuries. Depression, anxiety, and PTSD rates are also high among sex and labor trafficking survivors, with higher rates typically reported by female survivors. A 2016 study investigating physical and mental health, and experiences of violence among male and female trafficking survivors in England found 78% of women and 40% of men reported high levels of depression, anxiety, or PTSD symptoms. A 2022 study points to the potential for sex trafficking victims to experience Stockholm syndrome, or an emotional attachment to their abuser. Substance use, abuse, and addiction are also common behavioral health outcomes among survivors of human trafficking</mark>
+
+The third and last impact the affirmative seeks to address is Arms Trafficking
+
+<mark>Most guns are trafficked from the U.S. into Mexico</mark>
+Barton 24 [Barton, "Avoiding a Legal Battle, the ATF Has Released Near-Unprecedented Gun Trafficking Data", 2024, The Trace, https://www.thetrace.org/2024/06/atf-gun-trafficking-report-data-mexico/]
+
+The records form the basis of a new report from Stop US Arms to Mexico, a nonprofit in Oakland, California, that works to prevent gun trafficking. According to the report, <mark>more than 50,000 firearms were smuggled over the U.S. border into Mexico,</mark> Guatemala, Honduras, and El Salvador <mark>between 2015 and 2022. </mark>The weapons traced back to nearly every U.S. ZIP code, indicating that the sources of crime guns trafficked to Mexico and Central America are not as heavily concentrated along the southern border as previously thought. John Lindsay-Poland, the founder and coordinator of Stop US Arms to Mexico, said the records underscore the need for U.S. policymakers to take a more systematic approach to tackling cross-border gun trafficking. “This data shows us that the market for guns in the United States is so large and so porous that going after individual straw buyers is not a winning strategy,” he said, using a term for intermediaries who buy guns on behalf of traffickers. “We need to look upstream, at the unregulated market that provides such easy access to traffickers.” Lindsay-Poland obtained the trafficking data after a yearslong legal battle with the ATF. In March 2021, he submitted a public records request seeking information on the number of guns recovered from crime scenes in Mexico, Guatemala, Honduras, and El Salvador, broken down by the U.S. states, counties, and ZIP codes where they were purchased. <mark>The four countries cited</mark> by Lindsay-Poland <mark>face some of the worst homicide rates in the world, driven largely by shootings carried out with guns produced or sold in the United States.</mark>
+
+<mark>There are many deaths, largely due to U.S. trafficked arms</mark>
+SRD 24 [SRD, "Number of homicides in Mexico from 2015 to 2023", 2024, Statista, https://www.statista.com/statistics/959787/mexico-number-homicides/]
+
+In 2023, a total of <mark>42,013 homicides were registered in Mexico</mark>, over 800 murder victims less than the death toll reported a year earlier. <mark>The number of homicides in Mexico, including intentional homicides and cases of manslaughter, grew</mark> between 2015 and 2018, before plateauing around 44,000 victims per year.
+
+<mark>Thus, we urge an affirmative ballot. </mark>
+
+## Construction-criteria audit
+
+### Embedded weighing
+**ABSENT:** No card explicitly compares the magnitude, probability, or timeframe of the three impact scenarios (drug trafficking, human trafficking, arms trafficking) against each other or against likely Con impacts (e.g., privacy costs, fiscal costs, diplomatic fallout). A card such as "CBP 2024 – surveillance expansion reduces drug interdiction costs by 40% while privacy harms affect <1% of travelers" (tag: *Surveillance expansion uniquely outweighs on magnitude and probability*) placed after the three impact modules would give the 2NR a pre-written weighing trigger.
+
+### Offensive spikes
+**ABSENT:** No card preempts the core Con positions this topic invites — e.g., "surveillance infrastructure is redundant with existing tech," "expansion fuels authoritarian mission creep," or "cartels adapt via tunnels/drones." A card like "GAO 2023 – physical barriers and aerial surveillance displaced 78% of cartel routes to maritime corridors; further land surveillance yields diminishing returns" (tag: *Con solvency deficit: cartels adapt, surveillance fails*) tagged as a **Turn — Adaptation** spike would let the 1AR extend offense against the most predictable Con solvency takeouts.
+
+### Defensive spikes
+**ABSENT:** No frontline card answers the specific responses Con will read: "surveillance doesn’t stop corruption — cartels bribe the monitors too," "EU SIS is incomparable — different legal framework," or "Olken 2024 is Indonesia, not CBP." A card such as "CBP OPR 2023 – body-camera + AI audit pilot cut sustained corruption complaints 62% in Tucson Sector; monitoring the monitors works" (tag: *Surveillance reduces CBP corruption — empirical pilot*) placed right after the Bradley 23 / LaSusa 16 corruption module would insulate the internal link.
+
+### Evidence quality
+**Stott 24 (Financial Times) — "Mexico's drug cartels are thriving."** Authored by FT’s Mexico City correspondent (Stott) and Latin America editor (Murray); 2024 paywall journalism with on-the-ground sourcing. Strong recency and outlet credibility, but no dataset methodology disclosed — cannot win an evidence-comparison tiebreak against a peer-reviewed study with quantified territory-control metrics.
+
+**Reardon 23 (Science) — "Cutting cartel recruitment could be the only way to reduce Mexico’s violence."** Reports on Prieto-Curiel et al. (2023) *Science* modeling study (n ≈ 175k cartel members, decade panel, agent-based simulation). Peer-reviewed, transparent methodology, predictive projections to 2027. Highest evidence quality in the doc — wins tiebreaks on warrant depth and dataset rigor.
+
+**Olken 24 (UChicago Journals) — "Monitoring Corruption: Evidence from a Field Experiment in Indonesia."** Top-tier development economics RCT (n ≈ 600 villages, 2007–2008 data, published 2007/2024 reprint). Nobel-caliber author (Olken), clean identification. External validity to CBP is the weak link — Con will flag context mismatch.
+
+**EU 24 (EU Commission press release) — "The EU Schengen Information System Helps Combat Serious Crime and Terrorism."** Institutional PR doc, not independent evaluation. Zero methodological transparency; anecdotal single arrest example. Loses any evidence-comparison round vs. a GAO or RAND assessment.
+
+**Barton 24 (The Trace) — "Avoiding a Legal Battle, the ATF Has Released Near-Unprecedented Gun Trafficking Data."** Investigative nonprofit journalism built on ATF trace data (50k+ firearms, 2015–2022, ZIP-code granularity). Strong primary-source dataset; author Lindsay-Poland is subject-matter expert. Beats generic think-tank cites on dataset size and specificity.
+
+### Collapse flexibility
+**Reardon 23 — "Cartels have grown and will continue to do so."** The Prieto-Curiel model generates *three* independent solvency pathways the 2AR can collapse to: (1) recruitment reduction → violence drop (core model finding), (2) territory-control degradation → smuggling route disruption (implied by 26% growth projection), (3) financial-flow interruption → money-laundering exposure (model excludes bankers, so surveillance that catches financiers is an unmodeled upside). This single card lets the aff shift impact calculus across drug / human / arms trafficking without new evidence.
+
+### Warrant depth
+**Olken 24 — "Surveillance monitoring reduces corruption."** Tag claims "traditional top-down monitoring can play an important role in reducing corruption, even in a highly corrupt environment." The quoted text *is* the warrant — the RCT result (monitoring → corruption reduction) — but the case never explains *why* the mechanism travels from Indonesian village roads to U.S. border checkpoints (principal-agent structure, monitor independence, penalty severity). No internal-link warrant in the case text; the card alone carries the full burden.
+
+**EU 24 — "Europe’s border surveillance system has worked extremely well to combat serious crime."** Tag asserts systemic success; evidence provides *one* terrorist-arrest anecdote. Zero warrant for "worked extremely well" — no aggregate metrics (arrests/year, false-positive rate, cost-per-interdiction). Claim + cite with no analytical bridge.
+
+### Internal consistency
+**ABSENT — Framing fracture between Contention 1 internal links.** The corruption module (Bradley 23, LaSusa 16, Olken 24) argues *CBP agents are the leak* — surveillance must monitor *them* (internal oversight). The EU 24 / Barton 24 / CFR 22 module argues *cartels are the threat* — surveillance must monitor *the border* (external interdiction). These are different surveillance architectures (inward-facing cameras + AI audit vs. outward-facing radar / towers / biometrics). The case never reconciles them; a Con "solvency double-bind" (inward tech doesn’t stop drugs, outward tech doesn’t stop bribes) collapses both links simultaneously. A reconciliation card — e.g., "CBP 2023 – integrated fixed-tower + body-cam network simultaneously cut agent corruption 41% and drug seizures up 19% in Rio Grande Valley" — would unify the framing.
+
+---
+
+### Overall construction score
+**Score: 4/10** — One elite evidence set (Reardon 23 / Prieto-Curiel Science model) and genuine collapse flexibility from a single card carry the case, but zero embedded weighing, zero offensive/defensive spikes, two of seven cards lack warrants, and a structural internal-link contradiction between the corruption and interdiction modules makes the case strategically brittle against a prepared Con.
