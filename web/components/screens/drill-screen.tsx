@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, Dices } from 'lucide-react'
+import { ArrowRight, Dices, Volume2 } from 'lucide-react'
 import { InkButton, PageTitle, Pill, TallyBox } from '@/components/ui/primitives'
-import { getDrillScenario, gradeDrill, uploadFile, type DrillAnswerKey, type DrillGradeResult, type DrillScenario } from '@/lib/api'
+import { getDrillScenario, gradeDrill, uploadFile, drillSpeak, type DrillAnswerKey, type DrillGradeResult, type DrillScenario, type DrillSpeakResult } from '@/lib/api'
+import { SpeechPlayer } from '@/components/drill/speech-player'
 import { DRILL_FORMATS, DRILL_TOPICS, PF_FORMAT, randomFrom } from '@/lib/drill-topics'
 import { TopicCombobox } from '@/components/drill/topic-combobox'
 import { LedgerTable } from '@/components/drill/ledger-table'
@@ -32,6 +33,11 @@ export function DrillScreen() {
   const [report, setReport] = useState<DrillGradeResult | null>(null)
   const [recordStatus, setRecordStatus] = useState('')
   const [grading, setGrading] = useState(false)
+  // Spoken exemplar of the optimal speech — only offered in the report panel
+  // (after the answer key is revealed), so it never spoils the drill.
+  const [speakResult, setSpeakResult] = useState<DrillSpeakResult | null>(null)
+  const [speaking, setSpeaking] = useState(false)
+  const [speakError, setSpeakError] = useState('')
 
   function randomize() {
     setSide(randomFrom(PF_CONFIG.sides))
@@ -49,11 +55,29 @@ export function DrillScreen() {
       setScenario(data.scenario)
       setAnswerKey(data.answerKey)
       setReport(null)
+      setSpeakResult(null)
+      setSpeakError('')
       setRecordStatus('')
       setPanel('scenario')
     } catch (err) {
       alert(err instanceof Error ? err.message : "Couldn't generate a scenario.")
       setPanel('setup')
+    }
+  }
+
+  async function handleSpeak() {
+    if (!scenario) return
+    setSpeaking(true)
+    setSpeakError('')
+    try {
+      // Compact { scenario, speech } contract — the server authors an exemplar
+      // of this speech slot to the grader's construction criteria and voices it.
+      const result = await drillSpeak({ scenario, speech: scenario.speech })
+      setSpeakResult(result)
+    } catch (err) {
+      setSpeakError(err instanceof Error ? err.message : "Couldn't deliver that speech aloud.")
+    } finally {
+      setSpeaking(false)
     }
   }
 
@@ -98,6 +122,8 @@ export function DrillScreen() {
     setScenario(null)
     setAnswerKey(null)
     setReport(null)
+    setSpeakResult(null)
+    setSpeakError('')
     setPanel('setup')
   }
 
@@ -221,6 +247,22 @@ export function DrillScreen() {
             <p className="mt-2 text-sm text-muted-foreground">{report.optimalMove.description}</p>
             <div className="mt-5 overflow-x-auto">
               <LedgerTable prior={report.optimalMove.prior} factors={report.optimalMove.factors} probability={report.optimalMove.probability} />
+            </div>
+            <div className="mt-5 border-t border-border pt-5">
+              {speakResult ? (
+                <SpeechPlayer result={speakResult} label={`Model ${scenario?.speech ?? 'speech'}`} />
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSpeak}
+                  disabled={speaking}
+                  className="press inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:opacity-50"
+                >
+                  <Volume2 className="size-4" />
+                  {speaking ? 'Writing & voicing…' : 'Hear the model deliver this speech'}
+                </button>
+              )}
+              {speakError && <p className="mt-2 text-xs text-destructive">{speakError}</p>}
             </div>
           </section>
           <section className="surface rounded-3xl p-6 md:p-8 lg:col-span-2">

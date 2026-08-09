@@ -1806,7 +1806,23 @@ function speechWordTarget(speechType) {
 }
 
 app.post("/api/drill/speak", aiGuards, async (req, res) => {
-  const { text, actingInstructions, voice, generate } = req.body ?? {};
+  let { text, actingInstructions, voice, generate } = req.body ?? {};
+  // The web client (web/lib/api.ts `drillSpeak`) posts the compact
+  // { scenario, speech } shape; normalize it into the generate spec this route
+  // authors an exemplar speech from. Direct { text } / { generate } callers
+  // (e.g. opponent-setup delivery) are untouched.
+  if (!generate && !text && req.body?.scenario && typeof req.body.scenario === "object") {
+    const sc = req.body.scenario;
+    generate = {
+      scenario: sc,
+      speechType: req.body.speech || sc.speech,
+      side: sc.side,
+      topic: sc.resolution,
+      format: sc.format || "Public Forum",
+      difficulty: sc.difficulty,
+      speakingOrder: sc.speakingOrder,
+    };
+  }
   if (!isHumeTtsAvailable()) {
     res.status(503).json({
       unavailable: true,
