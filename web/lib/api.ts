@@ -218,7 +218,7 @@ export type JudgeResult = {
   warning?: string
   paradigm: string
   tabroom_url: string
-  results?: { name: string; judge_id: string }[]
+  results?: { name: string; judge_id: string; affiliations?: string }[]
 }
 
 export function lookupJudge(query: { name: string } | { judge_id: string }): Promise<JudgeResult> {
