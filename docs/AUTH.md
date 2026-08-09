@@ -39,6 +39,13 @@ token near the browser.
 (`:3001`), which proxies `/api/*` to Express (`:3000`) — redirecting to
 Express's own port lands on a 404.
 
+**Where the callback lands.** `/` is the public marketing page (outside
+`AuthGate`, see `web/components/app-frame.tsx`), so every auth redirect targets
+`/home` — success and `?authError=` alike. `AuthGate` mounts there and is the
+only place that renders the sign-in card or an auth error, so pointing a
+redirect at `/` would swallow both. The Supabase redirect allowlist is
+unaffected: the callback URL is still `<PUBLIC_BASE_URL>/api/auth/callback`.
+
 ## Routes
 
 | Route | Notes |

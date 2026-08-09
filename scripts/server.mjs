@@ -455,7 +455,7 @@ app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
     res.redirect(googleAuthorizeUrl(challenge));
   } catch (err) {
     console.error("Google sign-in start failed:", err.message);
-    res.redirect(`${appBaseUrl()}/?authError=unavailable`);
+    res.redirect(`${appBaseUrl()}/home?authError=unavailable`);
   }
 });
 
@@ -491,7 +491,7 @@ app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
   const verifier = readPkceCookie(req);
   clearPkceCookie(res);
   if (!code || !verifier) {
-    res.redirect(`${appBaseUrl()}/?authError=expired`);
+    res.redirect(`${appBaseUrl()}/home?authError=expired`);
     return;
   }
   try {
@@ -501,10 +501,12 @@ app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
     // so a pre-login cookie can never live on past authentication.
     await destroySession(req, res);
     await createSession(res, { userId: user.userId });
-    res.redirect(`${appBaseUrl()}/`);
+    // Straight into the app: "/" is now the public landing page, and a
+    // just-authenticated visitor should never see it flash past.
+    res.redirect(`${appBaseUrl()}/home`);
   } catch (err) {
     console.error("Sign-in callback failed:", err.message);
-    res.redirect(`${appBaseUrl()}/?authError=failed`);
+    res.redirect(`${appBaseUrl()}/home?authError=failed`);
   }
 });
 

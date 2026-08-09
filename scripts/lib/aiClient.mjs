@@ -59,10 +59,9 @@ export async function completeText({ system, prompt, maxTokens, jsonSchema, mode
     max_tokens: maxTokens,
     ...(Number.isFinite(temperature) ? { temperature } : {}),
     messages: [...(system ? [{ role: "system", content: system }] : []), { role: "user", content: prompt }],
-    // One-shot JSON routes run with thinking off regardless of tier: invisible
-    // reasoning ate most of max_tokens on drill scenarios and truncated the
-    // JSON, at 2-4x the latency. The tool-using chat loop (streamChat) leaves
-    // it on instead.
+    // Thinking off, same as streamChat: invisible reasoning ate most of
+    // max_tokens on drill scenarios and truncated the JSON, at 2-4x the
+    // latency.
     chat_template_kwargs: { enable_thinking: false },
   };
   // Structured outputs: constrain the response to a JSON schema so the API
@@ -169,10 +168,12 @@ export async function streamChat({ system, conversation, tools, toolChoice, maxT
     model: resolvedModel,
     max_tokens: maxTokens,
     ...(Number.isFinite(temperature) ? { temperature } : {}),
-    // Explicit "on": tool triggering benefits from reasoning here. Reasoning
-    // deltas arrive on a separate `reasoning_content` field (never `content`)
-    // and are discarded below — the debater must never see them.
-    chat_template_kwargs: { enable_thinking: true },
+    // Off, like the one-shot routes. Reasoning deltas arrive on a separate
+    // `reasoning_content` field (never `content`) and are discarded, so every
+    // thinking token is dead air the debater watches a spinner through:
+    // measured 15.8s to first visible character with it on vs 3.2s off, and
+    // tool triggering was unchanged. Handled below if it ever comes back on.
+    chat_template_kwargs: { enable_thinking: false },
     messages: [{ role: "system", content: system }, ...conversation],
     ...(openaiTools ? { tools: openaiTools } : {}),
     // tool_choice "none" forces a text answer while keeping the tool

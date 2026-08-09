@@ -1,7 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { AuthGate } from '@/components/auth/auth-gate'
-import { AppShell } from '@/components/nav/app-shell'
+import { AppFrame } from '@/components/app-frame'
 import './globals.css'
 
 // ponytail: type is the SF/system stack defined in globals.css — no webfont
@@ -34,9 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
       <body className="font-sans antialiased">
-        <AuthGate>
-          <AppShell>{children}</AppShell>
-        </AuthGate>
+        <AppFrame>{children}</AppFrame>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
