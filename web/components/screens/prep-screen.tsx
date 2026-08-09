@@ -239,6 +239,9 @@ export function PrepScreen() {
         <aside className="surface h-fit rounded-3xl p-5 xl:sticky xl:top-6">
           <p className="text-sm font-semibold">About stress test</p>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            <b className="text-foreground">Note:</b> only one contention can be stress tested at a time.
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
             Skim is a fast focused gut-check. Full is an exhaustive audit — flaw cards suggest a fix; predicted-attack cards
             withhold the answer so you build your own frontline.
           </p>
