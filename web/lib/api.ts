@@ -359,14 +359,26 @@ export function summarizeRound(messages: ChatMessage[]): Promise<{ title: string
   return postJson("/api/summarize-round", { messages })
 }
 
+// Structured, SAFE failure the server attaches to the end of a chat stream so
+// the UI can show *why* a request failed and offer a retry. Never carries raw
+// error text — see classifyChatFailure() in scripts/server.mjs.
+export type ChatFailure = { code: string; reason: string; retryable: boolean }
+export type ChatResult = { text: string; failure?: ChatFailure }
+
+// Must match CHAT_ERROR_SENTINEL in scripts/server.mjs byte-for-byte. NUL-guarded
+// so it can never appear inside model output; everything after it is the JSON
+// failure trailer, stripped from the visible text before it's ever rendered.
+const CHAT_ERROR_SENTINEL = "\u241E\u241ECROSS_CHAT_ERROR\u241E"
+
 // Raw ReadableStream of plain-text chunks — NOT Server-Sent Events. Mirrors
 // public/app.js's pushAndStream reader loop exactly; do not reach for
-// EventSource/SSE parsing here.
+// EventSource/SSE parsing here. Resolves to { text, failure? }: on a failed
+// request the backend streams a friendly message (text) plus a failure trailer.
 export async function streamChat(
   input: { messages: ChatMessage[]; crossChatMemory?: string; mode: "general" | "preround" },
   onDelta: (fullTextSoFar: string) => void,
   signal?: AbortSignal,
-): Promise<string> {
+): Promise<ChatResult> {
   const res = await apiFetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -384,9 +396,19 @@ export async function streamChat(
     const { done, value } = await reader.read()
     if (done) break
     text += decoder.decode(value, { stream: true })
-    onDelta(text)
+    // Never render the failure trailer: show only the text up to the sentinel.
+    const cut = text.indexOf(CHAT_ERROR_SENTINEL)
+    onDelta(cut === -1 ? text : text.slice(0, cut))
   }
-  return text
+  const cut = text.indexOf(CHAT_ERROR_SENTINEL)
+  if (cut === -1) return { text }
+  let failure: ChatFailure
+  try {
+    failure = JSON.parse(text.slice(cut + CHAT_ERROR_SENTINEL.length)) as ChatFailure
+  } catch {
+    failure = { code: "unknown", reason: "The reply ended unexpectedly.", retryable: true }
+  }
+  return { text: text.slice(0, cut), failure }
 }
 
 // --- Strategy mode (backend exists, no caller yet — deferred per plan) ----

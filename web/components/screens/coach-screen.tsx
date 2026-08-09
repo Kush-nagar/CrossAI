@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { marked } from 'marked'
-import { ArrowRight, FileText, Menu, Plus, Sparkles, X } from 'lucide-react'
+import { AlertTriangle, ArrowRight, FileText, Menu, Plus, RotateCcw, Sparkles, X } from 'lucide-react'
 import {
   streamChat,
   summarizeRound,
@@ -69,6 +69,13 @@ export function CoachScreen() {
   const [input, setInput] = useState('')
   const [streaming, setStreaming] = useState(false)
   const [assistantDraft, setAssistantDraft] = useState('')
+  // Check-back mechanism: when a chat request fails, keep the reason (safe,
+  // internals-free — see classifyChatFailure in server.mjs) and the exact turn
+  // to replay so the debater can see why and retry, instead of a dead reply.
+  const [sendError, setSendError] = useState<{ reason: string; retryable: boolean } | null>(null)
+  const [lastAttempt, setLastAttempt] = useState<
+    { messages: ChatMessage[]; roundId: string | null; isFirstMessageOfRound: boolean } | null
+  >(null)
   const [attachments, setAttachments] = useState<UploadResult[]>([])
   const [mode, setMode] = useState<'general' | 'preround'>('general')
   const [historyOpen, setHistoryOpen] = useState(false)
@@ -130,6 +137,7 @@ export function CoachScreen() {
     setMessages([])
     setAttachments([])
     setAssistantDraft('')
+    setSendError(null)
     setHistoryOpen(false)
   }
 
@@ -140,12 +148,61 @@ export function CoachScreen() {
     if (!record) return
     setCurrentId(id)
     setMessages(JSON.parse(JSON.stringify(record.messages)))
+    setSendError(null)
     setHistoryOpen(false)
   }
 
   function updateMode(next: 'general' | 'preround') {
     setMode(next)
     saveCoachMode(next)
+  }
+
+  // Streams one assistant turn for a conversation that already ends in the
+  // user's message. Shared by send() (new turn) and retryLast() (replay the
+  // same turn) so both funnel through identical success/failure handling.
+  async function runChat(nextMessages: ChatMessage[], roundId: string | null, isFirstMessageOfRound: boolean) {
+    setStreaming(true)
+    setAssistantDraft('')
+    setSendError(null)
+
+    try {
+      const { text: finalText, failure } = await streamChat(
+        { messages: nextMessages, crossChatMemory: buildCrossChatMemory(conversations, currentId), mode },
+        (soFar) => setAssistantDraft(soFar),
+      )
+      const withAssistant: ChatMessage[] = finalText ? [...nextMessages, { role: 'assistant', content: finalText }] : nextMessages
+      setMessages(withAssistant)
+      persistCurrent(withAssistant)
+
+      if (failure) {
+        // The friendly reply is already in the thread; surface the reason +
+        // retry below it, and remember this turn so retry can replay it.
+        setSendError({ reason: failure.reason, retryable: failure.retryable })
+        setLastAttempt({ messages: nextMessages, roundId, isFirstMessageOfRound })
+      } else if (isFirstMessageOfRound && finalText && roundId) {
+        summarizeRound(withAssistant)
+          .then((result) => {
+            setConversations((prev) => {
+              const next = prev.map((c) => (c.id === roundId ? { ...c, title: result.title || c.title, summary: result.summary || c.summary } : c))
+              saveConversations(next)
+              return next
+            })
+          })
+          .catch(() => {})
+      }
+    } catch (err) {
+      // Pre-stream failure (never reached the model, e.g. network/session/500):
+      // no friendly reply exists, so keep the user's turn and show the reason.
+      setAssistantDraft('')
+      setMessages(nextMessages)
+      persistCurrent(nextMessages)
+      const reason = err instanceof Error ? err.message : 'Something went wrong reaching CrossCoach.'
+      setSendError({ reason, retryable: true })
+      setLastAttempt({ messages: nextMessages, roundId, isFirstMessageOfRound })
+    } finally {
+      setStreaming(false)
+      setAssistantDraft('')
+    }
   }
 
   async function send(rawText: string, sendAttachments: UploadResult[] = attachments) {
@@ -159,36 +216,17 @@ export function CoachScreen() {
     setMessages(nextMessages)
     setInput('')
     setAttachments([])
-    setStreaming(true)
-    setAssistantDraft('')
+    await runChat(nextMessages, roundId, isFirstMessageOfRound)
+  }
 
-    try {
-      const finalText = await streamChat(
-        { messages: nextMessages, crossChatMemory: buildCrossChatMemory(conversations, currentId), mode },
-        (soFar) => setAssistantDraft(soFar),
-      )
-      const withAssistant: ChatMessage[] = finalText ? [...nextMessages, { role: 'assistant', content: finalText }] : nextMessages
-      setMessages(withAssistant)
-      persistCurrent(withAssistant)
-      if (isFirstMessageOfRound && finalText && roundId) {
-        summarizeRound(withAssistant)
-          .then((result) => {
-            setConversations((prev) => {
-              const next = prev.map((c) => (c.id === roundId ? { ...c, title: result.title || c.title, summary: result.summary || c.summary } : c))
-              saveConversations(next)
-              return next
-            })
-          })
-          .catch(() => {})
-      }
-    } catch (err) {
-      setAssistantDraft('')
-      const errorText = err instanceof Error ? err.message : 'Something went wrong.'
-      setMessages([...nextMessages, { role: 'assistant', content: `⚠️ ${errorText}` }])
-    } finally {
-      setStreaming(false)
-      setAssistantDraft('')
-    }
+  // "Check back" — replay the last failed turn. Drops the failed reply (if the
+  // model produced a friendly one) so the retry cleanly replaces it.
+  function retryLast() {
+    if (!lastAttempt || streaming) return
+    const { messages: nextMessages, roundId, isFirstMessageOfRound } = lastAttempt
+    setMessages(nextMessages)
+    setSendError(null)
+    runChat(nextMessages, roundId, isFirstMessageOfRound)
   }
 
   async function handleAttach(e: React.ChangeEvent<HTMLInputElement>) {
@@ -329,6 +367,35 @@ export function CoachScreen() {
                 </div>
               )
             })}
+            {sendError && !streaming && (
+              <div className="chat-message flex justify-start" role="alert" aria-live="polite">
+                <div className="flex w-full max-w-2xl flex-col gap-3 rounded-2xl border border-destructive/25 bg-destructive/5 px-4 py-3.5">
+                  <div className="flex items-start gap-2.5">
+                    <AlertTriangle className="mt-0.5 size-4 shrink-0 text-destructive" />
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-medium text-foreground">That message didn&apos;t go through</p>
+                      <p className="text-sm leading-6 text-muted-foreground">{sendError.reason}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 pl-[26px]">
+                    {sendError.retryable && (
+                      <button
+                        onClick={retryLast}
+                        className="inline-flex items-center gap-1.5 rounded-lg bg-foreground px-3 py-1.5 text-xs font-medium text-card transition hover:opacity-85"
+                      >
+                        <RotateCcw className="size-3.5" /> Try again
+                      </button>
+                    )}
+                    <button
+                      onClick={() => setSendError(null)}
+                      className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:bg-secondary"
+                    >
+                      Dismiss
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
             {streaming && (
               <div className="chat-message flex items-center gap-3">
                 <span className="flex size-8 items-center justify-center rounded-xl bg-foreground text-card">

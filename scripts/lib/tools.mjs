@@ -127,10 +127,16 @@ export const readCorpusFileTool = {
   },
 };
 
+// Default files returned per search when the model doesn't specify. Lower =
+// fewer/tighter snippets fed back into the loop = less to stream/re-encode on
+// the next turn. Env-overridable so top_k can be tuned without a code change
+// (e.g. CORPUS_SEARCH_MAX_RESULTS=3 for the leanest retrieval).
+const DEFAULT_SEARCH_MAX_RESULTS = Number(process.env.CORPUS_SEARCH_MAX_RESULTS) || 6;
+
 export async function runSearchCorpusTool(toolUseBlock) {
   const { query, maxResults } = toolUseBlock.input ?? {};
   try {
-    const results = await searchCorpus(query, { maxResults: maxResults || 6 });
+    const results = await searchCorpus(query, { maxResults: maxResults || DEFAULT_SEARCH_MAX_RESULTS });
     if (results.length === 0) {
       return { toolResultContent: "No corpus files matched that query.", isError: false };
     }

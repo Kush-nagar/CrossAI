@@ -215,6 +215,14 @@ const aiGuards = [aiRateLimiter, dailyCap];
 // default for scoring consistency. Env-overridable for instant tuning.
 const CHAT_TEMPERATURE = Number(process.env.CHAT_TEMPERATURE ?? 0.85);
 
+// Invisible chain-of-thought on the chat route. OFF is the latency default:
+// Nemotron otherwise streams a discarded `reasoning_content` pass before the
+// first visible token, which is the dominant Time-to-First-Token cost on this
+// endpoint. Reasoning does improve tool-triggering accuracy, so set
+// CHAT_ENABLE_THINKING=1 (or true/yes) to restore it and A/B the tradeoff.
+// The one-shot JSON routes are unaffected — they force thinking off in aiClient.
+const CHAT_ENABLE_THINKING = /^(1|true|yes)$/i.test(process.env.CHAT_ENABLE_THINKING ?? "");
+
 const ROUTE_MODELS = {
   chat: process.env.CHAT_MODEL || "opus",
   stressTest: process.env.STRESS_TEST_MODEL || "opus",
@@ -324,6 +332,44 @@ function streamPlainReply(res, text) {
   if (!res.headersSent) res.setHeader("Content-Type", "text/plain; charset=utf-8");
   res.write(text);
   res.end();
+}
+
+// Machine-readable failure trailer for the chat stream. friendlyFailureReply()
+// stays the VISIBLE reply — conversational and internals-free — while this adds
+// a short, SAFE reason the UI can surface on demand plus a `retryable` hint, so
+// a debater can see *why* a request failed and decide whether to retry. The raw
+// error (message/stack/upstream body) is never sent — it stays in the server
+// log via console.error. NUL-guarded so it can never collide with model text;
+// the frontend splits it off the end of the stream (web/lib/api.ts
+// CHAT_ERROR_SENTINEL). Keep the literal identical on both sides.
+const CHAT_ERROR_SENTINEL = "\u241E\u241ECROSS_CHAT_ERROR\u241E";
+
+function classifyChatFailure(err) {
+  const msg = String(err?.message || "");
+  if (/truncated at the \d+-token limit/.test(msg)) {
+    return { code: "response_too_long", reason: "The reply ran past its length limit and was stopped so you wouldn't get half a thought.", retryable: true };
+  }
+  if (err?.status === 429 || /rate.?limit|resource.?exhausted|too many requests/i.test(msg)) {
+    return { code: "rate_limited", reason: "The AI provider is rate-limiting requests right now (too much traffic). This usually clears within a minute.", retryable: true };
+  }
+  if (/quota|credit|billing|insufficient|payment/i.test(msg)) {
+    return { code: "quota_exhausted", reason: "The AI provider account is out of quota or credit — an operator needs to resolve this before chat works again.", retryable: false };
+  }
+  if (/timeout|timed out|etimedout|econnreset|econnrefused|fetch failed|network|socket|aborted/i.test(msg)) {
+    return { code: "network", reason: "The connection to the AI provider dropped before the reply finished.", retryable: true };
+  }
+  const status = Number.isFinite(err?.status) ? err.status : null;
+  return {
+    code: "upstream_error",
+    reason: status ? `The AI provider returned an unexpected error (HTTP ${status}).` : "An unexpected error interrupted the reply.",
+    retryable: true,
+  };
+}
+
+// Appends the failure trailer to an already-flowing (or about-to-start) chat
+// stream. Always followed by res.end() at the call site.
+function writeChatFailureTrailer(res, err) {
+  res.write(CHAT_ERROR_SENTINEL + JSON.stringify(classifyChatFailure(err)));
 }
 
 // When a chat message is too big to process, have the model itself look at
@@ -1352,6 +1398,46 @@ const DRILL_LEDGER_RULES =
   `- Each factor is {"name": "<factor>", "adjustment": <signed number>, "why": "<one line on why it applies here>"}. ` +
   `Do NOT compute any probabilities yourself — the server does the math.`;
 
+// Public Forum speech roles (CROSS.md §3). Every practice speech is preceded by
+// a fixed chain of speeches from both teams; the drill's round history has to
+// reproduce exactly that chain so the debater walks into the same round state
+// they'd face live before the speech they picked.
+const PF_SPEECH_ROLES = {
+  Constructive: "presents the case — contentions plus framing (~4 min)",
+  Rebuttal: "answers the other side's case line-by-line; the second rebuttal also frontlines answers to the first rebuttal",
+  Summary: "collapses to what the team is winning and starts weighing (magnitude, probability, timeframe, clash)",
+  "Final Focus": "crystallizes the round — writes the ballot for the judge",
+};
+
+// Given the debater's side and the speech they picked in the toggle, returns the
+// ordered chain of speeches (both teams) that must precede it, plus the upcoming
+// speech label. Speaking position is fixed per speech so the drill lands on the
+// skill that speech tests: Rebuttal → the debater's team spoke SECOND (so their
+// rebuttal is the frontlining second rebuttal); Summary / Final Focus → the
+// debater's team spoke FIRST (so they aren't reacting to the opponent's same
+// speech). Labels are team-level ("Pro Rebuttal") to match flow-style history.
+function pfDrillSpeechPlan(side, speech) {
+  const you = side === "Con" ? "Con" : "Pro";
+  const opp = you === "Pro" ? "Con" : "Pro";
+  const norm = String(speech || "").trim().toLowerCase();
+  if (norm === "rebuttal") {
+    return { you, opp, upcoming: `${you} Rebuttal`, preceding: [`${opp} Constructive`, `${you} Constructive`, `${opp} Rebuttal`] };
+  }
+  if (norm === "summary") {
+    return { you, opp, upcoming: `${you} Summary`, preceding: [`${you} Constructive`, `${opp} Constructive`, `${you} Rebuttal`, `${opp} Rebuttal`] };
+  }
+  if (norm === "final focus") {
+    return {
+      you,
+      opp,
+      upcoming: `${you} Final Focus`,
+      preceding: [`${you} Constructive`, `${opp} Constructive`, `${you} Rebuttal`, `${opp} Rebuttal`, `${you} Summary`, `${opp} Summary`],
+    };
+  }
+  // Constructive or anything unexpected: opening speech, no prior history.
+  return { you, opp, upcoming: `${you} ${speech || "Constructive"}`, preceding: [] };
+}
+
 app.post("/api/drill/scenario", aiGuards, async (req, res) => {
   const { format, side, speech, difficulty, topic } = req.body ?? {};
   // A chosen topic pins the resolution; blank keeps the invented-topic default.
@@ -1383,9 +1469,18 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
       ? "Difficulty: HARD — the optimal move should be genuinely non-obvious: the tempting surface-level play (e.g. chasing the loudest argument) should score notably worse than the real optimum, and execution-risk or judge-adaptation factors should matter."
       : "Difficulty: STANDARD — the optimal move is real but not glaringly obvious; a thoughtful debater finds it, a rushed one plays the tempting second-best move.";
 
+  // Build the exact chain of PF speeches that precede the debater's chosen
+  // speech, so the round history contains every speech required to hand them a
+  // live, mid-round state (task: "generate as many speeches as required").
+  const plan = pfDrillSpeechPlan(side, speech);
+  const speechRoleGuide = Object.entries(PF_SPEECH_ROLES).map(([k, v]) => `${k} ${v}`).join("; ");
+  const sequenceList = plan.preceding.length
+    ? plan.preceding.map((s, i) => `${i + 1}. ${s}`).join("  ")
+    : "(none — this is the opening speech of the round)";
+
   const prompt =
-    `Generate a practice-drill scenario for a ${format || "Public Forum"} debater on the ${side || "Pro/Aff"} side, ` +
-    `about to give the ${speech || "next"} speech. ${difficultyLine}\n\n` +
+    `Generate a practice-drill scenario for a Public Forum debater on the ${plan.you} side, ` +
+    `about to give the ${plan.upcoming} (the ${speech || "Summary"} speech they picked). ${difficultyLine}\n\n` +
     `Scenario requirements — all of these, concretely:\n` +
     (chosenTopic
       ? `- Use this resolution/topic, chosen by the debater: "${chosenTopic}". Keep the resolution wording as given ` +
@@ -1396,12 +1491,20 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
       : `- A realistic resolution/topic. Use your training corpus to make the arguments and evidence references ring ` +
         `true structurally, but every cite in the scenario must be invented/fictional — never reuse a real card cite, ` +
         `case name, or file identity from your training material.\n`) +
-    `- 2-3 arguments per side already run, described the way a flow would capture them.\n` +
-    `- Exactly one clearly dropped argument and one live turn OR open weighing gap embedded in the round history — ` +
-    `present them naturally inside the history, never labeled as such.\n` +
-    `- The opponent's time allocation in their most recent speech (which argument they invested in, which they ` +
-    `skimped on), woven into the history — per the round-vision framework, time allocation telegraphs the collapse, ` +
-    `and a sharp debater should be able to read the predicted next move from it.\n` +
+    `- ROUND HISTORY = every speech that precedes the debater's ${plan.upcoming}, and only those. This is a Public ` +
+    `Forum round (Constructive → Rebuttal → Summary → Final Focus, four speeches per side), so "roundHistory" MUST ` +
+    `be exactly this ordered chain, one entry per speech, in this order:\n` +
+    `    ${sequenceList}\n` +
+    `  Each entry's "speech" field is that label verbatim; its "summary" is 2-4 sentences, flow-style, of what that ` +
+    `speech did. Honor each speech's PF role — ${speechRoleGuide}. The debater's own team's earlier speeches in the ` +
+    `chain set up what they now have to work with; if a second Rebuttal appears in the chain it should show ` +
+    `frontlining of the first rebuttal. Give each side 2-3 real arguments, developed across their speeches the way a ` +
+    `flow would capture them.\n` +
+    `- Exactly one clearly dropped argument and one live turn OR open weighing gap embedded in that round history — ` +
+    `present them naturally inside the relevant speeches, never labeled as such.\n` +
+    `- The opponent's time allocation in ${plan.opp}'s most recent speech (which argument they invested in, which ` +
+    `they skimped on), woven into the history — per the round-vision framework, time allocation telegraphs the ` +
+    `collapse, and a sharp debater should read the predicted next move from it.\n` +
     `- An opponent profile including a stated tendency that supports predicting their single most likely next move.\n` +
     `- A judge paradigm drawn from the cross-judge consensus in your reference material (tech over truth, flow-based, ` +
     `warrant-demanding, comparative weighing, offense must live in both back-half speeches) with exactly one concrete ` +
@@ -1414,9 +1517,9 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
     `salvage-style line.\n\n` +
     DRILL_LEDGER_RULES + `\n\n` +
     `Respond with ONLY a JSON object (no prose, no markdown fence) shaped exactly like:\n` +
-    `{"scenario": {"resolution": "<the resolution>", "format": "<format>", "side": "<the debater's side>", ` +
-    `"speech": "<the speech they will write>", ` +
-    `"roundHistory": [{"speech": "<speech name>", "summary": "<2-4 sentences of what happened, flow-style>"}], ` +
+    `{"scenario": {"resolution": "<the resolution>", "format": "Public Forum", "side": "${plan.you}", ` +
+    `"speech": "${plan.upcoming}", ` +
+    `"roundHistory": [{"speech": "<one of the labels from the ordered chain above>", "summary": "<2-4 sentences of what happened, flow-style>"}], ` +
     `"opponentProfile": "<2-3 sentences: their arguments, skill, and stated tendency>", ` +
     `"judgeParadigm": "<2-3 sentences including the concrete quirk>", ` +
     `"task": "<one sentence telling the debater what to write>"}, ` +
@@ -1737,6 +1840,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
         conversation,
         model: ROUTE_MODELS.chat,
         temperature: CHAT_TEMPERATURE,
+        enableThinking: CHAT_ENABLE_THINKING,
         tools: chatTools,
         maxTokens,
         onText: (delta) => res.write(delta),
@@ -1806,6 +1910,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
         conversation,
         model: ROUTE_MODELS.chat,
         temperature: CHAT_TEMPERATURE,
+        enableThinking: CHAT_ENABLE_THINKING,
         tools: chatTools,
         toolChoice: { type: "none" },
         maxTokens,
@@ -1818,11 +1923,17 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // conversational, internals-free reply (see friendlyFailureReply).
     console.error(err);
     if (!res.headersSent) {
-      streamPlainReply(res, friendlyFailureReply(err));
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      res.write(friendlyFailureReply(err));
+      // Trailer lets the debater see *why* it failed and offers a retry — the
+      // visible message above stays internals-free; the raw error only logged.
+      writeChatFailureTrailer(res, err);
+      res.end();
     } else {
       // The stream is already flowing as plain text — ending silently makes a
       // mid-reply failure look like Cross just stopped talking. Say so.
       res.write(`\n\n${friendlyFailureReply(err)}`);
+      writeChatFailureTrailer(res, err);
       res.end();
     }
   }
