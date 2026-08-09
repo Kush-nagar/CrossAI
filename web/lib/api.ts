@@ -49,7 +49,20 @@ function postJson<T>(path: string, data: unknown): Promise<T> {
 
 // --- Auth ------------------------------------------------------------
 
-export type AuthMe = { authenticated: boolean; username: string | null }
+export type CrossUser = {
+  id: string
+  email: string | null
+  displayName: string | null
+  consentVersion: number
+}
+
+export type AuthMe = {
+  authenticated: boolean
+  user: CrossUser | null
+  // A linked Tabroom account is optional — it unlocks opponent scouting and
+  // signed-in judge paradigm lookups. Everything else works without one.
+  tabroom: { linked: boolean; username: string | null }
+}
 
 export function getAuthMe(): Promise<AuthMe> {
   // Never gated, never throws on 401 (there isn't one) — safe to call before
@@ -57,17 +70,36 @@ export function getAuthMe(): Promise<AuthMe> {
   return json<AuthMe>("/api/auth/me")
 }
 
-export function login(
-  username: string,
-  password: string,
-  remember: boolean,
-  consentVersion: number,
-): Promise<{ ok: true; username: string }> {
-  return postJson("/api/auth/login", { username, password, remember, consentVersion })
+// A full-page navigation, not a fetch: the browser has to follow Supabase's
+// redirect to Google and back to /api/auth/callback, which sets the session
+// cookie server-side.
+export function startGoogleSignIn(): void {
+  window.location.href = "/api/auth/start/google"
+}
+
+// Always resolves when the address is well-formed, whether or not an account
+// exists — the server deliberately doesn't say.
+export function sendMagicLink(email: string): Promise<{ ok: true }> {
+  return postJson("/api/auth/magic-link", { email })
 }
 
 export function logout(): Promise<{ ok: true }> {
   return postJson("/api/auth/logout", {})
+}
+
+// --- Tabroom link (optional) ---------------------------------------------
+
+export function linkTabroom(
+  username: string,
+  password: string,
+  remember: boolean,
+  consentVersion: number,
+): Promise<{ ok: true; username: string; judgeLookupsAuthenticated: boolean }> {
+  return postJson("/api/auth/tabroom/link", { username, password, remember, consentVersion })
+}
+
+export function unlinkTabroom(): Promise<{ ok: true }> {
+  return postJson("/api/auth/tabroom/unlink", {})
 }
 
 // --- Status / corpus ---------------------------------------------------

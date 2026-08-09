@@ -1,6 +1,7 @@
 # Render deployment blueprint for Cross.
 # In Render: New → Blueprint → connect this repo → it reads this file.
-# You'll be prompted for ANTHROPIC_API_KEY (sync: false = not stored in git).
+# Every `sync: false` var is prompted for at deploy time and stored encrypted
+# on Render, never in git.
 services:
   - type: web
     name: cross-ai
@@ -11,7 +12,7 @@ services:
     startCommand: npm start
     healthCheckPath: /api/status
     envVars:
-      - key: ANTHROPIC_API_KEY
+      - key: NVIDIA_API_KEY
         sync: false        # set your real key in the Render dashboard when prompted
       - key: DAILY_REQUEST_CAP
         value: "1000"      # total AI requests/day across all visitors (0 = unlimited)
@@ -23,7 +24,15 @@ services:
         value: "production"  # explicit: guarantees the dev-only test routes never mount
       - key: SESSION_SECRET
         generateValue: true  # signs session cookies; required in production (server refuses to boot without it)
+      # Supabase backs Cross accounts, sessions and the judge paradigm cache.
+      # The server refuses to boot without these three — see docs/AUTH.md.
       - key: SUPABASE_URL
-        sync: false        # judge paradigm cache; unset = always scrape + always summarize, no error
+        sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false        # server-side secret, never in git
+      - key: SUPABASE_ANON_KEY
+        sync: false        # used server-side only, to reach Supabase's auth API
+      - key: TOKEN_ENC_KEY
+        sync: false        # 64 hex chars (`openssl rand -hex 32`); encrypts linked Tabroom tokens
+      - key: PUBLIC_BASE_URL
+        sync: false        # this service's public URL, e.g. https://cross-ai.onrender.com

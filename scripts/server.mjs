@@ -5,7 +5,7 @@
 
 import express from "express";
 import multer from "multer";
-import rateLimit from "express-rate-limit";
+import rateLimit, { ipKeyGenerator } from "express-rate-limit";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -39,7 +39,27 @@ import { addCalibrationSample, applyKnownCorrections, getCalibrationStatus, rese
 import { scoreLedger, scoreMoves } from "./lib/bayes.mjs";
 import { login as caselistLogin, CaselistError } from "./lib/caselistClient.mjs";
 import { login as tabroomLogin, lookupJudgeByName, lookupJudgeById, TabroomJudgeError } from "./lib/tabroomJudgeClient.mjs";
-import { createSession, readSession, destroySession } from "./lib/session.mjs";
+import { createSession, readSession, destroySession, invalidateLinkCache } from "./lib/session.mjs";
+import {
+  hasAuthCredentials,
+  createPkcePair,
+  googleAuthorizeUrl,
+  sendMagicLink,
+  exchangeCode,
+  appBaseUrl,
+  setPkceCookie,
+  readPkceCookie,
+  clearPkceCookie,
+  AuthError,
+} from "./lib/crossAuth.mjs";
+import {
+  upsertProfile,
+  getProfile,
+  setConsentVersion,
+  saveTabroomLink,
+  deleteTabroomLink,
+} from "./lib/userStore.mjs";
+import { hasSupabaseCredentials } from "./lib/supabaseClient.mjs";
 import { judgeCacheKey, hashParadigm, isFresh, getCachedJudge, upsertJudgeCache, touchScrapedAt } from "./lib/judgeCache.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -67,6 +87,16 @@ const app = express();
 app.set("trust proxy", 1);
 
 const IS_PROD = process.env.NODE_ENV === "production";
+
+// Accounts are not optional the way the judge cache is: without Supabase
+// there is nowhere to store users or sessions, so every request would 401
+// with no way to sign in. Fail loudly at boot instead of at first login.
+if (!hasSupabaseCredentials() || !hasAuthCredentials()) {
+  throw new Error(
+    "Cross accounts require SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY and SUPABASE_ANON_KEY. " +
+      "See .env.example, and apply supabase/migrations/0002_auth.sql."
+  );
+}
 
 // Dev-only: the Next.js frontend (web/) runs on its own port and proxies
 // /api/* to this server via next.config.mjs's rewrites(). Next's rewrite
@@ -137,12 +167,17 @@ app.use((req, res, next) => {
 const RATE_LIMIT_PER_MINUTE = Number(process.env.RATE_LIMIT_PER_MINUTE) || 20;
 const DAILY_REQUEST_CAP = Number(process.env.DAILY_REQUEST_CAP ?? 1000);
 
-// Per-IP limiter: stops any single visitor from hammering the API.
+// Per-user limiter (falling back to per-IP): stops any single visitor from
+// hammering the API. AI routes sit behind the gate, so req.session is always
+// set by the time this runs — keying on the account means one user can't
+// multiply their budget by rotating IPs, and a shared school network doesn't
+// throttle a whole team into one bucket.
 const aiRateLimiter = rateLimit({
   windowMs: 60 * 1000,
   limit: RATE_LIMIT_PER_MINUTE,
   standardHeaders: "draft-7",
   legacyHeaders: false,
+  keyGenerator: (req, res) => req.session?.userId || ipKeyGenerator(req, res),
   message: { error: "Too many requests — slow down and try again in a minute." },
 });
 
@@ -337,25 +372,31 @@ app.use("/generated", express.static(GENERATED_DIR));
 app.use("/uploads", express.static(UPLOADS_DIR));
 app.use("/case-uploads", express.static(CASE_UPLOADS_DIR));
 
-// --- Auth gate (Tabroom / OpenCaselist) ---------------------------------
-// The whole app is gated behind a Tabroom login. Debaters sign in with their
-// Tabroom credentials; we proxy those once to the OpenCaselist API to obtain a
-// session token (see caselistClient.mjs), keep only that token server-side
-// (session.mjs), and never store the password. The same login both unlocks the
-// app and authenticates the caselist_* scouting tools in the chat loop.
+// --- Auth gate (Cross accounts) -----------------------------------------
+// The whole app is gated behind a Cross account. Users sign in with Google or
+// an emailed magic link, both brokered by Supabase Auth (crossAuth.mjs) —
+// Cross never sees a password and the browser never receives a Supabase
+// token; the server exchanges the OAuth code and mints its own session cookie
+// (session.mjs, backed by Postgres so sessions survive restarts).
+//
+// A Tabroom account is OPTIONAL and entirely separate: users link one from
+// Settings, which stores the resulting OpenCaselist/Tabroom tokens encrypted
+// (userStore.mjs) to power opponent scouting and logged-in judge lookups.
+// Unlinked accounts work fine with those capabilities absent.
 //
 // These /api/auth/* routes are registered BEFORE the gate so they stay
 // reachable while logged out. Static files (the login shell) were mounted
 // above, so they also load without a session — the client renders a blocking
-// login overlay until /api/auth/me reports authenticated.
+// sign-in overlay until /api/auth/me reports authenticated.
 
-// Stricter limiter on login to blunt credential brute-forcing.
+// Stricter limiter on the auth surface to blunt credential brute-forcing and
+// magic-link/OAuth spam. Applied to every /api/auth/* route that does work.
 const authRateLimiter = rateLimit({
   windowMs: 60 * 1000,
   limit: Number(process.env.LOGIN_LIMIT_PER_MINUTE) || 10,
   standardHeaders: "draft-7",
   legacyHeaders: false,
-  message: { error: "Too many login attempts — wait a minute and try again." },
+  message: { error: "Too many attempts — wait a minute and try again." },
 });
 
 // Per-ACCOUNT lockout on top of the per-IP limiter: the IP limiter alone
@@ -395,31 +436,134 @@ function recordLoginFailure(usernameLower) {
   }
 }
 
-// The privacy notice version users must have accepted to sign in. Must match
-// CONSENT_VERSION in public/auth.js; bump both together when the notice's
-// substance changes so existing users are re-prompted.
+// The privacy notice version users must have accepted before handing Cross
+// their Tabroom credentials. Must match CONSENT_VERSION in
+// web/components/auth/tabroom-link.tsx; bump both together when the notice's
+// substance changes so existing users are re-prompted. Signing in to Cross
+// itself needs no such notice — no third-party password is involved.
 const REQUIRED_CONSENT_VERSION = 1;
 
-app.post("/api/auth/login", authRateLimiter, async (req, res) => {
+// --- Sign in / sign out ---------------------------------------------------
+
+// Step 1 of Google sign-in: park a PKCE verifier on our origin and bounce the
+// browser to Supabase. Without the verifier, an intercepted `code` in the
+// callback URL would be redeemable by anyone who saw it.
+app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
+  try {
+    const { verifier, challenge } = createPkcePair();
+    setPkceCookie(res, verifier);
+    res.redirect(googleAuthorizeUrl(challenge));
+  } catch (err) {
+    console.error("Google sign-in start failed:", err.message);
+    res.redirect(`${appBaseUrl()}/?authError=unavailable`);
+  }
+});
+
+// Step 1 of email sign-in. Always reports success: telling an anonymous
+// caller whether an address is registered would turn this into an account
+// enumeration oracle.
+app.post("/api/auth/magic-link", authRateLimiter, async (req, res) => {
+  const { email } = req.body ?? {};
+  if (typeof email !== "string" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())) {
+    res.status(400).json({ error: "Enter a valid email address." });
+    return;
+  }
+  try {
+    const { verifier, challenge } = createPkcePair();
+    setPkceCookie(res, verifier);
+    await sendMagicLink(email.trim(), challenge);
+  } catch (err) {
+    // Never echo the provider's message back — it distinguishes "unknown
+    // address" from "rate limited". Log it for the operator instead.
+    console.error("Magic link send failed:", err.message);
+    if (err instanceof AuthError && err.status === 429) {
+      res.status(429).json({ error: "Too many sign-in emails — wait a few minutes and try again." });
+      return;
+    }
+  }
+  res.json({ ok: true });
+});
+
+// Step 2 of both flows: Supabase sends the browser here with a one-time code.
+// Redirects (rather than returning JSON) because a human is following it.
+app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
+  const code = typeof req.query.code === "string" ? req.query.code : null;
+  const verifier = readPkceCookie(req);
+  clearPkceCookie(res);
+  if (!code || !verifier) {
+    res.redirect(`${appBaseUrl()}/?authError=expired`);
+    return;
+  }
+  try {
+    const user = await exchangeCode(code, verifier);
+    await upsertProfile(user);
+    // Retire any session the browser already holds before minting a new one,
+    // so a pre-login cookie can never live on past authentication.
+    await destroySession(req, res);
+    await createSession(res, { userId: user.userId });
+    res.redirect(`${appBaseUrl()}/`);
+  } catch (err) {
+    console.error("Sign-in callback failed:", err.message);
+    res.redirect(`${appBaseUrl()}/?authError=failed`);
+  }
+});
+
+app.post("/api/auth/logout", async (req, res) => {
+  await destroySession(req, res);
+  res.json({ ok: true });
+});
+
+// Always 200 — the client polls this on boot to decide whether to show the
+// sign-in overlay, so it must not itself be gated.
+app.get("/api/auth/me", async (req, res) => {
+  const s = await readSession(req).catch(() => null);
+  if (!s) {
+    res.json({ authenticated: false, user: null, tabroom: { linked: false, username: null } });
+    return;
+  }
+  const profile = await getProfile(s.userId).catch(() => null);
+  res.json({
+    authenticated: true,
+    user: {
+      id: s.userId,
+      email: profile?.email || null,
+      displayName: profile?.display_name || null,
+      consentVersion: profile?.consent_version || 0,
+    },
+    tabroom: { linked: Boolean(s.caselistToken || s.tabroomToken), username: s.tabroomUsername },
+  });
+});
+
+// --- Optional Tabroom link ------------------------------------------------
+// Unchanged credential handling from the old Tabroom-only login: the password
+// is used once, here, to mint tokens and is never stored or logged. What's
+// new is that it's optional, tied to a Cross account, and the resulting
+// tokens are encrypted at rest instead of living only in memory.
+
+app.post("/api/auth/tabroom/link", authRateLimiter, async (req, res) => {
+  const session = await readSession(req).catch(() => null);
+  if (!session) {
+    res.status(401).json({ error: "Sign in to Cross first.", needsAuth: true });
+    return;
+  }
   const { username, password, remember, consentVersion } = req.body ?? {};
   if (typeof username !== "string" || typeof password !== "string" || !username.trim() || !password) {
     res.status(400).json({ error: "Tabroom username and password are required." });
     return;
   }
-  // Consent is enforced here, not just in the UI: a login attempt that
-  // doesn't carry the current notice version is refused before the
-  // credentials are forwarded anywhere.
+  // Consent is enforced here, not just in the UI: a link attempt that doesn't
+  // carry the current notice version is refused before the credentials are
+  // forwarded anywhere.
   if (Number(consentVersion) !== REQUIRED_CONSENT_VERSION) {
-    res.status(400).json({ error: "Please review and accept the data & permissions notice before signing in." });
+    res.status(400).json({ error: "Please review and accept the data & permissions notice before linking." });
     return;
   }
   const usernameLower = username.trim().toLowerCase();
   if (checkLockout(usernameLower)) {
-    res.status(429).json({ error: "Too many failed sign-in attempts for this account — try again in 15 minutes." });
+    res.status(429).json({ error: "Too many failed attempts for this Tabroom account — try again in 15 minutes." });
     return;
   }
   try {
-    // Password is used only for these calls and never persisted or logged.
     const token = await caselistLogin(username.trim(), password, remember !== false);
     // Same Tabroom account, separate token — lets judge-paradigm lookups
     // resolve pages Tabroom gates behind login. Non-fatal: Cross still works
@@ -429,31 +573,34 @@ app.post("/api/auth/login", authRateLimiter, async (req, res) => {
       return null;
     });
     loginFailures.delete(usernameLower);
-    // Retire any session the browser already holds before minting a new one,
-    // so a pre-login cookie can never live on past authentication.
-    destroySession(req, res);
-    createSession(res, { username: username.trim(), caselistToken: token, tabroomToken });
-    res.json({ ok: true, username: username.trim() });
+    await saveTabroomLink({
+      userId: session.userId,
+      tabroomUsername: username.trim(),
+      caselistToken: token,
+      tabroomToken,
+    });
+    await setConsentVersion(session.userId, REQUIRED_CONSENT_VERSION).catch(() => {});
+    invalidateLinkCache(session.userId);
+    res.json({ ok: true, username: username.trim(), judgeLookupsAuthenticated: Boolean(tabroomToken) });
   } catch (err) {
     const status = err instanceof CaselistError ? err.status || 401 : 500;
     // Only credential rejections count toward lockout — an OpenCaselist
     // outage (5xx) shouldn't lock real users out.
     if (status === 401 || status === 403) recordLoginFailure(usernameLower);
     if (status >= 500) console.error("Caselist login error:", err.message);
-    res.status(status < 400 ? 500 : status).json({ error: err.message || "Login failed." });
+    res.status(status < 400 ? 500 : status).json({ error: err.message || "Could not link that Tabroom account." });
   }
 });
 
-app.post("/api/auth/logout", (req, res) => {
-  destroySession(req, res);
+app.post("/api/auth/tabroom/unlink", authRateLimiter, async (req, res) => {
+  const session = await readSession(req).catch(() => null);
+  if (!session) {
+    res.status(401).json({ error: "Sign in to Cross first.", needsAuth: true });
+    return;
+  }
+  await deleteTabroomLink(session.userId);
+  invalidateLinkCache(session.userId);
   res.json({ ok: true });
-});
-
-// Always 200 — the client polls this on boot to decide whether to show the
-// login overlay, so it must not itself be gated.
-app.get("/api/auth/me", (req, res) => {
-  const s = readSession(req);
-  res.json({ authenticated: Boolean(s), username: s?.username || null });
 });
 
 // DEV-ONLY functional-test routes (localhost + non-production; see module).
@@ -463,13 +610,22 @@ if (process.env.NODE_ENV !== "production") {
   mountDevTestRoutes(app);
 }
 
-// THE GATE: every /api/* route below requires a valid Tabroom session.
+// THE GATE: every /api/* route below requires a valid Cross session.
 // Static assets and /api/auth/* were registered above and bypass this.
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
   if (!req.path.startsWith("/api/")) return next();
-  const session = readSession(req);
+  let session;
+  try {
+    session = await readSession(req);
+  } catch (err) {
+    // Session storage is down. Fail closed — serving requests unauthenticated
+    // is never the safe fallback.
+    console.error("Session lookup failed:", err.message);
+    res.status(503).json({ error: "Sign-in is temporarily unavailable. Try again in a moment." });
+    return;
+  }
   if (!session) {
-    res.status(401).json({ error: "Sign in with your Tabroom account to use Cross.", needsAuth: true });
+    res.status(401).json({ error: "Sign in to use Cross.", needsAuth: true });
     return;
   }
   req.session = session;
@@ -1566,11 +1722,13 @@ app.post("/api/chat", aiGuards, async (req, res) => {
 
     // Judge intel (paradigm + full judge report) is available in both modes;
     // opponent scouting (caselist disclosure + tabroom results scan) is
-    // Pre-Round only.
-    const chatTools =
-      chatMode === "preround"
-        ? [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool, ...caselistTools, ...tabroomResultsTools]
-        : [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
+    // Pre-Round only. Scouting tools additionally need a linked Tabroom
+    // account — offering them to an unlinked user would only produce auth
+    // failures the model then has to explain, so they're withheld instead and
+    // Cross coaches from the corpus alone.
+    const chatTools = [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
+    if (chatMode === "preround" && req.session?.caselistToken) chatTools.push(...caselistTools);
+    if (chatMode === "preround" && req.session?.tabroomToken) chatTools.push(...tabroomResultsTools);
 
     let answered = false;
     for (let i = 0; i < MAX_TOOL_ITERATIONS; i++) {

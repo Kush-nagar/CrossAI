@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Headphones, Monitor, Moon, Sun } from 'lucide-react'
+import { Headphones, LogOut, Monitor, Moon, Sun } from 'lucide-react'
 import { InkButton, PageTitle, SettingsGroup, Field, Toggle } from '@/components/ui/primitives'
 import { getVoiceProfileStatus, resetVoiceProfile, type VoiceProfileStatus } from '@/lib/api'
 import { useOnboarding } from '@/components/onboarding/onboarding-overlay'
 import { defaultPrefs, loadLocalPrefs, saveLocalPrefs, type LocalPrefs, type Theme } from '@/lib/local-prefs'
 import { useAuth } from '@/components/auth/auth-gate'
+import { TabroomLink } from '@/components/auth/tabroom-link'
 
 const THEME_OPTIONS: { value: Theme; label: string; icon: typeof Sun }[] = [
   { value: 'light', label: 'Light', icon: Sun },
@@ -30,7 +31,7 @@ function calibrationButtonLabel(status: VoiceProfileStatus | null, resetArmed: b
 }
 
 export function SettingsScreen() {
-  const { username } = useAuth()
+  const { username, email, signOut } = useAuth()
   const onboarding = useOnboarding()
   const [status, setStatus] = useState<VoiceProfileStatus | null>(null)
   const [resetArmed, setResetArmed] = useState(false)
@@ -92,6 +93,27 @@ export function SettingsScreen() {
         description="Tune your debate context, voice calibration, and accessibility preferences."
       />
       <div className="flex flex-col gap-5">
+        <SettingsGroup title="Account">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <span>
+              <b className="block text-sm">{username || 'Signed in'}</b>
+              <span className="text-xs text-muted-foreground">{email || 'Cross account'}</span>
+            </span>
+            <button
+              type="button"
+              onClick={signOut}
+              className="press flex min-h-11 items-center gap-2 rounded-xl border border-border px-4 text-sm font-semibold hover:bg-secondary"
+            >
+              <LogOut className="size-4" />
+              Sign out
+            </button>
+          </div>
+        </SettingsGroup>
+
+        <SettingsGroup title="Tabroom account">
+          <TabroomLink />
+        </SettingsGroup>
+
         <SettingsGroup title="Profile & debate">
           <Field label="Display name">
             <input

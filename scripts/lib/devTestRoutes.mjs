@@ -12,8 +12,7 @@ import { readSession, devCloneLatestSession } from "./session.mjs";
 import { apiGet } from "./caselistClient.mjs";
 
 // Hot-reload tools.mjs on every self-test call (cache-busted dynamic import)
-// so scraping-layer fixes can be exercised without a server restart — a
-// restart wipes the in-memory session store and forces a re-login. Only the
+// so scraping-layer fixes can be exercised without a server restart. Only the
 // dev harness does this; production routes keep their boot-time import.
 async function freshCaselistRunner() {
   const mod = await import(`./tools.mjs?bust=${Date.now()}`);
@@ -40,16 +39,16 @@ export function mountDevTestRoutes(app) {
   // Mint a test session cloned from the most recent live one. The user signs
   // in via the browser first; the harness then calls this to get its own
   // cookie. Body contains only the cookie pair and username — no token.
-  app.get("/api/dev/test-session", loopbackOnly, (req, res) => {
-    const username = devCloneLatestSession(res);
-    if (!username) {
+  app.get("/api/dev/test-session", loopbackOnly, async (req, res) => {
+    const userId = await devCloneLatestSession(res);
+    if (!userId) {
       res.status(409).json({ error: "No live session to clone — sign in at localhost:3000 first." });
       return;
     }
     // createSession already set the Set-Cookie header; echo it for curl use.
     const setCookie = res.getHeader("Set-Cookie");
     const pair = String(Array.isArray(setCookie) ? setCookie[setCookie.length - 1] : setCookie).split(";")[0];
-    res.json({ ok: true, username, cookie: pair });
+    res.json({ ok: true, userId, cookie: pair });
   });
 
   // Fetch a single Tabroom page through the session's TabroomToken and return
@@ -58,7 +57,7 @@ export function mountDevTestRoutes(app) {
   // the token itself. Path must be site-relative, e.g.
   //   /api/dev/tabroom-fetch?path=%2Findex%2Fparadigm.mhtml%3Fjudge_person_id%3D12345
   app.get("/api/dev/tabroom-fetch", loopbackOnly, async (req, res) => {
-    const session = readSession(req);
+    const session = await readSession(req);
     if (!session) {
       res.status(401).json({ error: "No session cookie — mint one via /api/dev/test-session." });
       return;
@@ -89,7 +88,7 @@ export function mountDevTestRoutes(app) {
   //   &tournament=<name>       tournament search, then entries + first entry's
   //   &filter=<entry filter>   record when filter matches something
   app.get("/api/dev/tabroom-selftest", loopbackOnly, async (req, res) => {
-    const session = readSession(req);
+    const session = await readSession(req);
     if (!session) {
       res.status(401).json({ error: "No session cookie — mint one via /api/dev/test-session." });
       return;
@@ -129,9 +128,9 @@ export function mountDevTestRoutes(app) {
           if (entryId) await run("tabroom_entry_record", { tourn_id: tournId, entry_id: entryId });
         }
       }
-      res.json({ username: session.username, hasTabroomToken: Boolean(token), report });
+      res.json({ userId: session.userId, hasTabroomToken: Boolean(token), report });
     } catch (err) {
-      res.status(500).json({ username: session.username, error: err.message, report });
+      res.status(500).json({ userId: session.userId, error: err.message, report });
     }
   });
 
@@ -140,7 +139,7 @@ export function mountDevTestRoutes(app) {
   // search) with the session's token, via the exact production runners.
   // Query params: ?school=<name filter>&team=<slug or blank for first>.
   app.get("/api/dev/caselist-selftest", loopbackOnly, async (req, res) => {
-    const session = readSession(req);
+    const session = await readSession(req);
     if (!session) {
       res.status(401).json({ error: "No session cookie — mint one via /api/dev/test-session." });
       return;
@@ -238,9 +237,9 @@ export function mountDevTestRoutes(app) {
       // 8. search
       await run("caselist_search", { caselist: slug, query: schoolQuery || school });
 
-      res.json({ username: session.username, chain: { slug, school, team }, report });
+      res.json({ userId: session.userId, chain: { slug, school, team }, report });
     } catch (err) {
-      res.status(500).json({ username: session.username, error: err.message, report });
+      res.status(500).json({ userId: session.userId, error: err.message, report });
     }
   });
 }
