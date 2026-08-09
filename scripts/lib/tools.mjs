@@ -1,5 +1,6 @@
 import { generateFile, SUPPORTED_FORMATS } from "./fileGen.mjs";
 import { searchCorpus, readCorpusSection } from "./corpusSearch.mjs";
+import { webSearch, hasWebSearch } from "./webSearch.mjs";
 import { apiGet as caselistApiGet, apiGetBuffer as caselistApiGetBuffer, CaselistError } from "./caselistClient.mjs";
 import { extractTextFromBuffer, cleanText } from "./extract.mjs";
 import { lookupJudgeByName, lookupJudgeById, getJudgeReport, TabroomJudgeError } from "./tabroomJudgeClient.mjs";
@@ -127,10 +128,16 @@ export const readCorpusFileTool = {
   },
 };
 
+// Default files returned per search when the model doesn't specify. Lower =
+// fewer/tighter snippets fed back into the loop = less to stream/re-encode on
+// the next turn. Env-overridable so top_k can be tuned without a code change
+// (e.g. CORPUS_SEARCH_MAX_RESULTS=3 for the leanest retrieval).
+const DEFAULT_SEARCH_MAX_RESULTS = Number(process.env.CORPUS_SEARCH_MAX_RESULTS) || 6;
+
 export async function runSearchCorpusTool(toolUseBlock) {
   const { query, maxResults } = toolUseBlock.input ?? {};
   try {
-    const results = await searchCorpus(query, { maxResults: maxResults || 6 });
+    const results = await searchCorpus(query, { maxResults: maxResults || DEFAULT_SEARCH_MAX_RESULTS });
     if (results.length === 0) {
       return { toolResultContent: "No corpus files matched that query.", isError: false };
     }
@@ -722,3 +729,58 @@ export async function runTabroomTool(toolUseBlock, token) {
     return { toolResultContent: msg, isError: true };
   }
 }
+
+// --- Live web search (ported from CrossAcademy) --------------------------
+// Real external evidence for the stress-test's predicted attacks. Env-gated
+// (needs a search API key); hasWebSearch() is false when unconfigured, so the
+// stress-test route simply omits the tool. See lib/webSearch.mjs.
+export { hasWebSearch };
+
+export const webSearchTool = {
+  name: "web_search",
+  description:
+    "Search the live web for REAL, citable evidence that substantiates a predicted opponent attack (or, for a " +
+    "construction flaw, the kind of card the debater should go cut to fix it). Returns real results — title, URL, " +
+    "publish date, and a quotable snippet. Use it to build a carded example the debater can actually pull: quote ONLY " +
+    "text that appears in a returned snippet and attribute it to that result's real title/URL/date. Never invent a " +
+    "source, an author, a stat, or a quote — if nothing usable comes back, say what to search for instead of " +
+    "fabricating a cite.",
+  input_schema: {
+    type: "object",
+    properties: {
+      query: {
+        type: "string",
+        description:
+          "A focused search query for the claim you need to back — include the actor, mechanism, and any year/stat " +
+          "(e.g. 'US semiconductor export controls 2024 China chip production impact').",
+      },
+      maxResults: {
+        type: "integer",
+        description: "Maximum results to return (default 4, max 8).",
+      },
+    },
+    required: ["query"],
+  },
+};
+
+export async function runWebSearchTool(toolUseBlock) {
+  const { query, maxResults } = toolUseBlock.input ?? {};
+  try {
+    const results = await webSearch(query, { maxResults: maxResults || 4 });
+    if (results.length === 0) {
+      return { toolResultContent: `No web results for "${query}". Do not fabricate one — describe what to search for instead.`, isError: false };
+    }
+    const text = results
+      .map((r, i) => {
+        const date = r.publishedDate ? ` (${r.publishedDate})` : "";
+        return `[${i + 1}] ${r.title || "Untitled"}${date}\n    URL: ${r.url}\n    Passage: ${r.snippet}`;
+      })
+      .join("\n\n");
+    return { toolResultContent: `Real web results — quote only from these passages and cite the real URL/date:\n\n${text}`, isError: false };
+  } catch (err) {
+    return { toolResultContent: `Web search failed: ${err.message}. Do not invent a source — note what the debater should search for.`, isError: true };
+  }
+}
+
+// --- OpenCaselist scouting tools (opponent disclosure) -------------------
+// These let Cross scout a team from the OpenCaselist wiki DURING coaching —

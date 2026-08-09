@@ -1,0 +1,21 @@
+---
+title: Langley CG (Pro — rebuttal) — 03 - John Edie Holiday Debates Hosted by The Blake School, 2024-2025 november-december PF rebuttal doc
+tags: [rebuttal, public-forum, pf-rebuttals, season-2024-2025, cycle-november-december, side-pro, top100-rank-26]
+team: Langley CG
+elo_rank: 26
+season: 2024-2025
+cycle: november-december
+resolution: "The United States should substantially reduce its military support of Taiwan."
+side: Pro
+tournaments: ["03 - John Edie Holiday Debates Hosted by The Blake School"]
+source_doc: Langley-GuCh-Pro-03---John-Edie-Holiday-Debates-Hosted-by-The-Blake-School-Round-2.docx
+doc_type: rebuttal
+source: cases/pf-archive/2024-2025/november-december/langley-cg-pro-langley-guch-pro-03-john-edie-holiday-debates-hosted-by-the-blake-scho.md
+answers: ["Blake R2"]
+---
+
+2AC --- Blake R2
+
+African Union recognition doesn’t violate agreement Rubin 23 (Michael Rubin, senior fellow at the American Enterprise Institute, where he specializes in Iran, Turkey, and the broader Middle East. A former Pentagon official, Dr. Rubin has lived in post-revolution Iran, Yemen, and both pre- and postwar Iraq. He also spent time with the Taliban before 9/11. For more than a decade, he taught classes at sea about the Horn of Africa and Middle East conflicts, culture, and terrorism, to deployed US Navy and Marine units. 3 April 2023, “On Somaliland, the African Union and UN Betrays Their Own Precedents”, American Enterprise Institute,
+https://www.aei.org/op-eds/on-somaliland-the-african-union-and-un-betrays-their-own-precedent s/, DOA 12/2/2024) ESR
+The African Union, meanwhile, cites a reluctance to change borders and questions the legality of Somaliland’s decision to dissolve its federation with Somalia. On both counts, the African Union betrays its own precedents. While <mark>the African Union</mark> has generally opposed separatism across the continent — for example, in Biafra, Cabinda, and Katanga — it <mark>has blessed Western Saharan separatism from Morocco, even though</mark> <mark>Morocco’s history of rule in the region predates Sahrawi nationalism</mark>. Even if African Union opposition to separatism was the rule, the Horn of Africa is an exception. Eritrea had a brief colonial history decades before it separated from Ethiopia. South Sudan had no such precedent of autonomy. Compared to both Eritrea and South Sudan, which split from larger nations, Somaliland has a deeper claim to renewed independence. As a protectorate rather than a colony, it largely maintained its traditional leadership. Its history as both a protectorate and an independent country are now longer than its unhappy experience in union with Somalia. Are Federations Reversible? Precedent also belies the African Union argument that the former British Somaliland’s merger with Italian Somaliland is not reversible. Set aside the Federation of Rhodesia and Nyasaland (today’s Malawi, Zambia, and Zimbabwe), which existed entirely during the colonial period. A better analogy for Somaliland and Somalia might be the failed merger of Senegal and Gambia into Senegambia. Even on a continent of artificial and seemingly arbitrary frontiers, the borders between these two West African countries stand out. The idea that the British and French delineated the borders between their two colonies by firing cannonballs from the Gambia River is only partly apocryphal. In a sense, Gambia is a county of riverbanks tucked inside a larger country with which it differs neither tribally nor religiously. Even so, the African Union blessed the divorce after less than a decade of the two countries’ confederation. The will of Gambia to be independent trumped any irredentist Senegalese nationalism. <mark>Outside Africa, there are other examples of divorce</mark>: The Arab League did not force Egypt and Syria to maintain their failed United Arab Republic union, nor did it demand Jordan and Iraq subordinate their independence to their short-lived Hashemite Arab Federation. In Europe, Yugoslavia’s demise was violent largely because Serbian nationalists could not accept the reversion of its constituent republics to autonomy, if not independence. Rulers in Czechoslovakia were forward-thinking and their divorce was peaceful.

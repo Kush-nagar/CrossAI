@@ -1,0 +1,26 @@
+---
+title: Harker LL (Pro — rebuttal) — 09 - Berkeley, 2025-2026 february PF rebuttal doc
+tags: [rebuttal, public-forum, pf-rebuttals, season-2025-2026, cycle-february, side-pro, top100-rank-16]
+team: Harker LL
+elo_rank: 16
+season: 2025-2026
+cycle: february
+resolution: "The Federal Trade Commission should establish a federal regulatory framework for sports betting."
+side: Pro
+tournaments: ["09 - Berkeley"]
+source_doc: Harker-LeLu-Pro-09---Berkeley-Round-4.docx
+doc_type: rebuttal
+source: cases/pf-archive/2025-2026/february/harker-ll-pro-harker-lelu-pro-09-berkeley-round-4.md
+answers: []
+---
+
+2AC
+2. TURN. Neuroscience proves.
+Resnick ‘17 [Brian Resnick; science reporter for Vox; 2017; "7 psychological concepts that explain the Trump era of politics"; Vox; https://www.vox.com/science-and-health/2017/3/20/14915076/7-psychological-concepts-explain-trump-politics; accessed 11-10-2024]
+In fact, studies show the exact opposite: <mark>The more informed people are about politics</mark>, <mark>the more</mark> likely they are to be <mark>stubborn</mark> about political issues.
+<<TEXT CONDENSED NONE OMITTED>>
+This concept is related to motivated reasoning, but it’s important enough to warrant its own consideration. It shows how motivated reasoning becomes especially stubborn and ugly when it comes to politics.¶ “People are using their reason to be socially competent actors,” says Dan Kahan, a psychologist at Yale, and one of the leading experts on this phenomenon. Put another way: We have a lot of pressure to live up to our groups’ expectations. And the smarter we are, the more we put our brain power to use for that end.¶ In his studies, Kahan will often give participants different kinds of math problems.¶ When the problem is about nonpolitical issues — like figuring out the whether a drug is effective — people tend to use their math skills to solve it. But when they’re evaluating something political — let’s say, the effectiveness of gun control measures — the trend is that the better participants are at math, the more partisan they are in their responses.¶ “Partisans with weak math skills were 25 percentage points likelier to get the answer right when it fit their ideology,” Ezra Klein explained in a profile of Kahan’s work. “Partisans with strong math skills were 45 percentage points likelier to get the answer right when it fit their ideology. The smarter the person is, the dumber politics can make them.”¶ And it’s not just for math problems: Kahan finds that Republicans who have higher levels of science knowledge are more stubborn when it comes to questions on climate change. The pattern is consistent: The more information we have, the more we bend it to serve our political aims. That’s why the current debate over “fake news” is a bit misguided: It’s not the case that if only people had perfectly true information, everyone would suddenly agree.¶ So think of that when you hear politicians or pundits talk shop: They know a lot about politics, but they’re bending what they know to fall in line with their political goals. And they probably don’t realize they are doing this and can feel confident in their partisan conclusions because they feel well informed.¶ 3) Evolution has left us with an “immune system” for uncomfortable thoughts.¶ There’s a reason why we engage in motivated reasoning, a reason why facts often don’t matter: evolution.¶ Critical thinking and reasoning skills evolved because they made it easier to cooperate in groups, Elizabeth Kolbert explains in a recent New Yorker piece. We’ve since adapted these skills to make breakthroughs in topics like science and math. But when pressed, we default to using our powers of mind to get along with our groups.¶ Psychologists theorize that’s because our partisan identities get mixed up with our personal identities. Which would mean that an attack on our strongly held beliefs is an attack on the self.¶ “The brain’s primary responsibility is to take care of the body, to protect the body,” Jonas Kaplan, a psychologist at the University of Southern California, says. “The psychological self is the brain’s extension of that. When our self feels attacked, our [brain is] going to bring to bear the same defenses that it has for protecting the body.”¶ It’s like we have an immune system for uncomfortable thoughts.
+<<LINE BREAKS CONTINUE>>
+Recently, Kaplan has found more evidence that we tend to take political attacks personally. In a study recently published in Scientific Reports, he and collaborators took <mark>40</mark> self-avowed <mark>liberals</mark> who reported having “deep convictions,” put them <mark>in</mark>side in a functional <mark>MRI</mark> scanner, and started <mark>challenging</mark> their <mark>beliefs</mark>. Then they watched which parts of the participants’ brains lit up.
+Their conclusion: When the participants were challenged on strongly held beliefs, there was <mark>more activation in</mark> the <mark>parts</mark> of the brain <mark>that</mark> are thought to <mark>correspond with self-identity and negative emotions</mark>.
+4) The <mark>argument</mark> that’s most <mark>convincing</mark> to <mark>you</mark> is <mark>not convincing</mark> to your ideological <mark>opponents</mark>.

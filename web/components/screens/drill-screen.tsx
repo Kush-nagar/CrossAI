@@ -1,10 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, Dices } from 'lucide-react'
+import { ArrowRight, Dices, Volume2 } from 'lucide-react'
 import { InkButton, PageTitle, Pill, TallyBox } from '@/components/ui/primitives'
-import { getDrillScenario, gradeDrill, uploadFile, type DrillAnswerKey, type DrillGradeResult, type DrillScenario } from '@/lib/api'
-import { DRILL_FORMATS, DRILL_TOPICS, randomFrom } from '@/lib/drill-topics'
+import { getDrillScenario, gradeDrill, uploadFile, drillSpeak, type DrillAnswerKey, type DrillGradeResult, type DrillScenario, type DrillSpeakResult } from '@/lib/api'
+import { SpeechPlayer } from '@/components/drill/speech-player'
+import { DRILL_FORMATS, DRILL_TOPICS, PF_FORMAT, randomFrom } from '@/lib/drill-topics'
 import { TopicCombobox } from '@/components/drill/topic-combobox'
 import { LedgerTable } from '@/components/drill/ledger-table'
 import { VoiceRecorderButton } from '@/components/voice/voice-recorder-button'
@@ -13,15 +14,18 @@ import { DeliveryTrends } from '@/components/drill/delivery-trends'
 
 type Panel = 'setup' | 'loading' | 'scenario' | 'report'
 
-const FORMAT_NAMES = Object.keys(DRILL_FORMATS)
 const DIFFICULTIES = ['intro', 'standard', 'hard'] as const
+
+// The drill is Public Forum only — no format selector. `format` is still sent
+// to the API, which expects it, but it's a constant now.
+const PF_CONFIG = DRILL_FORMATS[PF_FORMAT]
 
 export function DrillScreen() {
   const [panel, setPanel] = useState<Panel>('setup')
   const [loadingText, setLoadingText] = useState('')
-  const [format, setFormat] = useState(FORMAT_NAMES[0])
-  const [side, setSide] = useState(DRILL_FORMATS[FORMAT_NAMES[0]].sides[0])
-  const [speech, setSpeech] = useState(DRILL_FORMATS[FORMAT_NAMES[0]].defaultSpeech)
+  const format = PF_FORMAT
+  const [side, setSide] = useState(PF_CONFIG.sides[0])
+  const [speech, setSpeech] = useState(PF_CONFIG.defaultSpeech)
   const [difficulty, setDifficulty] = useState<(typeof DIFFICULTIES)[number]>('standard')
   const [topic, setTopic] = useState('')
   const [scenario, setScenario] = useState<DrillScenario | null>(null)
@@ -29,21 +33,17 @@ export function DrillScreen() {
   const [report, setReport] = useState<DrillGradeResult | null>(null)
   const [recordStatus, setRecordStatus] = useState('')
   const [grading, setGrading] = useState(false)
-
-  function changeFormat(next: string) {
-    setFormat(next)
-    const config = DRILL_FORMATS[next]
-    setSide(config.sides[0])
-    setSpeech(config.defaultSpeech)
-    setTopic('')
-  }
+  // Spoken exemplar of the optimal speech — only offered in the report panel
+  // (after the answer key is revealed), so it never spoils the drill.
+  const [speakResult, setSpeakResult] = useState<DrillSpeakResult | null>(null)
+  const [speaking, setSpeaking] = useState(false)
+  const [speakError, setSpeakError] = useState('')
 
   function randomize() {
-    const config = DRILL_FORMATS[format]
-    setSide(randomFrom(config.sides))
-    setSpeech(randomFrom(config.speeches))
+    setSide(randomFrom(PF_CONFIG.sides))
+    setSpeech(randomFrom(PF_CONFIG.speeches))
     setDifficulty(randomFrom(DIFFICULTIES))
-    const bank = DRILL_TOPICS[format] || []
+    const bank = DRILL_TOPICS[PF_FORMAT] || []
     if (bank.length > 0) setTopic(randomFrom(bank).text)
   }
 
@@ -55,11 +55,29 @@ export function DrillScreen() {
       setScenario(data.scenario)
       setAnswerKey(data.answerKey)
       setReport(null)
+      setSpeakResult(null)
+      setSpeakError('')
       setRecordStatus('')
       setPanel('scenario')
     } catch (err) {
       alert(err instanceof Error ? err.message : "Couldn't generate a scenario.")
       setPanel('setup')
+    }
+  }
+
+  async function handleSpeak() {
+    if (!scenario) return
+    setSpeaking(true)
+    setSpeakError('')
+    try {
+      // Compact { scenario, speech } contract — the server authors an exemplar
+      // of this speech slot to the grader's construction criteria and voices it.
+      const result = await drillSpeak({ scenario, speech: scenario.speech })
+      setSpeakResult(result)
+    } catch (err) {
+      setSpeakError(err instanceof Error ? err.message : "Couldn't deliver that speech aloud.")
+    } finally {
+      setSpeaking(false)
     }
   }
 
@@ -104,6 +122,8 @@ export function DrillScreen() {
     setScenario(null)
     setAnswerKey(null)
     setReport(null)
+    setSpeakResult(null)
+    setSpeakError('')
     setPanel('setup')
   }
 
@@ -112,7 +132,7 @@ export function DrillScreen() {
       <PageTitle
         eyebrow="Deliberate practice"
         title={panel === 'report' ? 'Graded against the hidden answer key.' : 'Train under real round pressure.'}
-        description={panel === 'scenario' ? 'Record your speech aloud — Cross grades the transcript.' : 'Pick a format, side, and speech. Cross builds a live scenario.'}
+        description={panel === 'scenario' ? 'Record your speech aloud — Cross grades the transcript.' : 'Pick a side and speech. Cross builds a live Public Forum scenario.'}
       />
 
       {panel === 'setup' && (
@@ -120,17 +140,9 @@ export function DrillScreen() {
           <section className="surface rounded-3xl p-6 md:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
               <label className="flex flex-col gap-1.5 text-sm font-semibold">
-                Format
-                <select value={format} onChange={(e) => changeFormat(e.target.value)} className="rounded-xl border bg-background px-4 py-3">
-                  {FORMAT_NAMES.map((f) => (
-                    <option key={f}>{f}</option>
-                  ))}
-                </select>
-              </label>
-              <label className="flex flex-col gap-1.5 text-sm font-semibold">
                 Side
                 <select value={side} onChange={(e) => setSide(e.target.value)} className="rounded-xl border bg-background px-4 py-3">
-                  {DRILL_FORMATS[format].sides.map((s) => (
+                  {PF_CONFIG.sides.map((s) => (
                     <option key={s}>{s}</option>
                   ))}
                 </select>
@@ -138,7 +150,7 @@ export function DrillScreen() {
               <label className="flex flex-col gap-1.5 text-sm font-semibold">
                 Speech
                 <select value={speech} onChange={(e) => setSpeech(e.target.value)} className="rounded-xl border bg-background px-4 py-3">
-                  {DRILL_FORMATS[format].speeches.map((s) => (
+                  {PF_CONFIG.speeches.map((s) => (
                     <option key={s}>{s}</option>
                   ))}
                 </select>
@@ -235,6 +247,22 @@ export function DrillScreen() {
             <p className="mt-2 text-sm text-muted-foreground">{report.optimalMove.description}</p>
             <div className="mt-5 overflow-x-auto">
               <LedgerTable prior={report.optimalMove.prior} factors={report.optimalMove.factors} probability={report.optimalMove.probability} />
+            </div>
+            <div className="mt-5 border-t border-border pt-5">
+              {speakResult ? (
+                <SpeechPlayer result={speakResult} label={`Model ${scenario?.speech ?? 'speech'}`} />
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleSpeak}
+                  disabled={speaking}
+                  className="press inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:opacity-50"
+                >
+                  <Volume2 className="size-4" />
+                  {speaking ? 'Writing & voicing…' : 'Hear the model deliver this speech'}
+                </button>
+              )}
+              {speakError && <p className="mt-2 text-xs text-destructive">{speakError}</p>}
             </div>
           </section>
           <section className="surface rounded-3xl p-6 md:p-8 lg:col-span-2">

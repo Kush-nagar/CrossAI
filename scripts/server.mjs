@@ -28,6 +28,9 @@ import {
   tabroomResultsTools,
   isTabroomTool,
   runTabroomTool,
+  webSearchTool,
+  runWebSearchTool,
+  hasWebSearch,
 } from "./lib/tools.mjs";
 import { GENERATED_DIR } from "./lib/fileGen.mjs";
 import { extractTextFromBuffer, convertDocxToHtml, cleanText } from "./lib/extract.mjs";
@@ -61,6 +64,25 @@ import {
 } from "./lib/userStore.mjs";
 import { hasSupabaseCredentials } from "./lib/supabaseClient.mjs";
 import { judgeCacheKey, hashParadigm, isFresh, getCachedJudge, upsertJudgeCache, touchScrapedAt } from "./lib/judgeCache.mjs";
+// CrossAcademy modules (ported): disclosed-case archive grounding for drills/
+// stress, Hume TTS spoken delivery, and the single source for grading criteria.
+import {
+  buildDrillCaseSection,
+  buildStressBenchmarkSection,
+  buildAttackPatternSection,
+  buildRebuttalBenchmarkSection,
+  speechWordBudget,
+  buildSpokenCaseText,
+  precedingOpponentSpeech,
+} from "./lib/caseArchive.mjs";
+import { buildAuthoringCriteria } from "./lib/speechCriteria.mjs";
+import {
+  isHumeTtsAvailable,
+  synthesizeSpeech,
+  deriveActingInstructions,
+  HumeTtsError,
+  MAX_TTS_TEXT_CHARS,
+} from "./lib/humeTts.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -215,6 +237,14 @@ const aiGuards = [aiRateLimiter, dailyCap];
 // default for scoring consistency. Env-overridable for instant tuning.
 const CHAT_TEMPERATURE = Number(process.env.CHAT_TEMPERATURE ?? 0.85);
 
+// Invisible chain-of-thought on the chat route. OFF is the latency default:
+// Nemotron otherwise streams a discarded `reasoning_content` pass before the
+// first visible token, which is the dominant Time-to-First-Token cost on this
+// endpoint. Reasoning does improve tool-triggering accuracy, so set
+// CHAT_ENABLE_THINKING=1 (or true/yes) to restore it and A/B the tradeoff.
+// The one-shot JSON routes are unaffected — they force thinking off in aiClient.
+const CHAT_ENABLE_THINKING = /^(1|true|yes)$/i.test(process.env.CHAT_ENABLE_THINKING ?? "");
+
 const ROUTE_MODELS = {
   chat: process.env.CHAT_MODEL || "opus",
   stressTest: process.env.STRESS_TEST_MODEL || "opus",
@@ -324,6 +354,44 @@ function streamPlainReply(res, text) {
   if (!res.headersSent) res.setHeader("Content-Type", "text/plain; charset=utf-8");
   res.write(text);
   res.end();
+}
+
+// Machine-readable failure trailer for the chat stream. friendlyFailureReply()
+// stays the VISIBLE reply — conversational and internals-free — while this adds
+// a short, SAFE reason the UI can surface on demand plus a `retryable` hint, so
+// a debater can see *why* a request failed and decide whether to retry. The raw
+// error (message/stack/upstream body) is never sent — it stays in the server
+// log via console.error. NUL-guarded so it can never collide with model text;
+// the frontend splits it off the end of the stream (web/lib/api.ts
+// CHAT_ERROR_SENTINEL). Keep the literal identical on both sides.
+const CHAT_ERROR_SENTINEL = "\u241E\u241ECROSS_CHAT_ERROR\u241E";
+
+function classifyChatFailure(err) {
+  const msg = String(err?.message || "");
+  if (/truncated at the \d+-token limit/.test(msg)) {
+    return { code: "response_too_long", reason: "The reply ran past its length limit and was stopped so you wouldn't get half a thought.", retryable: true };
+  }
+  if (err?.status === 429 || /rate.?limit|resource.?exhausted|too many requests/i.test(msg)) {
+    return { code: "rate_limited", reason: "The AI provider is rate-limiting requests right now (too much traffic). This usually clears within a minute.", retryable: true };
+  }
+  if (/quota|credit|billing|insufficient|payment/i.test(msg)) {
+    return { code: "quota_exhausted", reason: "The AI provider account is out of quota or credit — an operator needs to resolve this before chat works again.", retryable: false };
+  }
+  if (/timeout|timed out|etimedout|econnreset|econnrefused|fetch failed|network|socket|aborted/i.test(msg)) {
+    return { code: "network", reason: "The connection to the AI provider dropped before the reply finished.", retryable: true };
+  }
+  const status = Number.isFinite(err?.status) ? err.status : null;
+  return {
+    code: "upstream_error",
+    reason: status ? `The AI provider returned an unexpected error (HTTP ${status}).` : "An unexpected error interrupted the reply.",
+    retryable: true,
+  };
+}
+
+// Appends the failure trailer to an already-flowing (or about-to-start) chat
+// stream. Always followed by res.end() at the call site.
+function writeChatFailureTrailer(res, err) {
+  res.write(CHAT_ERROR_SENTINEL + JSON.stringify(classifyChatFailure(err)));
 }
 
 // When a chat message is too big to process, have the model itself look at
@@ -1008,6 +1076,21 @@ app.post("/api/stress-test", aiGuards, async (req, res) => {
     return;
   }
 
+  // Ground the audit in real disclosed top-team cases on this topic (the public
+  // wiki archive under training-data/cases/pf-archive), so flaw/attack cards can
+  // point at what present/absent execution actually looks like. Best-effort and
+  // topic-matched off the title — empty strings when nothing matches, so an
+  // off-archive case degrades to the corpus-only audit unchanged.
+  let benchmarkSection = "";
+  let attackPatternSection = "";
+  try {
+    const groundingTopic = title || content.slice(0, 200);
+    benchmarkSection = await buildStressBenchmarkSection({ topic: groundingTopic });
+    attackPatternSection = await buildAttackPatternSection({ topic: groundingTopic });
+  } catch (err) {
+    console.error("Stress archive grounding failed (continuing without):", err.message);
+  }
+
   const prompt =
     (isSkim
       ? `You are running a quick SKIM stress test on a debate case titled "${title || "Untitled case"}". ` +
@@ -1079,6 +1162,8 @@ app.post("/api/stress-test", aiGuards, async (req, res) => {
     `"attackType": "<Non-unique|Link turn|Impact turn|Impact defense|Link defense|Disad|Case turn|Framework|Theory>", ` +
     `"wording": "<the likely opponent argument in their voice>", ` +
     `"thinkPrompt": "<nudge prompting the debater to build their own frontline — do NOT give the answer>"}]}.\n\n` +
+    (benchmarkSection ? benchmarkSection + "\n\n" : "") +
+    (attackPatternSection ? attackPatternSection + "\n\n" : "") +
     `--- CASE ---\n${content}`;
 
   try {
@@ -1352,6 +1437,46 @@ const DRILL_LEDGER_RULES =
   `- Each factor is {"name": "<factor>", "adjustment": <signed number>, "why": "<one line on why it applies here>"}. ` +
   `Do NOT compute any probabilities yourself — the server does the math.`;
 
+// Public Forum speech roles (CROSS.md §3). Every practice speech is preceded by
+// a fixed chain of speeches from both teams; the drill's round history has to
+// reproduce exactly that chain so the debater walks into the same round state
+// they'd face live before the speech they picked.
+const PF_SPEECH_ROLES = {
+  Constructive: "presents the case — contentions plus framing (~4 min)",
+  Rebuttal: "answers the other side's case line-by-line; the second rebuttal also frontlines answers to the first rebuttal",
+  Summary: "collapses to what the team is winning and starts weighing (magnitude, probability, timeframe, clash)",
+  "Final Focus": "crystallizes the round — writes the ballot for the judge",
+};
+
+// Given the debater's side and the speech they picked in the toggle, returns the
+// ordered chain of speeches (both teams) that must precede it, plus the upcoming
+// speech label. Speaking position is fixed per speech so the drill lands on the
+// skill that speech tests: Rebuttal → the debater's team spoke SECOND (so their
+// rebuttal is the frontlining second rebuttal); Summary / Final Focus → the
+// debater's team spoke FIRST (so they aren't reacting to the opponent's same
+// speech). Labels are team-level ("Pro Rebuttal") to match flow-style history.
+function pfDrillSpeechPlan(side, speech) {
+  const you = side === "Con" ? "Con" : "Pro";
+  const opp = you === "Pro" ? "Con" : "Pro";
+  const norm = String(speech || "").trim().toLowerCase();
+  if (norm === "rebuttal") {
+    return { you, opp, upcoming: `${you} Rebuttal`, preceding: [`${opp} Constructive`, `${you} Constructive`, `${opp} Rebuttal`] };
+  }
+  if (norm === "summary") {
+    return { you, opp, upcoming: `${you} Summary`, preceding: [`${you} Constructive`, `${opp} Constructive`, `${you} Rebuttal`, `${opp} Rebuttal`] };
+  }
+  if (norm === "final focus") {
+    return {
+      you,
+      opp,
+      upcoming: `${you} Final Focus`,
+      preceding: [`${you} Constructive`, `${opp} Constructive`, `${you} Rebuttal`, `${opp} Rebuttal`, `${you} Summary`, `${opp} Summary`],
+    };
+  }
+  // Constructive or anything unexpected: opening speech, no prior history.
+  return { you, opp, upcoming: `${you} ${speech || "Constructive"}`, preceding: [] };
+}
+
 app.post("/api/drill/scenario", aiGuards, async (req, res) => {
   const { format, side, speech, difficulty, topic } = req.body ?? {};
   // A chosen topic pins the resolution; blank keeps the invented-topic default.
@@ -1376,6 +1501,18 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
     return;
   }
 
+  // Ground the scenario's arguments/evidence in real disclosed top-team cases on
+  // this topic (public wiki archive under training-data/cases/pf-archive) so the
+  // round history rings true structurally. Best-effort and topic-matched — empty
+  // when nothing matches, leaving the corpus-grounded generation unchanged. The
+  // model still invents every cite (corpus-privacy rule).
+  let archiveSection = "";
+  try {
+    archiveSection = await buildDrillCaseSection({ topic: chosenTopic, side, difficulty, speech });
+  } catch (err) {
+    console.error("Drill archive grounding failed (continuing without):", err.message);
+  }
+
   const difficultyLine =
     difficulty === "intro"
       ? "Difficulty: INTRO — the optimal move should be fairly visible (e.g. an outright dropped argument begging to be collapsed to), so a newer debater can find it."
@@ -1383,9 +1520,18 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
       ? "Difficulty: HARD — the optimal move should be genuinely non-obvious: the tempting surface-level play (e.g. chasing the loudest argument) should score notably worse than the real optimum, and execution-risk or judge-adaptation factors should matter."
       : "Difficulty: STANDARD — the optimal move is real but not glaringly obvious; a thoughtful debater finds it, a rushed one plays the tempting second-best move.";
 
+  // Build the exact chain of PF speeches that precede the debater's chosen
+  // speech, so the round history contains every speech required to hand them a
+  // live, mid-round state (task: "generate as many speeches as required").
+  const plan = pfDrillSpeechPlan(side, speech);
+  const speechRoleGuide = Object.entries(PF_SPEECH_ROLES).map(([k, v]) => `${k} ${v}`).join("; ");
+  const sequenceList = plan.preceding.length
+    ? plan.preceding.map((s, i) => `${i + 1}. ${s}`).join("  ")
+    : "(none — this is the opening speech of the round)";
+
   const prompt =
-    `Generate a practice-drill scenario for a ${format || "Public Forum"} debater on the ${side || "Pro/Aff"} side, ` +
-    `about to give the ${speech || "next"} speech. ${difficultyLine}\n\n` +
+    `Generate a practice-drill scenario for a Public Forum debater on the ${plan.you} side, ` +
+    `about to give the ${plan.upcoming} (the ${speech || "Summary"} speech they picked). ${difficultyLine}\n\n` +
     `Scenario requirements — all of these, concretely:\n` +
     (chosenTopic
       ? `- Use this resolution/topic, chosen by the debater: "${chosenTopic}". Keep the resolution wording as given ` +
@@ -1396,12 +1542,20 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
       : `- A realistic resolution/topic. Use your training corpus to make the arguments and evidence references ring ` +
         `true structurally, but every cite in the scenario must be invented/fictional — never reuse a real card cite, ` +
         `case name, or file identity from your training material.\n`) +
-    `- 2-3 arguments per side already run, described the way a flow would capture them.\n` +
-    `- Exactly one clearly dropped argument and one live turn OR open weighing gap embedded in the round history — ` +
-    `present them naturally inside the history, never labeled as such.\n` +
-    `- The opponent's time allocation in their most recent speech (which argument they invested in, which they ` +
-    `skimped on), woven into the history — per the round-vision framework, time allocation telegraphs the collapse, ` +
-    `and a sharp debater should be able to read the predicted next move from it.\n` +
+    `- ROUND HISTORY = every speech that precedes the debater's ${plan.upcoming}, and only those. This is a Public ` +
+    `Forum round (Constructive → Rebuttal → Summary → Final Focus, four speeches per side), so "roundHistory" MUST ` +
+    `be exactly this ordered chain, one entry per speech, in this order:\n` +
+    `    ${sequenceList}\n` +
+    `  Each entry's "speech" field is that label verbatim; its "summary" is 2-4 sentences, flow-style, of what that ` +
+    `speech did. Honor each speech's PF role — ${speechRoleGuide}. The debater's own team's earlier speeches in the ` +
+    `chain set up what they now have to work with; if a second Rebuttal appears in the chain it should show ` +
+    `frontlining of the first rebuttal. Give each side 2-3 real arguments, developed across their speeches the way a ` +
+    `flow would capture them.\n` +
+    `- Exactly one clearly dropped argument and one live turn OR open weighing gap embedded in that round history — ` +
+    `present them naturally inside the relevant speeches, never labeled as such.\n` +
+    `- The opponent's time allocation in ${plan.opp}'s most recent speech (which argument they invested in, which ` +
+    `they skimped on), woven into the history — per the round-vision framework, time allocation telegraphs the ` +
+    `collapse, and a sharp debater should read the predicted next move from it.\n` +
     `- An opponent profile including a stated tendency that supports predicting their single most likely next move.\n` +
     `- A judge paradigm drawn from the cross-judge consensus in your reference material (tech over truth, flow-based, ` +
     `warrant-demanding, comparative weighing, offense must live in both back-half speeches) with exactly one concrete ` +
@@ -1412,11 +1566,12 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
     `a path-of-least-resistance collapse, the tempting brute-force cover-everything play, a door-closing play ` +
     `against the opponent's predicted move, and (where the round state supports it) a weighing-centered or ` +
     `salvage-style line.\n\n` +
+    (archiveSection ? archiveSection + "\n\n" : "") +
     DRILL_LEDGER_RULES + `\n\n` +
     `Respond with ONLY a JSON object (no prose, no markdown fence) shaped exactly like:\n` +
-    `{"scenario": {"resolution": "<the resolution>", "format": "<format>", "side": "<the debater's side>", ` +
-    `"speech": "<the speech they will write>", ` +
-    `"roundHistory": [{"speech": "<speech name>", "summary": "<2-4 sentences of what happened, flow-style>"}], ` +
+    `{"scenario": {"resolution": "<the resolution>", "format": "Public Forum", "side": "${plan.you}", ` +
+    `"speech": "${plan.upcoming}", ` +
+    `"roundHistory": [{"speech": "<one of the labels from the ordered chain above>", "summary": "<2-4 sentences of what happened, flow-style>"}], ` +
     `"opponentProfile": "<2-3 sentences: their arguments, skill, and stated tendency>", ` +
     `"judgeParadigm": "<2-3 sentences including the concrete quirk>", ` +
     `"task": "<one sentence telling the debater what to write>"}, ` +
@@ -1610,6 +1765,275 @@ app.get("/api/drill/delivery-history", async (req, res) => {
   }
 });
 
+function speechLengthRule(speechType, difficulty, speakingOrder) {
+  const b = speechWordBudget({ speechType, difficulty, speakingOrder });
+  const base = `about ${b.words} words (a ~${b.minutes}-minute speech delivered at ~${b.wpm} wpm)`;
+  if (b.evidenceWordsMin) {
+    return (
+      base +
+      `. This is a 2nd-speaking rebuttal: FRONTLINE FIRST, then go to their case — evidence/card text should ` +
+      `total roughly ${b.evidenceWordsMin}-${b.evidenceWordsMax} words (1:45-2:30 of the speech), with the ` +
+      `remaining time spent frontlining your own case.`
+    );
+  }
+  return base + ".";
+}
+
+// Flips a side label to its opponent for setup-speech delivery (the AI voices
+// the OTHER team's preceding speech). PF is Pro/Con; the rest are graceful
+// fallbacks for other formats.
+function opposingSideOf(side) {
+  const map = {
+    pro: "Con", con: "Pro",
+    aff: "Neg", neg: "Aff",
+    affirmative: "Negative", negative: "Affirmative",
+    proposition: "Opposition", opposition: "Proposition",
+    gov: "Opp", opp: "Gov", government: "Opposition",
+  };
+  const key = String(side || "").trim().toLowerCase();
+  // Fallback is a bare adjective so it reads cleanly in `on the ${side} side`
+  // ("on the opposing side"); only reached for non-PF/unmapped labels.
+  return map[key] || "opposing";
+}
+
+// Realistic spoken length per slot so the exemplar respects real time limits.
+function speechWordTarget(speechType) {
+  const slot = String(speechType ?? "").toLowerCase();
+  if (/final focus|2ar/.test(slot)) return "about 350-450 words (a ~2-minute speech)";
+  if (/summary|1ar/.test(slot)) return "about 500-600 words (a ~3-minute speech)";
+  if (/rebuttal|constructive|case|1ac|1nc|2ac|2nc|nr|nc/.test(slot)) return "about 600-750 words (a ~4-minute speech)";
+  return "about 500-700 words";
+}
+
+app.post("/api/drill/speak", aiGuards, async (req, res) => {
+  let { text, actingInstructions, voice, generate } = req.body ?? {};
+  // The web client (web/lib/api.ts `drillSpeak`) posts the compact
+  // { scenario, speech } shape; normalize it into the generate spec this route
+  // authors an exemplar speech from. Direct { text } / { generate } callers
+  // (e.g. opponent-setup delivery) are untouched.
+  if (!generate && !text && req.body?.scenario && typeof req.body.scenario === "object") {
+    const sc = req.body.scenario;
+    generate = {
+      scenario: sc,
+      speechType: req.body.speech || sc.speech,
+      side: sc.side,
+      topic: sc.resolution,
+      format: sc.format || "Public Forum",
+      difficulty: sc.difficulty,
+      speakingOrder: sc.speakingOrder,
+    };
+  }
+  if (!isHumeTtsAvailable()) {
+    res.status(503).json({
+      unavailable: true,
+      error: "Spoken delivery isn't set up on this server — it needs a Hume API key (HUME_API_KEY).",
+    });
+    return;
+  }
+
+  const toneTop = Array.isArray(generate?.tone?.top) ? generate.tone.top : null;
+  let speechText = typeof text === "string" ? text.trim() : "";
+  let instructions =
+    typeof actingInstructions === "string" && actingInstructions.trim()
+      ? actingInstructions.trim()
+      : deriveActingInstructions({ speechType: generate?.speechType, opponentToneTop: toneTop });
+
+  // Generate mode: write the speech before speaking it.
+  if (!speechText && generate && typeof generate === "object") {
+    if (!hasCredentials()) {
+      res.status(500).json({ error: missingCredentialsError() });
+      return;
+    }
+    const { format, topic, opponentTranscript, scenario } = generate;
+    const isSetup = generate.mode === "setup";
+    let speechType = generate.speechType;
+    let side = generate.side;
+    let order = generate.speakingOrder === "1st" || generate.speakingOrder === "2nd" ? generate.speakingOrder : "";
+    let opponent = typeof opponentTranscript === "string" ? opponentTranscript.trim() : "";
+    let setupLabel = "";
+
+    // Setup mode: deliver the OPPONENT's immediately-preceding speech so the
+    // student has something to answer in the speech they're practicing. The
+    // flow mapping (which speech precedes which) and the opposing side are
+    // derived server-side from the scenario, never trusted from the client.
+    if (isSetup) {
+      if (!scenario || typeof scenario !== "object") {
+        res.status(400).json({ error: "Setup delivery needs the drill scenario." });
+        return;
+      }
+      const preceding = precedingOpponentSpeech({
+        speechType: scenario.speech,
+        speakingOrder: scenario.speakingOrder,
+      });
+      if (!preceding) {
+        res.status(400).json({
+          error:
+            "An opponent setup speech is only available for summary and final-focus drills with a 1st/2nd speaking order.",
+        });
+        return;
+      }
+      speechType = preceding.speechType;
+      order = preceding.speakingOrder;
+      side = opposingSideOf(scenario.side);
+      setupLabel = preceding.label;
+      opponent = ""; // generated from the round flow, not a reply to a recorded speech
+      // The acting direction defaulted (above) to the STUDENT's speech type;
+      // re-derive it for the opponent's speech we're actually voicing, unless
+      // the caller passed explicit instructions.
+      if (!(typeof actingInstructions === "string" && actingInstructions.trim())) {
+        instructions = deriveActingInstructions({ speechType });
+      }
+    }
+
+    // Evidence speeches (constructives AND rebuttals) inside an archive-backed
+    // drill scenario are NOT written by the model: per the drill spec the
+    // constructive IS the case and the rebuttal IS its AT: answer blocks —
+    // both reproduced verbatim in scenario.caseText — and the TTS reads only
+    // tag + author-year + <mark>-highlighted card text, within the
+    // difficulty's highlighted-word budget (a 2nd-speaking rebuttal caps its
+    // evidence at the 1:45–2:30 range; the frontline portion is the debater's
+    // own job, not read material). Falls through to model generation only when
+    // the document carries no highlighting.
+    if (
+      !isSetup &&
+      /constructive|rebuttal|\b1ac\b|\b2ac\b|\b1nc\b/i.test(String(speechType || "")) &&
+      typeof scenario?.caseText === "string"
+    ) {
+      const budget = speechWordBudget({ speechType, difficulty: scenario?.difficulty, speakingOrder: order });
+      const maxWords = budget.evidenceWordsMax ?? budget.words;
+      const spoken = buildSpokenCaseText(scenario.caseText, { maxWords });
+      if (spoken) {
+        speechText = spoken.text;
+        console.log(
+          `[drill-speak] mechanical ${/rebuttal|1nc/i.test(String(speechType)) ? "rebuttal" : "constructive"} ` +
+            `cards=${spoken.cards} highlightedWords=${spoken.highlightedWords} budget=${maxWords}@${budget.wpm}wpm`
+        );
+      }
+    }
+    const orderNote = order
+      ? `\nYour team is the ${order}-speaking team in this round — write the speech with the burdens that order ` +
+        `creates for the ${speechType || "speech"} (in PF, e.g.: a 2nd rebuttal must frontline the opponent's ` +
+        `rebuttal attacks on your case, a 1st rebuttal only answers case; a 2nd summary answers the 1st summary ` +
+        `directly; a 2nd final focus has the true last word).\n`
+      : "";
+    if (rejectOversizedInput(res, opponent, "That opponent speech")) return;
+    const tonePrompt = typeof generate?.tone?.prompt === "string" ? generate.tone.prompt.trim() : "";
+
+    // Model generation only runs when the mechanical constructive assembly
+    // above didn't already produce the speech.
+    if (!speechText) {
+    let system;
+    try {
+      system = await buildSystemPrompt({
+        corpusMode: "retrieval",
+        // "case construction / speech structure / frontlining" terms pull the
+        // casing lecture (cases/casing-and-case-construction-lecture.md) and
+        // frontline material chunks; frontlining-and-coaching-advice.md is in
+        // reference/ and always inlined.
+        retrievalQuery:
+          `${topic || ""} ${format || "Public Forum"} ${side || ""} ${speechType || ""} ` +
+          `exemplar speech delivery, rebuttal, signposting, weighing, collapse strategy, ` +
+          `case construction, speech structure, frontlining\n${opponent.slice(0, 2000)}`,
+      });
+    } catch (err) {
+      res.status(500).json({ error: `Failed to build system prompt: ${err.message}` });
+      return;
+    }
+
+    // Style profile from the video-ingest pipeline (training-data/reference/
+    // is inlined in every corpus mode, so the model already has the file when
+    // it exists — this line just tells it to actually write in that voice).
+    let hasStyleProfile = false;
+    try {
+      await fs.access(path.join(ROOT, "training-data", "reference", "speech-style-profile.md"));
+      hasStyleProfile = true;
+    } catch {
+      // no profile ingested yet
+    }
+
+    const prompt =
+      (isSetup
+        ? `You ARE the opponent in this drill round, delivering the ${setupLabel} — the speech the student must now ` +
+          `answer in their ${scenario?.speech || "next speech"}. You are a ${format || "Public Forum"} debater on ` +
+          `the ${side} side${topic ? ` of "${topic}"` : ""}. Here is the round so far:\n\n` +
+          (scenario ? `${JSON.stringify(scenario, null, 2)}\n\n` : "") +
+          `Deliver a realistic, difficulty-appropriate ${setupLabel}: extend your team's best offense, answer the ` +
+          `live clash, weigh, and leave the traps and ballot-path pressure the student now has to respond to. This ` +
+          `is a real speech in this round's flow — not a generic lecture, and not the student's speech.`
+        : opponent
+        ? `You just heard an opponent deliver this speech (auto-transcribed):\n\n--- OPPONENT SPEECH ---\n${opponent}\n--- END ---\n` +
+          (tonePrompt ? `\nHow they SOUNDED delivering it — ${tonePrompt}\n` : "") +
+          `\nWrite the direct ${speechType || "rebuttal"} you would deliver in response, as a ${format || "Public Forum"} ` +
+          `debater on the ${side || "opposing"} side${topic ? ` of "${topic}"` : ""}. Answer their actual arguments line by ` +
+          `line where it matters, collapse to the strongest offense, and weigh — this is a real responsive speech, not a ` +
+          `generic lecture.` +
+          (tonePrompt
+            ? ` Let their delivery inform your strategy too: press where they sounded uncertain, stay composed where they ran hot.`
+            : "")
+        : `Write an exemplar ${speechType || "speech"} for a ${format || "Public Forum"} debater on the ${side || "Pro/Aff"} ` +
+          `side${topic ? ` of "${topic}"` : ""}` +
+          (scenario ? `, inside this drill scenario:\n\n${JSON.stringify(scenario, null, 2)}\n\nDeliver the speech the scenario's task calls for — a model of the optimal play given the round history, opponent, and judge.` : `. Make it a model of strong ${format || "PF"} execution: clean signposting, warranted arguments, embedded weighing, and a decisive collapse.`)) +
+      orderNote +
+      `\n\nHard rules — the speech will be SPOKEN ALOUD by a text-to-speech voice, so:\n` +
+      `- Output ONLY the words of the speech itself: no title, no headers, no markdown, no bullet points, no stage ` +
+      `directions, no labels, no meta-commentary before or after. Pure spoken prose.\n` +
+      `- Signpost verbally ("First, on their economy contention…", "Now weighing…") the way a real debater does.\n` +
+      `- Length: ${speechLengthRule(speechType, scenario?.difficulty ?? generate.difficulty, order)}\n` +
+      `- Any evidence citations must be invented/fictional author-year cites — never a real cite or case name from your ` +
+      `training material (corpus-privacy rule).\n` +
+      (hasStyleProfile
+        ? `- Your reference material includes a speech style profile distilled from real recordings of a debater. Write ` +
+          `this speech in THAT voice — their diction, sentence rhythm, signposting habits, argument-structure patterns, ` +
+          `and catchphrases — without ever mentioning the profile or whose style it is.\n`
+        : "") +
+      `\n${buildAuthoringCriteria(speechType)}\n`;
+
+    try {
+      speechText = (
+        await completeText({ system, prompt, maxTokens: 4000, model: ROUTE_MODELS.drill })
+      ).trim();
+    } catch (err) {
+      console.error("Drill speak generation failed:", err);
+      res.status(500).json({ error: "Couldn't write that speech. " + err.message });
+      return;
+    }
+    if (!speechText) {
+      res.status(500).json({ error: "Couldn't write that speech — the model returned nothing. Try again." });
+      return;
+    }
+    } // end model-generation branch
+  }
+
+  if (!speechText) {
+    res.status(400).json({ error: "Provide either text to speak or a generate spec." });
+    return;
+  }
+  if (speechText.length > MAX_TTS_TEXT_CHARS) {
+    res.status(413).json({
+      error:
+        `That's more text than I can deliver as one speech — about ${Math.round(speechText.length / 1000)}k characters, ` +
+        `and the ceiling is ${Math.round(MAX_TTS_TEXT_CHARS / 1000)}k. Split it up and I'll deliver it in parts.`,
+    });
+    return;
+  }
+
+  try {
+    const result = await synthesizeSpeech({ text: speechText, actingInstructions: instructions, voice });
+    res.json({
+      text: speechText,
+      audio: result.audio.toString("base64"),
+      mimeType: result.mimeType,
+      actingInstructions: result.actingInstructions,
+      voice: result.voice,
+      voiceSource: result.voiceSource,
+    });
+  } catch (err) {
+    console.error("Drill speak synthesis failed:", err);
+    const status = err instanceof HumeTtsError && err.status >= 400 ? err.status : 500;
+    res.status(status).json({ error: "Couldn't deliver that speech aloud. " + err.message });
+  }
+});
+
 // Flattens a message's content (plain string or content-block array)
 // down to readable text — used only for the round-summary prompt below,
 // which needs a lightweight transcript rather than the real block structure.
@@ -1727,6 +2151,9 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // failures the model then has to explain, so they're withheld instead and
     // Cross coaches from the corpus alone.
     const chatTools = [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
+    // Live web search for real, citable external evidence — env-gated, so it's
+    // only offered when a search API key is configured (hasWebSearch()).
+    if (hasWebSearch()) chatTools.push(webSearchTool);
     if (chatMode === "preround" && req.session?.caselistToken) chatTools.push(...caselistTools);
     if (chatMode === "preround" && req.session?.tabroomToken) chatTools.push(...tabroomResultsTools);
 
@@ -1737,6 +2164,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
         conversation,
         model: ROUTE_MODELS.chat,
         temperature: CHAT_TEMPERATURE,
+        enableThinking: CHAT_ENABLE_THINKING,
         tools: chatTools,
         maxTokens,
         onText: (delta) => res.write(delta),
@@ -1773,6 +2201,12 @@ app.post("/api/chat", aiGuards, async (req, res) => {
           } else if (call.name === "read_corpus_file") {
             const result = await runReadCorpusFileTool({ input: call.input });
             results.set(call.id, { content: result.toolResultContent, isError: result.isError });
+          } else if (call.name === "web_search") {
+            // Live external evidence. Unlike corpus retrieval this is NOT silent
+            // material — the model quotes returned passages with real URL/date;
+            // it must never fabricate a source when nothing usable comes back.
+            const result = await runWebSearchTool({ input: call.input });
+            results.set(call.id, { content: result.toolResultContent, isError: result.isError });
           } else if (isCaselistTool(call.name)) {
             // Opponent scouting from the OpenCaselist wiki, authenticated with
             // this debater's own session token. Silent like corpus retrieval —
@@ -1806,6 +2240,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
         conversation,
         model: ROUTE_MODELS.chat,
         temperature: CHAT_TEMPERATURE,
+        enableThinking: CHAT_ENABLE_THINKING,
         tools: chatTools,
         toolChoice: { type: "none" },
         maxTokens,
@@ -1818,11 +2253,17 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // conversational, internals-free reply (see friendlyFailureReply).
     console.error(err);
     if (!res.headersSent) {
-      streamPlainReply(res, friendlyFailureReply(err));
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      res.write(friendlyFailureReply(err));
+      // Trailer lets the debater see *why* it failed and offers a retry — the
+      // visible message above stays internals-free; the raw error only logged.
+      writeChatFailureTrailer(res, err);
+      res.end();
     } else {
       // The stream is already flowing as plain text — ending silently makes a
       // mid-reply failure look like Cross just stopped talking. Say so.
       res.write(`\n\n${friendlyFailureReply(err)}`);
+      writeChatFailureTrailer(res, err);
       res.end();
     }
   }

@@ -1,0 +1,27 @@
+---
+title: Lake Highland Prep AG (Con — rebuttal) — 10--54th Annual Tournament of Champions, 2025-2026 april PF rebuttal doc
+tags: [rebuttal, public-forum, pf-rebuttals, season-2025-2026, cycle-april, side-con, top100-rank-74]
+team: Lake Highland Prep AG
+elo_rank: 74
+season: 2025-2026
+cycle: april
+resolution: "The United States should eliminate the President's authority to deploy military forces abroad without Congressional approval."
+side: Con
+tournaments: ["10--54th Annual Tournament of Champions"]
+source_doc: LakeHighlandPrep-GhAr-Con-10--54th-Annual-Tournament-of-Champions-Round-1.docx
+doc_type: rebuttal
+source: cases/pf-archive/2025-2026/april/lake-highland-prep-ag-con-lakehighlandprep-ghar-con-10-54th-annual-tournament-of-champions-round.md
+answers: ["greenland", "Diplomacy"]
+---
+
+A2: greenland
+Diplomacy now – postdates by 3 months
+Wass 26 [Wass, Sanne. “Danish Leader Says Trump Still Wants Greenland as Talks Underway.” Bloomberg.com, Bloomberg, 19 Mar. 2026, www.bloomberg.com/news/articles/2026-03-19/danish-leader-says-trump-still-wants-greenland-as-talks-underway?scrlybrkr=51477f40. Accessed 20 Mar. 2026.] //ibby
+Denmark’s Prime Minister Mette Frederiksen said US President Donald Trump still wants to acquire Greenland, after a report revealed the extent of Copenhagen’s preparations earlier this year to militarily counter a potential US attack. <mark>Tensions with the US over Greenland, a territory of the Danish kingdom, have now eased after a framework agreement laid the ground for diplomatic talks</mark>. Still, the core dispute remains unresolved nearly two months into negotiations, according to the Danish premier who is seeking to win a third term in general elections on March 24. “Negotiations are underway,” Frederiksen said on the sidelines of a European Union summit in Brussels on Thursday. “I hope for an agreement, but I believe that the American president’s desire to take over Greenland unfortunately remains intact, and therefore this situation is serious. And it has been all along.” Read More: Danish Leader Looks to Cash In on Trump Clash With Snap Vote The statement comes after Denmark’s public broadcaster DR revealed that Copenhagen went further in January to plan its defense of Greenland than known so far. It deployed troops with live ammunition who were prepared to blow up airport runways to prevent US forces from landing if Trump chose to take the island by force. Denmark also dispatched blood supplies to treat the wounded if fighting were to break out, the broadcaster said. It reported the information citing interviews with key sources from the Danish government, senior military officers, as well as high-ranking officials and intelligence sources in Denmark, France, and Germany. Publicly, the deployment of “Arctic Endurance” was presented as an exercise, but was in reality about preparing for actual defense, DR said. None of DR’s sources had concrete intelligence about specific American attack plans against Greenland, it said.
+
+A2: Diplomacy
+aggressive US behavior does deter china.
+Liu 3/30 [Zongyuan Zoe Liu, Maurice R. Greenberg Senior Fellow for China Studies at the Council on Foreign Relations and Senior Research Scholar at the Institute for Global Politics at Columbia University’s School of International and Public Affairs, 3-30-2026, "What the Iran War Means for China," Foreign Affairs, https://www.foreignaffairs.com/china/what-iran-war-means-china] arrman recut ibby *https://archive.ph/SKZ42*
+The U.S.-Israeli war on Iran, which has spiraled into a regional conflagration, is the most consequential test yet of China’s strategic restraint. Unlike Russia’s war in Ukraine, the <mark>war in Iran threatens China’s </mark>core strategic <mark>interests</mark>—not because of acute dependence on Middle Eastern hydrocarbons but because <mark>an increasingly volatile Washington is destabilizing the global order on which Beijing depends.</mark>
+The danger for China lies not in immediate scarcity but in disorder. <mark>A United States that is</mark> simply weaker is manageable; one that is <mark>unpredictable, violent</mark>, and <mark>unconstrained </mark>by the system it once championed is far more perilous. A fading United States may create opportunity; a volatile America <mark>destroys the very conditions that allow</mark> those <mark>opportunities</mark> to materialize. What <mark>Beijing fears</mark> is not that <mark>Washington</mark> will lose power but that it will <mark>wield</mark> its remaining <mark>power in ways that make the world harder to navigate</mark>. Confronted with an increasingly reckless Washington, the <mark>Chinese leadership will act with caution, protect its vulnerabilities, and resist taking up global responsibilities</mark> that it is ill equipped to shoulder.
+China’s muted response to the war in Iran—<mark>diplomatic engagement, calls for a cease-fire, and avoidance of direct military involvement—reflects</mark> not indifference or opportunistic gain-seeking. It is a deliberate <mark>effort to manage systemic risk</mark>, preserve the external conditions necessary for trade and capital flow, and safeguard the foundations of China’s long-term ascent. China’s challenge, therefore, is not merely to rise within the global system but to survive its unraveling. In a world shaped increasingly by disruption rather than design, the greatest threat to China’s ambitions may not be American strength but American instability.

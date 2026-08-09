@@ -1,11 +1,12 @@
 'use client'
 
 import { useState } from 'react'
-import { Bookmark, RefreshCw, ShieldCheck, Sparkles } from 'lucide-react'
+import { Bookmark, Ban, NotebookPen, RefreshCw, ShieldCheck, Sparkles } from 'lucide-react'
 import { Pill } from '@/components/ui/primitives'
 import type { JudgeSummaryResult } from '@/lib/api'
 import { extractEmails, extractPullQuote, heuristicJudgeInterpretation, paradigmToParagraphs } from '@/lib/paradigm'
 import { JudgeSummaryPanel } from '@/components/judges/judge-summary'
+import { getNote, setNote } from '@/lib/local-judges'
 
 const COLLAPSE_THRESHOLD = 700
 
@@ -25,19 +26,33 @@ function relativeTime(iso?: string | null): string | null {
 
 export function JudgeProfile({
   judge,
-  entryId: _entryId,
+  entryId,
   saved,
+  struck,
   onToggleSaved,
+  onToggleStruck,
   onRefresh,
 }: {
   judge: JudgeSummaryResult
   entryId: string
   saved: boolean
+  struck: boolean
   onToggleSaved: () => void
+  onToggleStruck: () => void
   onRefresh: () => Promise<void> | void
 }) {
   const [refreshing, setRefreshing] = useState(false)
   const [expanded, setExpanded] = useState(false)
+  // Seeded once from storage; the parent remounts this component per judge
+  // (keyed on the active id), so no per-id reset effect is needed.
+  const [note, setNoteText] = useState(() => getNote(entryId))
+  const [noteSaved, setNoteSaved] = useState(false)
+
+  function handleNoteChange(text: string) {
+    setNoteText(text)
+    setNote(entryId, text)
+    setNoteSaved(true)
+  }
 
   async function handleRefresh() {
     setRefreshing(true)
@@ -96,6 +111,18 @@ export function JudgeProfile({
             <Bookmark className={`size-4 ${saved ? 'fill-current' : ''}`} />
             {saved ? 'Saved' : 'Save'}
           </button>
+          <button
+            type="button"
+            onClick={onToggleStruck}
+            aria-pressed={struck}
+            aria-label={struck ? 'Remove strike on this judge' : 'Strike this judge'}
+            className={`press flex min-h-11 items-center gap-2 rounded-md border px-4 text-sm font-semibold transition ${
+              struck ? 'border-destructive text-destructive' : 'border-border text-muted-foreground hover:bg-secondary'
+            }`}
+          >
+            <Ban className="size-4" />
+            {struck ? 'Struck' : 'Strike'}
+          </button>
         </div>
       </div>
 
@@ -129,6 +156,26 @@ export function JudgeProfile({
           )}
         </section>
       )}
+
+      <section className="ballot-rule mt-7">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <NotebookPen className="size-4 text-pen" />
+            <p className="eyebrow">Your notes</p>
+          </div>
+          <span role="status" className={`text-xs text-muted-foreground transition ${noteSaved ? 'opacity-100' : 'opacity-0'}`}>
+            Saved
+          </span>
+        </div>
+        <textarea
+          value={note}
+          onChange={(e) => handleNoteChange(e.target.value)}
+          placeholder="Private notes on this judge — how they broke, what landed, reminders for next round…"
+          rows={3}
+          className="mt-3 w-full resize-y rounded-md border border-border bg-background px-4 py-3 text-sm leading-relaxed outline-none focus:ring-2 focus:ring-pen"
+        />
+        <p className="mt-2 text-xs text-muted-foreground">Saved on this device and shown in Settings › Judges.</p>
+      </section>
 
       <section className="ballot-rule mt-7">
         <p className="eyebrow">Original paradigm</p>

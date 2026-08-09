@@ -22,9 +22,15 @@ const TRAINING_DATA = path.join(ROOT, "training-data");
 export const INDEX_PATH = path.join(ROOT, "scripts", "corpus-index.json");
 
 // Chunk sizing: big enough that a debate card (tag + cite + body) usually
-// fits in one chunk, small enough that top-k retrieval stays focused.
-const CHUNK_CHARS = 1600;
-const CHUNK_OVERLAP = 200;
+// fits in one chunk, small enough that top-k retrieval stays focused. Sized in
+// CHARACTERS, not tokens (~3.2 chars/token for this corpus) — so a 256-token
+// target ≈ 820 chars, a 30-token overlap ≈ 96 chars. Env-overridable so the
+// tradeoff can be A/B'd without a code change; changing either REQUIRES a
+// rebuild (`npm run build-index`) since offsets/vectors are baked into
+// corpus-index.json. Smaller chunks split cards mid-evidence and tend to lower
+// retrieval quality on this jargon-dense corpus — measure recall before/after.
+const CHUNK_CHARS = Number(process.env.CORPUS_CHUNK_CHARS) || 1600;
+const CHUNK_OVERLAP = Number(process.env.CORPUS_CHUNK_OVERLAP) || 200;
 
 function isOnDemand(relPath) {
   return !CORE_DIRS.has(relPath.split("/")[0]);

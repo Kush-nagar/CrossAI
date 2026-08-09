@@ -81,8 +81,28 @@ function resolveCorpusPath(relPath) {
   return abs;
 }
 
+// mtime-keyed content cache. buildCorpusManifest() (system-prompt build, runs
+// on EVERY chat turn before the first token) and searchCorpus() (per search)
+// both read every on-demand corpus file; without this they re-read the whole
+// corpus from disk each time, adding avoidable I/O straight onto TTFT. Keyed on
+// mtimeMs so it self-heals when ingest — or a manual edit in dev — changes a
+// file: a stat is cheap, the re-read only happens when the file actually moved.
+const fileCache = new Map(); // relPath -> { mtimeMs, content }
+
 async function readCorpusFileRaw(relPath) {
-  return fs.readFile(resolveCorpusPath(relPath), "utf8");
+  const abs = resolveCorpusPath(relPath);
+  let mtimeMs;
+  try {
+    ({ mtimeMs } = await fs.stat(abs));
+  } catch (err) {
+    fileCache.delete(relPath); // deleted/renamed — drop any stale entry
+    throw err;
+  }
+  const cached = fileCache.get(relPath);
+  if (cached && cached.mtimeMs === mtimeMs) return cached.content;
+  const content = await fs.readFile(abs, "utf8");
+  fileCache.set(relPath, { mtimeMs, content });
+  return content;
 }
 
 // Minimal frontmatter reader: pulls title/tags/description out of a leading
