@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { marked } from 'marked'
-import { AlertTriangle, ArrowRight, FileText, Menu, Plus, RotateCcw, Sparkles, X } from 'lucide-react'
+import { AlertTriangle, ArrowRight, Brain, FileText, Menu, Plus, RotateCcw, Sparkles, Trash2, X } from 'lucide-react'
 import {
   streamChat,
   summarizeRound,
@@ -12,9 +12,13 @@ import {
 } from '@/lib/api'
 import {
   buildCrossChatMemory,
+  clearAllMemory,
+  deleteConversation,
+  forgetConversationMemory,
   loadCoachMode,
   loadConversations,
   makeConversationId,
+  memoryEntries,
   saveCoachMode,
   saveConversations,
   type Conversation,
@@ -79,6 +83,7 @@ export function CoachScreen() {
   const [attachments, setAttachments] = useState<UploadResult[]>([])
   const [mode, setMode] = useState<'general' | 'preround'>('general')
   const [historyOpen, setHistoryOpen] = useState(false)
+  const [memoryOpen, setMemoryOpen] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -157,6 +162,79 @@ export function CoachScreen() {
     saveCoachMode(next)
   }
 
+  // Summarize a round into cross-chat memory. keepTitle=true on refreshes so a
+  // growing round doesn't churn its sidebar label. Best-effort — a failed
+  // summary just leaves the prior memory in place.
+  function refreshMemory(roundId: string, msgs: ChatMessage[], keepTitle: boolean) {
+    summarizeRound(msgs)
+      .then((result) => {
+        setConversations((prev) => {
+          const next = prev.map((c) =>
+            c.id === roundId
+              ? { ...c, title: keepTitle ? c.title : result.title || c.title, summary: result.summary || c.summary }
+              : c,
+          )
+          saveConversations(next)
+          return next
+        })
+      })
+      .catch(() => {})
+  }
+
+  // Delete a chat entirely (removes it from cross-chat memory too). If it's the
+  // open one, fall back to the most recent remaining chat, or a fresh blank.
+  function handleDeleteConversation(id: string) {
+    if (streaming) return
+    const target = conversations.find((c) => c.id === id)
+    if (!target) return
+    if (
+      target.messages.length > 0 &&
+      !window.confirm(`Delete "${target.title || 'this chat'}"? It's also removed from CrossCoach's cross-chat memory.`)
+    ) {
+      return
+    }
+
+    const remaining = deleteConversation(conversations, id)
+    if (id === currentId) {
+      const fallback = [...remaining].sort((a, b) => b.updatedAt - a.updatedAt)[0]
+      if (fallback) {
+        saveConversations(remaining)
+        setConversations(remaining)
+        setCurrentId(fallback.id)
+        setMessages(JSON.parse(JSON.stringify(fallback.messages)))
+      } else {
+        const blankId = makeConversationId()
+        const blank: Conversation = { id: blankId, title: 'New round', summary: '', messages: [], updatedAt: Date.now() }
+        const seeded = [blank]
+        saveConversations(seeded)
+        setConversations(seeded)
+        setCurrentId(blankId)
+        setMessages([])
+      }
+      setAttachments([])
+      setAssistantDraft('')
+    } else {
+      saveConversations(remaining)
+      setConversations(remaining)
+    }
+    setSendError(null)
+  }
+
+  // Drop one round's memory but keep the chat.
+  function handleForgetMemory(id: string) {
+    const next = forgetConversationMemory(conversations, id)
+    saveConversations(next)
+    setConversations(next)
+  }
+
+  // Wipe cross-chat memory without deleting any chats.
+  function handleClearAllMemory() {
+    if (!window.confirm('Clear everything CrossCoach remembers across your chats? Your chats stay; only the shared memory is wiped.')) return
+    const next = clearAllMemory(conversations)
+    saveConversations(next)
+    setConversations(next)
+  }
+
   // Streams one assistant turn for a conversation that already ends in the
   // user's message. Shared by send() (new turn) and retryLast() (replay the
   // same turn) so both funnel through identical success/failure handling.
@@ -180,15 +258,12 @@ export function CoachScreen() {
         setSendError({ reason: failure.reason, retryable: failure.retryable })
         setLastAttempt({ messages: nextMessages, roundId, isFirstMessageOfRound })
       } else if (isFirstMessageOfRound && finalText && roundId) {
-        summarizeRound(withAssistant)
-          .then((result) => {
-            setConversations((prev) => {
-              const next = prev.map((c) => (c.id === roundId ? { ...c, title: result.title || c.title, summary: result.summary || c.summary } : c))
-              saveConversations(next)
-              return next
-            })
-          })
-          .catch(() => {})
+        // First exchange sets the round's title + initial memory.
+        refreshMemory(roundId, withAssistant, false)
+      } else if (finalText && roundId && withAssistant.length >= 4 && withAssistant.length % 4 === 0) {
+        // Keep cross-chat memory current as a round grows — refresh the summary
+        // (keep the title) every couple of exchanges. Background, best-effort.
+        refreshMemory(roundId, withAssistant, true)
       }
     } catch (err) {
       // Pre-stream failure (never reached the model, e.g. network/session/500):
@@ -253,6 +328,7 @@ export function CoachScreen() {
   }
 
   const showEmptyState = messages.length === 0
+  const entries = memoryEntries(conversations)
 
   return (
     <div className="page-enter relative flex h-[calc(100vh-8rem)] min-h-[650px] overflow-hidden rounded-xl border border-border bg-card">
@@ -280,27 +356,45 @@ export function CoachScreen() {
           {[...conversations]
             .sort((a, b) => b.updatedAt - a.updatedAt)
             .map((c) => (
-              <button
+              <div
                 key={c.id}
-                onClick={() => loadConversation(c.id)}
-                className={`group flex min-h-10 items-center justify-between rounded-xl px-3 text-left text-sm transition ${
+                className={`group relative flex min-h-10 items-center rounded-xl text-sm transition ${
                   c.id === currentId ? 'bg-secondary font-medium' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
-                <span className="truncate">{c.title}</span>
-              </button>
+                <button onClick={() => loadConversation(c.id)} className="min-w-0 flex-1 truncate px-3 py-2 text-left">
+                  <span className="truncate">{c.title}</span>
+                </button>
+                <button
+                  onClick={() => handleDeleteConversation(c.id)}
+                  aria-label={`Delete ${c.title || 'chat'}`}
+                  className="mr-1 flex size-7 shrink-0 items-center justify-center rounded-lg text-muted-foreground opacity-0 transition hover:bg-background hover:text-destructive focus:opacity-100 group-hover:opacity-100"
+                >
+                  <Trash2 className="size-3.5" />
+                </button>
+              </div>
             ))}
         </nav>
-        <div className="flex items-center gap-2 rounded-xl px-3 py-2">
-          <label className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
-            <input
-              type="checkbox"
-              checked={mode === 'preround'}
-              onChange={(e) => updateMode(e.target.checked ? 'preround' : 'general')}
-              className="size-4"
-            />
-            Pre-Round mode
-          </label>
+        <div className="mt-2 flex flex-col gap-1 border-t border-border pt-2">
+          <button
+            onClick={() => setMemoryOpen(true)}
+            className="press flex min-h-10 w-full items-center gap-2 rounded-xl px-3 text-left text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+          >
+            <Brain className="size-4 shrink-0" />
+            <span className="flex-1 truncate">Memory</span>
+            {entries.length > 0 && <span className="font-data text-xs opacity-70">{entries.length}</span>}
+          </button>
+          <div className="flex items-center gap-2 rounded-xl px-3 py-2">
+            <label className="flex items-center gap-2 text-xs font-semibold text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={mode === 'preround'}
+                onChange={(e) => updateMode(e.target.checked ? 'preround' : 'general')}
+                className="size-4"
+              />
+              Pre-Round mode
+            </label>
+          </div>
         </div>
       </aside>
       <section className="flex min-w-0 flex-1 flex-col bg-card">
@@ -480,6 +574,74 @@ export function CoachScreen() {
           </div>
         </div>
       </section>
+
+      {memoryOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <button aria-label="Close memory" onClick={() => setMemoryOpen(false)} className="absolute inset-0 bg-foreground/30" />
+          <div className="relative z-10 flex max-h-[80vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
+            <header className="flex items-center justify-between border-b px-5 py-4">
+              <div className="flex items-center gap-2">
+                <Brain className="size-4 text-muted-foreground" />
+                <h2 className="text-sm font-semibold">Cross-chat memory</h2>
+              </div>
+              <button
+                onClick={() => setMemoryOpen(false)}
+                aria-label="Close memory"
+                className="flex size-8 items-center justify-center rounded-lg transition hover:bg-secondary"
+              >
+                <X className="size-4" />
+              </button>
+            </header>
+            <p className="shrink-0 px-5 pt-3 text-xs leading-5 text-muted-foreground">
+              What CrossCoach remembers from each round. It travels with every chat, so facts and decisions from one
+              round are available in any other — open a chat, or forget a memory to leave it out.
+            </p>
+            <div className="flex-1 overflow-y-auto px-3 py-3">
+              {entries.length === 0 ? (
+                <p className="px-2 py-8 text-center text-sm text-muted-foreground">
+                  No memory yet — it builds up as you chat through rounds.
+                </p>
+              ) : (
+                <ul className="flex flex-col gap-2">
+                  {entries.map((e) => (
+                    <li key={e.id} className="rounded-xl border border-border bg-secondary/40 p-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <button
+                          onClick={() => {
+                            setMemoryOpen(false)
+                            loadConversation(e.id)
+                          }}
+                          className="min-w-0 flex-1 text-left"
+                        >
+                          <span className="block truncate text-sm font-medium hover:underline">{e.title}</span>
+                        </button>
+                        <button
+                          onClick={() => handleForgetMemory(e.id)}
+                          aria-label={`Forget memory of ${e.title}`}
+                          className="shrink-0 rounded-md px-2 py-1 text-xs text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+                        >
+                          Forget
+                        </button>
+                      </div>
+                      <p className="mt-1 text-xs leading-5 text-muted-foreground">{e.summary}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            {entries.length > 0 && (
+              <footer className="flex shrink-0 items-center justify-between border-t px-5 py-3">
+                <span className="text-xs text-muted-foreground">
+                  {entries.length} {entries.length === 1 ? 'round' : 'rounds'} remembered
+                </span>
+                <button onClick={handleClearAllMemory} className="text-xs font-medium text-destructive transition hover:underline">
+                  Clear all memory
+                </button>
+              </footer>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   )
 }

@@ -335,6 +335,26 @@ export function gradeDrill(input: {
   return postJson("/api/drill/grade", input)
 }
 
+// AI voice box: the server authors an exemplar (or opponent-setup) speech for a
+// drill scenario — built to the same construction criteria the grader scores
+// against (scripts/lib/speechCriteria.mjs's buildAuthoringCriteria) — and voices
+// it via TTS, returning the spoken MP3 (base64) plus its transcript. Consumed by
+// <SpeechPlayer/> (web/components/drill/speech-player.tsx).
+export type DrillSpeakResult = {
+  audio: string // base64-encoded MP3
+  mimeType?: string // defaults to audio/mpeg
+  text: string // the generated speech transcript
+}
+
+export function drillSpeak(input: {
+  scenario: DrillScenario
+  // Which speech slot to author and voice (e.g. "Con Rebuttal") — drives both
+  // the authoring criteria and the TTS acting directives, per speechCriteria.mjs.
+  speech: string
+}): Promise<DrillSpeakResult> {
+  return postJson("/api/drill/speak", input)
+}
+
 // Tone-over-time snapshots recorded server-side after each graded spoken
 // drill (scripts/lib/delivery.mjs) — newest last, capped at 500.
 export type DeliverySnapshot = {
