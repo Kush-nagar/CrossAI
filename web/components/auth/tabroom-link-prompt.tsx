@@ -1,55 +1,31 @@
 'use client'
 
-// Post-sign-in nudge: right after a session is confirmed, an unlinked debater
-// is asked once whether they want to link a Tabroom account. Linking is still
-// optional (and still lives in Settings) — this just surfaces it up front so
-// opponent scouting and signed-in judge paradigms are one decision away instead
-// of a setting they have to discover.
+// Post-sign-in step: right after a session is confirmed, an unlinked debater is
+// asked whether they want to link a Tabroom account — a consistent beat in the
+// onboarding order (landing → sign in → link Tabroom? → app). Linking is still
+// optional and still lives in Settings; this just puts the choice in the flow.
 //
-// The actual link flow — including the third-party-password consent notice —
-// is the same <TabroomLink/> shown in Settings, embedded here rather than
+// It shows on every sign-in / load while the account has no linked Tabroom, so
+// it never silently disappears from the flow. "Maybe later" (or ✕) closes it
+// for the current visit only — there is no persisted opt-out — and it stops
+// appearing for good the moment linking succeeds (tabroom.linked flips true).
+//
+// The actual link flow — including the third-party-password consent notice — is
+// the same <TabroomLink/> shown in Settings, embedded here rather than
 // reimplemented, so consent copy and the CONSENT_VERSION handshake stay in one
-// place. A successful link flips tabroom.linked and this unmounts on its own.
-//
-// Shown when: authenticated AND not linked AND not previously dismissed
-// (persisted per account so it never nags twice). Rendered only inside
-// AuthGate's authenticated branch, so it can't appear on the public landing.
+// place. Rendered only inside AuthGate's authenticated branch, so it can't
+// appear on the public landing page.
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link2, X } from 'lucide-react'
 import { useAuth } from '@/components/auth/auth-gate'
 import { TabroomLink } from '@/components/auth/tabroom-link'
 
-const dismissKey = (email: string | null) => `cross.tabroomPrompt.dismissed:${email ?? 'anon'}`
-
 export function TabroomLinkPrompt() {
-  const { tabroom, email } = useAuth()
-  // Start hidden and only reveal after the client has read localStorage — keeps
-  // SSR/first paint stable and avoids flashing the modal at an already-dismissed
-  // user before the check resolves.
-  const [checked, setChecked] = useState(false)
-  const [dismissed, setDismissed] = useState(true)
+  const { tabroom } = useAuth()
+  const [dismissed, setDismissed] = useState(false)
 
-  useEffect(() => {
-    try {
-      setDismissed(localStorage.getItem(dismissKey(email)) === '1')
-    } catch {
-      setDismissed(false)
-    }
-    setChecked(true)
-  }, [email])
-
-  if (!checked || tabroom.linked || dismissed) return null
-
-  function dismiss() {
-    try {
-      localStorage.setItem(dismissKey(email), '1')
-    } catch {
-      // Private mode / storage disabled — worst case the prompt reappears next
-      // session, which is a non-issue.
-    }
-    setDismissed(true)
-  }
+  if (tabroom.linked || dismissed) return null
 
   return (
     <div
@@ -61,7 +37,7 @@ export function TabroomLinkPrompt() {
       <div className="glass page-enter relative w-full max-w-md rounded-3xl p-8">
         <button
           type="button"
-          onClick={dismiss}
+          onClick={() => setDismissed(true)}
           aria-label="Dismiss"
           className="press absolute right-4 top-4 flex size-8 items-center justify-center rounded-full text-muted-foreground transition hover:bg-secondary"
         >
@@ -84,7 +60,7 @@ export function TabroomLinkPrompt() {
           <div className="flex flex-col gap-2">
             <button
               type="button"
-              onClick={dismiss}
+              onClick={() => setDismissed(true)}
               className="press min-h-11 rounded-xl border border-border text-sm font-semibold hover:bg-secondary"
             >
               Maybe later
