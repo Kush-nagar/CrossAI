@@ -14,6 +14,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { getAuthMe, logout as apiLogout, sendMagicLink, startGoogleSignIn, type AuthMe } from '@/lib/api'
 import { InkButton } from '@/components/ui/primitives'
+import { TabroomLinkPrompt } from '@/components/auth/tabroom-link-prompt'
 
 type Stage = 'checking' | 'signin' | 'sent' | 'authenticated'
 
@@ -115,6 +116,8 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
         value={{ username: displayNameOf(me), email: me.user?.email || null, tabroom: me.tabroom, signOut, refresh }}
       >
         {children}
+        {/* Post-sign-in one-time nudge to link Tabroom (skips if already linked/dismissed). */}
+        <TabroomLinkPrompt />
       </AuthContext.Provider>
     )
   }
