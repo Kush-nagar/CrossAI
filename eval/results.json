@@ -1,0 +1,100 @@
+{
+  "case-01": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 5,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-02": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 5,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-03": {
+    "correctness": 4,
+    "groundedness": 5,
+    "clarity": 4,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-04": {
+    "correctness": 4,
+    "groundedness": 4,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-05": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 5,
+    "tone": 5,
+    "uncertainty": 5
+  },
+  "case-06": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 5,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-07": {
+    "correctness": 4,
+    "groundedness": 4,
+    "clarity": 5,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-08": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-09": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-10": {
+    "correctness": 5,
+    "groundedness": 5,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-11": {
+    "correctness": 5,
+    "groundedness": 4,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-12": {
+    "correctness": 5,
+    "groundedness": 4,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-13": {
+    "correctness": 5,
+    "groundedness": 4,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  },
+  "case-14": {
+    "correctness": 5,
+    "groundedness": 4,
+    "clarity": 3,
+    "tone": 4,
+    "uncertainty": 5
+  }
+}

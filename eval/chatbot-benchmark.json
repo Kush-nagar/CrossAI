@@ -1,0 +1,97 @@
+{
+  "name": "chatbot-benchmark-v2-grounded",
+  "description": "Real PF debate questions with ideal answers sourced directly from Sid's coaching notes and validated calibration examples, replacing the generic placeholder set. Framing note: cases 11-14 are deliberately pre-round/practice framed, never in-round coaching, per the product's competitive-integrity rule.",
+  "rubric": {
+    "correctness": "1-5: matches the actual debate substance/terminology in the ideal_answer, not generic AI debate theory",
+    "groundedness": "1-5: sounds like it pulled from the real corpus (specific structure, named concepts) vs. invented from general knowledge",
+    "clarity": "1-5: clear, well-organized, easy for a debater to actually use",
+    "tone": "1-5: coach voice per CROSS.md - direct and specific, not hedgy or encyclopedic",
+    "uncertainty": "1-5: if the corpus genuinely lacks the answer, does it say so plainly instead of confidently inventing one"
+  },
+  "cases": [
+    {
+      "id": "case-01",
+      "prompt": "What are the different reasons why Fairness Outweighs?",
+      "ideal_answer": "One is the paradox: every argument requires fair evaluation so discounting fairness is paradoxical. Two is Ballot Proximity: the ballot can vote against unfair arguments, which rectifies abuse, but one ballot can't shape community norms or solve out-of-round racism. Three is the Game: they subscribe to it too via going for dropped arguments, spreading instead of discussing, and preffing judges to fairly evaluate arguments. Four is Access: procedural fairness breeds empathy and inclusion for minority debaters, but the inverse creates cynicism and burnout when debaters can never win against unfair arguments.",
+      "notes": "VALIDATED already — bot correctly returned this exact structure after we added the reference file. Use as a regression check going forward."
+    },
+    {
+      "id": "case-02",
+      "prompt": "What is a Kritik?",
+      "ideal_answer": "A K is a type of progressive argument that criticizes the epistemological or philosophical underpinnings of an argument rather than the material implications. They are often composed of the Theory of Power, Link, Alt, Impact, and Framework.",
+      "notes": "Simple definitional check — should be an easy pass if case-01 worked, since it's in the same reference file."
+    },
+    {
+      "id": "case-03",
+      "prompt": "What are the best responses to Accessibility arguments?",
+      "ideal_answer": "Fairness turns accessibility (procedural fairness breeds empathy and inclusion for minority debaters, inverse creates cynicism/burnout). Not ballot proximal — racism happens out of rounds, structural inequities are alt causes. Judge/Tab should evaluate on ethical truths even if Access outweighs, since anything else justifies voting for racist-but-strategic arguments and causes false accusations to proliferate. Guilt Assuasion — resolving accessibility in-round acts as a racial alibi outside of round. Double Down — competitive incentive prompts debaters to double down on the problematic assumption for the ballot. Community Backlash — identity/ethics arguments get antagonized outside of round, outweighing on scope. False Positives — time constraints conflate technical concessions with ethical mistakes, so out-of-round discussion solves better.",
+      "notes": "Longer, multi-part answer — good test of whether the bot preserves ALL seven responses or drops some under retrieval/summarization pressure."
+    },
+    {
+      "id": "case-04",
+      "prompt": "How should I prep to respond to a constructive argument that I know my opponent won't actually go for in the back half?",
+      "ideal_answer": "Punish subpar case construction: straight-turn/impact-turn their offense paired with No Links and Impact Defense, making it impossible for them to kick out of. Two scenarios: (1) they go for the throwaway anyway — win via overextrapolation, extend a couple pieces of solid terminal defense, prioritize QUALITY over quantity of responses in rebuttal so they're stuck on the worse argument. (2) They frontline the throwaway and go for their stronger contention instead — this spreads them thin, so go for an undercovered turn on the throwaway OR extend a conceded/mishandled piece of defense on the stronger contention.",
+      "notes": "Reframed to prep language (was originally phrased as live-round advice) — tests whether the bot handles the methodology content correctly even in prep framing."
+    },
+    {
+      "id": "case-05",
+      "prompt": "What is a link-in, and can you give an example?",
+      "ideal_answer": "A link-in (sometimes 'turns case') is a weighing mechanism that lets you garner offense off part of your opponent's contention — explaining why your argument accesses theirs, or has its own terminal impact reachable through theirs. Example: climate change vs. nuclear war — a debater reading climate change links in by arguing it magnifies resource conflicts and great power competition, escalating nuclearly. A debater reading nuclear war links in by arguing wars worsen warming since industrialization increases during conflict.",
+      "notes": "Tests whether the specific worked example survives retrieval, not just the definition."
+    },
+    {
+      "id": "case-06",
+      "prompt": "What are the primary weighing mechanisms in debate, and how are magnitude, severity, and scope different?",
+      "ideal_answer": "Magnitude, severity, scope, timeframe, probability. Magnitude/severity/scope are often used interchangeably but differ: magnitude is roughly how many people are affected, scope is geographic/actor scale, severity is how severe a threat the scenario is (e.g. nuclear war vs. poverty/starvation; nuclear states vs. non-nuclear states — nuclear conflict is more severe due to higher likelihood of more deaths, pain, escalation).",
+      "notes": "Tests precision on a nuanced disclaimer, not just a list — easy to get generically 'close enough' wrong here."
+    },
+    {
+      "id": "case-07",
+      "prompt": "What should I actually do to prepare in the pre-round?",
+      "ideal_answer": "Manage nerves first (water, snack, friends, restroom, music). Prep for the round: read judge paradigms, scan opponents' Caselist Wiki, estimate likely arguments based on panel and prior strategy — prep threatening teams the night before elims. Most important: talk through the back half with partner/coach, build a decision tree (if they go for argument A, what do we extend/go for; if they respond X, do we still go for this contention) — refine pre-tournament and again each pre-round based on panel/newly broken arguments.",
+      "notes": "Tests whether the 3-part structure (nerves / research prep / back-half decision tree) stays intact."
+    },
+    {
+      "id": "case-08",
+      "prompt": "What makes a piece of evidence good?",
+      "ideal_answer": "Specificity (delineated warrants, specific metrics), qualifications (institutional credibility, e.g. Brookings over a blog), and quality (meta-analyses/longitudinal studies/aggregate polls over narrow quantitative data; evidence with explicit uniqueness lines, e.g. 'traditional studies don't assume X', is strong tiebreak leverage).",
+      "notes": "Short conceptual check."
+    },
+    {
+      "id": "case-09",
+      "prompt": "How do I choose the scenario for my contention?",
+      "ideal_answer": "Specificity avoids biting generic defense. Inherent weighing intuition — some scenarios are just easier to weigh (e.g. an Economy DA off investor perception vs. a Warming contention) so cut scenarios with strong weighing literature. Opposite-side interaction — notice shared assumptions/solvency mechanisms across the other side's contentions and pick a scenario that top-shelf answers most of them. Avoid pure stock-chasing — outlandish scenarios have sparse literature and lose to common sense; prefer scenarios central to the topic's core controversy, which can be preempted/frontlined in advance.",
+      "notes": "Four-part methodology answer — good test of whether the bot preserves reasoning structure, not just facts."
+    },
+    {
+      "id": "case-10",
+      "prompt": "What makes an effective cross-fire question?",
+      "ideal_answer": "Two types: Clarification (pin down an opponent's narrative to make shifting harder, or genuinely understand a confusing argument — use answers to ask follow-ups) and Concession ('Is the alternative conditional?' 'Can we agree extinction outweighs?' — forces a concession that removes offense or sets up your back-half decision).",
+      "notes": "Short conceptual check."
+    },
+    {
+      "id": "case-11",
+      "prompt": "Topic: Nov/Dec — Resolved: The USFG should require tech companies to provide lawful access to encrypted communications. I'm building my 1AC — what's a strong Kritik I should prep answers for, and what's the strongest generic 2AR block against it?",
+      "ideal_answer": "A strong Kritik on this topic is the Security K — lawful access of criminals securitizes specific racial groups, which is racist. The strongest generic 2AR block is Framework plus the Perm, assuming they go for the alternative. 'Clash outweighs and turns the K' is one of the best framework extensions: 3rd/4th level testing teaches advocacy skills that decolonize the real world. A few K-framework responses are also strong (guilt assuasion, judge choice in-round racism, etc.).",
+      "notes": "Topic-specific prep question — tests whether the bot can generalize methodology to a live topic, not just recall stored answers."
+    },
+    {
+      "id": "case-12",
+      "prompt": "Help me pre-write a link-in frontline for my DA in case the AFF reads a case that could turn it.",
+      "ideal_answer": "Only we get link-ins: if we win the timeframe question, our case turns theirs before they can turn ours — and it makes their impacts inevitable, which non-uniques their turns-case argument.",
+      "notes": "Short, precise — easy to check if the bot pads this out with generic filler instead of the sharp original phrasing."
+    },
+    {
+      "id": "case-13",
+      "prompt": "This judge's paradigm says they prefer weighing in the constructive — how should I restructure my 1AC template to front-load that?",
+      "ideal_answer": "Use specific brink-uniqueness evidence articulating recent trends to set up the TF/Try-or-Die question. Lines delineating a specific date also set up weighing. Find a quick internal-link scenario to extinction, since TF debates hinge on the gap between the DA's link and the AFF's uniqueness. Compare internal links directly — quick paths to nuclear conflict beat slower ones like economic decline/warming in TF debates. Scope matters too — a scenario touching more actors (global vs. small proxy conflict) is more severe. Tagging matters as much as evidence choice — tags like 'Now is the brink' help the judge flag weighable arguments early.",
+      "notes": "Longest, most technical answer in the set — strong groundedness test."
+    },
+    {
+      "id": "case-14",
+      "prompt": "I want to drill against Accessibility arguments — write me a frontline that also handles a fairness concession, so I can practice delivering it.",
+      "ideal_answer": "Fairness outweighs — the ballot-proximity standard is terminal defense to accessibility: your ballot can only rectify in-round procedural skews, one round can't establish community norms or rectify out-of-round racism. Independently, judge choice solves in-round racism better even if accessibility outweighs — preserves debater autonomy while punishing genuine racists, avoiding both voting for racist debaters who can outtech opponents, and false accusations that desensitize the community to violence.",
+      "notes": "Explicitly a DRILL/practice request — good check that the bot treats this as in-scope prep, not something to refuse or deflect."
+    }
+  ]
+}
