@@ -203,6 +203,19 @@ function extractSnippets(content, lowerContent, terms) {
 /**
  * Lexical search across the on-demand corpus. Returns scored files with
  * snippets: [{path, title, score, sizeChars, snippets: [{offset, text}]}].
+ *
+ * Scoring is index-driven: for each query term, look up which files contain
+ * it (a Map lookup) instead of scanning every file's full text. Content is
+ * only read for the files that actually score — and even then, only the
+ * final top `maxResults` need their content for snippet extraction. This
+ * replaces an O(all files) scan with O(files matching a query term), which
+ * matters once the corpus is thousands of files: the old scan measured
+ * 2-6+ seconds per search_corpus call against the real corpus; this brings
+ * that down to tens of milliseconds. See corpusIndex.mjs buildLexicalIndex.
+ *
+ * Falls back to the pre-index full-scan behavior if the lexical index
+ * hasn't been built yet (npm run build-index), so nothing breaks on a repo
+ * that hasn't rebuilt.
  */
 export async function searchCorpus(query, { maxResults = 6 } = {}) {
   const terms = tokenizeQuery(query);
@@ -211,19 +224,95 @@ export async function searchCorpus(query, { maxResults = 6 } = {}) {
   // index hasn't been built or the model can't load). Dynamic import keeps
   // the corpusSearch <-> corpusIndex dependency one-directional at load time.
   let semantic = new Map();
+  let lexicalIndex = null;
   try {
-    const { fileSimilarities } = await import("./corpusIndex.mjs");
-    semantic = await fileSimilarities(query);
+    const corpusIndexMod = await import("./corpusIndex.mjs");
+    semantic = await corpusIndexMod.fileSimilarities(query);
+    lexicalIndex = await corpusIndexMod.loadLexicalIndex();
   } catch {
-    // lexical-only fallback
+    // lexical-only fallback, and/or no lexical index yet — both handled below
   }
 
   if (terms.length === 0 && semantic.size === 0) return [];
 
-  const relPaths = (await listCorpusPaths()).filter(isOnDemand);
-  const results = [];
+  // Accumulate per-file score using the inverted index: touch only files
+  // that actually contain at least one query term, not the whole corpus.
+  const fileScores = new Map(); // path -> { score, matchedTerms: Set }
+  function bump(relPath, amount, term) {
+    if (!fileScores.has(relPath)) fileScores.set(relPath, { score: 0, matchedTerms: new Set() });
+    const entry = fileScores.get(relPath);
+    entry.score += amount;
+    if (term) entry.matchedTerms.add(term);
+  }
 
-  for (const relPath of relPaths) {
+  if (lexicalIndex) {
+    for (const term of terms) {
+      for (const relPath of lexicalIndex.header[term] || []) bump(relPath, 5, term);
+      for (const [relPath, count] of Object.entries(lexicalIndex.body[term] || {})) {
+        bump(relPath, count, term);
+      }
+    }
+    // Reward files matching more distinct terms over one term repeated.
+    if (terms.length > 0) {
+      for (const entry of fileScores.values()) {
+        entry.score *= entry.matchedTerms.size / terms.length;
+      }
+    }
+  }
+
+  // Semantic-only hits (no lexical term matched anywhere) still need a
+  // score entry so they aren't dropped from the candidate set.
+  for (const relPath of semantic.keys()) {
+    if (!fileScores.has(relPath)) fileScores.set(relPath, { score: 0, matchedTerms: new Set() });
+  }
+  for (const [relPath, sim] of semantic) {
+    if (sim.score >= 0.3) bump(relPath, sim.score * 20, null);
+  }
+
+  // No lexical index built yet: degrade to the old full-scan so search still
+  // works (slower, but correct) until `npm run build-index` runs.
+  if (!lexicalIndex && terms.length > 0) {
+    const relPaths = (await listCorpusPaths()).filter(isOnDemand);
+    for (const relPath of relPaths) {
+      let content;
+      try {
+        content = await readCorpusFileRaw(relPath);
+      } catch {
+        continue;
+      }
+      const meta = parseFrontmatter(content);
+      const lowerContent = content.toLowerCase();
+      const lowerHeader = `${relPath} ${meta.title} ${meta.tags.join(" ")}`.toLowerCase();
+      let score = 0;
+      const matchedTerms = [];
+      for (const term of terms) {
+        let termScore = lowerHeader.includes(term) ? 5 : 0;
+        let idx = lowerContent.indexOf(term);
+        let count = 0;
+        while (idx !== -1 && count < 20) {
+          count++;
+          idx = lowerContent.indexOf(term, idx + term.length);
+        }
+        termScore += count;
+        if (termScore > 0) matchedTerms.push(term);
+        score += termScore;
+      }
+      if (score > 0) score *= matchedTerms.length / terms.length;
+      if (score > 0) {
+        const entry = fileScores.get(relPath) || { score: 0, matchedTerms: new Set() };
+        entry.score += score;
+        fileScores.set(relPath, entry);
+      }
+    }
+  }
+
+  const ranked = [...fileScores.entries()]
+    .filter(([, e]) => e.score > 0)
+    .sort((a, b) => b[1].score - a[1].score)
+    .slice(0, maxResults);
+
+  const results = [];
+  for (const [relPath, entry] of ranked) {
     let content;
     try {
       content = await readCorpusFileRaw(relPath);
@@ -232,38 +321,8 @@ export async function searchCorpus(query, { maxResults = 6 } = {}) {
     }
     const meta = parseFrontmatter(content);
     const lowerContent = content.toLowerCase();
-    const lowerHeader = `${relPath} ${meta.title} ${meta.tags.join(" ")}`.toLowerCase();
-
-    let score = 0;
-    const matchedTerms = [];
-    for (const term of terms) {
-      // Path/title/tag hits signal the whole file is about this concept.
-      let termScore = lowerHeader.includes(term) ? 5 : 0;
-      // Body hits accumulate, capped so one giant file can't drown the rest.
-      let idx = lowerContent.indexOf(term);
-      let count = 0;
-      while (idx !== -1 && count < 20) {
-        count++;
-        idx = lowerContent.indexOf(term, idx + term.length);
-      }
-      termScore += count;
-      if (termScore > 0) matchedTerms.push(term);
-      score += termScore;
-    }
-    // Reward files matching more distinct terms over one term repeated.
-    if (score > 0 && terms.length > 0) score *= matchedTerms.length / terms.length;
-
-    // Blend: cosine similarity (~0.3–0.7 for real hits) scaled into the same
-    // range as lexical scores. Catches paraphrased queries ("crowded court
-    // dockets") that share no tokens with the file ("court clog").
+    let snippets = extractSnippets(content, lowerContent, [...entry.matchedTerms]);
     const sim = semantic.get(relPath);
-    if (sim && sim.score >= 0.3) score += sim.score * 20;
-
-    if (score === 0) continue;
-
-    let snippets = extractSnippets(content, lowerContent, matchedTerms);
-    // Semantic-only hit (no term matched anywhere): snippet from the best
-    // matching chunk so the model still sees why the file surfaced.
     if (snippets.length === 0 && sim) {
       const end = Math.min(content.length, sim.offset + 2 * SNIPPET_RADIUS);
       snippets = [{
@@ -271,17 +330,16 @@ export async function searchCorpus(query, { maxResults = 6 } = {}) {
         text: (sim.offset > 0 ? "…" : "") + content.slice(sim.offset, end).replace(/\s+/g, " ").trim() + (end < content.length ? "…" : ""),
       }];
     }
-
     results.push({
       path: relPath,
       title: meta.title,
-      score: Math.round(score * 10) / 10,
+      score: Math.round(entry.score * 10) / 10,
       sizeChars: content.length,
       snippets,
     });
   }
 
-  return results.sort((a, b) => b.score - a.score).slice(0, maxResults);
+  return results;
 }
 
 /**

@@ -1,4 +1,9 @@
 node_modules/
+# Cheap to build (~30s, no embedding model, no network) — unlike
+# corpus-index.json, so it's rebuilt at deploy/dev time instead of
+# committed. At current corpus size this file runs 300MB+, well over
+# GitHub's 100MB per-file limit, so committing it isn't an option anyway.
+scripts/lexical-index.json
 incoming/processed/*
 !incoming/processed/.gitkeep
 generated/*
@@ -14,4 +19,3 @@ delivery-history.json
 distill-data/
 delivery-data/*
 !delivery-data/README.md
-.DS_Store

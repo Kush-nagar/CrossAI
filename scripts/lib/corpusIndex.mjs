@@ -20,6 +20,31 @@ const TRAINING_DATA = path.join(ROOT, "training-data");
 // Lives next to scripts/manifest.json (the ingest ledger) — generated, but
 // committed so deploys don't need to re-embed the corpus at boot.
 export const INDEX_PATH = path.join(ROOT, "scripts", "corpus-index.json");
+// Separate from INDEX_PATH on purpose: this one has no dependency on the
+// embedding model, so it can be rebuilt (and sanity-checked) even when the
+// ONNX runtime isn't installed. Keeping it a distinct artifact also means a
+// lexical-only rebuild never has to touch — or risk corrupting — the much
+// larger vector file.
+export const LEXICAL_INDEX_PATH = path.join(ROOT, "scripts", "lexical-index.json");
+
+// Same tokenization corpusSearch.tokenizeQuery uses for the query side — kept
+// in lockstep so index-time terms and query-time terms are the exact same
+// vocabulary. Word-boundary tokens, not raw substrings: this is a slight,
+// intentional behavior change from the old indexOf-substring scan (e.g. "da"
+// no longer partial-matches inside "data"), which is strictly more correct,
+// not just faster. Verify against the eval benchmark after rebuilding.
+const STOPWORDS = new Set([
+  "the", "a", "an", "and", "or", "of", "to", "in", "on", "for", "with",
+  "is", "are", "was", "be", "that", "this", "it", "as", "at", "by", "from",
+  "what", "how", "about", "any", "their", "there",
+]);
+function tokenize(text) {
+  return (text || "")
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((t) => t && !STOPWORDS.has(t));
+}
+const BODY_TERM_CAP = 20; // matches the per-term cap in corpusSearch's old scan
 
 // Chunk sizing: big enough that a debate card (tag + cite + body) usually
 // fits in one chunk, small enough that top-k retrieval stays focused. Sized in
@@ -121,7 +146,114 @@ export async function buildIndex() {
   return { files: relPaths.length, chunks: chunks.length };
 }
 
+/**
+ * Builds the inverted lexical index and writes it to LEXICAL_INDEX_PATH.
+ * No embedding model involved — pure text, so this is cheap and has no
+ * external dependency. Two postings lists per term:
+ *   header: which files mention the term in path/title/tags (the old +5
+ *           "whole file is about this concept" signal)
+ *   body:   {file: count} occurrences in the file body, capped at
+ *           BODY_TERM_CAP per file (matches the old scan's cap so a single
+ *           giant file can't drown out everything else)
+ * Query-time cost drops from O(all files) to O(files actually containing
+ * each query term) — a lookup instead of a scan.
+ */
+export async function buildLexicalIndex() {
+  const relPaths = (await listCorpusPaths()).filter(isOnDemand);
+  const header = new Map(); // term -> Set<path>
+  const body = new Map(); // term -> Map<path, count>
+  let fileCount = 0;
+
+  for (const relPath of relPaths) {
+    let content;
+    try {
+      content = await fs.readFile(path.join(TRAINING_DATA, ...relPath.split("/")), "utf8");
+    } catch {
+      continue;
+    }
+    fileCount++;
+    const meta = parseHeader(content);
+    const headerTerms = new Set(tokenize(`${relPath} ${meta.title} ${meta.tags.join(" ")}`));
+    for (const term of headerTerms) {
+      if (!header.has(term)) header.set(term, new Set());
+      header.get(term).add(relPath);
+    }
+    const counts = new Map();
+    for (const term of tokenize(content)) {
+      counts.set(term, Math.min(BODY_TERM_CAP, (counts.get(term) || 0) + 1));
+    }
+    for (const [term, count] of counts) {
+      if (!body.has(term)) body.set(term, new Map());
+      body.get(term).set(relPath, count);
+    }
+  }
+
+  // Prune terms that appear in too many files to be discriminating (classic
+  // max-document-frequency cutoff). Without this, a 260MB+ corpus produces a
+  // vocabulary large enough to blow past Node's max string length on
+  // JSON.stringify, and even if it didn't, ultra-common terms don't help
+  // ranking anyway — matching them tells you almost nothing about which
+  // file is actually relevant.
+  const MAX_DOC_FREQ_RATIO = 0.15;
+  const maxDocs = fileCount * MAX_DOC_FREQ_RATIO;
+  for (const [term, paths] of [...header]) {
+    if (paths.size > maxDocs) header.delete(term);
+  }
+  for (const [term, counts] of [...body]) {
+    if (counts.size > maxDocs) body.delete(term);
+  }
+
+  // Stream the write instead of building one giant string in memory —
+  // JSON.stringify on the full object hits Node's ~1GB string-length ceiling
+  // well before a corpus this size is done growing.
+  const out = await fs.open(LEXICAL_INDEX_PATH, "w");
+  try {
+    await out.write(
+      `{"builtAt":${JSON.stringify(new Date().toISOString())},"files":${fileCount},` +
+      `"terms":${header.size + body.size},"header":{`
+    );
+    let first = true;
+    for (const [term, paths] of header) {
+      await out.write(`${first ? "" : ","}${JSON.stringify(term)}:${JSON.stringify([...paths])}`);
+      first = false;
+    }
+    await out.write(`},"body":{`);
+    first = true;
+    for (const [term, counts] of body) {
+      await out.write(`${first ? "" : ","}${JSON.stringify(term)}:${JSON.stringify(Object.fromEntries(counts))}`);
+      first = false;
+    }
+    await out.write(`}}`);
+  } finally {
+    await out.close();
+  }
+
+  return { files: fileCount, terms: header.size + body.size };
+}
+
 // --- query-time ------------------------------------------------------------
+
+let lexicalIndexPromise = null;
+/**
+ * Loads and caches the lexical index for the life of the process. Returns
+ * null if it hasn't been built yet — callers must tolerate that and fall
+ * back to the old full-scan behavior.
+ */
+export function loadLexicalIndex() {
+  if (!lexicalIndexPromise) {
+    lexicalIndexPromise = fs
+      .readFile(LEXICAL_INDEX_PATH, "utf8")
+      .then((raw) => JSON.parse(raw))
+      .catch(() => null);
+  }
+  return lexicalIndexPromise;
+}
+
+export function invalidateLexicalIndexCache() {
+  lexicalIndexPromise = null;
+}
+
+export { tokenize as tokenizeForIndex };
 
 let indexPromise = null;
 function loadIndex() {
