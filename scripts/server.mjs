@@ -95,7 +95,15 @@ const PORT = process.env.PORT || 3000;
 // doc pages before it can write stats — easily 15+ calls on an 85-round team.
 // Corpus-only chats stop after 2-4 regardless, so the high cap costs nothing.
 const MAX_TOOL_ITERATIONS = 24;
-const MAX_UPLOAD_BYTES = 20 * 1024 * 1024;
+// A single drilled/graded speech comfortably fits the old 20MB cap, but a
+// full-round recording (Recording Insight's "full round" mode — a real PF
+// round can run 45-60+ minutes with crossfires) can land well past it
+// depending on format/bitrate — an hour of m4a alone has been observed
+// anywhere from ~25MB to 60+MB depending on the recording app's bitrate, so
+// this leaves real headroom rather than cutting it close. Keep in sync with
+// web/next.config.mjs's experimental.proxyClientMaxBodySize (the dev-only
+// Next proxy has its own, separate body-size cap on the same requests).
+const MAX_UPLOAD_BYTES = 100 * 1024 * 1024;
 const IMAGE_MEDIA_TYPES = new Set(["image/png", "image/jpeg", "image/gif", "image/webp"]);
 const AUDIO_EXTENSIONS = new Set([".webm", ".ogg", ".oga", ".wav", ".m4a", ".mp3", ".mp4", ".aac"]);
 
@@ -250,6 +258,7 @@ const ROUTE_MODELS = {
   stressTest: process.env.STRESS_TEST_MODEL || "opus",
   strategy: process.env.STRATEGY_MODEL || "opus",
   drill: process.env.DRILL_MODEL || "opus",
+  insight: process.env.INSIGHT_MODEL || "opus",
   summarize: process.env.SUMMARIZE_MODEL || "sonnet",
   transcriptCleanup: process.env.TRANSCRIPT_CLEANUP_MODEL || "sonnet",
   judgeInterpret: process.env.JUDGE_INTERPRET_MODEL || "sonnet",
@@ -746,7 +755,7 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
       let transcript = "";
       let tone = null;
       try {
-        const result = await transcribeAudio(buffer);
+        const result = await transcribeAudio(buffer, { ext: ext.replace(/^\./, "") });
         tone = result.tone;
         transcript = await applyKnownCorrections(result.text);
         // Model cleanup pass fixes garbles the exact-match table has never
@@ -1764,6 +1773,481 @@ app.get("/api/drill/delivery-history", async (req, res) => {
   } catch (err) {
     console.error("Delivery history read failed:", err);
     res.status(500).json({ error: "Couldn't load delivery history." });
+  }
+});
+
+// --- Recording Insight: feedback on a REAL round speech ---------------------
+// Unlike /api/drill/grade, there's no invented scenario or hidden answer key —
+// the debater submits (records or uploads) a speech they actually gave, and
+// gets direct round feedback: what worked, what didn't, how to fix it. No
+// Bayesian ledger/win-probability here, since there's nothing to score it
+// against — see CROSS.md's "Round feedback" section, not "Practice drills."
+
+const INSIGHT_GRADE_SCHEMA = {
+  type: "object",
+  properties: {
+    verdict: { type: "string" },
+    strengths: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { quote: { type: "string" }, note: { type: "string" } },
+        required: ["quote", "note"],
+        additionalProperties: false,
+      },
+    },
+    weaknesses: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { quote: { type: "string" }, note: { type: "string" } },
+        required: ["quote", "note"],
+        additionalProperties: false,
+      },
+    },
+    topFixes: { type: "array", items: { type: "string" } },
+    improvedFromLastTime: { type: "string" },
+  },
+  required: ["verdict", "strengths", "weaknesses", "topFixes", "improvedFromLastTime"],
+  additionalProperties: false,
+};
+
+const INSIGHT_FEEDBACK_RULES =
+  `Feedback rules:\n` +
+  `- This is a REAL speech from an actual round the debater gave — not a hypothetical drill against a hidden ` +
+  `answer key. There is no "optimal move" to compare against; coach what's actually in the transcript.\n` +
+  `- Structure the feedback the way a post-round debrief works (CROSS.md §2): what won or lost this speech's job, ` +
+  `what to fix by the next time they give this speech, and what to keep doing.\n` +
+  `- "strengths" and "weaknesses" both walk the speech itself: quote or closely paraphrase the specific line, then ` +
+  `note what it accomplished or missed. Ground every note in the transcript actually given — never invent content ` +
+  `that isn't there.\n` +
+  `- Specificity is fair game: call out vague tags, generic analytics, hand-wavy warrants, or evidence that's ` +
+  `present but under-explained. When the speech is thin on evidence, name the kind of card that would plug the gap ` +
+  `(what it needs to establish), not a real cite — never fabricate or reference a training-corpus cite by name.\n` +
+  `- "topFixes" are concrete, actionable changes for the next take of this speech — not generic encouragement.\n` +
+  `- If a previous attempt is provided below, compare this take against it: if the speech genuinely fixed a ` +
+  `weakness from last time, say so explicitly and specifically in "improvedFromLastTime" before moving to new ` +
+  `critique — don't let real improvement pass unacknowledged. If nothing changed, or this isn't a redo, leave ` +
+  `"improvedFromLastTime" as an empty string. Never invent improvement that isn't actually there.`;
+
+app.post("/api/insight/grade", aiGuards, async (req, res) => {
+  const { speechText, speechMeta, roundContext, previousInsight } = req.body ?? {};
+  if (typeof speechText !== "string" || !speechText.trim()) {
+    res.status(400).json({ error: "speechText is required" });
+    return;
+  }
+  if (rejectOversizedInput(res, speechText, "This speech")) return;
+  if (!hasCredentials()) {
+    res.status(500).json({ error: missingCredentialsError() });
+    return;
+  }
+
+  const side = typeof roundContext?.side === "string" ? roundContext.side.trim() : "";
+  const speechType = typeof roundContext?.speechType === "string" ? roundContext.speechType.trim() : "";
+  const topic = typeof roundContext?.topic === "string" ? roundContext.topic.trim() : "";
+  const judgeType = typeof roundContext?.judgeType === "string" ? roundContext.judgeType.trim() : "";
+  const focusArea = typeof roundContext?.focusArea === "string" ? roundContext.focusArea.trim() : "";
+
+  let system;
+  try {
+    system = await buildSystemPrompt({
+      corpusMode: "retrieval",
+      retrievalQuery:
+        `${topic} ${speechType} Public Forum round feedback, speech critique, delivery coaching\n${speechText}`,
+    });
+  } catch (err) {
+    res.status(500).json({ error: `Failed to build system prompt: ${err.message}` });
+    return;
+  }
+
+  // Same delivery/transcription context drill grading uses — see lib/delivery.mjs.
+  const isTranscribed = Boolean(speechMeta?.transcribed);
+  const wpm = Number(speechMeta?.wpm) || 0;
+  const durationSec = Number(speechMeta?.durationSec) || 0;
+  const toneSummary = typeof speechMeta?.tone === "string" ? speechMeta.tone.trim() : "";
+  const toneSegments = Array.isArray(speechMeta?.toneSegments) ? speechMeta.toneSegments : [];
+  const deliverySection = await buildDeliveryGradingSection({ toneSummary, toneSegments });
+  const transcriptionContext = isTranscribed
+    ? `\nDelivery context — this speech was DELIVERED ALOUD and auto-transcribed (the debater's voice-calibration ` +
+      `corrections were already applied; the debater never saw the transcript).` +
+      (durationSec ? ` Measured length: ${durationSec}s.` : "") +
+      (wpm ? ` Measured pace: ${wpm} WPM (measured, not self-reported).` : "") +
+      deliverySection +
+      `\nTranscription rules:\n` +
+      `- Calibration handles most jargon mis-hearings, but judge residual odd wording charitably — a garbled ` +
+      `phrase may be transcription noise, not the debater's words. Don't penalize content for a one-off garble; ` +
+      `say so in the note instead.\n` +
+      `- BUT estimate what fraction of the transcript is genuinely hard to comprehend (garbled, incoherent, or ` +
+      `dropping mid-sentence). If roughly 25% or more is hard to comprehend, that's a delivery problem, not a ` +
+      `transcription quirk: include clarity as one of the top fixes and say so directly.\n` +
+      `- Pace: treat ~200 WPM as the ceiling for comprehensible delivery. If the measured WPM is meaningfully ` +
+      `above that, the fix is word economy (cut the speech down), not just "talk slower" — a debater who needs ` +
+      `the words out will re-accelerate.\n`
+    : "";
+
+  const roundContextLines = [
+    side ? `- Side: ${side}` : "",
+    speechType ? `- Speech: ${speechType}` : "",
+    topic ? `- Resolution/topic: ${topic}` : "",
+    judgeType ? `- Judge: ${judgeType}` : "",
+    focusArea ? `- What the debater specifically wants feedback on: ${focusArea}` : "",
+  ].filter(Boolean);
+  const roundContextBlock = roundContextLines.length
+    ? `\nRound context the debater gave:\n${roundContextLines.join("\n")}\n`
+    : `\nNo round context was given (side/speech/topic/judge unknown). Coach from the transcript alone, and note ` +
+      `in "verdict" that more context (side, which speech, the resolution, lay vs. flow judge) would sharpen the ` +
+      `feedback.\n`;
+
+  const previousInsightBlock =
+    previousInsight && typeof previousInsight.verdict === "string"
+      ? `\nThis is a REDO — the debater's previous attempt at this same speech got this feedback:\n` +
+        `- Verdict: ${previousInsight.verdict}\n` +
+        (Array.isArray(previousInsight.topFixes) && previousInsight.topFixes.length
+          ? `- Top fixes given last time: ${previousInsight.topFixes.join("; ")}\n`
+          : "") +
+        `Compare this new take against that feedback specifically.\n`
+      : "";
+
+  const prompt =
+    `You're giving round feedback on a real Public Forum speech a debater actually gave (or is redoing) — not a ` +
+    `hypothetical drill.\n` +
+    roundContextBlock +
+    transcriptionContext +
+    previousInsightBlock +
+    `\nThe debater's speech:\n\n--- SPEECH ---\n${speechText}\n--- END SPEECH ---\n\n` +
+    INSIGHT_FEEDBACK_RULES + `\n\n` +
+    `Respond with ONLY a JSON object (no prose, no markdown fence) shaped exactly like:\n` +
+    `{"verdict": "<2-4 sentences: what won or lost this speech's job>", ` +
+    `"strengths": [{"quote": "<quoted or closely paraphrased line>", "note": "<what it did well>"}], ` +
+    `"weaknesses": [{"quote": "<quoted or closely paraphrased line>", "note": "<what it missed or risked>"}], ` +
+    `"topFixes": ["<most impactful specific change>", "<second most impactful>"], ` +
+    `"improvedFromLastTime": "<empty string, unless this is a redo that genuinely fixed something>"}`;
+
+  try {
+    const text = await completeText({ system, prompt, maxTokens: 6000, jsonSchema: INSIGHT_GRADE_SCHEMA, model: ROUTE_MODELS.insight });
+    const result = parseModelJson(text);
+    // Tone-over-time: persist this take's delivery metrics under its own
+    // route so drill and insight trends don't mix — see lib/delivery.mjs.
+    if (isTranscribed) {
+      recordDeliverySnapshot({
+        route: "recording-insight",
+        wpm,
+        durationSec,
+        toneSegments,
+      }).catch((err) => console.error("Delivery snapshot failed:", err));
+    }
+    res.json({
+      verdict: typeof result.verdict === "string" ? result.verdict : "",
+      strengths: Array.isArray(result.strengths) ? result.strengths : [],
+      weaknesses: Array.isArray(result.weaknesses) ? result.weaknesses : [],
+      topFixes: Array.isArray(result.topFixes) ? result.topFixes : [],
+      improvedFromLastTime: typeof result.improvedFromLastTime === "string" ? result.improvedFromLastTime : "",
+    });
+  } catch (err) {
+    console.error("Insight grading failed:", err);
+    res.status(500).json({ error: "Couldn't grade this speech. " + err.message });
+  }
+});
+
+// --- Recording Insight: Full Round mode --------------------------------
+// A debater can record/upload an ENTIRE round instead of one speech. There's
+// no speaker diarization anywhere in this stack (stt.mjs's Groq/Hume/local-
+// Whisper tiers all return one flat transcript, no "who's talking" signal),
+// so splitting it into individual speeches has to come from the model
+// reading the transcript's content and PF's fixed structure — inherently
+// inferential, which is why the model is only ever trusted for BOUNDARIES
+// (an anchor quote per segment), never for reproducing speech text itself:
+// the server locates each anchor in the real transcript and slices there, so
+// a paraphrased anchor can't silently corrupt what gets graded.
+
+function normalizeForSearch(s) {
+  return s.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+// Locates `needle` inside `haystack`, returning an offset into the ORIGINAL
+// (un-normalized) haystack. Tries an exact match first, then falls back to a
+// whitespace/case-normalized search — the model's anchor quote may not
+// reproduce the transcript's exact whitespace or casing.
+function findAnchorOffset(haystack, needle) {
+  if (!needle) return -1;
+  const exact = haystack.indexOf(needle);
+  if (exact !== -1) return exact;
+
+  let normalized = "";
+  const indexMap = [];
+  let prevWasSpace = false;
+  for (let i = 0; i < haystack.length; i++) {
+    const ch = haystack[i];
+    if (/\s/.test(ch)) {
+      if (!prevWasSpace) {
+        normalized += " ";
+        indexMap.push(i);
+        prevWasSpace = true;
+      }
+    } else {
+      normalized += ch.toLowerCase();
+      indexMap.push(i);
+      prevWasSpace = false;
+    }
+  }
+  const pos = normalized.indexOf(normalizeForSearch(needle));
+  return pos === -1 ? -1 : indexMap[pos];
+}
+
+const INSIGHT_SEGMENT_SCHEMA = {
+  type: "object",
+  properties: {
+    segments: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          label: { type: "string" },
+          side: { type: "string" },
+          speechType: { type: "string" },
+          startsWith: { type: "string" },
+        },
+        required: ["label", "side", "speechType", "startsWith"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["segments"],
+  additionalProperties: false,
+};
+
+app.post("/api/insight/segment-round", aiGuards, async (req, res) => {
+  const { transcript } = req.body ?? {};
+  if (typeof transcript !== "string" || !transcript.trim()) {
+    res.status(400).json({ error: "transcript is required" });
+    return;
+  }
+  if (rejectOversizedInput(res, transcript, "This recording's transcript")) return;
+  if (!hasCredentials()) {
+    res.status(500).json({ error: missingCredentialsError() });
+    return;
+  }
+
+  let system;
+  try {
+    system = await buildSystemPrompt({
+      corpusMode: "retrieval",
+      retrievalQuery: "Public Forum round structure, speech order, crossfire, constructive rebuttal summary final focus",
+    });
+  } catch (err) {
+    res.status(500).json({ error: `Failed to build system prompt: ${err.message}` });
+    return;
+  }
+
+  const prompt =
+    `A debater recorded (or uploaded) an ENTIRE Public Forum round — potentially both sides' speeches and crossfires ` +
+    `in one continuous recording — and it was transcribed as one flat transcript with NO speaker labels (no audio ` +
+    `diarization exists in this pipeline). Your job is to split it into the individual speeches, inferring who's ` +
+    `speaking from content and PF's structure, not from any audio cue.\n\n` +
+    `PF's full round structure, in order (a real recording may contain only SOME of these — never invent a segment ` +
+    `that isn't actually present):\n` +
+    `1. Pro Constructive, 2. Con Constructive, [First Crossfire], 3. Pro Rebuttal, 4. Con Rebuttal, [Second ` +
+    `Crossfire], 5. Pro Summary, 6. Con Summary, [Grand Crossfire], 7. Pro Final Focus, 8. Con Final Focus.\n` +
+    `(Which side goes first is set by a coin flip and stays consistent for the whole round — infer it from the ` +
+    `transcript, don't assume Pro always speaks first.)\n\n` +
+    `How to tell speeches apart by content:\n` +
+    `- Constructive: presents a case's contentions/framing, no direct responses to an opponent yet.\n` +
+    `- Rebuttal: directly answers the other side's case line-by-line; a SECOND rebuttal also frontlines answers to ` +
+    `the first rebuttal (so it responds to two things at once — the original case AND the first rebuttal's answers).\n` +
+    `- Summary: collapses to fewer arguments and starts weighing (magnitude/probability/timeframe/scope language).\n` +
+    `- Final Focus: crystallizes the round, writes the ballot, heaviest weighing/voter language, shortest speech.\n` +
+    `- Crossfire: rapid back-and-forth question/answer exchange between multiple speakers, distinct in rhythm from ` +
+    `the monologue speeches around it — label it "Crossfire" or "Grand Crossfire" (the one before Final Focus is ` +
+    `Grand Crossfire; the others are First/Second Crossfire) but don't try to attribute a single side to it.\n\n` +
+    `For EACH segment you identify, give:\n` +
+    `- "label": a short human label, e.g. "Pro Constructive", "Con Rebuttal", "Grand Crossfire".\n` +
+    `- "side": "Pro" or "Con" for a solo speech; "" for any crossfire.\n` +
+    `- "speechType": one of "Constructive", "Rebuttal", "Summary", "Final Focus", "Crossfire".\n` +
+    `- "startsWith": the EXACT first 8-15 words of this segment, copied verbatim character-for-character from the ` +
+    `transcript below (not paraphrased) — this is how the app finds where your segment begins, so it must match ` +
+    `the transcript's actual wording exactly.\n\n` +
+    `Segments must be in the order they occur in the transcript. If you genuinely cannot tell where one speech ends ` +
+    `and the next begins, prefer fewer, larger segments over guessing at a boundary that isn't really there.\n\n` +
+    `--- TRANSCRIPT ---\n${transcript}\n--- END TRANSCRIPT ---\n\n` +
+    `Respond with ONLY a JSON object (no prose, no markdown fence) shaped exactly like:\n` +
+    `{"segments": [{"label": "...", "side": "...", "speechType": "...", "startsWith": "..."}]}`;
+
+  try {
+    const text = await completeText({ system, prompt, maxTokens: 3000, jsonSchema: INSIGHT_SEGMENT_SCHEMA, model: ROUTE_MODELS.insight });
+    const result = parseModelJson(text);
+    const rawSegments = Array.isArray(result?.segments) ? result.segments : [];
+
+    // Resolve each anchor to a real offset in the ORIGINAL transcript — the
+    // model's JSON only ever locates boundaries, never supplies the text
+    // that gets graded (see file-header comment above).
+    const resolved = rawSegments
+      .map((s) => ({
+        label: typeof s.label === "string" ? s.label.trim() : "",
+        side: typeof s.side === "string" ? s.side.trim() : "",
+        speechType: typeof s.speechType === "string" ? s.speechType.trim() : "",
+        offset: findAnchorOffset(transcript, typeof s.startsWith === "string" ? s.startsWith.trim() : ""),
+      }))
+      .filter((s) => s.offset !== -1 && s.label)
+      .sort((a, b) => a.offset - b.offset);
+
+    if (resolved.length < 2) {
+      res.status(422).json({
+        error:
+          "Couldn't reliably split that recording into speeches — try a recording with less crosstalk or " +
+          "background noise, or switch to single-speech mode for just your part.",
+      });
+      return;
+    }
+
+    const segments = resolved.map((s, i) => {
+      const end = i + 1 < resolved.length ? resolved[i + 1].offset : transcript.length;
+      const segText = transcript.slice(s.offset, end).trim();
+      return {
+        label: s.label,
+        side: s.side,
+        speechType: s.speechType,
+        text: segText,
+        wordCount: segText.split(/\s+/).filter(Boolean).length,
+      };
+    });
+
+    res.json({ segments });
+  } catch (err) {
+    console.error("Round segmentation failed:", err);
+    res.status(500).json({ error: "Couldn't split that recording into speeches. " + err.message });
+  }
+});
+
+const INSIGHT_ROUND_GRADE_SCHEMA = {
+  type: "object",
+  properties: {
+    verdict: { type: "string" },
+    strengths: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { quote: { type: "string" }, note: { type: "string" }, speechLabel: { type: "string" } },
+        required: ["quote", "note", "speechLabel"],
+        additionalProperties: false,
+      },
+    },
+    weaknesses: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { quote: { type: "string" }, note: { type: "string" }, speechLabel: { type: "string" } },
+        required: ["quote", "note", "speechLabel"],
+        additionalProperties: false,
+      },
+    },
+    topFixes: { type: "array", items: { type: "string" } },
+    perSpeechNotes: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { label: { type: "string" }, note: { type: "string" } },
+        required: ["label", "note"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["verdict", "strengths", "weaknesses", "topFixes", "perSpeechNotes"],
+  additionalProperties: false,
+};
+
+// Holistic post-round debrief across every speech ONE debater personally
+// gave in a round (not their partner's) — separate from /api/insight/grade
+// (unchanged) so a single-speech grade never has to carry the extra
+// speechLabel/perSpeechNotes fields this route needs.
+app.post("/api/insight/grade-round", aiGuards, async (req, res) => {
+  const { speeches, roundContext } = req.body ?? {};
+  if (!Array.isArray(speeches) || speeches.length === 0) {
+    res.status(400).json({ error: "speeches is required" });
+    return;
+  }
+  const cleanSpeeches = speeches
+    .map((s) => ({
+      label: typeof s?.label === "string" ? s.label.trim() : "",
+      side: typeof s?.side === "string" ? s.side.trim() : "",
+      speechType: typeof s?.speechType === "string" ? s.speechType.trim() : "",
+      text: typeof s?.text === "string" ? s.text.trim() : "",
+    }))
+    .filter((s) => s.text && s.label);
+  if (cleanSpeeches.length === 0) {
+    res.status(400).json({ error: "At least one labeled speech with text is required" });
+    return;
+  }
+  const combinedText = cleanSpeeches.map((s) => s.text).join("\n\n");
+  if (rejectOversizedInput(res, combinedText, "These speeches")) return;
+  if (!hasCredentials()) {
+    res.status(500).json({ error: missingCredentialsError() });
+    return;
+  }
+
+  const topic = typeof roundContext?.topic === "string" ? roundContext.topic.trim() : "";
+  const judgeType = typeof roundContext?.judgeType === "string" ? roundContext.judgeType.trim() : "";
+  const focusArea = typeof roundContext?.focusArea === "string" ? roundContext.focusArea.trim() : "";
+
+  let system;
+  try {
+    system = await buildSystemPrompt({
+      corpusMode: "retrieval",
+      retrievalQuery: `${topic} Public Forum round debrief, collapse strategy, weighing, round vision\n${combinedText}`,
+    });
+  } catch (err) {
+    res.status(500).json({ error: `Failed to build system prompt: ${err.message}` });
+    return;
+  }
+
+  const roundContextLines = [
+    topic ? `- Resolution/topic: ${topic}` : "",
+    judgeType ? `- Judge: ${judgeType}` : "",
+    focusArea ? `- What the debater specifically wants feedback on: ${focusArea}` : "",
+  ].filter(Boolean);
+  const roundContextBlock = roundContextLines.length ? `\nRound context the debater gave:\n${roundContextLines.join("\n")}\n` : "";
+
+  const speechesBlock = cleanSpeeches
+    .map((s) => `--- ${s.label.toUpperCase()} ---\n${s.text}\n--- END ${s.label.toUpperCase()} ---`)
+    .join("\n\n");
+  const labelList = cleanSpeeches.map((s) => s.label).join(", ");
+
+  const prompt =
+    `You're giving a POST-ROUND DEBRIEF on a real Public Forum round. Below are every speech THIS ONE DEBATER ` +
+    `personally delivered in the round (not their partner's) — they may be one speech or several, in round order. ` +
+    `Grade their personal performance across the round as a whole, not each speech in isolation.\n` +
+    roundContextBlock +
+    `\nThe debater's speeches, in round order (labels: ${labelList}):\n\n${speechesBlock}\n\n` +
+    `Structure the debrief the way a real post-round debrief works (CROSS.md §2): what won or lost the round for ` +
+    `this debater, what to fix by their next round, what to keep doing.\n` +
+    `Specifically call out the THROUGHLINE across their speeches — did an earlier speech's weighing mechanism or ` +
+    `argument actually get carried through and extended in a later one, or was it set up and then dropped? Did a ` +
+    `later speech (e.g. Final Focus) successfully crystallize what an earlier one (e.g. Rebuttal or Summary) ` +
+    `established, or lose the thread? Put this cross-speech analysis in "perSpeechNotes" — one entry per speech ` +
+    `listed above, noting specifically what it set up for or inherited from the others — not a repeat of the ` +
+    `strengths/weaknesses notes.\n\n` +
+    INSIGHT_FEEDBACK_RULES + `\n\n` +
+    `Every entry in "strengths" and "weaknesses" must include "speechLabel" naming which of the debater's speeches ` +
+    `(use the exact labels above) the quote is from.\n\n` +
+    `Respond with ONLY a JSON object (no prose, no markdown fence) shaped exactly like:\n` +
+    `{"verdict": "<2-4 sentences: what won or lost the round for this debater>", ` +
+    `"strengths": [{"quote": "...", "note": "...", "speechLabel": "<one of: ${labelList}>"}], ` +
+    `"weaknesses": [{"quote": "...", "note": "...", "speechLabel": "<one of: ${labelList}>"}], ` +
+    `"topFixes": ["<most impactful specific change for their next round>", "..."], ` +
+    `"perSpeechNotes": [{"label": "<one of: ${labelList}>", "note": "<what it set up for or inherited from the others>"}]}`;
+
+  try {
+    const text = await completeText({ system, prompt, maxTokens: 7000, jsonSchema: INSIGHT_ROUND_GRADE_SCHEMA, model: ROUTE_MODELS.insight });
+    const result = parseModelJson(text);
+    res.json({
+      verdict: typeof result.verdict === "string" ? result.verdict : "",
+      strengths: Array.isArray(result.strengths) ? result.strengths : [],
+      weaknesses: Array.isArray(result.weaknesses) ? result.weaknesses : [],
+      topFixes: Array.isArray(result.topFixes) ? result.topFixes : [],
+      perSpeechNotes: Array.isArray(result.perSpeechNotes) ? result.perSpeechNotes : [],
+    });
+  } catch (err) {
+    console.error("Round debrief failed:", err);
+    res.status(500).json({ error: "Couldn't build a round debrief. " + err.message });
   }
 });
 

@@ -170,7 +170,7 @@ export function JudgeProfile({
         <textarea
           value={note}
           onChange={(e) => handleNoteChange(e.target.value)}
-          placeholder="Private notes on this judge — how they broke, what landed, reminders for next round…"
+          placeholder="Private notes on this judge: how they broke, what landed, reminders for next round…"
           rows={3}
           className="mt-3 w-full resize-y rounded-md border border-border bg-background px-4 py-3 text-sm leading-relaxed outline-none focus:ring-2 focus:ring-pen"
         />

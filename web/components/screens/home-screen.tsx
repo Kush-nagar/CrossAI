@@ -8,7 +8,9 @@ import { getDeliveryHistory, getVoiceProfileStatus, type DeliverySnapshot, type 
 import { loadCaseRecords } from '@/lib/local-cases'
 import { RecommendedSession } from '@/components/home/recommended-session'
 import { SkillCurve } from '@/components/home/skill-curve'
-import { PracticeStreak } from '@/components/home/practice-streak'
+import { PracticeCalendar } from '@/components/home/practice-calendar'
+import { CalibrationProgress } from '@/components/home/calibration-progress'
+import { ContinueShortcut } from '@/components/home/continue-shortcut'
 
 const DAY_MS = 86400000
 
@@ -102,10 +104,10 @@ export function HomeScreen() {
 
       <section className="grid gap-5 lg:grid-cols-3">
         <div className="lg:col-span-2">{snapshots !== null && <SkillCurve snapshots={snaps} />}</div>
-        <div>{snapshots !== null && <PracticeStreak snapshots={snaps} />}</div>
+        <div>{snapshots !== null && <PracticeCalendar snapshots={snaps} />}</div>
       </section>
 
-      <section className="grid gap-5 sm:grid-cols-2">
+      <section className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <MetricCard
           icon={Clock}
           value={fmtDuration(thisWeekSec)}
@@ -126,6 +128,8 @@ export function HomeScreen() {
           note={caseCount === 0 ? 'No cases uploaded yet' : 'In your case library'}
           href="/prep"
         />
+        <CalibrationProgress calibration={calibration} />
+        <ContinueShortcut />
       </section>
     </div>
   )

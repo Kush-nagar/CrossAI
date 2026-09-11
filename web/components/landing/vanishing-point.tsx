@@ -53,7 +53,7 @@ const PEOPLE = [
   {
     name: 'First Last',
     role: 'Evidence & corpus',
-    bio: 'Cuts, tags and ingests the material Cross reasons from — none of it ever quoted back.',
+    bio: 'Cuts, tags and ingests the material Cross reasons from, none of it ever quoted back.',
   },
   {
     name: 'First Last',
@@ -95,7 +95,7 @@ export function VanishingPoint() {
         <div className="pv-a-hero-inner pv-wrap">
           <h1>Argue like the room is watching.</h1>
           <p className="pv-a-sub">
-            An AI debate coach that hands back your own judgment, sharper — not a script to read.
+            An AI debate coach that hands back your own judgment, sharper, not a script to read.
           </p>
           <div className="pv-a-cta">
             <Link className="pv-btn pv-primary" href="/home">
@@ -196,7 +196,7 @@ export function VanishingPoint() {
             <div className="pv-a-step">
               <b>3</b>
               <h3>You get the ledger</h3>
-              <p>Options with tradeoffs and a visible score — never a verdict you are asked to trust blind.</p>
+              <p>Options with tradeoffs and a visible score, never a verdict you are asked to trust blind.</p>
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ export function VanishingPoint() {
           <div className="pv-ledger">
             <div className="pv-ledger-row">
               <div>
-                <span>Prior — an even round</span>
+                <span>Prior: an even round</span>
               </div>
               <span>50%</span>
             </div>
@@ -244,7 +244,7 @@ export function VanishingPoint() {
             <div className="pv-ledger-out">
               <strong>71%</strong>
               <span style={{ maxWidth: '30ch', fontSize: '0.75rem', lineHeight: 1.5 }}>
-                Structured judgment for comparing moves — not a claimed win rate.
+                Structured judgment for comparing moves, not a claimed win rate.
               </span>
             </div>
           </div>

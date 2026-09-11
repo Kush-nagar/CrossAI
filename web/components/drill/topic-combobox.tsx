@@ -54,13 +54,13 @@ export function TopicCombobox({
             setOpen(false)
           }
         }}
-        placeholder={disabled ? 'Choose an event to browse its topics' : 'Leave blank for a surprise — or type keywords to pick a topic'}
-        className="w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-primary disabled:opacity-50"
+        placeholder={disabled ? 'Choose an event to browse its topics' : 'Leave blank for a surprise, or type keywords to pick a topic'}
+        className="w-full rounded-xl border bg-background px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-pen disabled:opacity-50"
       />
       {open && !disabled && (
         <div className="surface absolute z-10 mt-1 max-h-64 w-full overflow-y-auto rounded-2xl p-1">
           {matches.length === 0 && (
-            <p className="px-3 py-2 text-xs text-muted-foreground">No past topics match — your text will be used as a custom topic.</p>
+            <p className="px-3 py-2 text-xs text-muted-foreground">No past topics match: your text will be used as a custom topic.</p>
           )}
           {matches.map((topic, i) => (
             <button

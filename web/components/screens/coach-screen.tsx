@@ -57,6 +57,11 @@ function renderMarkdown(text: string): string {
   return marked.parse(text, { breaks: true, async: false }) as string
 }
 
+// Rotates through while waiting on the first token, so a slow reply doesn't
+// just sit on the word "Thinking" the whole time — same idea as ChatGPT's
+// cycling status word.
+const THINKING_WORDS = ['Thinking', 'Pondering', 'Mulling it over', 'Weighing it up', 'Reasoning it out', 'Working through it']
+
 function bubbleTextAndAttachments(content: unknown): { text: string; kind: 'text' | 'image' } {
   if (typeof content === 'string') return { text: content, kind: 'text' }
   if (Array.isArray(content)) {
@@ -73,6 +78,7 @@ export function CoachScreen() {
   const [input, setInput] = useState('')
   const [streaming, setStreaming] = useState(false)
   const [assistantDraft, setAssistantDraft] = useState('')
+  const [thinkingIndex, setThinkingIndex] = useState(0)
   // Check-back mechanism: when a chat request fails, keep the reason (safe,
   // internals-free — see classifyChatFailure in server.mjs) and the exact turn
   // to replay so the debater can see why and retry, instead of a dead reply.
@@ -81,6 +87,7 @@ export function CoachScreen() {
     { messages: ChatMessage[]; roundId: string | null; isFirstMessageOfRound: boolean } | null
   >(null)
   const [attachments, setAttachments] = useState<UploadResult[]>([])
+  const [attachError, setAttachError] = useState('')
   const [mode, setMode] = useState<'general' | 'preround'>('general')
   const [historyOpen, setHistoryOpen] = useState(false)
   const [memoryOpen, setMemoryOpen] = useState(false)
@@ -107,6 +114,18 @@ export function CoachScreen() {
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight })
   }, [messages, assistantDraft])
+
+  // Cycle the waiting-room word while there's no draft text to show yet.
+  // Starts on a random word so back-to-back messages don't all open on
+  // "Thinking," and stops the moment real text starts streaming in.
+  useEffect(() => {
+    if (!streaming || assistantDraft) return
+    setThinkingIndex(Math.floor(Math.random() * THINKING_WORDS.length))
+    const id = setInterval(() => {
+      setThinkingIndex((i) => (i + 1) % THINKING_WORDS.length)
+    }, 3400)
+    return () => clearInterval(id)
+  }, [streaming, !!assistantDraft])
 
   function persistCurrent(nextMessages: ChatMessage[]) {
     setConversations((prev) => {
@@ -308,11 +327,12 @@ export function CoachScreen() {
     const file = e.target.files?.[0]
     e.target.value = ''
     if (!file) return
+    setAttachError('')
     try {
       const result = await uploadFile(file, file.name)
       setAttachments((prev) => [...prev, result])
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Upload failed.')
+      setAttachError(err instanceof Error ? err.message : 'Upload failed.')
     }
   }
 
@@ -331,7 +351,7 @@ export function CoachScreen() {
   const entries = memoryEntries(conversations)
 
   return (
-    <div className="page-enter relative flex h-[calc(100vh-8rem)] min-h-[650px] overflow-hidden rounded-xl border border-border bg-card">
+    <div className="page-enter relative flex h-[calc(100vh-8rem)] min-h-[650px] overflow-hidden rounded-3xl border border-border bg-card">
       {historyOpen && (
         <button
           aria-label="Close conversation history"
@@ -344,21 +364,21 @@ export function CoachScreen() {
       >
         <button
           onClick={startNewConversation}
-          className="press flex min-h-11 w-full items-center justify-start gap-2 rounded-xl bg-secondary px-4 text-sm font-semibold text-secondary-foreground"
+          className="press flex min-h-11 w-full items-center justify-start gap-2 rounded-full bg-secondary px-4 text-sm font-semibold text-secondary-foreground"
         >
           <Plus className="size-4" />
           New chat
         </button>
         <nav aria-label="Conversation history" className="mt-6 flex flex-1 flex-col gap-1 overflow-y-auto">
           {conversations.length === 0 && (
-            <p className="px-3 text-sm text-muted-foreground">No past rounds yet — they'll show up here once you start chatting.</p>
+            <p className="px-3 text-sm text-muted-foreground">No past rounds yet: they'll show up here once you start chatting.</p>
           )}
           {[...conversations]
             .sort((a, b) => b.updatedAt - a.updatedAt)
             .map((c) => (
               <div
                 key={c.id}
-                className={`group relative flex min-h-10 items-center rounded-xl text-sm transition ${
+                className={`group relative flex min-h-10 items-center rounded-full text-sm transition ${
                   c.id === currentId ? 'bg-secondary font-medium' : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
                 }`}
               >
@@ -368,7 +388,7 @@ export function CoachScreen() {
                 <button
                   onClick={() => handleDeleteConversation(c.id)}
                   aria-label={`Delete ${c.title || 'chat'}`}
-                  className="mr-1 flex size-7 shrink-0 items-center justify-center rounded-lg text-muted-foreground opacity-0 transition hover:bg-background hover:text-destructive focus:opacity-100 group-hover:opacity-100"
+                  className="mr-1 flex size-7 shrink-0 items-center justify-center rounded-full text-muted-foreground opacity-0 transition hover:bg-background hover:text-destructive focus:opacity-100 group-hover:opacity-100"
                 >
                   <Trash2 className="size-3.5" />
                 </button>
@@ -378,7 +398,7 @@ export function CoachScreen() {
         <div className="mt-2 flex flex-col gap-1 border-t border-border pt-2">
           <button
             onClick={() => setMemoryOpen(true)}
-            className="press flex min-h-10 w-full items-center gap-2 rounded-xl px-3 text-left text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+            className="press flex min-h-10 w-full items-center gap-2 rounded-full px-3 text-left text-sm text-muted-foreground transition hover:bg-secondary hover:text-foreground"
           >
             <Brain className="size-4 shrink-0" />
             <span className="flex-1 truncate">Memory</span>
@@ -403,7 +423,7 @@ export function CoachScreen() {
             <button
               onClick={() => setHistoryOpen(true)}
               aria-label="Open conversation history"
-              className="flex size-10 shrink-0 items-center justify-center rounded-xl transition hover:bg-secondary md:hidden"
+              className="flex size-10 shrink-0 items-center justify-center rounded-full transition hover:bg-secondary md:hidden"
             >
               <Menu className="size-5" />
             </button>
@@ -415,7 +435,7 @@ export function CoachScreen() {
           <button
             aria-label="Start new chat"
             onClick={startNewConversation}
-            className="flex size-10 items-center justify-center rounded-xl transition hover:bg-secondary md:hidden"
+            className="flex size-10 items-center justify-center rounded-full transition hover:bg-secondary md:hidden"
           >
             <Plus className="size-5" />
           </button>
@@ -424,7 +444,7 @@ export function CoachScreen() {
           <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
             {showEmptyState && (
               <div className="flex min-h-[18rem] flex-col items-center justify-center gap-7 py-6 text-center">
-                <span className="flex size-12 items-center justify-center rounded-2xl bg-foreground text-card shadow-lg">
+                <span className="flex size-12 items-center justify-center rounded-full bg-foreground text-card shadow-lg">
                   <Sparkles className="size-5" />
                 </span>
                 <div className="flex max-w-xl flex-col gap-2">
@@ -439,12 +459,12 @@ export function CoachScreen() {
               return (
                 <div key={i} className={`chat-message flex gap-3 ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                   {m.role === 'assistant' && (
-                    <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-xl bg-foreground text-card">
+                    <span className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-full bg-foreground text-card">
                       <Sparkles className="size-3.5" />
                     </span>
                   )}
                   {m.role === 'user' ? (
-                    <div className="max-w-[85%] whitespace-pre-wrap rounded-3xl bg-secondary px-5 py-3.5 text-sm leading-6 md:max-w-[72%]">
+                    <div className="max-w-[85%] whitespace-pre-wrap rounded-[1.5rem] bg-secondary px-5 py-3.5 text-sm leading-6 md:max-w-[72%]">
                       {text}
                     </div>
                   ) : (
@@ -463,7 +483,7 @@ export function CoachScreen() {
             })}
             {sendError && !streaming && (
               <div className="chat-message flex justify-start" role="alert" aria-live="polite">
-                <div className="flex w-full max-w-2xl flex-col gap-3 rounded-2xl border border-destructive/25 bg-destructive/5 px-4 py-3.5">
+                <div className="flex w-full max-w-2xl flex-col gap-3 rounded-3xl border border-destructive/25 bg-destructive/5 px-4 py-3.5">
                   <div className="flex items-start gap-2.5">
                     <AlertTriangle className="mt-0.5 size-4 shrink-0 text-destructive" />
                     <div className="flex flex-col gap-1">
@@ -475,14 +495,14 @@ export function CoachScreen() {
                     {sendError.retryable && (
                       <button
                         onClick={retryLast}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-foreground px-3 py-1.5 text-xs font-medium text-card transition hover:opacity-85"
+                        className="inline-flex items-center gap-1.5 rounded-full bg-foreground px-3 py-1.5 text-xs font-medium text-card transition hover:opacity-85"
                       >
                         <RotateCcw className="size-3.5" /> Try again
                       </button>
                     )}
                     <button
                       onClick={() => setSendError(null)}
-                      className="rounded-lg px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:bg-secondary"
+                      className="rounded-full px-3 py-1.5 text-xs font-medium text-muted-foreground transition hover:bg-secondary"
                     >
                       Dismiss
                     </button>
@@ -492,7 +512,7 @@ export function CoachScreen() {
             )}
             {streaming && (
               <div className="chat-message flex items-center gap-3">
-                <span className="flex size-8 items-center justify-center rounded-xl bg-foreground text-card">
+                <span className="flex size-8 items-center justify-center rounded-full bg-foreground text-card">
                   <Sparkles className="size-3.5" />
                 </span>
                 {assistantDraft ? (
@@ -502,7 +522,7 @@ export function CoachScreen() {
                   />
                 ) : (
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span>Thinking</span>
+                    <span>{THINKING_WORDS[thinkingIndex]}</span>
                     <span className="thinking-dots flex gap-1" aria-hidden="true">
                       <i />
                       <i />
@@ -528,7 +548,8 @@ export function CoachScreen() {
                 ))}
               </div>
             )}
-            <div className="chat-composer rounded-xl border border-border bg-background p-2 transition-all">
+            {attachError && <p className="mb-2 text-xs text-destructive">{attachError}</p>}
+            <div className="chat-composer rounded-[28px] border border-border bg-background p-2 transition-all">
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -578,7 +599,7 @@ export function CoachScreen() {
       {memoryOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <button aria-label="Close memory" onClick={() => setMemoryOpen(false)} className="absolute inset-0 bg-foreground/30" />
-          <div className="relative z-10 flex max-h-[80vh] w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-xl">
+          <div className="relative z-10 flex max-h-[80vh] w-full max-w-lg flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-xl">
             <header className="flex items-center justify-between border-b px-5 py-4">
               <div className="flex items-center gap-2">
                 <Brain className="size-4 text-muted-foreground" />
@@ -587,24 +608,24 @@ export function CoachScreen() {
               <button
                 onClick={() => setMemoryOpen(false)}
                 aria-label="Close memory"
-                className="flex size-8 items-center justify-center rounded-lg transition hover:bg-secondary"
+                className="flex size-8 items-center justify-center rounded-full transition hover:bg-secondary"
               >
                 <X className="size-4" />
               </button>
             </header>
             <p className="shrink-0 px-5 pt-3 text-xs leading-5 text-muted-foreground">
               What CrossCoach remembers from each round. It travels with every chat, so facts and decisions from one
-              round are available in any other — open a chat, or forget a memory to leave it out.
+              round are available in any other: open a chat, or forget a memory to leave it out.
             </p>
             <div className="flex-1 overflow-y-auto px-3 py-3">
               {entries.length === 0 ? (
                 <p className="px-2 py-8 text-center text-sm text-muted-foreground">
-                  No memory yet — it builds up as you chat through rounds.
+                  No memory yet: it builds up as you chat through rounds.
                 </p>
               ) : (
                 <ul className="flex flex-col gap-2">
                   {entries.map((e) => (
-                    <li key={e.id} className="rounded-xl border border-border bg-secondary/40 p-3">
+                    <li key={e.id} className="rounded-2xl border border-border bg-secondary/40 p-3">
                       <div className="flex items-start justify-between gap-2">
                         <button
                           onClick={() => {
@@ -618,7 +639,7 @@ export function CoachScreen() {
                         <button
                           onClick={() => handleForgetMemory(e.id)}
                           aria-label={`Forget memory of ${e.title}`}
-                          className="shrink-0 rounded-md px-2 py-1 text-xs text-muted-foreground transition hover:bg-secondary hover:text-foreground"
+                          className="shrink-0 rounded-full px-2 py-1 text-xs text-muted-foreground transition hover:bg-secondary hover:text-foreground"
                         >
                           Forget
                         </button>

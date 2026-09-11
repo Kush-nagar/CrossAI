@@ -126,7 +126,7 @@ export function TabroomLink() {
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <div className="rounded-xl bg-secondary p-4 text-xs leading-relaxed text-muted-foreground">
             Your Tabroom password is sent once, used to sign in to OpenCaselist and Tabroom on your behalf, and never
-            stored or logged. The resulting access tokens are encrypted and kept on our server only — they are never
+            stored or logged. The resulting access tokens are encrypted and kept on our server only, and are never
             sent to your browser. Unlink at any time to delete them.
           </div>
           <label className="flex flex-col gap-1.5 text-sm font-semibold">
@@ -134,7 +134,7 @@ export function TabroomLink() {
             <input
               name="tabroomUsername"
               autoComplete="username"
-              className="min-h-11 w-full rounded-xl border bg-background px-3 outline-none focus:ring-2 focus:ring-primary"
+              className="min-h-11 w-full rounded-xl border bg-background px-3 outline-none focus:ring-2 focus:ring-pen"
             />
           </label>
           <label className="flex flex-col gap-1.5 text-sm font-semibold">
@@ -143,7 +143,7 @@ export function TabroomLink() {
               name="tabroomPassword"
               type="password"
               autoComplete="current-password"
-              className="min-h-11 w-full rounded-xl border bg-background px-3 outline-none focus:ring-2 focus:ring-primary"
+              className="min-h-11 w-full rounded-xl border bg-background px-3 outline-none focus:ring-2 focus:ring-pen"
             />
           </label>
           {error && (

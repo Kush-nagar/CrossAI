@@ -33,7 +33,7 @@ const CARDS = [
     body: 'Bring a case or a block. Cross names the missing warrant and describes the card that would fill it.',
     plate: [
       ['case', 'aff-neolib-v3'],
-      ['flagged', 'C2 — no baseline'],
+      ['flagged', 'C2: no baseline'],
       ['suggested', 'quantified magnitude'],
     ],
   },
@@ -41,7 +41,7 @@ const CARDS = [
     title: 'Drill',
     body: 'A generated round, one dropped argument, one live turn. Write or speak the next speech and get graded against a key computed first.',
     plate: [
-      ['format', 'PF — Summary'],
+      ['format', 'PF: Summary'],
       ['speech', '1:42 · 214 wpm'],
       ['tone', 'flattened at weighing'],
     ],
@@ -120,7 +120,7 @@ export default function DirectionC() {
               Every round is an <em>argument</em> you can rehearse.
             </h1>
             <p className="pv-c-sub">
-              An AI debate coach that shows its reasoning — and grades your speech against a key it
+              An AI debate coach that shows its reasoning, and grades your speech against a key it
               computed before you spoke.
             </p>
             <div className="pv-c-cta">
@@ -215,7 +215,7 @@ export default function DirectionC() {
               <h2>The number opens up.</h2>
               <p style={{ marginTop: '1.25rem', maxWidth: '42ch', color: 'rgba(232,228,220,0.72)' }}>
                 Grading starts from an even round and moves in log-odds, one factor at a time. If
-                you think a weight is wrong, you can say so — and reporting how the move actually
+                you think a weight is wrong, you can say so, and reporting how the move actually
                 went is how the weights get better.
               </p>
               <p className="pv-synthetic" style={{ marginTop: '1.5rem' }}>
@@ -224,7 +224,7 @@ export default function DirectionC() {
             </div>
             <div className="pv-ledger">
               <div className="pv-ledger-row">
-                <span>Prior — an even round</span>
+                <span>Prior: an even round</span>
                 <span />
                 <span>50%</span>
               </div>
@@ -249,7 +249,7 @@ export default function DirectionC() {
               <div className="pv-ledger-out">
                 <strong>71%</strong>
                 <span style={{ maxWidth: '32ch', fontSize: '0.75rem', lineHeight: 1.5, color: 'rgba(232,228,220,0.6)' }}>
-                  Structured judgment for comparing candidate moves — not a claimed win rate.
+                  Structured judgment for comparing candidate moves, not a claimed win rate.
                 </span>
               </div>
             </div>

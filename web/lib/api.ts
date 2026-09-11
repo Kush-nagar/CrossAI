@@ -149,7 +149,7 @@ export async function uploadFile(
 export function sendFeedback(input: {
   satisfied: boolean
   reason?: string
-  route: "chat" | "drill" | "stress-test" | "strategy"
+  route: "chat" | "drill" | "stress-test" | "strategy" | "recording-insight"
   preview?: string
 }): Promise<{ count: number }> {
   return postJson("/api/feedback", input)
@@ -335,6 +335,78 @@ export function gradeDrill(input: {
   return postJson("/api/drill/grade", input)
 }
 
+// --- Recording Insight -----------------------------------------------------
+// Feedback on a REAL round speech (uploaded recording or a fresh live take) —
+// unlike gradeDrill, there's no scenario/answerKey to compare against, so the
+// contract is simpler: round context in, strengths/weaknesses/fixes out.
+
+export type InsightRoundContext = {
+  side?: string
+  speechType?: string
+  topic?: string
+  judgeType?: string
+  focusArea?: string
+}
+
+export type InsightGradeResult = {
+  verdict: string
+  strengths: { quote?: string; note?: string }[]
+  weaknesses: { quote?: string; note?: string }[]
+  topFixes: string[]
+  /** Non-empty only on a redo where the model found genuine improvement. */
+  improvedFromLastTime?: string
+}
+
+export function gradeInsight(input: {
+  speechText: string
+  speechMeta?: {
+    transcribed?: boolean
+    wpm?: number
+    durationSec?: number
+    tone?: string
+    toneSegments?: ToneSegment[]
+  }
+  roundContext?: InsightRoundContext
+  /** Pass the previous response's verdict/topFixes when this is a Redo. */
+  previousInsight?: { verdict: string; topFixes: string[] }
+}): Promise<InsightGradeResult> {
+  return postJson("/api/insight/grade", input)
+}
+
+// --- Recording Insight: Full Round mode ------------------------------------
+// A debater can feed in an ENTIRE round recording instead of one speech.
+// There's no speaker diarization anywhere in this stack, so the server infers
+// speech boundaries from transcript content (see scripts/server.mjs's
+// /api/insight/segment-round comment) — the debater then confirms which
+// identified segments are theirs before anything gets graded.
+
+export type InsightSegment = {
+  label: string
+  side: string
+  speechType: string
+  text: string
+  wordCount: number
+}
+
+export function segmentRound(input: { transcript: string }): Promise<{ segments: InsightSegment[] }> {
+  return postJson("/api/insight/segment-round", input)
+}
+
+export type InsightRoundGradeResult = {
+  verdict: string
+  strengths: { quote?: string; note?: string; speechLabel?: string }[]
+  weaknesses: { quote?: string; note?: string; speechLabel?: string }[]
+  topFixes: string[]
+  perSpeechNotes: { label: string; note: string }[]
+}
+
+export function gradeInsightRound(input: {
+  speeches: { label: string; side: string; speechType: string; text: string }[]
+  roundContext?: { topic?: string; judgeType?: string; focusArea?: string }
+}): Promise<InsightRoundGradeResult> {
+  return postJson("/api/insight/grade-round", input)
+}
+
 // AI voice box: the server authors an exemplar (or opponent-setup) speech for a
 // drill scenario — built to the same construction criteria the grader scores
 // against (scripts/lib/speechCriteria.mjs's buildAuthoringCriteria) — and voices
@@ -432,6 +504,15 @@ export async function streamChat(
 }
 
 // --- Strategy mode (backend exists, no caller yet — deferred per plan) ----
+// A UI was built and torn back out here: it read the live flow mid-round and
+// handed back a what-to-extend/kick/weigh checklist to use in the round
+// itself. Rejected on product grounds, not execution — Cross is meant to
+// educate a debater between rounds, not hand them answers to use live in
+// one, however well the reasoning behind those answers might showcase the
+// app's transparency. The same reasoning is fair game reframed as a practice
+// exercise done between rounds (e.g. quiz the debater on what they'd extend
+// against a past flow, then compare to Cross's own answer) — just not as a
+// tool meant to be open during the round.
 
 export function getStrategyMode(input: {
   event: unknown

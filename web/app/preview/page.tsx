@@ -6,9 +6,9 @@ const DIRECTIONS = [
     href: '/',
     img: '/landing/arch.jpg',
     label: 'A',
-    name: 'The Vanishing Point — live',
+    name: 'The Vanishing Point, live',
     blurb:
-      'The fresco’s own one-point perspective becomes the page grid — the orthogonals are the layout lines.',
+      'The fresco’s own one-point perspective becomes the page grid: the orthogonals are the layout lines.',
     swatches: ['#F2F1EC', '#E2DED4', '#16181C', '#6F7A88', '#2E5C8A'],
     meta: ['Light · centred', 'Zodiak / Switzer'],
     alt: 'The central bay of The School of Athens in daylight',
@@ -43,7 +43,7 @@ export default function PreviewChooser() {
       <div className="pv-wrap">
         <h1>Three landing directions for Cross.</h1>
         <p className="pv-x-lede">
-          Direction A shipped as the live landing page. B and C are kept here for reference — open
+          Direction A shipped as the live landing page. B and C are kept here for reference: open
           either one, scroll the whole page, and switch between all three from the control at the
           bottom of the screen.
         </p>
@@ -56,7 +56,7 @@ export default function PreviewChooser() {
               </figure>
               <div className="pv-x-card-body">
                 <h2>
-                  {d.label} — {d.name}
+                  {d.label}: {d.name}
                 </h2>
                 <p>{d.blurb}</p>
                 <div className="pv-x-swatches" aria-hidden="true">

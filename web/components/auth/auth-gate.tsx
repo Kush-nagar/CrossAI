@@ -164,7 +164,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@school.edu"
-                  className="min-h-11 w-full rounded-xl border bg-background px-3 outline-none focus:ring-2 focus:ring-primary"
+                  className="min-h-11 w-full rounded-xl border bg-background px-3 outline-none focus:ring-2 focus:ring-pen"
                 />
               </label>
               {error && (
@@ -187,7 +187,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col gap-5 text-center">
             <h1 className="font-display text-2xl font-semibold tracking-[-0.02em]">Check your inbox</h1>
             <p className="text-sm leading-relaxed text-muted-foreground">
-              If <b className="text-foreground">{email.trim()}</b> has an account — or is ready for one — a sign-in link
+              If <b className="text-foreground">{email.trim()}</b> has an account, or is ready for one, a sign-in link
               is on its way. It expires shortly, so use it soon.
             </p>
             <button

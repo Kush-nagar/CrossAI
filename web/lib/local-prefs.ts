@@ -3,7 +3,7 @@
 // contrast are applied for real via document.documentElement classes that
 // hook into the same CSS rules as the OS-level prefers-reduced-motion query.
 
-export type Theme = 'light' | 'dark' | 'system'
+export type Theme = 'light' | 'dark' | 'pink' | 'system'
 
 export type LocalPrefs = {
   displayName: string
@@ -54,8 +54,11 @@ export function applyAccessibilityClasses(prefs: Pick<LocalPrefs, 'reducedMotion
 
 export function applyTheme(theme: Theme) {
   const root = document.documentElement
-  root.classList.remove('light', 'dark')
+  root.classList.remove('light', 'dark', 'pink')
   if (theme !== 'system') root.classList.add(theme)
   const dark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  // Pink is a light-family palette (see globals.css's `:root.pink`) — the OS
+  // colorScheme hint only distinguishes light/dark chrome, so it reports
+  // 'light' the same as the plain light theme.
   root.style.colorScheme = dark ? 'dark' : 'light'
 }

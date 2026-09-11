@@ -21,10 +21,10 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 const ROWS = [
   {
     title: 'Prep',
-    body: 'Drop in a case, a block or a contention and get the missing warrant named — plus what to cut to fill it. Not "add more evidence": what the source has to establish.',
+    body: 'Drop in a case, a block or a contention and get the missing warrant named, plus what to cut to fill it. Not "add more evidence": what the source has to establish.',
     art: [
       ['case', 'aff-neolib-v3.docx'],
-      ['flagged', 'C2 impact — no baseline'],
+      ['flagged', 'C2 impact: no baseline'],
       ['flagged', 'solvency card carries 2 claims'],
       ['suggested', 'quantified magnitude, post-2023'],
     ],
@@ -33,7 +33,7 @@ const ROWS = [
     title: 'Drill',
     body: 'A generated round with one clearly dropped argument, one live turn and an opponent who has a tendency. Write or speak the next speech; get graded against a key computed before you started.',
     art: [
-      ['format', 'PF — Summary'],
+      ['format', 'PF: Summary'],
       ['opponent', 'collapses to framework'],
       ['judge', 'wants explicit weighing'],
       ['your speech', '1:42 · 214 wpm'],
@@ -107,7 +107,7 @@ export default function DirectionB() {
                 Win the flow.
               </h1>
               <p className="pv-b-sub">
-                Cross coaches Policy, LD, PF and Parli from real round material — and pulls the
+                Cross coaches Policy, LD, PF and Parli from real round material, and pulls the
                 paradigm and disclosure for the pairing in front of you.
               </p>
               <div className="pv-b-actions">
@@ -161,7 +161,7 @@ export default function DirectionB() {
                 wrote.
               </p>
               <p>
-                It gives flow-based critique — what was dropped, what got extended cleanly, whether
+                It gives flow-based critique: what was dropped, what got extended cleanly, whether
                 you answered the judge’s actual instructions. It plans strategy against the
                 positions the other side is likely to run. And for in-round calls it lays out the
                 options with their tradeoffs, because you are the one making the call.
@@ -174,7 +174,7 @@ export default function DirectionB() {
               </li>
               <li>
                 <span>02</span>
-                <span>Circuit and traditional — the register follows your format</span>
+                <span>Circuit and traditional: the register follows your format</span>
               </li>
               <li>
                 <span>03</span>
@@ -217,7 +217,7 @@ export default function DirectionB() {
 
         <section className="pv-b-white" id="how">
           <div className="pv-wrap">
-            <h2 className="pv-rise">How it works — read it like a flow.</h2>
+            <h2 className="pv-rise">How it works: read it like a flow.</h2>
             <div className="pv-b-flow">
               <svg className="pv-b-arrows" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                 <path pathLength={1} d="M23 26 H27" style={{ animationDelay: '0.05s' }} />
@@ -237,7 +237,7 @@ export default function DirectionB() {
                 <h4>2 · Cross reads it</h4>
                 <div className="pv-b-chip">C2 has no baseline</div>
                 <div className="pv-b-chip">Their CP is live 71% of rounds</div>
-                <div className="pv-b-chip pv-drop">Framework turn — dropped</div>
+                <div className="pv-b-chip pv-drop">Framework turn: dropped</div>
               </div>
               <div className="pv-b-col">
                 <h4>3 · You get options</h4>
@@ -262,7 +262,7 @@ export default function DirectionB() {
           <div className="pv-wrap pv-rise">
             <h2>It reads evidence the way you cut it.</h2>
             <div className="pv-b-card">
-              <p className="pv-tag">Warming causes grid failure — magnitude is quantified</p>
+              <p className="pv-tag">Warming causes grid failure: magnitude is quantified</p>
               <p className="pv-cite">Placeholder, A. (2026). Journal of Placeholder Studies 14(2), 118–140.</p>
               <p className="pv-body">
                 Increased ambient load during peak demand periods has been observed across multiple
@@ -279,7 +279,7 @@ export default function DirectionB() {
                 thirty seconds for it.
               </p>
               <p className="pv-synthetic" style={{ marginTop: '1.25rem', color: '#3a4a5c' }}>
-                Synthetic card — placeholder citation
+                Synthetic card, placeholder citation
               </p>
             </div>
           </div>

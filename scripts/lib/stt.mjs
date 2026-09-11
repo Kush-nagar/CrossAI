@@ -13,11 +13,15 @@ import { hasGroqCredentials, transcribeWithGroq } from "./groqVoice.mjs";
  * Transcribes an audio buffer of any ffmpeg-readable format.
  * Returns { text, tone } — tone is { top: [{name, score}], prompt } from
  * Hume prosody analysis, or null on the Groq/Whisper paths / silent audio.
+ *
+ * `ext` (no leading dot, e.g. "m4a") is optional and only used by the Groq
+ * tier, so it can send the original compressed audio instead of re-encoding
+ * to an inflated WAV — see groqVoice.mjs.
  */
-export async function transcribeAudio(buffer) {
+export async function transcribeAudio(buffer, { ext } = {}) {
   if (hasGroqCredentials()) {
     try {
-      const { text } = await transcribeWithGroq(buffer);
+      const { text } = await transcribeWithGroq(buffer, { ext });
       console.log(`[stt] groq ok (${text.length} chars)`);
       return { text, tone: null };
     } catch (err) {

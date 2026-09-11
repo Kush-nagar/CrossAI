@@ -175,8 +175,8 @@ function TrendChart({
           >
             <p className="font-semibold">{fmtDate(hovered.date)}</p>
             <p className="mt-0.5 text-muted-foreground">
-              Pace <b className="text-foreground">{hovered.wpm != null ? `${hovered.wpm} WPM` : '—'}</b>
-              {' · '}Score <b className="text-foreground">{hovered.scorePct != null ? `${hovered.scorePct}%` : '—'}</b>
+              Pace <b className="text-foreground">{hovered.wpm != null ? `${hovered.wpm} WPM` : 'N/A'}</b>
+              {' · '}Score <b className="text-foreground">{hovered.scorePct != null ? `${hovered.scorePct}%` : 'N/A'}</b>
             </p>
             {hovered.tone && (
               <p className="text-muted-foreground">
@@ -263,14 +263,14 @@ export function DeliveryTrends({ className = '' }: { className?: string }) {
       <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2">
         <div>
           <p className="text-xs font-semibold text-muted-foreground">Latest pace</p>
-          <p className="font-data text-lg font-semibold">{latest.wpm != null ? `${latest.wpm} WPM` : '—'}</p>
+          <p className="font-data text-lg font-semibold">{latest.wpm != null ? `${latest.wpm} WPM` : 'N/A'}</p>
           {prev && delta(latest.wpm, prev.wpm, ' WPM') && (
             <p className="text-xs text-muted-foreground">{delta(latest.wpm, prev.wpm, ' WPM')}</p>
           )}
         </div>
         <div>
           <p className="text-xs font-semibold text-muted-foreground">Latest score</p>
-          <p className="font-data text-lg font-semibold">{latest.scorePct != null ? `${latest.scorePct}%` : '—'}</p>
+          <p className="font-data text-lg font-semibold">{latest.scorePct != null ? `${latest.scorePct}%` : 'N/A'}</p>
           {prev && delta(latest.scorePct, prev.scorePct, '%') && (
             <p className="text-xs text-muted-foreground">{delta(latest.scorePct, prev.scorePct, '%')}</p>
           )}
@@ -327,10 +327,10 @@ export function DeliveryTrends({ className = '' }: { className?: string }) {
               {[...takes].reverse().map((t, i) => (
                 <tr key={i} className="border-t">
                   <td className="py-1.5 pr-4">{fmtDate(t.date)}</td>
-                  <td className="py-1.5 pr-4 tabular-nums">{t.wpm != null ? `${t.wpm} WPM` : '—'}</td>
-                  <td className="py-1.5 pr-4 tabular-nums">{t.durationSec != null ? `${t.durationSec}s` : '—'}</td>
-                  <td className="py-1.5 pr-4 tabular-nums">{t.scorePct != null ? `${t.scorePct}%` : '—'}</td>
-                  <td className="py-1.5 text-muted-foreground">{t.tone ?? '—'}</td>
+                  <td className="py-1.5 pr-4 tabular-nums">{t.wpm != null ? `${t.wpm} WPM` : 'N/A'}</td>
+                  <td className="py-1.5 pr-4 tabular-nums">{t.durationSec != null ? `${t.durationSec}s` : 'N/A'}</td>
+                  <td className="py-1.5 pr-4 tabular-nums">{t.scorePct != null ? `${t.scorePct}%` : 'N/A'}</td>
+                  <td className="py-1.5 text-muted-foreground">{t.tone ?? 'N/A'}</td>
                 </tr>
               ))}
             </tbody>

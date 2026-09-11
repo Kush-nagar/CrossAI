@@ -16,7 +16,7 @@ import { sendFeedback } from '@/lib/api'
 const SAMPLE_RATE = 0.2
 
 type Props = {
-  route: 'chat' | 'drill' | 'stress-test' | 'strategy'
+  route: 'chat' | 'drill' | 'stress-test' | 'strategy' | 'recording-insight'
   /** Short excerpt of the response being rated, for later interpretability. */
   preview: string
 }
@@ -40,7 +40,7 @@ export function FeedbackPrompt({ route, preview }: Props) {
   }
 
   if (phase === 'done') {
-    return <p className="mt-2 text-xs text-muted-foreground">Thanks — Cross adjusts from this.</p>
+    return <p className="mt-2 text-xs text-muted-foreground">Thanks, Cross adjusts from this.</p>
   }
 
   if (phase === 'why') {

@@ -10,7 +10,7 @@ export function TournamentScreen() {
           <Trophy className="size-5 text-muted-foreground" />
         </span>
         <p className="max-w-md text-sm text-muted-foreground">
-          Tournament tracking isn't wired up yet — Cross doesn't currently record drill history or a prep checklist
+          Tournament tracking isn't wired up yet: Cross doesn't currently record drill history or a prep checklist
           against a tournament date. Coming soon.
         </p>
       </section>

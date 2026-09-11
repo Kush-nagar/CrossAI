@@ -31,7 +31,9 @@ export function DrillScreen() {
   const [scenario, setScenario] = useState<DrillScenario | null>(null)
   const [answerKey, setAnswerKey] = useState<DrillAnswerKey | null>(null)
   const [report, setReport] = useState<DrillGradeResult | null>(null)
+  const [setupError, setSetupError] = useState('')
   const [recordStatus, setRecordStatus] = useState('')
+  const [recordError, setRecordError] = useState(false)
   const [grading, setGrading] = useState(false)
   // Spoken exemplar of the optimal speech — only offered in the report panel
   // (after the answer key is revealed), so it never spoils the drill.
@@ -49,6 +51,7 @@ export function DrillScreen() {
 
   async function generate() {
     setLoadingText('Building a scenario and computing the hidden answer key…')
+    setSetupError('')
     setPanel('loading')
     try {
       const data = await getDrillScenario({ format, side, speech, difficulty, topic: topic.trim() })
@@ -58,9 +61,10 @@ export function DrillScreen() {
       setSpeakResult(null)
       setSpeakError('')
       setRecordStatus('')
+      setRecordError(false)
       setPanel('scenario')
     } catch (err) {
-      alert(err instanceof Error ? err.message : "Couldn't generate a scenario.")
+      setSetupError(err instanceof Error ? err.message : "Couldn't generate a scenario.")
       setPanel('setup')
     }
   }
@@ -85,12 +89,13 @@ export function DrillScreen() {
     if (!scenario || !answerKey) return
     setGrading(true)
     setRecordStatus('Transcribing speech…')
+    setRecordError(false)
     try {
       const ext = blob.type.includes('ogg') ? 'ogg' : blob.type.includes('mp4') ? 'm4a' : 'webm'
       const file = new File([blob], `drill-speech-${Date.now()}.${ext}`, { type: blob.type })
       const attachment = await uploadFile(file)
       const transcript = attachment.kind === 'audio' ? attachment.transcript.trim() : ''
-      if (!transcript) throw new Error('No speech detected in that recording — try again closer to the mic.')
+      if (!transcript) throw new Error('No speech detected in that recording: try again closer to the mic.')
       const minutes = durationSec / 60
       const wordCount = transcript.split(/\s+/).filter(Boolean).length
       const speechMeta = {
@@ -112,6 +117,7 @@ export function DrillScreen() {
       setPanel('report')
     } catch (err) {
       setRecordStatus(err instanceof Error ? err.message : 'Something went wrong.')
+      setRecordError(true)
       setPanel('scenario')
     } finally {
       setGrading(false)
@@ -124,6 +130,9 @@ export function DrillScreen() {
     setReport(null)
     setSpeakResult(null)
     setSpeakError('')
+    setRecordStatus('')
+    setRecordError(false)
+    setSetupError('')
     setPanel('setup')
   }
 
@@ -132,7 +141,7 @@ export function DrillScreen() {
       <PageTitle
         eyebrow="Deliberate practice"
         title={panel === 'report' ? 'Graded against the hidden answer key.' : 'Train under real round pressure.'}
-        description={panel === 'scenario' ? 'Record your speech aloud — Cross grades the transcript.' : 'Pick a side and speech. Cross builds a live Public Forum scenario.'}
+        description={panel === 'scenario' ? 'Record your speech aloud: Cross grades the transcript.' : 'Pick a side and speech. Cross builds a live Public Forum scenario.'}
       />
 
       {panel === 'setup' && (
@@ -179,6 +188,7 @@ export function DrillScreen() {
                 Generate scenario <ArrowRight className="size-4" />
               </InkButton>
             </div>
+            {setupError && <p className="mt-3 text-xs text-destructive">{setupError}</p>}
           </section>
           <DeliveryTrends />
         </div>
@@ -219,7 +229,9 @@ export function DrillScreen() {
             <p className="mt-5 text-base font-semibold">{scenario.task}</p>
 
             <div className="mt-6 flex items-center justify-between rounded-2xl bg-secondary/60 p-4">
-              <span className="text-sm text-muted-foreground">{recordStatus || 'Record your speech aloud, then submit for grading.'}</span>
+              <span className={`text-sm ${recordError ? 'text-destructive' : 'text-muted-foreground'}`}>
+                {recordStatus || 'Record your speech aloud, then submit for grading.'}
+              </span>
               <VoiceRecorderButton onSubmit={handleGrade} submitLabel="Submit for grading" />
             </div>
             {grading && <p className="mt-2 text-xs text-muted-foreground">Working…</p>}
@@ -252,15 +264,10 @@ export function DrillScreen() {
               {speakResult ? (
                 <SpeechPlayer result={speakResult} label={`Model ${scenario?.speech ?? 'speech'}`} />
               ) : (
-                <button
-                  type="button"
-                  onClick={handleSpeak}
-                  disabled={speaking}
-                  className="press inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground disabled:opacity-50"
-                >
+                <InkButton onClick={handleSpeak} disabled={speaking}>
                   <Volume2 className="size-4" />
                   {speaking ? 'Writing & voicing…' : 'Hear the model deliver this speech'}
-                </button>
+                </InkButton>
               )}
               {speakError && <p className="mt-2 text-xs text-destructive">{speakError}</p>}
             </div>
@@ -268,7 +275,7 @@ export function DrillScreen() {
           <section className="surface rounded-3xl p-6 md:p-8 lg:col-span-2">
             <h3 className="font-display text-xl font-semibold">Round vision</h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              {[report.predictedOpponentMove && `Predicted opponent move: ${report.predictedOpponentMove}`, report.roundVision].filter(Boolean).join(' — ')}
+              {[report.predictedOpponentMove && `Predicted opponent move: ${report.predictedOpponentMove}`, report.roundVision].filter(Boolean).join('. ')}
             </p>
             {report.lineByLine.length > 0 && (
               <div className="mt-5 flex flex-col gap-3">

@@ -10,7 +10,7 @@ const JUDGES = [
     name: 'A. Reyes',
     school: 'Tabroom',
     summary:
-      'Tech over truth. Wants the ballot written for them in the last two minutes — collapse early and weigh explicitly.',
+      'Tech over truth. Wants the ballot written for them in the last two minutes: collapse early and weigh explicitly.',
     tags: ['speed: 8/10', 'theory: reluctant', 'wants weighing'],
   },
   {

@@ -103,7 +103,7 @@ export function JudgesScreen() {
 
           {matches && (
             <div className="surface flex w-full flex-col gap-2 rounded-xl p-4">
-              <p className="eyebrow px-2 py-2">Multiple matches — pick one</p>
+              <p className="eyebrow px-2 py-2">Multiple matches: pick one</p>
               {matches.map((m) => (
                 <button
                   key={m.judge_id}

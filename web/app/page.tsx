@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-import { LandingFonts } from '@/components/landing/fonts'
 import { LandingAuthRedirect } from '@/components/landing/landing-auth-redirect'
 import { Reveal } from '@/components/landing/reveal'
 import { VanishingPoint } from '@/components/landing/vanishing-point'
 import './landing.css'
 
 export const metadata: Metadata = {
-  title: 'Cross — argue like the room is watching',
+  title: 'Cross: argue like the room is watching',
   description:
     'An AI debate coach for Policy, Lincoln-Douglas, Public Forum and Parliamentary. Prep the round, read the judge, and get a score that shows its work.',
 }
@@ -31,7 +30,6 @@ export default function LandingPage() {
   return (
     <>
       <div dangerouslySetInnerHTML={{ __html: `<!--${CONTRACT}-->` }} />
-      <LandingFonts />
       <LandingAuthRedirect />
       <VanishingPoint />
       <Reveal />

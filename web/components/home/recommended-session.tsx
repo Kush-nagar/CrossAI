@@ -45,16 +45,24 @@ export function RecommendedSession({
 
   let eyebrowMinutes = '15 min'
   let title = 'Record your first speech.'
-  let body = "Cross grades your transcript automatically — once there's a baseline, we'll point you at what to fix next."
+  let body = "Cross grades your transcript automatically. Once there's a baseline, we'll point you at what to fix next."
   let cta = 'Start a drill'
   let href = '/drill'
   let ring: React.ReactNode = null
 
   if (scored.length === 0) {
-    // defaults above already cover this case
+    // A drill is the only route that produces a score, so this branch also
+    // covers someone who's practiced plenty through Recording Insight (real
+    // round feedback, ungraded by design) but never run a scored drill —
+    // don't tell them to "record your first speech" when they've recorded
+    // several; point them at what actually starts the skill curve instead.
+    if (snapshots.length > 0) {
+      title = 'Get your first scored drill.'
+      body = `You've logged ${snapshots.length} practice session${snapshots.length === 1 ? '' : 's'} through round feedback. A scored drill turns that into a skill curve Cross can track over time.`
+    }
   } else if (calibration && !calibration.calibrated) {
     title = 'Calibrate your voice.'
-    body = `Cross grades delivery more accurately once it knows your baseline pace and phrasing — ${calibration.sampleCount} of ${calibration.total} takes recorded so far.`
+    body = `Cross grades delivery more accurately once it knows your baseline pace and phrasing: ${calibration.sampleCount} of ${calibration.total} takes recorded so far.`
     cta = 'Continue calibration'
     href = '/settings'
     eyebrowMinutes = 'Quick'
@@ -77,10 +85,10 @@ export function RecommendedSession({
 
     if (priorWindow.length === 0 || deltaPct >= 0) {
       title = 'Keep building on your last round.'
-      body = `Your last graded speech scored ${latestPct}% — another drill locks that in before it slips.`
+      body = `Your last graded speech scored ${latestPct}%. Another drill locks that in before it slips.`
     } else {
       title = 'Close the gap from your last round.'
-      body = `Your last graded speech scored ${latestPct}%, down ${Math.abs(deltaPct)} points versus your recent average — a targeted drill can correct course.`
+      body = `Your last graded speech scored ${latestPct}%, down ${Math.abs(deltaPct)} points versus your recent average. A targeted drill can correct course.`
     }
     cta = 'Start a drill'
     href = '/drill'

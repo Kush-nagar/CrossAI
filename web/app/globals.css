@@ -25,77 +25,138 @@
   --color-border: var(--rule);
   --color-input: var(--rule);
   --color-ring: var(--pen);
-  /* One --radius base drives every rounded-* class app-wide. */
-  --radius-sm: calc(var(--radius) - .35rem);
-  --radius-md: calc(var(--radius) - .15rem);
+  /* One --radius base drives every rounded-* class app-wide — offsets tuned
+     small (4-16px at the extremes) for the Night Session system's
+     architectural, cut-metal-plate corners rather than the old system's
+     soft/pill 6-25px range. */
+  --radius-sm: calc(var(--radius) - .25rem);
+  --radius-md: calc(var(--radius) - .125rem);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + .3rem);
-  --radius-2xl: calc(var(--radius) + .55rem);
-  --radius-3xl: calc(var(--radius) + .8rem);
+  --radius-xl: calc(var(--radius) + .125rem);
+  --radius-2xl: calc(var(--radius) + .25rem);
+  --radius-3xl: calc(var(--radius) + .5rem);
 }
 
-/* System font stack — SF Pro on Apple platforms, graceful elsewhere.
-   ponytail: no webfont downloads; --font-display/-data kept as names so the
-   36 existing `font-display`/`font-data` usages need no edit. */
+/* App-wide type program (web/app/layout.tsx loads these Fontshare/Google
+   faces app-wide) — untouched by the Night Session redesign below. Zodiak's
+   serif weight still reads as a coach's voice, not a generic dashboard.
+   --font-display/-data kept as names so the existing `font-display`/
+   `font-data` usages need no edit. */
 :root {
-  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-data: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  --font-body: 'Switzer', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Zodiak', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-data: 'Azeret Mono', ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+}
 
+/* ---------------------------------------------------------------------------
+   Night Session: replaces the Apple/HIG blue-accent system. Lifted from the
+   /preview/c landing direction (app/landing.css's .pv-c rules are the
+   reference — this is that same ink/slate/gilt world, ported to the signed-
+   in app's token layer and given a paper counterpart for light mode). Ink and
+   slate carry the surfaces, bone carries the text, and gilt gold is the one
+   accent doing double duty as --pen; a cooler slate-blue (--highlight) is the
+   only other tinted color in the system, reserved for secondary emphasis
+   (an "optimal move" tag, a "dislikes" trait) so it never competes with gold
+   for attention. Success/destructive are muted moss and terracotta rather
+   than stock green/red, so a graded delivery-trend chart still reads as this
+   system's ink, not a generic dashboard's.
+   --------------------------------------------------------------------------- */
+:root {
   color-scheme: light;
-  --paper: #f5f5f7;        /* grouped page background */
-  --paper-raised: #ffffff; /* cards sit above it */
-  --ink: #1d1d1f;
-  --ink-soft: #86868b;
-  --rule: #d2d2d7;
-  --pen: #0071e3;          /* system blue — primary accent */
-  --highlight: #ff9f0a;    /* system orange — sparing emphasis */
-  --success: #30d158;
-  --secondary: #ebebf0;
-  --destructive: #ff3b30;
-  --radius: .75rem;
+  --paper: #f1ece1;        /* warm paper page background */
+  --paper-raised: #fbf9f4; /* cards lift just above it */
+  --ink: #16161a;
+  --ink-soft: #736b5c;
+  --rule: rgba(20, 18, 14, 0.13);
+  --pen: #84631a;          /* gilt, darkened for AA contrast on paper (4.7:1) */
+  --on-pen: #fbf9f4;       /* text/icons drawn on a filled --pen surface */
+  --highlight: #3f5872;    /* slate-blue — the one other tinted color */
+  --success: #4c7a40;
+  --secondary: #e8e0d0;
+  --destructive: #9c4a32;
+  --radius: .5rem;
 
-  --shadow-card: 0 1px 2px rgb(0 0 0 / .04), 0 4px 16px rgb(0 0 0 / .06);
-  --shadow-lift: 0 8px 24px rgb(0 0 0 / .08), 0 16px 40px rgb(0 0 0 / .06);
-  --shadow-glass: 0 1px 2px rgb(0 0 0 / .04), 0 8px 32px rgb(0 0 0 / .08);
+  --shadow-card: 0 1px 2px rgb(20 18 14 / .05), 0 4px 16px rgb(20 18 14 / .07);
+  --shadow-lift: 0 10px 26px rgb(20 18 14 / .1), 0 18px 40px rgb(20 18 14 / .08), 0 0 0 1px color-mix(in srgb, var(--pen) 10%, transparent);
+  --shadow-glass: 0 1px 2px rgb(20 18 14 / .05), 0 8px 32px rgb(20 18 14 / .09);
+  --surface-bg: var(--paper-raised);
 }
 
 :root.dark {
   color-scheme: dark;
-  --paper: #000000;
-  --paper-raised: #1c1c1e;
-  --ink: #f5f5f7;
-  --ink-soft: #98989d;
-  --rule: #38383a;
-  --pen: #0a84ff;
-  --highlight: #ff9f0a;
-  --success: #30d158;
-  --secondary: #2c2c2e;
-  --destructive: #ff453a;
+  --paper: #08090c;
+  --paper-raised: #141922;
+  --ink: #e8e4dc;
+  --ink-soft: #a19c8f;
+  --rule: rgba(232, 228, 220, 0.14);
+  --pen: #c9a227;          /* gilt */
+  --on-pen: #14120a;
+  --highlight: #8fa8c9;    /* slate-blue */
+  --success: #7a9b5e;
+  --secondary: #1c222c;
+  --destructive: #c17a5f;
 
   --shadow-card: 0 1px 2px rgb(0 0 0 / .5), 0 4px 16px rgb(0 0 0 / .4);
-  --shadow-lift: 0 8px 24px rgb(0 0 0 / .55), 0 16px 40px rgb(0 0 0 / .45);
+  --shadow-lift: 0 12px 28px rgb(0 0 0 / .55), 0 20px 44px rgb(0 0 0 / .45), 0 0 0 1px color-mix(in srgb, var(--pen) 12%, transparent);
   --shadow-glass: 0 1px 2px rgb(0 0 0 / .5), 0 8px 32px rgb(0 0 0 / .5);
+  --surface-bg: linear-gradient(180deg, #171d27, #0d1015);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root:not(.light) {
+  /* :not(:where(...)) matters here, not :not(.light):not(.pink) — two
+     chained :not()s each add a class's worth of specificity (0,2,0 total),
+     which made this rule MORE specific than `:root.pink`/`:root.light` below
+     and so it kept winning over an explicit pink pick on a dark-mode OS.
+     :where() always contributes zero specificity, so wrapping the excluded
+     classes in it keeps this selector at plain-:root specificity (0,1,0) —
+     lower than any explicit `:root.<theme>` rule, so this is reliably just
+     the "OS prefers dark and nothing else was chosen" fallback, never a
+     competitor to an explicit choice. */
+  :root:not(:where(.light, .pink)) {
     color-scheme: dark;
-    --paper: #000000;
-    --paper-raised: #1c1c1e;
-    --ink: #f5f5f7;
-    --ink-soft: #98989d;
-    --rule: #38383a;
-    --pen: #0a84ff;
-    --highlight: #ff9f0a;
-    --success: #30d158;
-    --secondary: #2c2c2e;
-    --destructive: #ff453a;
+    --paper: #08090c;
+    --paper-raised: #141922;
+    --ink: #e8e4dc;
+    --ink-soft: #a19c8f;
+    --rule: rgba(232, 228, 220, 0.14);
+    --pen: #c9a227;
+    --on-pen: #14120a;
+    --highlight: #8fa8c9;
+    --success: #7a9b5e;
+    --secondary: #1c222c;
+    --destructive: #c17a5f;
 
     --shadow-card: 0 1px 2px rgb(0 0 0 / .5), 0 4px 16px rgb(0 0 0 / .4);
-    --shadow-lift: 0 8px 24px rgb(0 0 0 / .55), 0 16px 40px rgb(0 0 0 / .45);
+    --shadow-lift: 0 12px 28px rgb(0 0 0 / .55), 0 20px 44px rgb(0 0 0 / .45), 0 0 0 1px color-mix(in srgb, var(--pen) 12%, transparent);
     --shadow-glass: 0 1px 2px rgb(0 0 0 / .5), 0 8px 32px rgb(0 0 0 / .5);
+    --surface-bg: linear-gradient(180deg, #171d27, #0d1015);
   }
+}
+
+/* Light pink: a third, explicitly-chosen palette (never reached from
+   "system" — there's no OS-level "prefers pink" signal). Same construction
+   as the paper/ink light theme — blush paper, near-black-plum ink, a
+   rose/berry --pen instead of gilt — with the cooler slate-blue --highlight
+   kept as-is so "optimal move"/"high severity" tags stay legible against a
+   different-hued primary accent. */
+:root.pink {
+  color-scheme: light;
+  --paper: #fbeef0;
+  --paper-raised: #fffbfc;
+  --ink: #2a1620;
+  --ink-soft: #7a5762;
+  --rule: rgba(42, 22, 32, 0.12);
+  --pen: #a13a6c;
+  --on-pen: #fff7f9;
+  --highlight: #4d6480;
+  --success: #436b3c;
+  --secondary: #f3dce1;
+  --destructive: #9c4a32;
+
+  --shadow-card: 0 1px 2px rgb(42 22 32 / .05), 0 4px 16px rgb(42 22 32 / .07);
+  --shadow-lift: 0 10px 26px rgb(42 22 32 / .1), 0 18px 40px rgb(42 22 32 / .08), 0 0 0 1px color-mix(in srgb, var(--pen) 10%, transparent);
+  --shadow-glass: 0 1px 2px rgb(42 22 32 / .05), 0 8px 32px rgb(42 22 32 / .09);
+  --surface-bg: var(--paper-raised);
 }
 
 @layer base {
@@ -106,7 +167,7 @@
   button, input, textarea, select { font: inherit; }
   button { cursor: pointer; }
   :focus-visible { outline: 2px solid var(--pen); outline-offset: 2px; border-radius: 4px; }
-  ::selection { background: color-mix(in srgb, var(--pen) 25%, transparent); }
+  ::selection { background: color-mix(in srgb, var(--pen) 35%, transparent); }
 }
 
 @layer utilities {
@@ -126,9 +187,12 @@
   @supports not (backdrop-filter: blur(1px)) {
     .glass { background: var(--paper-raised); }
   }
-  /* Cards: elevation over outline. */
+  /* Cards: elevation over outline. Flat paper in light mode; in dark mode
+     --surface-bg carries a faint slate-to-ink gradient (lifted from the
+     .pv-c-card treatment in landing.css) so a card reads as a lit plate
+     against the ink page rather than a flat grey rectangle. */
   .surface {
-    background: var(--paper-raised);
+    background: var(--surface-bg);
     border: 1px solid color-mix(in srgb, var(--rule) 55%, transparent);
     box-shadow: var(--shadow-card);
   }
@@ -137,7 +201,7 @@
   .press { transition: transform .15s cubic-bezier(.4,0,.2,1); }
   .press:active { transform: scale(.97); }
 
-  /* Active nav indicator — soft blue pill behind the item. */
+  /* Active nav indicator — soft gilt pill behind the item. */
   .nav-pen-mark { position: relative; z-index: 0; }
   .nav-pen-mark::after {
     content: ''; position: absolute; inset: 0; z-index: -1; border-radius: inherit;
@@ -162,12 +226,22 @@
   /* Small caps label above a title. */
   .eyebrow { font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--pen); }
 
-  /* Primary action — blue capsule. */
+  /* Primary action — a gilt-outlined plate that fills solid gold on hover,
+     the same restrained "precious metal" move as the landing page's
+     .pv-primary button, tuned for a tinted (not fully transparent) resting
+     fill so it still reads as a button in a dense product screen. */
   .ink-stamp {
-    background: var(--pen); color: #fff; font-weight: 500; border-radius: 999px;
-    transition: background .3s cubic-bezier(.4,0,.2,1), transform .15s cubic-bezier(.4,0,.2,1), box-shadow .3s cubic-bezier(.4,0,.2,1);
+    background: color-mix(in srgb, var(--pen) 12%, transparent);
+    color: var(--pen);
+    border: 1px solid color-mix(in srgb, var(--pen) 55%, transparent);
+    font-weight: 600; letter-spacing: .01em; border-radius: var(--radius-lg);
+    transition: background .3s cubic-bezier(.4,0,.2,1), color .3s cubic-bezier(.4,0,.2,1),
+      border-color .3s cubic-bezier(.4,0,.2,1), transform .15s cubic-bezier(.4,0,.2,1), box-shadow .3s cubic-bezier(.4,0,.2,1);
   }
-  .ink-stamp:hover:not(:disabled) { background: color-mix(in srgb, var(--pen) 88%, #000); box-shadow: 0 8px 24px color-mix(in srgb, var(--pen) 30%, transparent); }
+  .ink-stamp:hover:not(:disabled) {
+    background: var(--pen); color: var(--on-pen); border-color: var(--pen);
+    box-shadow: 0 8px 24px color-mix(in srgb, var(--pen) 35%, transparent);
+  }
   .ink-stamp:active:not(:disabled) { transform: scale(.97); }
 
   /* Inline emphasis — tinted, not a marker pen. */
@@ -218,6 +292,6 @@
 .force-reduced-motion *, .force-reduced-motion *::before, .force-reduced-motion *::after {
   animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important;
 }
-.force-high-contrast { --rule: #6e6e73; --ink-soft: #3a3a3c; }
-.dark.force-high-contrast { --rule: #8e8e93; --ink-soft: #c7c7cc; }
+.force-high-contrast { --rule: #6b665a; --ink-soft: #302c22; }
+.dark.force-high-contrast { --rule: #9a9483; --ink-soft: #d9d4c5; }
 .force-high-contrast .surface, .force-high-contrast .glass { border-width: 1.5px; }

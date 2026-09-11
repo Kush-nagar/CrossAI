@@ -66,7 +66,7 @@ export function TabroomLinkPrompt() {
               Maybe later
             </button>
             <p className="text-center text-xs text-muted-foreground">
-              You can always link — or unlink — from Settings.
+              You can always link, or unlink, from Settings.
             </p>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { PreviewSwitcher } from './preview-switcher'
 import '../landing.css'
 
 export const metadata: Metadata = {
-  title: 'Cross — landing directions',
+  title: 'Cross: landing directions',
   description: 'Alternate landing-page directions kept for reference. Preview only.',
   robots: { index: false, follow: false },
 }

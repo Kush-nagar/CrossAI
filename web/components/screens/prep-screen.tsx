@@ -19,7 +19,7 @@ type StressCard = {
 }
 
 function scoreClass(score: number) {
-  if (score >= 70) return 'text-primary'
+  if (score >= 70) return 'text-success'
   if (score >= 40) return 'text-accent'
   return 'text-destructive'
 }
@@ -33,6 +33,8 @@ export function PrepScreen() {
   const [stressLoading, setStressLoading] = useState(false)
   const [stressResult, setStressResult] = useState<{ score: number; cards: StressCard[] } | null>(null)
   const [triage, setTriage] = useState<Record<number, 'prepped' | 'needswork' | undefined>>({})
+  const [uploadError, setUploadError] = useState('')
+  const [stressError, setStressError] = useState('')
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const active = cases.find((c) => c.path === activePath) || null
@@ -43,6 +45,7 @@ export function PrepScreen() {
     e.target.value = ''
     if (!file) return
     setUploading(true)
+    setUploadError('')
     try {
       const attachment = await uploadCase(file)
       const path = `uploaded/${file.name}`
@@ -52,7 +55,7 @@ export function PrepScreen() {
       setStressResult(null)
       addCaseRecord(file.name, attachment.kind)
     } catch (err) {
-      alert(`Couldn't attach ${file.name}: ${err instanceof Error ? err.message : 'Upload failed.'}`)
+      setUploadError(`Couldn't attach ${file.name}: ${err instanceof Error ? err.message : 'Upload failed.'}`)
     } finally {
       setUploading(false)
     }
@@ -77,12 +80,13 @@ export function PrepScreen() {
     if (!active) return
     setStressLoading(true)
     setStressResult(null)
+    setStressError('')
     try {
       const data = await runStressTest({ title: active.filename, content: active.text, mode: stressMode })
       setStressResult({ score: data.score, cards: data.cards as StressCard[] })
       setTriage({})
     } catch (err) {
-      alert(err instanceof Error ? err.message : 'Stress test failed.')
+      setStressError(err instanceof Error ? err.message : 'Stress test failed.')
     } finally {
       setStressLoading(false)
     }
@@ -102,6 +106,7 @@ export function PrepScreen() {
         }
       />
       <input ref={fileInputRef} type="file" accept=".docx,.pdf,.txt,.md,.html,.htm" hidden onChange={handleUpload} />
+      {uploadError && <p className="text-sm text-destructive">{uploadError}</p>}
 
       <div className="grid min-h-[650px] gap-5 xl:grid-cols-[260px_minmax(0,1fr)_300px]">
         <aside className="surface rounded-3xl p-4">
@@ -156,14 +161,12 @@ export function PrepScreen() {
                     </button>
                   ))}
                 </div>
-                <button
-                  onClick={runTest}
-                  className="press flex min-h-9 items-center gap-1.5 rounded-xl bg-primary px-3 text-xs font-semibold text-primary-foreground"
-                >
+                <InkButton onClick={runTest} className="!min-h-9 !gap-1.5 !px-3 !text-xs">
                   <Sparkles className="size-3.5" />
                   Stress Test
-                </button>
+                </InkButton>
               </header>
+              {stressError && <p className="px-5 pt-4 text-xs text-destructive md:px-7">{stressError}</p>}
               <div className="max-h-[600px] overflow-y-auto p-6 md:p-10">
                 {active.kind === 'pdf' ? (
                   <iframe src={active.url} title={active.filename} className="h-[560px] w-full rounded-xl border" />
@@ -179,7 +182,7 @@ export function PrepScreen() {
             <div className="flex h-full min-h-[500px] flex-col items-center justify-center gap-4 p-10 text-center">
               <span className="size-8 animate-spin rounded-full border-2 border-border border-t-primary" />
               <p className="text-sm text-muted-foreground">
-                {stressMode === 'full' ? 'Running full stress test — a thorough audit takes a moment…' : 'Running skim stress test…'}
+                {stressMode === 'full' ? 'Running full stress test: a thorough audit takes a moment…' : 'Running skim stress test…'}
               </p>
             </div>
           )}
@@ -242,7 +245,7 @@ export function PrepScreen() {
             <b className="text-foreground">Note:</b> only one contention can be stress tested at a time.
           </p>
           <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-            Skim is a fast focused gut-check. Full is an exhaustive audit — flaw cards suggest a fix; predicted-attack cards
+            Skim is a fast focused gut-check. Full is an exhaustive audit: flaw cards suggest a fix; predicted-attack cards
             withhold the answer so you build your own frontline.
           </p>
         </aside>

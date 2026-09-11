@@ -4,6 +4,7 @@
 // and CommandBar all render from this one list.
 
 import {
+  AudioLines,
   Bot,
   Home,
   Library,
@@ -31,6 +32,7 @@ export const navItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/home', icon: Home, primary: true, mobile: true },
   { id: 'prep', label: 'Prep', href: '/prep', icon: Library, primary: true, mobile: true },
   { id: 'drill', label: 'Drill', href: '/drill', icon: Target, primary: true, mobile: true },
+  { id: 'insight', label: 'Insight', href: '/insight', icon: AudioLines, primary: true, mobile: true },
   { id: 'judges', label: 'Judges', href: '/judges', icon: Users, primary: true, mobile: false },
   { id: 'coach', label: 'CrossCoach', href: '/coach', icon: Bot, primary: true, mobile: true },
   { id: 'tournament', label: 'Tournament', href: '/tournament', icon: Trophy, primary: false, mobile: false },
@@ -52,6 +54,7 @@ export type CommandAction = {
 
 export const commandActions: CommandAction[] = [
   { id: 'record-speech', label: 'Record a speech', icon: Mic, href: '/drill' },
+  { id: 'get-insight', label: 'Get feedback on a round speech', icon: AudioLines, href: '/insight' },
   { id: 'new-case', label: 'Upload a new case', icon: Upload, href: '/prep' },
   { id: 'ask-coach', label: 'Ask CrossCoach', icon: Sparkles, href: '/coach' },
   { id: 'new-chat', label: 'Start a new chat', icon: Plus, href: '/coach' },

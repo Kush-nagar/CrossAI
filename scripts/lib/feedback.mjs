@@ -17,7 +17,7 @@ const FEEDBACK_PATH = path.join(ROOT, "feedback.json");
 
 const MAX_ENTRIES = 200; // keep the file bounded; oldest entries roll off
 const PROMPT_ENTRIES = 10; // how many recent complaints reach the prompt
-const VALID_ROUTES = new Set(["chat", "drill", "stress-test", "strategy"]);
+const VALID_ROUTES = new Set(["chat", "drill", "stress-test", "strategy", "recording-insight"]);
 
 // The randomized sampler: one roll per AI response (the client mirrors this
 // rate for streamed chat). 0.2 = ask on roughly 1 in 5 responses.

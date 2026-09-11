@@ -318,7 +318,7 @@ async function main() {
     }
 
     console.log(`  [stt] transcribing ${Math.round(durationSec)}s of audio (Groq → Hume EVI → local Whisper)…`);
-    const { text: rawText, tone } = await transcribeAudio(audio);
+    const { text: rawText, tone } = await transcribeAudio(audio, { ext: "mp3" }); // extractAudio() encodes to mp3
     if (!rawText.trim()) {
       console.log(`  Skipping ${entry.name} (no speech detected).`);
       continue;

@@ -61,7 +61,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       return
     }
     if (!transcript) {
-      setMessage('No speech detected — try again.')
+      setMessage('No speech detected: try again.')
       return
     }
     try {
@@ -72,7 +72,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
         const hint = next.mismatches.length
           ? ` Misheard: ${next.mismatches.slice(0, 4).map((m) => `"${m.from}"→"${m.to}"`).join(', ')}.`
           : ''
-        setMessage(`Take not recorded — too far off script (${werPct}% word error). Try again.${hint}`)
+        setMessage(`Take not recorded: too far off script (${werPct}% word error). Try again.${hint}`)
         return
       }
       if (next.calibrated) {
@@ -81,8 +81,8 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
       }
       setMessage(
         next.wasCorrect
-          ? 'Take recorded — matched the script exactly.'
-          : `Take recorded — ${next.corrections.length} correction(s) noted.`,
+          ? 'Take recorded: matched the script exactly.'
+          : `Take recorded: ${next.corrections.length} correction(s) noted.`,
       )
     } catch (err) {
       setMessage(err instanceof Error ? err.message : "Couldn't save this take.")
@@ -105,7 +105,7 @@ export function OnboardingProvider({ children }: { children: React.ReactNode }) 
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
               {status.pace === 'spread'
-                ? 'Read this aloud at spread/competition speed — as fast as you would in a real technical round:'
+                ? 'Read this aloud at spread/competition speed, as fast as you would in a real technical round:'
                 : 'Read this aloud, at your normal debate pace:'}
             </p>
             <p className="surface mt-3 rounded-2xl p-4 text-base leading-relaxed">{status.script}</p>

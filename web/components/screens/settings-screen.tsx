@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Gavel, Headphones, LogOut, Monitor, Moon, SlidersHorizontal, Sun } from 'lucide-react'
+import { Gavel, Headphones, Heart, LogOut, Monitor, Moon, SlidersHorizontal, Sun } from 'lucide-react'
 import { InkButton, PageTitle, SettingsGroup, Field, Toggle } from '@/components/ui/primitives'
 import { getVoiceProfileStatus, resetVoiceProfile, type VoiceProfileStatus } from '@/lib/api'
 import { useOnboarding } from '@/components/onboarding/onboarding-overlay'
@@ -20,16 +20,17 @@ const TABS: { value: SettingsTab; label: string; icon: typeof Gavel }[] = [
 const THEME_OPTIONS: { value: Theme; label: string; icon: typeof Sun }[] = [
   { value: 'light', label: 'Light', icon: Sun },
   { value: 'dark', label: 'Dark', icon: Moon },
+  { value: 'pink', label: 'Pink', icon: Heart },
   { value: 'system', label: 'System', icon: Monitor },
 ]
 
 function calibrationStatusText(status: VoiceProfileStatus | null): string {
   if (!status) return "Couldn't load calibration status."
   if (status.calibrated) {
-    return `Voice calibrated — ${status.sampleCount} takes recorded, ${status.correctionCount} correction${status.correctionCount === 1 ? '' : 's'} learned.`
+    return `Voice calibrated: ${status.sampleCount} takes recorded, ${status.correctionCount} correction${status.correctionCount === 1 ? '' : 's'} learned.`
   }
-  if (status.sampleCount === 0) return `Not calibrated yet — 0 of ${status.total} takes recorded.`
-  return `In progress — ${status.sampleCount} of ${status.total} takes recorded, ${status.correctionCount} correction${status.correctionCount === 1 ? '' : 's'} learned so far.`
+  if (status.sampleCount === 0) return `Not calibrated yet: 0 of ${status.total} takes recorded.`
+  return `In progress: ${status.sampleCount} of ${status.total} takes recorded, ${status.correctionCount} correction${status.correctionCount === 1 ? '' : 's'} learned so far.`
 }
 
 function calibrationButtonLabel(status: VoiceProfileStatus | null, resetArmed: boolean): string {
@@ -153,7 +154,7 @@ export function SettingsScreen() {
             <input
               value={prefs.displayName || username || ''}
               onChange={(e) => updatePrefs({ displayName: e.target.value })}
-              className="w-full rounded-xl border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+              className="w-full rounded-xl border bg-background px-4 py-3 outline-none focus:ring-2 focus:ring-pen"
             />
           </Field>
           <div className="grid gap-4 md:grid-cols-2">
@@ -163,9 +164,10 @@ export function SettingsScreen() {
                 onChange={(e) => updatePrefs({ format: e.target.value })}
                 className="w-full rounded-xl border bg-background px-4 py-3"
               >
-                <option>Policy debate</option>
+                <option>Policy</option>
                 <option>Lincoln-Douglas</option>
                 <option>Public Forum</option>
+                <option>Parliamentary</option>
               </select>
             </Field>
             <Field label="Experience level">

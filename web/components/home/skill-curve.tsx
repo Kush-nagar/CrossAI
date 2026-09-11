@@ -25,6 +25,10 @@ export function SkillCurve({ snapshots }: { snapshots: DeliverySnapshot[] }) {
   const takes = snapshots.filter((s) => s.score != null).slice(-WINDOW)
 
   if (takes.length === 0) {
+    // Recording Insight (real round feedback) logs practice with no score to
+    // plot — this chart is drill-only. Say so instead of implying no
+    // practice has happened at all when snapshots exist from that route.
+    const practicedElsewhere = snapshots.length > 0
     return (
       <section className="surface flex flex-col items-start gap-3 rounded-xl p-6 md:p-7">
         <div>
@@ -32,7 +36,9 @@ export function SkillCurve({ snapshots }: { snapshots: DeliverySnapshot[] }) {
           <p className="text-xs text-muted-foreground">Last {WINDOW} sessions</p>
         </div>
         <p className="max-w-sm text-sm text-muted-foreground">
-          No graded speeches yet — record a spoken drill and Cross will chart your score over time here.
+          {practicedElsewhere
+            ? "You've logged practice through round feedback, but nothing's been graded yet. A scored drill will start this chart."
+            : 'No graded speeches yet: record a spoken drill and Cross will chart your score over time here.'}
         </p>
         <Link href="/drill">
           <InkButton>Record a drill</InkButton>

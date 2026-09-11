@@ -1,4 +1,5 @@
 node_modules/
+.DS_Store
 # Cheap to build (~30s, no embedding model, no network) — unlike
 # corpus-index.json, so it's rebuilt at deploy/dev time instead of
 # committed. At current corpus size this file runs 300MB+, well over
