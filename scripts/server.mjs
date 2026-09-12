@@ -1860,8 +1860,18 @@ app.post("/api/insight/grade", aiGuards, async (req, res) => {
   try {
     system = await buildSystemPrompt({
       corpusMode: "retrieval",
+      // Phrased toward judge RFD/decision-process language rather than
+      // generic "speech critique, delivery coaching" — measured to pull a
+      // more relevant judging/ section on at least some topics (a real PF
+      // rebuttal tested closer to actual paradigm voting rules: "offense
+      // must appear in both summary and final focus," "defense isn't
+      // sticky"). On other topics it made no difference (the corpus simply
+      // doesn't have enough judging-relevant candidates to discriminate
+      // between), but it never scored worse in testing — low-confidence but
+      // harmless, kept as a secondary nudge on top of retrievalBoostDirs below.
       retrievalQuery:
-        `${topic} ${speechType} Public Forum round feedback, speech critique, delivery coaching\n${speechText}`,
+        `${topic} ${speechType} judge RFD reason for decision, weighing and comparative analysis, dropped and ` +
+        `extended arguments, judge paradigm decision process and speaker feedback\n${speechText}`,
       // This is feedback on a REAL delivered speech, not a hypothetical —
       // bias retrieval toward real rounds/RFDs (what winning execution
       // actually looks like) and judge-paradigm data (what wins a ballot),
