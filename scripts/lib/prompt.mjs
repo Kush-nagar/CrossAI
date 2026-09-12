@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { getProfileSummaryForPrompt } from "./voiceProfile.mjs";
 import { getFeedbackSummaryForPrompt } from "./feedback.mjs";
 import { listCorpusPaths, buildCorpusManifest, CORE_DIRS } from "./corpusSearch.mjs";
+import { hasWebSearch } from "./webSearch.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -137,6 +138,31 @@ async function buildRetrievalCorpusSection() {
   );
 }
 
+// Only appended when hasWebSearch() is true (a search API key is configured),
+// exactly matching the condition server.mjs uses to add web_search to
+// chatTools — so this guidance travels with the tool whenever it's actually
+// offered, never as dead instruction text when it isn't.
+const WEB_SEARCH_SECTION =
+  "\n\n## Live Web Lookup (time-sensitive facts only)\n\n" +
+  "You also have a `web_search` tool for the narrow case your corpus and internalized understanding genuinely " +
+  "can't cover: something provably time-sensitive — the exact current topic/resolution wording, a recent " +
+  "tournament result, a rule or circuit norm that just changed. It exists so you never have to fall back on " +
+  "disclaiming a training cutoff — if a debater asks something current and you don't know it, search, don't " +
+  "excuse.\n" +
+  "- Reach for it ONLY for that kind of provably time-sensitive fact. Argument structure, how a position is " +
+  "typically run or answered, evidence quality, strategy, weighing — none of that is 'time-sensitive'; that " +
+  "stays corpus/internalized judgment, exactly as it already does without this tool.\n" +
+  "- This is the same invisible bookkeeping as search_corpus, and the same corpus-privacy rule applies to it: " +
+  "never narrate that you looked something up, and never attribute the fact to ANY source, named or vague — no " +
+  "URL, title, publish date, author, or phrase like 'according to the NSDA topics page', 'confirmed by multiple " +
+  "sources', 'per a recent article', or 'the official site says'. State the current fact flatly, the way you'd " +
+  "state anything else you know, with no attribution clause anywhere in the sentence.\n" +
+  "- The debater must never be able to tell, from anything you say, whether an answer came from the corpus or " +
+  "from this lookup — it is purely an internal routing decision between two silent sources, never a distinction " +
+  "the reply exposes.\n" +
+  "- If the lookup comes back empty, say plainly that you don't have that yet and ask for the specific detail " +
+  "(e.g. the exact resolution wording) — never guess or invent a current fact.";
+
 // --- Chat modes -----------------------------------------------------------
 // The CrossCoach panel has a Pre-Round toggle. General mode is for debate
 // knowledge and skill-building; Pre-Round mode is for prepping a specific
@@ -245,8 +271,12 @@ export async function buildSystemPrompt({ corpusMode = "full", chatMode, retriev
   // emergency fallback for the retrieval mode).
   const wantRetrieval =
     corpusMode === "retrieval" && retrievalQuery && process.env.CORPUS_MODE !== "full";
-  if (corpusMode === "tools") prompt += await buildRetrievalCorpusSection();
-  else if (wantRetrieval) prompt += await buildRetrievedChunksSection(retrievalQuery, retrievalBoostDirs);
+  if (corpusMode === "tools") {
+    prompt += await buildRetrievalCorpusSection();
+    // Travels with the tool exactly when server.mjs actually offers it
+    // (same hasWebSearch() condition gates both).
+    if (hasWebSearch()) prompt += WEB_SEARCH_SECTION;
+  } else if (wantRetrieval) prompt += await buildRetrievedChunksSection(retrievalQuery, retrievalBoostDirs);
   else prompt += await buildFullCorpusSection();
   if (chatMode === "general") prompt += GENERAL_MODE_SECTION;
   else if (chatMode === "preround") prompt += PREROUND_MODE_SECTION;
@@ -261,6 +291,21 @@ export async function buildSystemPrompt({ corpusMode = "full", chatMode, retriev
   const feedbackSummary = await getFeedbackSummaryForPrompt();
   if (feedbackSummary) {
     prompt += "\n\n## Response Feedback (self-correction)\n\n" + feedbackSummary;
+  }
+
+  // Date anchor for web_search: without this, a query for "the current topic"
+  // has no way to know what year it actually is and can search (and confirm)
+  // last year's cycle instead — confirmed by testing, not hypothetical.
+  // Appended dead last, after every other section, so this is the only part
+  // of the prompt whose cache value resets daily; everything ahead of it
+  // (the large corpus block especially) keeps its cache value between days.
+  // Gated on hasWebSearch() since anchoring "current" is only load-bearing
+  // for that tool's queries.
+  if (hasWebSearch()) {
+    const today = new Date().toISOString().slice(0, 10);
+    prompt +=
+      `\n\n## Current Date\n\nToday's date is ${today}. Use this to ground any web_search query for "current" or ` +
+      "\"this cycle\" in the right year — never assume or guess a year from general knowledge when it's needed for a search.";
   }
 
   return prompt;

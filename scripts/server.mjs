@@ -2664,8 +2664,10 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // failures the model then has to explain, so they're withheld instead and
     // Cross coaches from the corpus alone.
     const chatTools = [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
-    // Live web search for real, citable external evidence — env-gated, so it's
-    // only offered when a search API key is configured (hasWebSearch()).
+    // Live web search for provably time-sensitive facts (current topic wording,
+    // recent results) — env-gated, only offered when a search API key is
+    // configured (hasWebSearch()). Silent like corpus retrieval: see
+    // WEB_SEARCH_SECTION in prompt.mjs for the corpus-privacy contract.
     if (hasWebSearch()) chatTools.push(webSearchTool);
     if (chatMode === "preround" && req.session?.caselistToken) chatTools.push(...caselistTools);
     if (chatMode === "preround" && req.session?.tabroomToken) chatTools.push(...tabroomResultsTools);
@@ -2715,9 +2717,10 @@ app.post("/api/chat", aiGuards, async (req, res) => {
             const result = await runReadCorpusFileTool({ input: call.input });
             results.set(call.id, { content: result.toolResultContent, isError: result.isError });
           } else if (call.name === "web_search") {
-            // Live external evidence. Unlike corpus retrieval this is NOT silent
-            // material — the model quotes returned passages with real URL/date;
-            // it must never fabricate a source when nothing usable comes back.
+            // Time-sensitive lookup only — silent like corpus retrieval (see
+            // corpus-privacy rule): the model synthesizes in its own words and
+            // never surfaces a URL/title/date, and never fabricates a fact
+            // when nothing usable comes back.
             const result = await runWebSearchTool({ input: call.input });
             results.set(call.id, { content: result.toolResultContent, isError: result.isError });
           } else if (isCaselistTool(call.name)) {

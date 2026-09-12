@@ -730,29 +730,41 @@ export async function runTabroomTool(toolUseBlock, token) {
   }
 }
 
-// --- Live web search (ported from CrossAcademy) --------------------------
-// Real external evidence for the stress-test's predicted attacks. Env-gated
-// (needs a search API key); hasWebSearch() is false when unconfigured, so the
-// stress-test route simply omits the tool. See lib/webSearch.mjs.
+// --- Live web search (chat's on-demand time-sensitive lookup) ------------
+// Backs /api/chat's search_corpus/read_corpus_file sibling for anything that
+// is provably time-sensitive — current topic wording, recent tournament
+// results, a just-changed rule — where the static corpus can't be current.
+// Env-gated (needs a search API key); hasWebSearch() is false when
+// unconfigured, so /api/chat simply omits the tool. See lib/webSearch.mjs.
+//
+// Same corpus-privacy contract as the corpus tools: this is silent internal
+// retrieval, not a citable source list. The debater must never learn whether
+// an answer came from the corpus or the web, so results are handed back for
+// grounding only — the model synthesizes in its own words and never repeats
+// a URL, title, publish date, or the fact that it searched at all. See the
+// web-search system-prompt section in prompt.mjs for the full instruction.
 export { hasWebSearch };
 
 export const webSearchTool = {
   name: "web_search",
   description:
-    "Search the live web for REAL, citable evidence that substantiates a predicted opponent attack (or, for a " +
-    "construction flaw, the kind of card the debater should go cut to fix it). Returns real results — title, URL, " +
-    "publish date, and a quotable snippet. Use it to build a carded example the debater can actually pull: quote ONLY " +
-    "text that appears in a returned snippet and attribute it to that result's real title/URL/date. Never invent a " +
-    "source, an author, a stat, or a quote — if nothing usable comes back, say what to search for instead of " +
-    "fabricating a cite.",
+    "Silently look up something provably time-sensitive that a static training corpus can't be current on — the " +
+    "exact current topic/resolution wording, a recent tournament result, a just-changed rule. NOT for argument " +
+    "structure, strategy, evidence quality, or 'what does a strong card look like' — that's corpus/internalized " +
+    "judgment territory. Returns real results (title, URL, date, snippet) as grounding material only: synthesize " +
+    "into your own words in the reply, never quote a snippet verbatim, and never attribute the fact to any " +
+    "source at all — no URL, title, publish date, author, or a vaguer stand-in like 'confirmed by the " +
+    "official site' or 'per multiple sources'. State it flatly, like anything else you know " +
+    "(corpus-privacy rule — same silence as search_corpus). Never invent a fact if nothing usable comes " +
+    "back — say so plainly instead.",
   input_schema: {
     type: "object",
     properties: {
       query: {
         type: "string",
         description:
-          "A focused search query for the claim you need to back — include the actor, mechanism, and any year/stat " +
-          "(e.g. 'US semiconductor export controls 2024 China chip production impact').",
+          "A focused search query for the current fact you need — include the actor/event and any year " +
+          "(e.g. 'current Public Forum resolution September October 2026').",
       },
       maxResults: {
         type: "integer",
@@ -768,7 +780,7 @@ export async function runWebSearchTool(toolUseBlock) {
   try {
     const results = await webSearch(query, { maxResults: maxResults || 4 });
     if (results.length === 0) {
-      return { toolResultContent: `No web results for "${query}". Do not fabricate one — describe what to search for instead.`, isError: false };
+      return { toolResultContent: `No web results for "${query}". Don't fabricate an answer — tell the debater plainly that you don't have this yet.`, isError: false };
     }
     const text = results
       .map((r, i) => {
@@ -776,9 +788,15 @@ export async function runWebSearchTool(toolUseBlock) {
         return `[${i + 1}] ${r.title || "Untitled"}${date}\n    URL: ${r.url}\n    Passage: ${r.snippet}`;
       })
       .join("\n\n");
-    return { toolResultContent: `Real web results — quote only from these passages and cite the real URL/date:\n\n${text}`, isError: false };
+    return {
+      toolResultContent:
+        `Internal grounding only. State the current fact flatly, with no attribution at all — no URL, title, ` +
+        `date, author, or a vaguer stand-in like "confirmed by the official site" or "per multiple sources," and ` +
+        `no mention that this was searched:\n\n${text}`,
+      isError: false,
+    };
   } catch (err) {
-    return { toolResultContent: `Web search failed: ${err.message}. Do not invent a source — note what the debater should search for.`, isError: true };
+    return { toolResultContent: `Web search failed: ${err.message}. Don't invent a fact — tell the debater plainly that you don't have this yet.`, isError: true };
   }
 }
 

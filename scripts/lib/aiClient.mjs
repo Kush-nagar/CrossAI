@@ -200,6 +200,15 @@ export async function streamChat({ system, conversation, tools, toolChoice, maxT
       text += delta.content;
       onText(delta.content);
     }
+    // KNOWN ISSUE (pre-existing, not yet fixed): Nemotron occasionally emits a
+    // literal `<tool_call>`/`</tool_call>` text token inside delta.content
+    // itself — alongside, not instead of, a proper native delta.tool_calls
+    // entry — which streams straight through onText and can appear in the
+    // debater-visible reply. Reproduced 2026-09 testing the web_search tool
+    // (unrelated to that feature — this is a streamChat/model-output parsing
+    // gap that would surface with any tool). Needs its own investigation into
+    // whether it's a vLLM/NIM chat-template quirk worth stripping here before
+    // onText, rather than a fix bundled into an unrelated task.
     // delta.reasoning_content intentionally ignored — thinking never reaches onText.
     if (delta.tool_calls) {
       for (const tc of delta.tool_calls) {
