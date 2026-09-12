@@ -318,10 +318,29 @@ export async function fileSimilarities(query) {
  * full case, a drill speech) exceed the embedding model's window, so the
  * query is probed in segments and hit scores merged; overlapping/adjacent
  * chunks from the same file are coalesced into single ranges.
+ *
+ * `boostDirs` lets a caller whose task specifically wants coaching material
+ * from certain top-level training-data folders (e.g. Insight coaching from
+ * real rounds + judge paradigms) even when that folder's content doesn't
+ * naturally rank near the global top-k on raw similarity to the query text.
+ * That's the normal case here, not an edge case: a debate speech transcript
+ * reads nothing like a judge-paradigm write-up, so on plain similarity
+ * `judging/` content can sit 50+ ranks below `rounds/` content for a
+ * rebuttal-shaped query even though it's exactly the material the feedback
+ * should be judged against. Rescaling scores *within* the already-selected
+ * top-k*2 candidate window doesn't fix that — the boosted folder's chunks
+ * usually aren't in that window at all. So boostDirs instead reserves a
+ * fraction of k (`boostReserve`, default ~1/3) for a SEPARATE folder-filtered
+ * search of each boosted dir, guaranteeing representation regardless of how
+ * it compares to the rest of the corpus, with the remaining slots filled by
+ * ordinary global-similarity ranking as before. Default (no boostDirs) is
+ * unchanged — pure similarity ranking, as every existing caller (stress-test,
+ * strategy-mode, drill) relies on.
+ *
  * Returns [{path, title, offset, length, score}] sorted by score, [] if the
  * index is unavailable.
  */
-export async function retrieveChunks(query, { k = 12 } = {}) {
+export async function retrieveChunks(query, { k = 12, boostDirs, boostReserve = 1 / 3 } = {}) {
   const text = (query || "").trim();
   if (!text) return [];
 
@@ -345,7 +364,59 @@ export async function retrieveChunks(query, { k = 12 } = {}) {
     }
   }
 
-  const top = [...best.values()].sort((a, b) => b.score - a.score).slice(0, k);
+  const boostSet = boostDirs && boostDirs.length ? new Set(boostDirs) : null;
+  let reservedHits = [];
+  if (boostSet) {
+    // Reserve per DIRECTORY, not per boosted-set: filtering to the combined
+    // set still lets a folder that's more textually similar to speech
+    // transcripts (rounds/) crowd out one that isn't (judging/) inside the
+    // shared reserved allotment. Each dir gets its own guaranteed slice, so a
+    // folder with a fundamentally different writing style (a paradigm
+    // write-up vs. a debate speech) still gets real estate.
+    //
+    // The window has to cover the WHOLE index, not just a generously wide
+    // slice: for a query far from a boosted dir's usual subject matter (e.g.
+    // an AI-regulation speech vs. judging/'s generic paradigm write-ups),
+    // that dir's best match can rank 190+ corpus-wide — a k*8-or-100 window
+    // was measured missing it entirely, silently returning zero reserved
+    // hits for that dir despite the dir having real (if lower-scoring)
+    // content. Scoring the full index costs nothing extra here — searchIndex
+    // already computes a similarity score for every chunk before truncating
+    // to k; only the truncation itself was hiding real matches.
+    const index = await loadIndex();
+    const fullK = index?.chunks?.length || 10000;
+    const dirList = [...boostSet];
+    const perDir = Math.max(1, Math.round((k * boostReserve) / dirList.length));
+    for (const dir of dirList) {
+      const dirBest = new Map();
+      for (const probe of probes) {
+        for (const hit of await searchIndex(probe, { k: fullK })) {
+          if (hit.path.split("/")[0] !== dir) continue;
+          const key = `${hit.path}:${hit.offset}`;
+          if (!dirBest.has(key) || dirBest.get(key).score < hit.score) dirBest.set(key, hit);
+        }
+      }
+      reservedHits.push(...[...dirBest.values()].sort((a, b) => b.score - a.score).slice(0, perDir));
+    }
+    // Fold reserved hits into `best` too (dedup by key) so a chunk that's
+    // both globally top-ranked AND in a boosted dir isn't double-counted.
+    for (const hit of reservedHits) {
+      const key = `${hit.path}:${hit.offset}`;
+      if (!best.has(key) || best.get(key).score < hit.score) best.set(key, hit);
+    }
+  }
+
+  let top;
+  if (boostSet && reservedHits.length) {
+    const reservedKeys = new Set(reservedHits.map((h) => `${h.path}:${h.offset}`));
+    const rest = [...best.values()]
+      .filter((h) => !reservedKeys.has(`${h.path}:${h.offset}`))
+      .sort((a, b) => b.score - a.score)
+      .slice(0, Math.max(0, k - reservedHits.length));
+    top = [...reservedHits, ...rest].sort((a, b) => b.score - a.score);
+  } else {
+    top = [...best.values()].sort((a, b) => b.score - a.score).slice(0, k);
+  }
 
   // Coalesce overlapping/adjacent ranges within a file (chunks overlap by
   // design) so the prompt doesn't repeat text.
