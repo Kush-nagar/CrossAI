@@ -1818,6 +1818,14 @@ const INSIGHT_FEEDBACK_RULES =
   `answer key. There is no "optimal move" to compare against; coach what's actually in the transcript.\n` +
   `- Structure the feedback the way a post-round debrief works (CROSS.md §2): what won or lost this speech's job, ` +
   `what to fix by the next time they give this speech, and what to keep doing.\n` +
+  `- Ground the judgment in the deep coaching material from your training corpus, not in glossary-level ` +
+  `definitions: use the case-construction marks (embedded weighing & round vision, spikes, evidence quality, ` +
+  `collapse flexibility) and the frontlining methodology to judge whether responses and warrants were actually ` +
+  `built and answered well; use the judge-paradigm and cross-judge-consensus data to judge what actually won or ` +
+  `lost this speech's job; and use real tournament rounds and RFDs (the emerald-ag set is ground truth for ` +
+  `circuit-level execution) as your exemplar of what winning execution at this level actually sounds like, not ` +
+  `just textbook definitions. Apply the pattern, never the content — per the corpus-privacy rule, none of this ` +
+  `material is ever referenced by file, case, or cite.\n` +
   `- "strengths" and "weaknesses" both walk the speech itself: quote or closely paraphrase the specific line, then ` +
   `note what it accomplished or missed. Ground every note in the transcript actually given — never invent content ` +
   `that isn't there.\n` +
@@ -1852,8 +1860,25 @@ app.post("/api/insight/grade", aiGuards, async (req, res) => {
   try {
     system = await buildSystemPrompt({
       corpusMode: "retrieval",
+      // Phrased toward judge RFD/decision-process language rather than
+      // generic "speech critique, delivery coaching" — measured to pull a
+      // more relevant judging/ section on at least some topics (a real PF
+      // rebuttal tested closer to actual paradigm voting rules: "offense
+      // must appear in both summary and final focus," "defense isn't
+      // sticky"). On other topics it made no difference (the corpus simply
+      // doesn't have enough judging-relevant candidates to discriminate
+      // between), but it never scored worse in testing — low-confidence but
+      // harmless, kept as a secondary nudge on top of retrievalBoostDirs below.
       retrievalQuery:
-        `${topic} ${speechType} Public Forum round feedback, speech critique, delivery coaching\n${speechText}`,
+        `${topic} ${speechType} judge RFD reason for decision, weighing and comparative analysis, dropped and ` +
+        `extended arguments, judge paradigm decision process and speaker feedback\n${speechText}`,
+      // This is feedback on a REAL delivered speech, not a hypothetical —
+      // bias retrieval toward real rounds/RFDs (what winning execution
+      // actually looks like) and judge-paradigm data (what wins a ballot),
+      // the two folders INSIGHT_FEEDBACK_RULES specifically tells the model
+      // to coach from, over whatever else scores marginally higher on raw
+      // similarity to the topic/speech text.
+      retrievalBoostDirs: ["rounds", "judging"],
     });
   } catch (err) {
     res.status(500).json({ error: `Failed to build system prompt: ${err.message}` });
@@ -2193,6 +2218,8 @@ app.post("/api/insight/grade-round", aiGuards, async (req, res) => {
     system = await buildSystemPrompt({
       corpusMode: "retrieval",
       retrievalQuery: `${topic} Public Forum round debrief, collapse strategy, weighing, round vision\n${combinedText}`,
+      // Same reasoning as /api/insight/grade — see comment there.
+      retrievalBoostDirs: ["rounds", "judging"],
     });
   } catch (err) {
     res.status(500).json({ error: `Failed to build system prompt: ${err.message}` });

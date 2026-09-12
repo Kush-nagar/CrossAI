@@ -52,11 +52,11 @@ async function buildFullCorpusSection() {
 // the one-shot routes, which previously paid full price on the whole corpus
 // anyway. Falls back to the full corpus if the index isn't available (or
 // CORPUS_MODE=full is set for A/B comparison).
-async function buildRetrievedChunksSection(retrievalQuery) {
+async function buildRetrievedChunksSection(retrievalQuery, retrievalBoostDirs) {
   let chunks = [];
   try {
     const { retrieveChunks } = await import("./corpusIndex.mjs");
-    chunks = await retrieveChunks(retrievalQuery, { k: 12 });
+    chunks = await retrieveChunks(retrievalQuery, { k: 12, boostDirs: retrievalBoostDirs });
   } catch {
     chunks = [];
   }
@@ -237,7 +237,7 @@ const PREROUND_MODE_SECTION =
   JUDGE_INTEL_SECTION +
   SCOUTING_SECTION;
 
-export async function buildSystemPrompt({ corpusMode = "full", chatMode, retrievalQuery } = {}) {
+export async function buildSystemPrompt({ corpusMode = "full", chatMode, retrievalQuery, retrievalBoostDirs } = {}) {
   const voiceProfileSummary = await getProfileSummaryForPrompt();
 
   let prompt = await fs.readFile(IDENTITY_MD, "utf8");
@@ -246,7 +246,7 @@ export async function buildSystemPrompt({ corpusMode = "full", chatMode, retriev
   const wantRetrieval =
     corpusMode === "retrieval" && retrievalQuery && process.env.CORPUS_MODE !== "full";
   if (corpusMode === "tools") prompt += await buildRetrievalCorpusSection();
-  else if (wantRetrieval) prompt += await buildRetrievedChunksSection(retrievalQuery);
+  else if (wantRetrieval) prompt += await buildRetrievedChunksSection(retrievalQuery, retrievalBoostDirs);
   else prompt += await buildFullCorpusSection();
   if (chatMode === "general") prompt += GENERAL_MODE_SECTION;
   else if (chatMode === "preround") prompt += PREROUND_MODE_SECTION;
