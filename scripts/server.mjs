@@ -43,6 +43,7 @@ import { scoreLedger, scoreMoves } from "./lib/bayes.mjs";
 import { login as caselistLogin, CaselistError } from "./lib/caselistClient.mjs";
 import { login as tabroomLogin, lookupJudgeByName, lookupJudgeById, TabroomJudgeError } from "./lib/tabroomJudgeClient.mjs";
 import { createSession, readSession, destroySession, invalidateLinkCache } from "./lib/session.mjs";
+import { isDemoGateEnabled, demoPasswordMatches, issueDemoGateCookie, hasDemoGatePass, renderDemoGatePage } from "./lib/demoGate.mjs";
 import {
   hasAuthCredentials,
   createPkcePair,
@@ -170,6 +171,54 @@ app.use((req, res, next) => {
   if (req.path.startsWith("/api/")) res.set("Cache-Control", "no-store");
   next();
 });
+
+// --- Demo gate (optional, pre-auth) --------------------------------------
+// A single shared password in front of EVERYTHING below it — including the
+// Cross sign-in screen and every /api/* route — for sharing a public demo
+// build without opening it to the world. Fully inert unless
+// DEMO_GATE_ENABLED=true (see .env.example); the real account gate ("THE
+// GATE" further down) is unrelated and unaffected either way. No database —
+// see scripts/lib/demoGate.mjs for the signed-cookie scheme.
+//
+// Registered before static mounts, /api/auth/*, and the Next.js fallthrough,
+// so nothing downstream is reachable without it. In dev, `npm run dev` runs
+// Next as its own process on :3001 that only proxies /api/* to this server —
+// real page loads never hit Express — so this only gates API calls locally.
+// In prod, Express serves Next in-process as the last-registered route, so
+// this gates pages and API alike.
+if (isDemoGateEnabled()) {
+  const demoGateRateLimiter = rateLimit({
+    windowMs: 60 * 1000,
+    limit: Number(process.env.DEMO_GATE_LIMIT_PER_MINUTE) || 10,
+    standardHeaders: "draft-7",
+    legacyHeaders: false,
+    message: { error: "Too many attempts — wait a minute and try again." },
+  });
+
+  app.post(
+    "/api/demo-gate/unlock",
+    express.json({ limit: "1kb" }),
+    demoGateRateLimiter,
+    (req, res) => {
+      const { password } = req.body ?? {};
+      if (!demoPasswordMatches(password)) {
+        res.status(401).json({ error: "Wrong password." });
+        return;
+      }
+      issueDemoGateCookie(res);
+      res.json({ ok: true });
+    },
+  );
+
+  app.use((req, res, next) => {
+    if (hasDemoGatePass(req)) return next();
+    if (req.path.startsWith("/api/")) {
+      res.status(401).json({ error: "This demo is invite-only.", needsDemoGate: true });
+      return;
+    }
+    res.status(200).set("Content-Type", "text/html; charset=utf-8").send(renderDemoGatePage());
+  });
+}
 
 // Same-origin check for state-changing API calls. Browsers attach an Origin
 // header to cross-site fetches; if one is present and doesn't match this
