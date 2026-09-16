@@ -14,6 +14,25 @@ const COOKIE = cookieName("demo_gate");
 const COOKIE_DAYS = Number(process.env.DEMO_GATE_COOKIE_DAYS) || 30;
 const COOKIE_MAX_AGE_SEC = Math.floor(COOKIE_DAYS * 24 * 60 * 60);
 const MARKER = "demo-gate-pass";
+const IS_PROD = process.env.NODE_ENV === "production";
+
+// Cross's own sign-in round trip (server.mjs's "THE GATE" comment already
+// documents these as intentionally reachable without a Cross session). In
+// production these stay fully behind the demo gate like every other route —
+// that's the whole point of the gate, and nothing about the dev-only bug
+// below applies there. In dev they're exempted because `npm run dev` runs
+// Next's dev server on its own port (:3001), which serves every real page
+// directly and never routes through Express at all — so a developer lands on
+// Cross's actual sign-in screen with no chance to have picked up a demo-gate
+// cookie first, and completing that sign-in (Google or magic-link) must
+// still work. No feature route (/api/chat, /api/status, uploads, etc.) is
+// ever exempted, in dev or prod — only the four routes below.
+const DEV_ONLY_AUTH_EXEMPT_ROUTES = new Set([
+  "GET /api/auth/me",
+  "GET /api/auth/start/google",
+  "POST /api/auth/magic-link",
+  "GET /api/auth/callback",
+]);
 
 // Mirrors session.mjs's own ephemeral-secret fallback: by the time this
 // module is used, server.mjs has already imported session.mjs, whose
@@ -61,6 +80,17 @@ export function hasDemoGatePass(req) {
   const raw = parseCookies(req.headers.cookie)[COOKIE];
   if (!raw) return false;
   return timingSafeStringEqual(raw, signedMarker());
+}
+
+/**
+ * Whether this request should bypass the demo gate even without a cookie.
+ * Dev-only (see DEV_ONLY_AUTH_EXEMPT_ROUTES above) — always false in
+ * production, where the demo gate covers Cross's auth routes like everything
+ * else.
+ */
+export function isDemoGateAuthExempt(method, path) {
+  if (IS_PROD) return false;
+  return DEV_ONLY_AUTH_EXEMPT_ROUTES.has(`${method} ${path}`);
 }
 
 /** Minimal, self-contained gate screen — no React/Next involved, so it renders identically whether Next is up or not. */

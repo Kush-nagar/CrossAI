@@ -43,7 +43,14 @@ import { scoreLedger, scoreMoves } from "./lib/bayes.mjs";
 import { login as caselistLogin, CaselistError } from "./lib/caselistClient.mjs";
 import { login as tabroomLogin, lookupJudgeByName, lookupJudgeById, TabroomJudgeError } from "./lib/tabroomJudgeClient.mjs";
 import { createSession, readSession, destroySession, invalidateLinkCache } from "./lib/session.mjs";
-import { isDemoGateEnabled, demoPasswordMatches, issueDemoGateCookie, hasDemoGatePass, renderDemoGatePage } from "./lib/demoGate.mjs";
+import {
+  isDemoGateEnabled,
+  demoPasswordMatches,
+  issueDemoGateCookie,
+  hasDemoGatePass,
+  isDemoGateAuthExempt,
+  renderDemoGatePage,
+} from "./lib/demoGate.mjs";
 import {
   hasAuthCredentials,
   createPkcePair,
@@ -183,9 +190,10 @@ app.use((req, res, next) => {
 // Registered before static mounts, /api/auth/*, and the Next.js fallthrough,
 // so nothing downstream is reachable without it. In dev, `npm run dev` runs
 // Next as its own process on :3001 that only proxies /api/* to this server —
-// real page loads never hit Express — so this only gates API calls locally.
-// In prod, Express serves Next in-process as the last-registered route, so
-// this gates pages and API alike.
+// real page loads never hit Express, so this gate screen never appears there
+// (see the GET /api/demo-gate workaround and isDemoGateAuthExempt below). In
+// prod, Express serves Next in-process as the last-registered route, so this
+// gates pages and API alike, with no exemptions.
 if (isDemoGateEnabled()) {
   const demoGateRateLimiter = rateLimit({
     windowMs: 60 * 1000,
@@ -210,8 +218,26 @@ if (isDemoGateEnabled()) {
     },
   );
 
+  // Dev-only convenience: `npm run dev` never routes a real page load through
+  // Express (Next's dev server on :3001 serves pages directly), so the inline
+  // gate screen served below for blocked non-API paths is unreachable there.
+  // /api/* IS proxied to Express in dev (next.config.mjs's existing
+  // rewrites), so this gives a developer a stable URL to unlock from. Harmless
+  // in prod too (same page every blocked path already shows), just redundant.
+  app.get("/api/demo-gate", (req, res) => {
+    res.status(200).set("Content-Type", "text/html; charset=utf-8").send(renderDemoGatePage());
+  });
+
+  if (!IS_PROD) {
+    console.log(
+      "[demoGate] Dev mode: page loads on :3001 bypass this gate entirely. " +
+        "Visit http://localhost:3001/api/demo-gate to unlock manually if needed.",
+    );
+  }
+
   app.use((req, res, next) => {
     if (hasDemoGatePass(req)) return next();
+    if (isDemoGateAuthExempt(req.method, req.path)) return next();
     if (req.path.startsWith("/api/")) {
       res.status(401).json({ error: "This demo is invite-only.", needsDemoGate: true });
       return;
