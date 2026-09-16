@@ -265,29 +265,52 @@ app.use((req, res, next) => {
 
 // --- Usage caps ---------------------------------------------------------
 // This app is public, and every AI call spends the owner's NVIDIA key, so
-// two guards keep costs bounded. Both are env-configurable so limits can be
+// three guards keep costs bounded. All are env-configurable so limits can be
 // tuned on the host without a code change.
-//   RATE_LIMIT_PER_MINUTE  per-IP requests/min to AI endpoints (default 20)
+//   RATE_LIMIT_PER_MINUTE  per-user burst limit to AI endpoints (default 20)
+//   RATE_LIMIT_PER_HOUR    per-user sustained-usage budget (default 80) — the
+//                          per-minute limiter alone doesn't bound a longer
+//                          session: at 20/min, one visitor could burn the
+//                          entire default daily cap below in under an hour,
+//                          starving every other tester on a shared demo link.
 //   DAILY_REQUEST_CAP      total AI requests/day across everyone (default 1000; 0 = off)
 const RATE_LIMIT_PER_MINUTE = Number(process.env.RATE_LIMIT_PER_MINUTE) || 20;
+const RATE_LIMIT_PER_HOUR = Number(process.env.RATE_LIMIT_PER_HOUR) || 80;
 const DAILY_REQUEST_CAP = Number(process.env.DAILY_REQUEST_CAP ?? 1000);
 
-// Per-user limiter (falling back to per-IP): stops any single visitor from
-// hammering the API. AI routes sit behind the gate, so req.session is always
-// set by the time this runs — keying on the account means one user can't
-// multiply their budget by rotating IPs, and a shared school network doesn't
-// throttle a whole team into one bucket.
+// Per-user limiters (falling back to per-IP): stop any single visitor from
+// hammering the API, at two window sizes. AI routes sit behind the gate, so
+// req.session is always set by the time these run and the IP fallback below
+// never actually fires in practice — keying on the account means one user
+// can't multiply their budget by rotating IPs, and a shared school network
+// doesn't throttle a whole team into one bucket. ipKeyGenerator takes the IP
+// string itself (req.ip), not the request object — passing (req, res) would
+// silently key every request differently, defeating the limit entirely.
 const aiRateLimiter = rateLimit({
   windowMs: 60 * 1000,
   limit: RATE_LIMIT_PER_MINUTE,
   standardHeaders: "draft-7",
   legacyHeaders: false,
-  keyGenerator: (req, res) => req.session?.userId || ipKeyGenerator(req, res),
+  keyGenerator: (req) => req.session?.userId || ipKeyGenerator(req.ip),
   message: { error: "Too many requests — slow down and try again in a minute." },
+});
+
+const aiHourlyRateLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  limit: RATE_LIMIT_PER_HOUR,
+  standardHeaders: "draft-7",
+  legacyHeaders: false,
+  keyGenerator: (req) => req.session?.userId || ipKeyGenerator(req.ip),
+  message: { error: "You've reached this demo's per-user limit for the hour. Try again a bit later." },
 });
 
 // Global daily cap: a crude spend ceiling shared across all visitors. Counter
 // lives in memory and resets when the UTC date rolls over (or on restart).
+// Crude on purpose: it counts requests to these routes, not raw Nemotron
+// calls — a single /api/chat request can loop many tool-calling turns
+// internally (see MAX_TOOL_ITERATIONS) and still only counts once here.
+// Tightening that would mean instrumenting aiClient.mjs's actual call sites,
+// a much bigger change than this cap is meant to be.
 let dailyCount = 0;
 let dailyKey = new Date().toISOString().slice(0, 10);
 function dailyCap(req, res, next) {
@@ -306,7 +329,7 @@ function dailyCap(req, res, next) {
 }
 
 // Applies to every route that calls the model (see the /api endpoints below).
-const aiGuards = [aiRateLimiter, dailyCap];
+const aiGuards = [aiRateLimiter, aiHourlyRateLimiter, dailyCap];
 
 // Model tier per route — the cheapest model that does each task well.
 // Tiers resolve to concrete model ids in aiClient.mjs; each is
@@ -2895,7 +2918,7 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Cross running at http://localhost:${PORT}`);
   console.log(
-    `Usage caps: ${RATE_LIMIT_PER_MINUTE} req/min per IP, ` +
+    `Usage caps: ${RATE_LIMIT_PER_MINUTE} req/min per user, ${RATE_LIMIT_PER_HOUR} req/hour per user, ` +
       `${DAILY_REQUEST_CAP > 0 ? DAILY_REQUEST_CAP + " req/day total" : "no daily cap"}`,
   );
 });
