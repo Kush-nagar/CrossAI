@@ -84,7 +84,10 @@ export const searchCorpusTool = {
     "Use this before answering anything that benefits from grounding in real material — argument structure, how a " +
     "position is typically run or answered, what strong evidence on a topic looks like. This is internal bookkeeping: " +
     "never mention searching, the corpus, or any file/cite it returns (corpus-privacy rule); let what you learn shape " +
-    "the substance of your coaching invisibly.",
+    "the substance of your coaching invisibly. This also bans referring to the retrieval mechanism itself by ANY " +
+    "name or synonym — not 'the corpus,' 'my archive,' 'my loaded topic archive,' 'my database,' 'my sources,' 'my " +
+    "training data,' or 'my materials.' State every fact as your own knowledge, with zero meta-reference to where " +
+    "it came from.",
   input_schema: {
     type: "object",
     properties: {
@@ -107,7 +110,9 @@ export const readCorpusFileTool = {
     "Silently read a section of an internal training-corpus file found via search_corpus (or listed in the corpus " +
     "manifest). Reads are ranged by char offset/length so large files can be read in targeted pieces — start from a " +
     "snippet's offset rather than 0 when you're chasing a specific match. Same privacy rule as search_corpus: never " +
-    "surface the file, its name, or its cites in your reply.",
+    "surface the file, its name, or its cites in your reply — and never refer to the retrieval mechanism itself by " +
+    "any name or synonym ('the corpus,' 'my archive,' 'my database,' 'my sources,' etc.). State every fact as your " +
+    "own knowledge, with zero meta-reference to where it came from.",
   input_schema: {
     type: "object",
     properties: {
@@ -149,7 +154,13 @@ export async function runSearchCorpusTool(toolUseBlock) {
         return `${r.path} (score ${r.score}, ${r.sizeChars} chars)${r.title ? ` — ${r.title}` : ""}\n${snippets}`;
       })
       .join("\n\n");
-    return { toolResultContent: text, isError: false };
+    return {
+      toolResultContent:
+        `Internal grounding only. State what you learn as your own knowledge, flatly, with zero meta-reference to ` +
+        `where it came from — no "the corpus," "my archive," "my sources," "my training data," or any other name ` +
+        `for this lookup, and no file path, title, or cite from below:\n\n${text}`,
+      isError: false,
+    };
   } catch (err) {
     return { toolResultContent: `Search failed: ${err.message}`, isError: true };
   }
@@ -162,7 +173,13 @@ export async function runReadCorpusFileTool(toolUseBlock) {
     const header =
       `${relPath} — chars ${section.offset}-${section.offset + section.length} of ${section.totalChars}` +
       (section.hasMore ? ` (more remains; next offset ${section.offset + section.length})` : " (end of file)");
-    return { toolResultContent: `${header}\n\n${section.content}`, isError: false };
+    return {
+      toolResultContent:
+        `Internal grounding only. State what you learn as your own knowledge, flatly, with zero meta-reference to ` +
+        `where it came from — no "the corpus," "my archive," "my sources," "my training data," or any other name ` +
+        `for this lookup, and no file path, title, or cite from below:\n\n${header}\n\n${section.content}`,
+      isError: false,
+    };
   } catch (err) {
     return { toolResultContent: `Read failed: ${err.message}`, isError: true };
   }
@@ -754,7 +771,8 @@ export const webSearchTool = {
     "judgment territory. Returns real results (title, URL, date, snippet) as grounding material only: synthesize " +
     "into your own words in the reply, never quote a snippet verbatim, and never attribute the fact to any " +
     "source at all — no URL, title, publish date, author, or a vaguer stand-in like 'confirmed by the " +
-    "official site' or 'per multiple sources'. State it flatly, like anything else you know " +
+    "official site' or 'per multiple sources'. This also bans naming the lookup itself, internal or external — " +
+    "no 'my search', 'my sources', 'the corpus', or similar. State it flatly, like anything else you know " +
     "(corpus-privacy rule — same silence as search_corpus). Never invent a fact if nothing usable comes " +
     "back — say so plainly instead.",
   input_schema: {
@@ -792,7 +810,8 @@ export async function runWebSearchTool(toolUseBlock) {
       toolResultContent:
         `Internal grounding only. State the current fact flatly, with no attribution at all — no URL, title, ` +
         `date, author, or a vaguer stand-in like "confirmed by the official site" or "per multiple sources," and ` +
-        `no mention that this was searched:\n\n${text}`,
+        `no mention that this was searched — and no name for the lookup itself either, internal or external ` +
+        `("my search", "my sources", "the corpus," etc.):\n\n${text}`,
       isError: false,
     };
   } catch (err) {

@@ -128,7 +128,11 @@ async function buildRetrievalCorpusSection() {
     "'let me pull up…', 'I'll check my materials', or 'now I can give you the real answer' before, between, or " +
     "after tool calls; the debater sees every word you emit, so write nothing until you're ready to answer. " +
     "Per the corpus-privacy rule, never reference what you retrieved by file name, case name, or card cite in " +
-    "your reply. Its influence shows up as sharper judgment, nothing else.\n" +
+    "your reply. This also bans referring to the retrieval mechanism itself by ANY name or synonym, internal or " +
+    "external — not 'the corpus,' 'my archive,' 'my loaded topic archive,' 'my database,' 'my sources,' 'my " +
+    "training data,' 'my materials,' or anything like them, even though those exact words appear in THIS section " +
+    "for your own bookkeeping. State every fact as your own knowledge, flatly, with zero meta-reference to where " +
+    "it came from. Its influence shows up as sharper judgment, nothing else.\n" +
     "- Retrieved material is raw material for judgment, not a script: extract the transferable pattern " +
     "(argument structure, decision principle, what makes the evidence strong) and apply it to the debater's " +
     "own topic and round — never summarize a file back at them or steer them toward a corpus topic because " +
@@ -155,8 +159,10 @@ const WEB_SEARCH_SECTION =
   "- This is the same invisible bookkeeping as search_corpus, and the same corpus-privacy rule applies to it: " +
   "never narrate that you looked something up, and never attribute the fact to ANY source, named or vague — no " +
   "URL, title, publish date, author, or phrase like 'according to the NSDA topics page', 'confirmed by multiple " +
-  "sources', 'per a recent article', or 'the official site says'. State the current fact flatly, the way you'd " +
-  "state anything else you know, with no attribution clause anywhere in the sentence.\n" +
+  "sources', 'per a recent article', or 'the official site says'. This also bans naming the lookup mechanism " +
+  "itself, internal or external — no 'my search', 'my sources', 'the corpus', 'my archive', or anything like " +
+  "them. State the current fact flatly, the way you'd state anything else you know, with no attribution clause " +
+  "and no meta-reference to where it came from anywhere in the sentence.\n" +
   "- The debater must never be able to tell, from anything you say, whether an answer came from the corpus or " +
   "from this lookup — it is purely an internal routing decision between two silent sources, never a distinction " +
   "the reply exposes.\n" +
