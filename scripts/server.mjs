@@ -46,8 +46,10 @@ import { createSession, readSession, destroySession, invalidateLinkCache } from 
 import {
   isDemoGateEnabled,
   demoPasswordMatches,
+  demoAdminPasswordMatches,
   issueDemoGateCookie,
   hasDemoGatePass,
+  isDemoGateAdmin,
   isDemoGateAuthExempt,
   renderDemoGatePage,
 } from "./lib/demoGate.mjs";
@@ -209,11 +211,19 @@ if (isDemoGateEnabled()) {
     demoGateRateLimiter,
     (req, res) => {
       const { password } = req.body ?? {};
+      // Admin checked first: if DEMO_GATE_ADMIN_PASSWORD were ever set to the
+      // same value as DEMO_GATE_PASSWORD by mistake, admin wins the tie
+      // rather than silently issuing a lesser cookie.
+      if (demoAdminPasswordMatches(password)) {
+        issueDemoGateCookie(res, "admin");
+        res.json({ ok: true });
+        return;
+      }
       if (!demoPasswordMatches(password)) {
         res.status(401).json({ error: "Wrong password." });
         return;
       }
-      issueDemoGateCookie(res);
+      issueDemoGateCookie(res, "user");
       res.json({ ok: true });
     },
   );
@@ -274,9 +284,17 @@ app.use((req, res, next) => {
 //                          entire default daily cap below in under an hour,
 //                          starving every other tester on a shared demo link.
 //   DAILY_REQUEST_CAP      total AI requests/day across everyone (default 1000; 0 = off)
+//
+// A demo-gate admin session (see scripts/lib/demoGate.mjs's DEMO_GATE_ADMIN_PASSWORD)
+// skips the hourly limit and the regular daily cap below — but not the
+// per-minute limiter, and not unconditionally: DEMO_GATE_ADMIN_DAILY_CAP is
+// its own, much higher, independent backstop (default 10000/day) so a
+// leaked admin password still has a hard ceiling rather than truly unbounded
+// spend, without competing with the shared visitor pool for the same budget.
 const RATE_LIMIT_PER_MINUTE = Number(process.env.RATE_LIMIT_PER_MINUTE) || 20;
 const RATE_LIMIT_PER_HOUR = Number(process.env.RATE_LIMIT_PER_HOUR) || 80;
 const DAILY_REQUEST_CAP = Number(process.env.DAILY_REQUEST_CAP ?? 1000);
+const DEMO_GATE_ADMIN_DAILY_CAP = Number(process.env.DEMO_GATE_ADMIN_DAILY_CAP) || 10000;
 
 // Per-user limiters (falling back to per-IP): stop any single visitor from
 // hammering the API, at two window sizes. AI routes sit behind the gate, so
@@ -328,8 +346,48 @@ function dailyCap(req, res, next) {
   next();
 }
 
+// Independent backstop for demo-gate admin sessions — a separate counter
+// from dailyCount above so admin usage never draws down the shared visitor
+// budget. Same shape as dailyCap, deliberately: a much higher ceiling, not
+// no ceiling, in case the admin password ever leaks.
+let adminDailyCount = 0;
+let adminDailyKey = new Date().toISOString().slice(0, 10);
+function adminDailyCap(req, res, next) {
+  if (DEMO_GATE_ADMIN_DAILY_CAP <= 0) return next();
+  const today = new Date().toISOString().slice(0, 10);
+  if (today !== adminDailyKey) {
+    adminDailyKey = today;
+    adminDailyCount = 0;
+  }
+  if (adminDailyCount >= DEMO_GATE_ADMIN_DAILY_CAP) {
+    res.status(429).json({ error: "Admin daily usage backstop reached. Resets tomorrow." });
+    return;
+  }
+  adminDailyCount++;
+  next();
+}
+
 // Applies to every route that calls the model (see the /api endpoints below).
-const aiGuards = [aiRateLimiter, aiHourlyRateLimiter, dailyCap];
+// A single composed function rather than an array (as this used to be):
+// express-rate-limit/dailyCap middleware in an array just run in sequence
+// with no way to skip two of the three for admin sessions from partway
+// through, so the admin check is inlined here instead. The per-minute
+// limiter always runs, for every session; admin sessions then skip straight
+// to their own independent daily backstop instead of the hourly limiter and
+// the shared daily cap.
+function aiGuards(req, res, next) {
+  aiRateLimiter(req, res, () => {
+    if (res.headersSent) return;
+    if (isDemoGateAdmin(req)) {
+      adminDailyCap(req, res, next);
+      return;
+    }
+    aiHourlyRateLimiter(req, res, () => {
+      if (res.headersSent) return;
+      dailyCap(req, res, next);
+    });
+  });
+}
 
 // Model tier per route — the cheapest model that does each task well.
 // Tiers resolve to concrete model ids in aiClient.mjs; each is
@@ -1047,11 +1105,14 @@ function toSummaryResponse(row, source) {
 // aiRateLimiter/dailyCap must NOT run on a cache hit (no model call happens),
 // so they can't be attached via app.post(path, aiGuards, ...) here — invoke
 // them manually right before the one place this route actually calls Nemotron.
+// Same admin handling as aiGuards() above, minus the hourly limiter (this
+// route never had one — a separate, already-noted gap, not addressed here).
 function guardAiCall(req, res) {
   return new Promise((resolve) => {
     aiRateLimiter(req, res, () => {
       if (res.headersSent) { resolve(false); return; }
-      dailyCap(req, res, () => resolve(!res.headersSent));
+      const capFn = isDemoGateAdmin(req) ? adminDailyCap : dailyCap;
+      capFn(req, res, () => resolve(!res.headersSent));
     });
   });
 }

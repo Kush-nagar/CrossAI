@@ -66,20 +66,63 @@ export function demoPasswordMatches(candidate) {
   return timingSafeStringEqual(candidate, expected);
 }
 
-function signedMarker() {
-  return crypto.createHmac("sha256", SECRET).update(MARKER).digest("base64url");
+/**
+ * Compares a submitted password against DEMO_GATE_ADMIN_PASSWORD in constant
+ * time. A separate env var from DEMO_GATE_PASSWORD, never derived from or
+ * shared with it — an admin session is exempted from the hourly rate limit
+ * and daily cap (see server.mjs's aiGuards/guardAiCall), so this password
+ * deserves its own secret, not a variant of the visitor one.
+ */
+export function demoAdminPasswordMatches(candidate) {
+  const expected = process.env.DEMO_GATE_ADMIN_PASSWORD || "";
+  if (!expected || typeof candidate !== "string" || !candidate) return false;
+  return timingSafeStringEqual(candidate, expected);
 }
 
-/** Set the "gate passed" cookie on a successful unlock. */
-export function issueDemoGateCookie(res) {
-  res.append("Set-Cookie", buildCookie(COOKIE, signedMarker(), COOKIE_MAX_AGE_SEC));
+const ROLES = new Set(["user", "admin"]);
+
+// The role is signed as part of the payload (MARKER:role), not just
+// appended alongside a fixed signature — otherwise a cookie holder could
+// flip "user" to "admin" in the value without invalidating the signature.
+function signedMarker(role) {
+  return crypto.createHmac("sha256", SECRET).update(`${MARKER}:${role}`).digest("base64url");
 }
 
-/** Whether this request already carries a valid demo-gate cookie. */
-export function hasDemoGatePass(req) {
+/** Set the "gate passed" cookie on a successful unlock, tagged with which password was used. */
+export function issueDemoGateCookie(res, role) {
+  if (!ROLES.has(role)) throw new Error(`issueDemoGateCookie: invalid role "${role}"`);
+  res.append("Set-Cookie", buildCookie(COOKIE, `${role}.${signedMarker(role)}`, COOKIE_MAX_AGE_SEC));
+}
+
+/**
+ * The verified role ("user" or "admin") this request's demo-gate cookie
+ * carries, or null if there isn't a valid one. Old-format cookies (from
+ * before the role was added) fail verification here and are correctly
+ * treated as gate-not-passed — a one-time re-prompt, not a crash.
+ */
+function demoGateRole(req) {
   const raw = parseCookies(req.headers.cookie)[COOKIE];
-  if (!raw) return false;
-  return timingSafeStringEqual(raw, signedMarker());
+  if (!raw) return null;
+  const dot = raw.indexOf(".");
+  if (dot === -1) return null;
+  const role = raw.slice(0, dot);
+  const mac = raw.slice(dot + 1);
+  if (!ROLES.has(role) || !mac) return null;
+  return timingSafeStringEqual(mac, signedMarker(role)) ? role : null;
+}
+
+/** Whether this request already carries a valid demo-gate cookie, of either role. */
+export function hasDemoGatePass(req) {
+  return demoGateRole(req) !== null;
+}
+
+/**
+ * Whether this request's demo-gate cookie was issued from the admin
+ * password. Admin sessions skip the hourly rate limit and daily cap (see
+ * server.mjs) but not the per-minute burst limiter.
+ */
+export function isDemoGateAdmin(req) {
+  return demoGateRole(req) === "admin";
 }
 
 /**
