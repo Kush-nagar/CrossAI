@@ -44,6 +44,16 @@ import { login as caselistLogin, CaselistError } from "./lib/caselistClient.mjs"
 import { login as tabroomLogin, lookupJudgeByName, lookupJudgeById, TabroomJudgeError } from "./lib/tabroomJudgeClient.mjs";
 import { createSession, readSession, destroySession, invalidateLinkCache } from "./lib/session.mjs";
 import {
+  isDemoGateEnabled,
+  demoPasswordMatches,
+  demoAdminPasswordMatches,
+  issueDemoGateCookie,
+  hasDemoGatePass,
+  isDemoGateAdmin,
+  isDemoGateAuthExempt,
+  renderDemoGatePage,
+} from "./lib/demoGate.mjs";
+import {
   hasAuthCredentials,
   createPkcePair,
   googleAuthorizeUrl,
@@ -171,6 +181,81 @@ app.use((req, res, next) => {
   next();
 });
 
+// --- Demo gate (optional, pre-auth) --------------------------------------
+// A single shared password in front of EVERYTHING below it — including the
+// Cross sign-in screen and every /api/* route — for sharing a public demo
+// build without opening it to the world. Fully inert unless
+// DEMO_GATE_ENABLED=true (see .env.example); the real account gate ("THE
+// GATE" further down) is unrelated and unaffected either way. No database —
+// see scripts/lib/demoGate.mjs for the signed-cookie scheme.
+//
+// Registered before static mounts, /api/auth/*, and the Next.js fallthrough,
+// so nothing downstream is reachable without it. In dev, `npm run dev` runs
+// Next as its own process on :3001 that only proxies /api/* to this server —
+// real page loads never hit Express, so this gate screen never appears there
+// (see the GET /api/demo-gate workaround and isDemoGateAuthExempt below). In
+// prod, Express serves Next in-process as the last-registered route, so this
+// gates pages and API alike, with no exemptions.
+if (isDemoGateEnabled()) {
+  const demoGateRateLimiter = rateLimit({
+    windowMs: 60 * 1000,
+    limit: Number(process.env.DEMO_GATE_LIMIT_PER_MINUTE) || 10,
+    standardHeaders: "draft-7",
+    legacyHeaders: false,
+    message: { error: "Too many attempts — wait a minute and try again." },
+  });
+
+  app.post(
+    "/api/demo-gate/unlock",
+    express.json({ limit: "1kb" }),
+    demoGateRateLimiter,
+    (req, res) => {
+      const { password } = req.body ?? {};
+      // Admin checked first: if DEMO_GATE_ADMIN_PASSWORD were ever set to the
+      // same value as DEMO_GATE_PASSWORD by mistake, admin wins the tie
+      // rather than silently issuing a lesser cookie.
+      if (demoAdminPasswordMatches(password)) {
+        issueDemoGateCookie(res, "admin");
+        res.json({ ok: true });
+        return;
+      }
+      if (!demoPasswordMatches(password)) {
+        res.status(401).json({ error: "Wrong password." });
+        return;
+      }
+      issueDemoGateCookie(res, "user");
+      res.json({ ok: true });
+    },
+  );
+
+  // Dev-only convenience: `npm run dev` never routes a real page load through
+  // Express (Next's dev server on :3001 serves pages directly), so the inline
+  // gate screen served below for blocked non-API paths is unreachable there.
+  // /api/* IS proxied to Express in dev (next.config.mjs's existing
+  // rewrites), so this gives a developer a stable URL to unlock from. Harmless
+  // in prod too (same page every blocked path already shows), just redundant.
+  app.get("/api/demo-gate", (req, res) => {
+    res.status(200).set("Content-Type", "text/html; charset=utf-8").send(renderDemoGatePage());
+  });
+
+  if (!IS_PROD) {
+    console.log(
+      "[demoGate] Dev mode: page loads on :3001 bypass this gate entirely. " +
+        "Visit http://localhost:3001/api/demo-gate to unlock manually if needed.",
+    );
+  }
+
+  app.use((req, res, next) => {
+    if (hasDemoGatePass(req)) return next();
+    if (isDemoGateAuthExempt(req.method, req.path)) return next();
+    if (req.path.startsWith("/api/")) {
+      res.status(401).json({ error: "This demo is invite-only.", needsDemoGate: true });
+      return;
+    }
+    res.status(200).set("Content-Type", "text/html; charset=utf-8").send(renderDemoGatePage());
+  });
+}
+
 // Same-origin check for state-changing API calls. Browsers attach an Origin
 // header to cross-site fetches; if one is present and doesn't match this
 // host, reject before any handler runs. This closes login CSRF (an attacker
@@ -190,29 +275,60 @@ app.use((req, res, next) => {
 
 // --- Usage caps ---------------------------------------------------------
 // This app is public, and every AI call spends the owner's NVIDIA key, so
-// two guards keep costs bounded. Both are env-configurable so limits can be
+// three guards keep costs bounded. All are env-configurable so limits can be
 // tuned on the host without a code change.
-//   RATE_LIMIT_PER_MINUTE  per-IP requests/min to AI endpoints (default 20)
+//   RATE_LIMIT_PER_MINUTE  per-user burst limit to AI endpoints (default 20)
+//   RATE_LIMIT_PER_HOUR    per-user sustained-usage budget (default 80) — the
+//                          per-minute limiter alone doesn't bound a longer
+//                          session: at 20/min, one visitor could burn the
+//                          entire default daily cap below in under an hour,
+//                          starving every other tester on a shared demo link.
 //   DAILY_REQUEST_CAP      total AI requests/day across everyone (default 1000; 0 = off)
+//
+// A demo-gate admin session (see scripts/lib/demoGate.mjs's DEMO_GATE_ADMIN_PASSWORD)
+// skips the hourly limit and the regular daily cap below — but not the
+// per-minute limiter, and not unconditionally: DEMO_GATE_ADMIN_DAILY_CAP is
+// its own, much higher, independent backstop (default 10000/day) so a
+// leaked admin password still has a hard ceiling rather than truly unbounded
+// spend, without competing with the shared visitor pool for the same budget.
 const RATE_LIMIT_PER_MINUTE = Number(process.env.RATE_LIMIT_PER_MINUTE) || 20;
+const RATE_LIMIT_PER_HOUR = Number(process.env.RATE_LIMIT_PER_HOUR) || 80;
 const DAILY_REQUEST_CAP = Number(process.env.DAILY_REQUEST_CAP ?? 1000);
+const DEMO_GATE_ADMIN_DAILY_CAP = Number(process.env.DEMO_GATE_ADMIN_DAILY_CAP) || 10000;
 
-// Per-user limiter (falling back to per-IP): stops any single visitor from
-// hammering the API. AI routes sit behind the gate, so req.session is always
-// set by the time this runs — keying on the account means one user can't
-// multiply their budget by rotating IPs, and a shared school network doesn't
-// throttle a whole team into one bucket.
+// Per-user limiters (falling back to per-IP): stop any single visitor from
+// hammering the API, at two window sizes. AI routes sit behind the gate, so
+// req.session is always set by the time these run and the IP fallback below
+// never actually fires in practice — keying on the account means one user
+// can't multiply their budget by rotating IPs, and a shared school network
+// doesn't throttle a whole team into one bucket. ipKeyGenerator takes the IP
+// string itself (req.ip), not the request object — passing (req, res) would
+// silently key every request differently, defeating the limit entirely.
 const aiRateLimiter = rateLimit({
   windowMs: 60 * 1000,
   limit: RATE_LIMIT_PER_MINUTE,
   standardHeaders: "draft-7",
   legacyHeaders: false,
-  keyGenerator: (req, res) => req.session?.userId || ipKeyGenerator(req, res),
+  keyGenerator: (req) => req.session?.userId || ipKeyGenerator(req.ip),
   message: { error: "Too many requests — slow down and try again in a minute." },
+});
+
+const aiHourlyRateLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000,
+  limit: RATE_LIMIT_PER_HOUR,
+  standardHeaders: "draft-7",
+  legacyHeaders: false,
+  keyGenerator: (req) => req.session?.userId || ipKeyGenerator(req.ip),
+  message: { error: "You've reached this demo's per-user limit for the hour. Try again a bit later." },
 });
 
 // Global daily cap: a crude spend ceiling shared across all visitors. Counter
 // lives in memory and resets when the UTC date rolls over (or on restart).
+// Crude on purpose: it counts requests to these routes, not raw Nemotron
+// calls — a single /api/chat request can loop many tool-calling turns
+// internally (see MAX_TOOL_ITERATIONS) and still only counts once here.
+// Tightening that would mean instrumenting aiClient.mjs's actual call sites,
+// a much bigger change than this cap is meant to be.
 let dailyCount = 0;
 let dailyKey = new Date().toISOString().slice(0, 10);
 function dailyCap(req, res, next) {
@@ -230,8 +346,48 @@ function dailyCap(req, res, next) {
   next();
 }
 
+// Independent backstop for demo-gate admin sessions — a separate counter
+// from dailyCount above so admin usage never draws down the shared visitor
+// budget. Same shape as dailyCap, deliberately: a much higher ceiling, not
+// no ceiling, in case the admin password ever leaks.
+let adminDailyCount = 0;
+let adminDailyKey = new Date().toISOString().slice(0, 10);
+function adminDailyCap(req, res, next) {
+  if (DEMO_GATE_ADMIN_DAILY_CAP <= 0) return next();
+  const today = new Date().toISOString().slice(0, 10);
+  if (today !== adminDailyKey) {
+    adminDailyKey = today;
+    adminDailyCount = 0;
+  }
+  if (adminDailyCount >= DEMO_GATE_ADMIN_DAILY_CAP) {
+    res.status(429).json({ error: "Admin daily usage backstop reached. Resets tomorrow." });
+    return;
+  }
+  adminDailyCount++;
+  next();
+}
+
 // Applies to every route that calls the model (see the /api endpoints below).
-const aiGuards = [aiRateLimiter, dailyCap];
+// A single composed function rather than an array (as this used to be):
+// express-rate-limit/dailyCap middleware in an array just run in sequence
+// with no way to skip two of the three for admin sessions from partway
+// through, so the admin check is inlined here instead. The per-minute
+// limiter always runs, for every session; admin sessions then skip straight
+// to their own independent daily backstop instead of the hourly limiter and
+// the shared daily cap.
+function aiGuards(req, res, next) {
+  aiRateLimiter(req, res, () => {
+    if (res.headersSent) return;
+    if (isDemoGateAdmin(req)) {
+      adminDailyCap(req, res, next);
+      return;
+    }
+    aiHourlyRateLimiter(req, res, () => {
+      if (res.headersSent) return;
+      dailyCap(req, res, next);
+    });
+  });
+}
 
 // Model tier per route — the cheapest model that does each task well.
 // Tiers resolve to concrete model ids in aiClient.mjs; each is
@@ -949,11 +1105,14 @@ function toSummaryResponse(row, source) {
 // aiRateLimiter/dailyCap must NOT run on a cache hit (no model call happens),
 // so they can't be attached via app.post(path, aiGuards, ...) here — invoke
 // them manually right before the one place this route actually calls Nemotron.
+// Same admin handling as aiGuards() above, minus the hourly limiter (this
+// route never had one — a separate, already-noted gap, not addressed here).
 function guardAiCall(req, res) {
   return new Promise((resolve) => {
     aiRateLimiter(req, res, () => {
       if (res.headersSent) { resolve(false); return; }
-      dailyCap(req, res, () => resolve(!res.headersSent));
+      const capFn = isDemoGateAdmin(req) ? adminDailyCap : dailyCap;
+      capFn(req, res, () => resolve(!res.headersSent));
     });
   });
 }
@@ -2664,8 +2823,10 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // failures the model then has to explain, so they're withheld instead and
     // Cross coaches from the corpus alone.
     const chatTools = [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
-    // Live web search for real, citable external evidence — env-gated, so it's
-    // only offered when a search API key is configured (hasWebSearch()).
+    // Live web search for provably time-sensitive facts (current topic wording,
+    // recent results) — env-gated, only offered when a search API key is
+    // configured (hasWebSearch()). Silent like corpus retrieval: see
+    // WEB_SEARCH_SECTION in prompt.mjs for the corpus-privacy contract.
     if (hasWebSearch()) chatTools.push(webSearchTool);
     if (chatMode === "preround" && req.session?.caselistToken) chatTools.push(...caselistTools);
     if (chatMode === "preround" && req.session?.tabroomToken) chatTools.push(...tabroomResultsTools);
@@ -2715,9 +2876,10 @@ app.post("/api/chat", aiGuards, async (req, res) => {
             const result = await runReadCorpusFileTool({ input: call.input });
             results.set(call.id, { content: result.toolResultContent, isError: result.isError });
           } else if (call.name === "web_search") {
-            // Live external evidence. Unlike corpus retrieval this is NOT silent
-            // material — the model quotes returned passages with real URL/date;
-            // it must never fabricate a source when nothing usable comes back.
+            // Time-sensitive lookup only — silent like corpus retrieval (see
+            // corpus-privacy rule): the model synthesizes in its own words and
+            // never surfaces a URL/title/date, and never fabricates a fact
+            // when nothing usable comes back.
             const result = await runWebSearchTool({ input: call.input });
             results.set(call.id, { content: result.toolResultContent, isError: result.isError });
           } else if (isCaselistTool(call.name)) {
@@ -2817,7 +2979,7 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Cross running at http://localhost:${PORT}`);
   console.log(
-    `Usage caps: ${RATE_LIMIT_PER_MINUTE} req/min per IP, ` +
+    `Usage caps: ${RATE_LIMIT_PER_MINUTE} req/min per user, ${RATE_LIMIT_PER_HOUR} req/hour per user, ` +
       `${DAILY_REQUEST_CAP > 0 ? DAILY_REQUEST_CAP + " req/day total" : "no daily cap"}`,
   );
 });

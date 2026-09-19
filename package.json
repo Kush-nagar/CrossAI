@@ -11,7 +11,7 @@
     "build-lexical-index": "node scripts/build-lexical-index.mjs",
     "distill": "node --env-file-if-exists=.env scripts/distill.mjs",
     "chat": "node --env-file-if-exists=.env scripts/chat.mjs",
-    "web": "node --env-file-if-exists=.env scripts/server.mjs",
+    "web": "NODE_ENV=production node --env-file-if-exists=.env scripts/server.mjs",
     "dev:api": "node --env-file-if-exists=.env scripts/server.mjs",
     "dev:web": "npm --prefix web run dev",
     "dev": "concurrently -k -n api,web -c blue,magenta \"node --env-file-if-exists=.env scripts/server.mjs\" \"npm:dev:web\""
