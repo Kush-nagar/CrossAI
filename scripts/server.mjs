@@ -128,6 +128,23 @@ app.set("trust proxy", 1);
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
+// Lets a scoped-down build (e.g. an MVP demo) hide the drill feature entirely
+// without touching its code — default true so this changes nothing for
+// normal dev work; only a build that explicitly sets DRILL_FEATURE_ENABLED=
+// false gates it. Deliberately does NOT cover /api/drill/delivery-history:
+// that route is shared read infrastructure (also written to by
+// /api/insight/grade, see lib/delivery.mjs), not drill-exclusive logic, so
+// gating it would blank the home dashboard's stats for Insight-only users —
+// only the three genuinely drill-exclusive routes are gated below.
+const DRILL_FEATURE_ENABLED = process.env.DRILL_FEATURE_ENABLED !== "false";
+function requireDrillFeature(req, res, next) {
+  if (!DRILL_FEATURE_ENABLED) {
+    res.status(404).json({ error: "Not available in this build." });
+    return;
+  }
+  next();
+}
+
 // Accounts are not optional the way the judge cache is: without Supabase
 // there is nowhere to store users or sessions, so every request would 401
 // with no way to sign in. Fail loudly at boot instead of at first login.
@@ -1647,7 +1664,7 @@ function pfDrillSpeechPlan(side, speech) {
   return { you, opp, upcoming: `${you} ${speech || "Constructive"}`, preceding: [] };
 }
 
-app.post("/api/drill/scenario", aiGuards, async (req, res) => {
+app.post("/api/drill/scenario", requireDrillFeature, aiGuards, async (req, res) => {
   const { format, side, speech, difficulty, topic } = req.body ?? {};
   // A chosen topic pins the resolution; blank keeps the invented-topic default.
   const chosenTopic = typeof topic === "string" ? topic.trim().slice(0, 400) : "";
@@ -1770,7 +1787,7 @@ app.post("/api/drill/scenario", aiGuards, async (req, res) => {
   }
 });
 
-app.post("/api/drill/grade", aiGuards, async (req, res) => {
+app.post("/api/drill/grade", requireDrillFeature, aiGuards, async (req, res) => {
   const { scenario, answerKey, speechText, speechMeta } = req.body ?? {};
   if (typeof speechText !== "string" || !speechText.trim()) {
     res.status(400).json({ error: "speechText is required" });
@@ -2477,7 +2494,7 @@ function speechWordTarget(speechType) {
   return "about 500-700 words";
 }
 
-app.post("/api/drill/speak", aiGuards, async (req, res) => {
+app.post("/api/drill/speak", requireDrillFeature, aiGuards, async (req, res) => {
   let { text, actingInstructions, voice, generate } = req.body ?? {};
   // The web client (web/lib/api.ts `drillSpeak`) posts the compact
   // { scenario, speech } shape; normalize it into the generate spec this route

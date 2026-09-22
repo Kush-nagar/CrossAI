@@ -28,10 +28,21 @@ export type NavItem = {
   mobile: boolean
 }
 
+// Lets a scoped-down build (e.g. an MVP demo) hide the drill feature
+// entirely — default true so this changes nothing for normal dev work; only
+// a build that explicitly sets NEXT_PUBLIC_DRILL_FEATURE_ENABLED=false hides
+// it. Client-side code can only read build-time NEXT_PUBLIC_ vars (unlike
+// the backend's DRILL_FEATURE_ENABLED in scripts/server.mjs, which is a
+// separate env var in a separate process) — both need to be set together
+// for a real demo build.
+const DRILL_FEATURE_ENABLED = process.env.NEXT_PUBLIC_DRILL_FEATURE_ENABLED !== 'false'
+
 export const navItems: NavItem[] = [
   { id: 'home', label: 'Home', href: '/home', icon: Home, primary: true, mobile: true },
   { id: 'prep', label: 'Prep', href: '/prep', icon: Library, primary: true, mobile: true },
-  { id: 'drill', label: 'Drill', href: '/drill', icon: Target, primary: true, mobile: true },
+  ...(DRILL_FEATURE_ENABLED
+    ? [{ id: 'drill', label: 'Drill', href: '/drill', icon: Target, primary: true, mobile: true }]
+    : []),
   { id: 'insight', label: 'Insight', href: '/insight', icon: AudioLines, primary: true, mobile: true },
   { id: 'judges', label: 'Judges', href: '/judges', icon: Users, primary: true, mobile: false },
   { id: 'coach', label: 'CrossCoach', href: '/coach', icon: Bot, primary: true, mobile: true },
@@ -53,7 +64,9 @@ export type CommandAction = {
 }
 
 export const commandActions: CommandAction[] = [
-  { id: 'record-speech', label: 'Record a speech', icon: Mic, href: '/drill' },
+  ...(DRILL_FEATURE_ENABLED
+    ? [{ id: 'record-speech', label: 'Record a speech', icon: Mic, href: '/drill' }]
+    : []),
   { id: 'get-insight', label: 'Get feedback on a round speech', icon: AudioLines, href: '/insight' },
   { id: 'new-case', label: 'Upload a new case', icon: Upload, href: '/prep' },
   { id: 'ask-coach', label: 'Ask CrossCoach', icon: Sparkles, href: '/coach' },
