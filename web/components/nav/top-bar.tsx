@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Bell, Menu, Search } from 'lucide-react'
+import { Bell, Globe, Menu, Search } from 'lucide-react'
 import { useAuth } from '@/components/auth/auth-gate'
 import { useCommandBar } from './command-bar'
 import { ThemeToggle } from './theme-toggle'
@@ -38,6 +38,14 @@ export function TopBar({ openMore }: { openMore: () => void }) {
         >
           <Bell className="size-5" />
         </button>
+        <Link
+          href="/?asVisitor=1"
+          aria-label="View public landing page"
+          title="View public landing page"
+          className="flex size-11 items-center justify-center rounded-md text-muted-foreground transition hover:bg-card hover:text-foreground"
+        >
+          <Globe className="size-5" />
+        </Link>
         <ThemeToggle className="hidden md:flex" />
         <button
           onClick={openMore}
