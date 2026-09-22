@@ -180,7 +180,16 @@ export async function streamChat({ system, conversation, tools, toolChoice, maxT
     ...(openaiTools ? { tools: openaiTools } : {}),
     // tool_choice "none" forces a text answer while keeping the tool
     // definitions present (required when the history has tool_calls).
-    ...(toolChoice?.type === "none" ? { tool_choice: "none" } : {}),
+    // { type: "tool", name } forces one specific named tool for this turn —
+    // e.g. a caller that's detected a query needs a particular tool and
+    // doesn't want to leave it to the model's (imperfect) judgment for just
+    // this one turn. Generic on purpose: this file has no opinion on which
+    // tool names are ever forced, only how to translate the request.
+    ...(toolChoice?.type === "none"
+      ? { tool_choice: "none" }
+      : toolChoice?.type === "tool"
+        ? { tool_choice: { type: "function", function: { name: toolChoice.name } } }
+        : {}),
     stream: true,
     stream_options: { include_usage: true },
   });

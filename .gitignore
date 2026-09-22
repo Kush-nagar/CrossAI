@@ -20,3 +20,4 @@ delivery-history.json
 distill-data/
 delivery-data/*
 !delivery-data/README.md
+node_modules

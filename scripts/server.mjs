@@ -2781,6 +2781,32 @@ app.post("/api/summarize-round", aiGuards, async (req, res) => {
   }
 });
 
+// Nemotron will sometimes answer a plainly time-sensitive question from
+// stale training knowledge instead of reaching for web_search, even when the
+// tool is offered and its description says to use it for current events. For
+// a first turn that reads as temporal, force the call via tool_choice rather
+// than leaving it to the model's judgment — the "don't invent, only report
+// what the tool returns" instruction in WEB_SEARCH_SECTION still governs what
+// happens with the result. Deliberately narrow (word list, first turn only):
+// this is a nudge for an obvious miss, not a general-purpose intent classifier.
+const TEMPORAL_QUERY_PATTERN = new RegExp(
+  "\\b(" +
+    [
+      "recent", "recently", "latest", "current", "currently", "up-to-date", "up to date",
+      "this year", "this season", "this month", "this cycle",
+      "last few months", "last month", "past few months",
+      "just changed", "just announced", "just updated", "just released",
+      "newly announced", "breaking news",
+    ]
+      .map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+      .join("|") +
+    ")\\b",
+  "i",
+);
+function isTemporalQuery(text) {
+  return TEMPORAL_QUERY_PATTERN.test(text || "");
+}
+
 app.post("/api/chat", aiGuards, async (req, res) => {
   const { messages: rawMessages, crossChatMemory, mode } = req.body ?? {};
   if (!Array.isArray(rawMessages) || rawMessages.length === 0) {
@@ -2844,9 +2870,13 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // recent results) — env-gated, only offered when a search API key is
     // configured (hasWebSearch()). Silent like corpus retrieval: see
     // WEB_SEARCH_SECTION in prompt.mjs for the corpus-privacy contract.
-    if (hasWebSearch()) chatTools.push(webSearchTool);
+    const webSearchOffered = hasWebSearch();
+    if (webSearchOffered) chatTools.push(webSearchTool);
     if (chatMode === "preround" && req.session?.caselistToken) chatTools.push(...caselistTools);
     if (chatMode === "preround" && req.session?.tabroomToken) chatTools.push(...tabroomResultsTools);
+
+    const lastUserText = flattenContent(messages[messages.length - 1]?.content);
+    const forceWebSearchFirstTurn = webSearchOffered && isTemporalQuery(lastUserText);
 
     let answered = false;
     for (let i = 0; i < MAX_TOOL_ITERATIONS; i++) {
@@ -2858,6 +2888,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
         enableThinking: CHAT_ENABLE_THINKING,
         tools: chatTools,
         maxTokens,
+        ...(i === 0 && forceWebSearchFirstTurn ? { toolChoice: { type: "tool", name: "web_search" } } : {}),
         onText: (delta) => res.write(delta),
       });
       conversation.push(assistantMessage);
