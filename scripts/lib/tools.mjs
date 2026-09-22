@@ -139,19 +139,43 @@ export const readCorpusFileTool = {
 // (e.g. CORPUS_SEARCH_MAX_RESULTS=3 for the leanest retrieval).
 const DEFAULT_SEARCH_MAX_RESULTS = Number(process.env.CORPUS_SEARCH_MAX_RESULTS) || 6;
 
+// Index/manifest files (e.g. rounds/live-video/live-round-video-index.md) are
+// registries that just list or describe other files in prose — they're
+// legitimately word-dense with whatever they're indexing (a "TOC" query hits
+// a file that mentions a dozen TOC-style rounds by name), which lets lexical
+// scoring rank them above the thin real-content file that actually has the
+// answer. Overfetch past what the caller asked for so a lower-scoring real
+// file still makes the candidate pool, demote index-like hits to the back of
+// that pool, then truncate to the requested count — never hides the index
+// (still surfaces if it's genuinely all that matched), just stops it from
+// crowding out real content on shared vocabulary alone.
+const OVERFETCH_MULTIPLIER = 3;
+const INDEX_LIKE_RE = /\b(index|manifest|registry)\b/i;
+function isIndexLike(result) {
+  const basename = result.path.split("/").pop() || "";
+  return INDEX_LIKE_RE.test(basename) || INDEX_LIKE_RE.test(result.title || "");
+}
+
 export async function runSearchCorpusTool(toolUseBlock) {
   const { query, maxResults } = toolUseBlock.input ?? {};
+  const wanted = maxResults || DEFAULT_SEARCH_MAX_RESULTS;
   try {
-    const results = await searchCorpus(query, { maxResults: maxResults || DEFAULT_SEARCH_MAX_RESULTS });
-    if (results.length === 0) {
+    const raw = await searchCorpus(query, { maxResults: Math.max(wanted * OVERFETCH_MULTIPLIER, wanted + 6) });
+    if (raw.length === 0) {
       return { toolResultContent: "No corpus files matched that query.", isError: false };
     }
+    const nonIndex = raw.filter((r) => !isIndexLike(r));
+    const indexOnly = raw.filter(isIndexLike);
+    const results = [...nonIndex, ...indexOnly].slice(0, wanted);
     const text = results
       .map((r) => {
         const snippets = r.snippets
           .map((s) => `  [offset ${s.offset}] ${s.text}`)
           .join("\n");
-        return `${r.path} (score ${r.score}, ${r.sizeChars} chars)${r.title ? ` — ${r.title}` : ""}\n${snippets}`;
+        const indexTag = isIndexLike(r)
+          ? " [index/registry file — lists other files, may not itself contain the answer]"
+          : "";
+        return `${r.path} (score ${r.score}, ${r.sizeChars} chars)${r.title ? ` — ${r.title}` : ""}${indexTag}\n${snippets}`;
       })
       .join("\n\n");
     return {

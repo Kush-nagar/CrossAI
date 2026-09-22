@@ -122,7 +122,23 @@ async function buildRetrievalCorpusSection() {
     "\n\nRetrieval rules:\n" +
     "- Retrieve BEFORE answering anything that benefits from grounding in real material — what an argument or " +
     "position actually looks like, how it's typically run or answered, what strong evidence on a topic contains, " +
-    "or examples of strong/weak execution. Don't coach from memory when a search would sharpen the substance.\n" +
+    "examples of strong/weak execution, OR any specific checkable fact about a real round, team, or tournament " +
+    "(who won, who debated whom, a score, a decision). Never state a specific result or name from memory without " +
+    "retrieving first — retrieve, then answer only from what actually comes back. Don't coach from memory when a " +
+    "search would sharpen the substance.\n" +
+    "- A file's path or title in the manifest above may itself contain a real name (a team, a school, a case) — " +
+    "that's a pointer telling you where to look, not a fact you're allowed to state. Seeing a name in a path or " +
+    "title is NOT retrieval and NOT grounding, even when it looks like it answers the question. Before stating " +
+    "any specific fact, you must call search_corpus or read_corpus_file and find the actual sentence that states " +
+    "it — piecing together an answer from filenames alone is exactly the kind of confident guess this section " +
+    "exists to prevent.\n" +
+    "- Stop once a result explicitly states the specific fact asked — not something merely adjacent to it, and not " +
+    "something you'd need to infer or connect across multiple results to conclude. A partial or ambiguous match " +
+    "(the right event, teams, or round, but not the specific fact itself) is neither a stopping point nor an " +
+    "answer: it's a cue for at most ONE more targeted follow-up search narrowing on exactly what's missing, not " +
+    "permission to keep browsing broadly or to treat the partial match as good enough. Once you have an explicit " +
+    "answer, stop — continuing to search after that only pulls in more real-but-unrelated material, and blending " +
+    "it with the answer you already found is exactly how a real runner-up gets promoted into a false 'winner.'\n" +
     "- Reads are ranged: for large files, start from a search snippet's offset instead of reading from 0.\n" +
     "- Retrieval is invisible internal bookkeeping. Never mention searching or reading — no narration like " +
     "'let me pull up…', 'I'll check my materials', or 'now I can give you the real answer' before, between, or " +
@@ -137,8 +153,15 @@ async function buildRetrievalCorpusSection() {
     "(argument structure, decision principle, what makes the evidence strong) and apply it to the debater's " +
     "own topic and round — never summarize a file back at them or steer them toward a corpus topic because " +
     "it's what the search surfaced.\n" +
-    "- If nothing relevant comes back, coach from your internalized understanding rather than inventing " +
-    "corpus-sounding specifics."
+    "- If, after that, nothing retrieved explicitly states the answer to the specific question asked — including " +
+    "when what you found is only adjacent, partial, or something you'd have to infer or connect across results to " +
+    "conclude — say so plainly ('I don't have that') rather than synthesizing a plausible-sounding answer. Partial " +
+    "or suggestive material is not sufficient grounding for a confident specific claim: if you can't point to a " +
+    "single passage that states the fact outright, you don't have the fact. Never invent, guess, or infer a file " +
+    "path, citation, round result, or other specific fact that no tool result actually contained — a file " +
+    "existing (in the manifest, or as a search hit) is not evidence of what it says, and a high search score " +
+    "means the terms matched, not that the answer is there. For anything broader than a specific fact — argument " +
+    "structure, methodology, general coaching judgment — coach from your internalized understanding instead."
   );
 }
 
@@ -166,8 +189,14 @@ const WEB_SEARCH_SECTION =
   "- The debater must never be able to tell, from anything you say, whether an answer came from the corpus or " +
   "from this lookup — it is purely an internal routing decision between two silent sources, never a distinction " +
   "the reply exposes.\n" +
-  "- If the lookup comes back empty, say plainly that you don't have that yet and ask for the specific detail " +
-  "(e.g. the exact resolution wording) — never guess or invent a current fact.";
+  "- Stop once a result explicitly states the fact you need — don't keep searching after that. A partial or " +
+  "ambiguous hit (the right event or people, but not the specific fact) is not a stopping point either: it's a " +
+  "cue for at most ONE narrower follow-up on exactly what's missing, not open-ended browsing.\n" +
+  "- If the lookup comes back empty, or nothing you found explicitly states the fact — even if something " +
+  "adjacent or partial turned up — say plainly that you don't have that yet and ask for the specific detail " +
+  "(e.g. the exact resolution wording). Never guess, infer, or invent a current fact, a source, or a detail from " +
+  "a partial match — piecing together a confident claim from real-but-incomplete results is exactly how a wrong " +
+  "answer ends up sounding plausible.";
 
 // --- Chat modes -----------------------------------------------------------
 // The CrossCoach panel has a Pre-Round toggle. General mode is for debate
