@@ -7,10 +7,10 @@ services:
     name: cross-ai
     runtime: node
     plan: free            # "starter" (~$7/mo) keeps it always-on; "free" sleeps when idle
-    branch: master
-    buildCommand: npm install && node scripts/build-lexical-index.mjs && npm --prefix web install && npm --prefix web run build
+    branch: main
+    buildCommand: npm install && node scripts/build-lexical-index.mjs && npm --prefix web install --include=dev && npm --prefix web run build
     startCommand: npm start
-    healthCheckPath: /api/status
+    healthCheckPath: /healthz   # public; /api/status sits behind the sign-in gate and 401s
     envVars:
       - key: NVIDIA_API_KEY
         sync: false        # set your real key in the Render dashboard when prompted
@@ -35,4 +35,6 @@ services:
       - key: TOKEN_ENC_KEY
         sync: false        # 64 hex chars (`openssl rand -hex 32`); encrypts linked Tabroom tokens
       - key: PUBLIC_BASE_URL
-        sync: false        # this service's public URL, e.g. https://cross-ai.onrender.com
+        sync: false        # public origin users visit: https://cross-ai.dev once the custom domain is live (see DEPLOY.md)
+      - key: TRUST_PROXY_HOPS
+        value: "1"         # set "2" if Cloudflare's proxy (orange cloud) sits in front of Render

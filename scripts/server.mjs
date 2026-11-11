@@ -122,11 +122,51 @@ const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: MAX
 const app = express();
 
 // Behind Render's (or any) reverse proxy, the client IP is in X-Forwarded-For.
-// Trust one proxy hop so per-IP rate limiting keys on the real visitor, not
-// the proxy. Harmless locally (no such header is set).
-app.set("trust proxy", 1);
+// Trust N proxy hops so per-IP rate limiting keys on the real visitor, not
+// the proxy. Default 1 = Render alone (or Cloudflare DNS-only / grey cloud).
+// Set TRUST_PROXY_HOPS=2 when Cloudflare's proxy (orange cloud) sits in front
+// of Render — otherwise req.ip is a Cloudflare edge IP and every visitor
+// routed through that edge shares one rate-limit bucket. Harmless locally (no
+// such header is set).
+const TRUST_PROXY_HOPS = Number.parseInt(process.env.TRUST_PROXY_HOPS ?? "", 10);
+app.set("trust proxy", Number.isInteger(TRUST_PROXY_HOPS) && TRUST_PROXY_HOPS >= 0 ? TRUST_PROXY_HOPS : 1);
 
 const IS_PROD = process.env.NODE_ENV === "production";
+
+// Liveness probe for the host's health check (render.yaml healthCheckPath).
+// Registered before every gate — canonical-host redirect, demo gate, and the
+// account gate that 401s all of /api/* — because a health check that gets a
+// 401 or 301 marks the deploy unhealthy and Render fails it. Deliberately
+// touches nothing (no corpus load, no Supabase) so it answers instantly.
+app.get("/healthz", (req, res) => {
+  res.set("Cache-Control", "no-store").type("text/plain").send("ok");
+});
+
+// Production only: once a custom domain is live (PUBLIC_BASE_URL, e.g.
+// https://cross-ai.dev), 301 any page load that arrives on another host —
+// the old *.onrender.com URL, or www. if it isn't redirected at Cloudflare —
+// to the canonical origin. Sessions use a __Host- cookie bound to one host
+// and every auth redirect targets PUBLIC_BASE_URL, so letting people keep
+// using a second hostname means sign-in silently bouncing them between the
+// two. Only GET/HEAD are redirected (a 301 on a POST drops its body), and
+// /api/status is exempt so Render's health check — which doesn't send the
+// public Host — keeps passing.
+const CANONICAL_ORIGIN = (() => {
+  if (!IS_PROD || !process.env.PUBLIC_BASE_URL) return null;
+  try {
+    return new URL(process.env.PUBLIC_BASE_URL);
+  } catch {
+    return null;
+  }
+})();
+if (CANONICAL_ORIGIN) {
+  app.use((req, res, next) => {
+    if ((req.method !== "GET" && req.method !== "HEAD") || req.path === "/api/status") return next();
+    const host = (req.get("host") || "").toLowerCase();
+    if (!host || host === CANONICAL_ORIGIN.host.toLowerCase()) return next();
+    res.redirect(301, `${CANONICAL_ORIGIN.origin}${req.originalUrl}`);
+  });
+}
 
 // Lets a scoped-down build (e.g. an MVP demo) hide the drill feature entirely
 // without touching its code — default true so this changes nothing for
@@ -758,6 +798,18 @@ app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
     console.error("Sign-in callback failed:", err.message);
     res.redirect(`${appBaseUrl()}/home?authError=failed`);
   }
+});
+
+// Safety net for a Supabase redirect allowlist that doesn't list
+// <PUBLIC_BASE_URL>/api/auth/callback exactly: GoTrue then silently falls
+// back to the project's Site URL, so the one-time code lands on the landing
+// page (/?code=...) and sign-in dead-ends there. Forward it to the real
+// callback. Safe: the code is still useless without the PKCE verifier cookie
+// this browser was given when it started sign-in, and the callback checks it.
+app.get(["/", "/home"], (req, res, next) => {
+  const code = req.query.code;
+  if (typeof code !== "string" || !/^[A-Za-z0-9-]{8,128}$/.test(code)) return next();
+  res.redirect(302, `/api/auth/callback?code=${encodeURIComponent(code)}`);
 });
 
 app.post("/api/auth/logout", async (req, res) => {
