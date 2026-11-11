@@ -7,7 +7,7 @@ services:
     name: cross-ai
     runtime: node
     plan: free            # "starter" (~$7/mo) keeps it always-on; "free" sleeps when idle
-    branch: master
+    branch: main
     buildCommand: npm install && node scripts/build-lexical-index.mjs && npm --prefix web install && npm --prefix web run build
     startCommand: npm start
     healthCheckPath: /api/status

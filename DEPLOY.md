@@ -92,7 +92,7 @@ entering the SMTP credentials in Supabase → *Authentication* → *Emails* →
 
 ## After it's live
 
-- **Update the app:** push to the `master` branch — Render redeploys automatically.
+- **Update the app:** push to the `main` branch — Render redeploys automatically.
 - **Change the caps:** Render dashboard → your service → *Environment* → edit
   `DAILY_REQUEST_CAP` / `RATE_LIMIT_PER_MINUTE` → save (triggers a restart).
 - **Watch spend:** keep an eye on usage at <https://build.nvidia.com>. The
