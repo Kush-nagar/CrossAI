@@ -10,7 +10,7 @@ services:
     branch: main
     buildCommand: npm install && node scripts/build-lexical-index.mjs && npm --prefix web install && npm --prefix web run build
     startCommand: npm start
-    healthCheckPath: /api/status
+    healthCheckPath: /healthz   # public; /api/status sits behind the sign-in gate and 401s
     envVars:
       - key: NVIDIA_API_KEY
         sync: false        # set your real key in the Render dashboard when prompted

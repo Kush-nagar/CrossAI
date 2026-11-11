@@ -133,6 +133,15 @@ app.set("trust proxy", Number.isInteger(TRUST_PROXY_HOPS) && TRUST_PROXY_HOPS >=
 
 const IS_PROD = process.env.NODE_ENV === "production";
 
+// Liveness probe for the host's health check (render.yaml healthCheckPath).
+// Registered before every gate — canonical-host redirect, demo gate, and the
+// account gate that 401s all of /api/* — because a health check that gets a
+// 401 or 301 marks the deploy unhealthy and Render fails it. Deliberately
+// touches nothing (no corpus load, no Supabase) so it answers instantly.
+app.get("/healthz", (req, res) => {
+  res.set("Cache-Control", "no-store").type("text/plain").send("ok");
+});
+
 // Production only: once a custom domain is live (PUBLIC_BASE_URL, e.g.
 // https://cross-ai.dev), 301 any page load that arrives on another host —
 // the old *.onrender.com URL, or www. if it isn't redirected at Cloudflare —
