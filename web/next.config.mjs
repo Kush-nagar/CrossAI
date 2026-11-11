@@ -34,7 +34,14 @@ const nextConfig = {
   turbopack: {
     root: import.meta.dirname,
   },
+  // Dev-only proxy to the separate Express process. In production Express
+  // serves Next in-process and handles /api/* itself; anything under these
+  // paths that still falls through to Next (an unknown /api route, a missing
+  // upload) must 404 here, not be proxied to localhost:3000 — the host's
+  // port (Render uses 10000) has nothing on 3000, so the proxy threw
+  // ECONNREFUSED and the request hung until it errored.
   async rewrites() {
+    if (process.env.NODE_ENV === "production") return []
     return [
       { source: "/api/:path*", destination: `${API_ORIGIN}/api/:path*` },
       { source: "/uploads/:path*", destination: `${API_ORIGIN}/uploads/:path*` },
