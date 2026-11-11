@@ -800,6 +800,18 @@ app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
   }
 });
 
+// Safety net for a Supabase redirect allowlist that doesn't list
+// <PUBLIC_BASE_URL>/api/auth/callback exactly: GoTrue then silently falls
+// back to the project's Site URL, so the one-time code lands on the landing
+// page (/?code=...) and sign-in dead-ends there. Forward it to the real
+// callback. Safe: the code is still useless without the PKCE verifier cookie
+// this browser was given when it started sign-in, and the callback checks it.
+app.get(["/", "/home"], (req, res, next) => {
+  const code = req.query.code;
+  if (typeof code !== "string" || !/^[A-Za-z0-9-]{8,128}$/.test(code)) return next();
+  res.redirect(302, `/api/auth/callback?code=${encodeURIComponent(code)}`);
+});
+
 app.post("/api/auth/logout", async (req, res) => {
   await destroySession(req, res);
   res.json({ ok: true });
