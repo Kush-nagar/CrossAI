@@ -1,4 +1,4 @@
-// Builds ONLY the lexical index (scripts/lexical-index.json) — not the
+// Builds ONLY the lexical index (scripts/lexical-index/, one small JSON shard per term bucket) — not the
 // semantic/embedding one. Deliberately separate from build-index.mjs: this
 // has no embedding-model dependency and takes seconds, so it's safe to run
 // on every deploy build. The semantic index stays committed and untouched

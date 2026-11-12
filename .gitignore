@@ -5,6 +5,8 @@ node_modules/
 # committed. At current corpus size this file runs 300MB+, well over
 # GitHub's 100MB per-file limit, so committing it isn't an option anyway.
 scripts/lexical-index.json
+scripts/lexical-index/
+scripts/lexical-index.tmp-*/
 incoming/processed/*
 !incoming/processed/.gitkeep
 generated/*

@@ -25,7 +25,31 @@ export const INDEX_PATH = path.join(ROOT, "scripts", "corpus-index.json");
 // ONNX runtime isn't installed. Keeping it a distinct artifact also means a
 // lexical-only rebuild never has to touch — or risk corrupting — the much
 // larger vector file.
-export const LEXICAL_INDEX_PATH = path.join(ROOT, "scripts", "lexical-index.json");
+//
+// It's a DIRECTORY of LEXICAL_SHARDS small JSON shards, not one file: each
+// term's postings live in the shard its hash picks, so a query loads only the
+// few shards its own terms land in. As a single file it was ~370MB of JSON
+// and ~700MB once parsed — loading it on the first chat crashed a 512MB
+// instance (Render free/starter) with "JavaScript heap out of memory".
+export const LEXICAL_INDEX_PATH = path.join(ROOT, "scripts", "lexical-index");
+const LEXICAL_SHARDS = 256;
+// Pre-shard single-file index from older builds; deleted on rebuild so a
+// stale 370MB artifact doesn't linger on disk next to the shards.
+const LEGACY_LEXICAL_INDEX_FILE = path.join(ROOT, "scripts", "lexical-index.json");
+
+// FNV-1a 32-bit — stable across processes, so the builder and the query side
+// always agree on which shard holds a term.
+function shardOf(term) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < term.length; i++) {
+    h ^= term.charCodeAt(i);
+    h = Math.imul(h, 0x01000193);
+  }
+  return (h >>> 0) % LEXICAL_SHARDS;
+}
+function shardFile(n) {
+  return path.join(LEXICAL_INDEX_PATH, `shard-${String(n).padStart(3, "0")}.json`);
+}
 
 // Same tokenization corpusSearch.tokenizeQuery uses for the query side — kept
 // in lockstep so index-time terms and query-time terms are the exact same
@@ -203,54 +227,97 @@ export async function buildLexicalIndex() {
     if (counts.size > maxDocs) body.delete(term);
   }
 
-  // Stream the write instead of building one giant string in memory —
-  // JSON.stringify on the full object hits Node's ~1GB string-length ceiling
-  // well before a corpus this size is done growing.
-  const out = await fs.open(LEXICAL_INDEX_PATH, "w");
-  try {
-    await out.write(
-      `{"builtAt":${JSON.stringify(new Date().toISOString())},"files":${fileCount},` +
-      `"terms":${header.size + body.size},"header":{`
+  // Bucket terms by shard, then write each shard as its own small file.
+  // Written into a temp dir and swapped in, so a server reading shards never
+  // sees a half-written index.
+  const buckets = Array.from({ length: LEXICAL_SHARDS }, () => ({ header: [], body: [] }));
+  for (const [term, paths] of header) buckets[shardOf(term)].header.push([term, paths]);
+  for (const [term, counts] of body) buckets[shardOf(term)].body.push([term, counts]);
+
+  const tmpDir = `${LEXICAL_INDEX_PATH}.tmp-${process.pid}`;
+  await fs.rm(tmpDir, { recursive: true, force: true });
+  await fs.mkdir(tmpDir, { recursive: true });
+  for (let n = 0; n < LEXICAL_SHARDS; n++) {
+    const parts = [];
+    for (const [term, paths] of buckets[n].header) parts.push(`${JSON.stringify(term)}:${JSON.stringify([...paths])}`);
+    const headerJson = parts.join(",");
+    parts.length = 0;
+    for (const [term, counts] of buckets[n].body) {
+      parts.push(`${JSON.stringify(term)}:${JSON.stringify(Object.fromEntries(counts))}`);
+    }
+    await fs.writeFile(
+      path.join(tmpDir, path.basename(shardFile(n))),
+      `{"header":{${headerJson}},"body":{${parts.join(",")}}}`,
+      "utf8"
     );
-    let first = true;
-    for (const [term, paths] of header) {
-      await out.write(`${first ? "" : ","}${JSON.stringify(term)}:${JSON.stringify([...paths])}`);
-      first = false;
-    }
-    await out.write(`},"body":{`);
-    first = true;
-    for (const [term, counts] of body) {
-      await out.write(`${first ? "" : ","}${JSON.stringify(term)}:${JSON.stringify(Object.fromEntries(counts))}`);
-      first = false;
-    }
-    await out.write(`}}`);
-  } finally {
-    await out.close();
+    buckets[n] = null; // let the shard's postings go once written
   }
+  await fs.writeFile(
+    path.join(tmpDir, "meta.json"),
+    JSON.stringify({ builtAt: new Date().toISOString(), files: fileCount, terms: header.size + body.size, shards: LEXICAL_SHARDS }),
+    "utf8"
+  );
+  await fs.rm(LEXICAL_INDEX_PATH, { recursive: true, force: true });
+  await fs.rename(tmpDir, LEXICAL_INDEX_PATH);
+  await fs.rm(LEGACY_LEXICAL_INDEX_FILE, { force: true });
+  invalidateLexicalIndexCache();
 
   return { files: fileCount, terms: header.size + body.size };
 }
 
 // --- query-time ------------------------------------------------------------
 
-let lexicalIndexPromise = null;
+// Parsed shards kept in memory, least-recently-used evicted past the cap.
+// A shard is ~1-2MB of JSON, so even a full cache stays a few dozen MB —
+// versus ~700MB for the whole index.
+const SHARD_CACHE_MAX = 24;
+const shardCache = new Map(); // shard number -> Promise<{header, body} | null>
+let lexicalMetaPromise = null;
+
+function loadShard(n) {
+  if (shardCache.has(n)) {
+    const hit = shardCache.get(n);
+    shardCache.delete(n); // re-insert to mark most-recently-used
+    shardCache.set(n, hit);
+    return hit;
+  }
+  const p = fs
+    .readFile(shardFile(n), "utf8")
+    .then((raw) => JSON.parse(raw))
+    .catch(() => null);
+  shardCache.set(n, p);
+  while (shardCache.size > SHARD_CACHE_MAX) shardCache.delete(shardCache.keys().next().value);
+  return p;
+}
+
 /**
- * Loads and caches the lexical index for the life of the process. Returns
- * null if it hasn't been built yet — callers must tolerate that and fall
- * back to the old full-scan behavior.
+ * Returns a handle on the lexical index, or null if it hasn't been built yet
+ * — callers must tolerate that and fall back to the old full-scan behavior.
+ * The handle's lookup(term) resolves to { header: [path], body: {path: count} }
+ * by loading just that term's shard.
  */
 export function loadLexicalIndex() {
-  if (!lexicalIndexPromise) {
-    lexicalIndexPromise = fs
-      .readFile(LEXICAL_INDEX_PATH, "utf8")
+  if (!lexicalMetaPromise) {
+    lexicalMetaPromise = fs
+      .readFile(path.join(LEXICAL_INDEX_PATH, "meta.json"), "utf8")
       .then((raw) => JSON.parse(raw))
       .catch(() => null);
   }
-  return lexicalIndexPromise;
+  return lexicalMetaPromise.then((meta) => {
+    if (!meta) return null;
+    return {
+      meta,
+      async lookup(term) {
+        const shard = await loadShard(shardOf(term));
+        return { header: shard?.header?.[term] || [], body: shard?.body?.[term] || {} };
+      },
+    };
+  });
 }
 
 export function invalidateLexicalIndexCache() {
-  lexicalIndexPromise = null;
+  lexicalMetaPromise = null;
+  shardCache.clear();
 }
 
 export { tokenize as tokenizeForIndex };
