@@ -246,12 +246,13 @@ export async function searchCorpus(query, { maxResults = 6 } = {}) {
   }
 
   if (lexicalIndex) {
-    for (const term of terms) {
-      for (const relPath of lexicalIndex.header[term] || []) bump(relPath, 5, term);
-      for (const [relPath, count] of Object.entries(lexicalIndex.body[term] || {})) {
+    const postings = await Promise.all(terms.map((term) => lexicalIndex.lookup(term)));
+    terms.forEach((term, i) => {
+      for (const relPath of postings[i].header) bump(relPath, 5, term);
+      for (const [relPath, count] of Object.entries(postings[i].body)) {
         bump(relPath, count, term);
       }
-    }
+    });
     // Reward files matching more distinct terms over one term repeated.
     if (terms.length > 0) {
       for (const entry of fileScores.values()) {
