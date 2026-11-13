@@ -26,3 +26,4 @@ distill-data/
 delivery-data/*
 !delivery-data/README.md
 node_modules
+scripts/opencaselist-state.json

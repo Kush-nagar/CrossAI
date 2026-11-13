@@ -1,0 +1,29 @@
+{
+  "_note": "PF resolution per season and topic cycle, used by scripts/ingest-opencaselist.mjs to label newly ingested cases. 2024-25 and 2025-26 are taken from the existing archive's frontmatter. Fill in the exact NSDA wording for each new topic as it is released; a blank resolution only means the card page shows no topic line.",
+  "2024-2025": {
+    "september-october": "The United States federal government should substantially expand its surveillance infrastructure along its southern border.",
+    "november-december": "The United States should substantially reduce its military support of Taiwan.",
+    "january": "The African Union should grant diplomatic recognition to the Republic of Somaliland as an independent state.",
+    "february": "The United States should accede to the Rome Statute of the International Criminal Court.",
+    "march": "In the United States, the benefits of the use of generative artificial intelligence in education outweigh the harms.",
+    "april": "The United States federal government should substantially increase its investment in domestic nuclear energy."
+  },
+  "2025-2026": {
+    "september-october": "The United Kingdom should rejoin the European Union.",
+    "november-december": "The United States federal government should require technology companies to provide lawful access to encrypted communications.",
+    "january": "The People's Republic of China should substantially reduce its international extraction of natural resources.",
+    "february": "The Federal Trade Commission should establish a federal regulatory framework for sports betting.",
+    "march": "The United States federal government should ban corporate acquisition of single-family residences.",
+    "april": "The United States should eliminate the President's authority to deploy military forces abroad without Congressional approval.",
+    "nationals": "The United States is justified in using force to remove authoritarian leaders from power."
+  },
+  "2026-2027": {
+    "september-october": "",
+    "november-december": "",
+    "january": "",
+    "february": "",
+    "march": "",
+    "april": "",
+    "nationals": ""
+  }
+}

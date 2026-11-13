@@ -85,8 +85,12 @@ export function parseCards(body) {
     // lines in while the line above doesn't end a sentence (at most 2 more),
     // so "…generates" + "the right of self-preservation…" stays one tag.
     const floor = anchors.length ? anchors[anchors.length - 1].citeIdx + 2 : 0;
+    // Only a true continuation (the lower line starts lowercase) is joined;
+    // a capitalized line above is a heading or a separate label, not part of
+    // the tag ("Contention 1: Grid strain" / "Data centers spike prices.").
     let tagStart = j;
     while (
+      /^[a-z]/.test(plainAt(tagStart)) &&
       tagStart - 1 >= floor &&
       j - tagStart < 2 &&
       lines[tagStart - 1].trim() &&
