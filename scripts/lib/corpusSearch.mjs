@@ -81,13 +81,24 @@ function resolveCorpusPath(relPath) {
   return abs;
 }
 
-// mtime-keyed content cache. buildCorpusManifest() (system-prompt build, runs
-// on EVERY chat turn before the first token) and searchCorpus() (per search)
-// both read every on-demand corpus file; without this they re-read the whole
-// corpus from disk each time, adding avoidable I/O straight onto TTFT. Keyed on
-// mtimeMs so it self-heals when ingest — or a manual edit in dev — changes a
-// file: a stat is cheap, the re-read only happens when the file actually moved.
-const fileCache = new Map(); // relPath -> { mtimeMs, content }
+// mtime-keyed content cache, BOUNDED. searchCorpus() snippets and
+// read_corpus_file re-read the same few hot files across turns, so caching
+// them saves I/O — but the on-demand corpus is ~260MB of text, and an earlier
+// unbounded version ended up holding all of it (buildCorpusManifest read
+// every file on the first chat turn), which crashed Render's 512MB instance
+// with "JavaScript heap out of memory" on a plain "hi". LRU by total chars;
+// keyed on mtimeMs so it self-heals when ingest or a manual edit changes a file.
+const FILE_CACHE_MAX_CHARS = 24 * 1024 * 1024; // whole cache
+const FILE_CACHE_MAX_ENTRY_CHARS = 4 * 1024 * 1024; // don't let one giant file evict everything
+const fileCache = new Map(); // relPath -> { mtimeMs, content }  (Map order = LRU order)
+let fileCacheChars = 0;
+
+function fileCacheDelete(relPath) {
+  const entry = fileCache.get(relPath);
+  if (!entry) return;
+  fileCacheChars -= entry.content.length;
+  fileCache.delete(relPath);
+}
 
 async function readCorpusFileRaw(relPath) {
   const abs = resolveCorpusPath(relPath);
@@ -95,14 +106,51 @@ async function readCorpusFileRaw(relPath) {
   try {
     ({ mtimeMs } = await fs.stat(abs));
   } catch (err) {
-    fileCache.delete(relPath); // deleted/renamed — drop any stale entry
+    fileCacheDelete(relPath); // deleted/renamed — drop any stale entry
+    metaCache.delete(relPath);
     throw err;
   }
   const cached = fileCache.get(relPath);
-  if (cached && cached.mtimeMs === mtimeMs) return cached.content;
+  if (cached && cached.mtimeMs === mtimeMs) {
+    fileCache.delete(relPath); // re-insert to mark most-recently-used
+    fileCache.set(relPath, cached);
+    return cached.content;
+  }
+  fileCacheDelete(relPath);
   const content = await fs.readFile(abs, "utf8");
-  fileCache.set(relPath, { mtimeMs, content });
+  if (content.length <= FILE_CACHE_MAX_ENTRY_CHARS) {
+    fileCache.set(relPath, { mtimeMs, content });
+    fileCacheChars += content.length;
+    while (fileCacheChars > FILE_CACHE_MAX_CHARS && fileCache.size > 1) {
+      fileCacheDelete(fileCache.keys().next().value);
+    }
+  }
   return content;
+}
+
+// Per-file manifest metadata (title, tags, size), mtime-keyed. The manifest
+// is rebuilt on every chat turn, but only needs these few fields — so each
+// file's full text is read once per process (and then dropped), not held.
+const metaCache = new Map(); // relPath -> { mtimeMs, title, tags, sizeChars }
+
+async function readCorpusFileMeta(relPath) {
+  const abs = resolveCorpusPath(relPath);
+  const { mtimeMs } = await fs.stat(abs);
+  const cached = metaCache.get(relPath);
+  if (cached && cached.mtimeMs === mtimeMs) return cached;
+  // Reuse a cached copy of the text when there is one; otherwise read it
+  // straight from disk WITHOUT putting it in the content cache.
+  const hot = fileCache.get(relPath);
+  const content = hot && hot.mtimeMs === mtimeMs ? hot.content : await fs.readFile(abs, "utf8");
+  const fm = parseFrontmatter(content);
+  // V8 represents a substring as a "sliced string" that points back into its
+  // parent, so a title cut from the file would keep the whole file's text
+  // alive — across ~3,200 files that silently retained the entire corpus
+  // (~540MB of heap). Copy into fresh, independent strings before caching.
+  const own = (str) => Buffer.from(str, "utf8").toString("utf8");
+  const meta = { mtimeMs, title: own(fm.title), tags: fm.tags.map(own), sizeChars: content.length };
+  metaCache.set(relPath, meta);
+  return meta;
 }
 
 // Minimal frontmatter reader: pulls title/tags/description out of a leading
@@ -140,18 +188,18 @@ export async function buildCorpusManifest() {
   const relPaths = (await listCorpusPaths()).filter(isOnDemand);
   const manifest = [];
   for (const relPath of relPaths) {
-    let content = "";
+    let meta;
     try {
-      content = await readCorpusFileRaw(relPath);
+      meta = await readCorpusFileMeta(relPath);
     } catch {
+      metaCache.delete(relPath);
       continue;
     }
-    const meta = parseFrontmatter(content);
     manifest.push({
       path: relPath,
       title: meta.title,
       tags: meta.tags,
-      sizeChars: content.length,
+      sizeChars: meta.sizeChars,
     });
   }
   return manifest;
