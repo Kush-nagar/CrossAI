@@ -53,6 +53,13 @@ export default function CookiesPage() {
             <td>Protects Google sign-in from forged requests by tying Google&apos;s reply to the browser that started it.</td>
             <td>10 minutes, removed once sign-in completes</td>
           </tr>
+          <tr>
+            <td>
+              <code>__Host-cross_next</code>
+            </td>
+            <td>Remembers the page you were on when you started signing in, so you land back there afterwards.</td>
+            <td>10 minutes, removed once sign-in completes</td>
+          </tr>
         </tbody>
       </table>
 

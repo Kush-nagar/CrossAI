@@ -166,7 +166,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
 
             <button
               type="button"
-              onClick={startGoogleSignIn}
+              onClick={() => startGoogleSignIn()}
               disabled={!agreed}
               className="press flex min-h-11 w-full items-center justify-center gap-3 rounded-xl border border-border bg-background text-sm font-semibold transition hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50"
             >

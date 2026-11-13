@@ -74,6 +74,8 @@ import {
   takeGoogleState,
   stateMatches,
   exchangeGoogleCode,
+  setNextCookie,
+  takeNextCookie,
 } from "./lib/crossAuth.mjs";
 import {
   upsertProfile,
@@ -785,6 +787,7 @@ app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
     res.redirect(`${appBaseUrl()}/home?authError=terms`);
     return;
   }
+  setNextCookie(res, req.query.next);
   try {
     // Direct flow (Google screens and emails name our domain) when the
     // Google client is configured on this server; Supabase-hosted otherwise.
@@ -805,7 +808,7 @@ app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
 // caller whether an address is registered would turn this into an account
 // enumeration oracle.
 app.post("/api/auth/magic-link", authRateLimiter, async (req, res) => {
-  const { email, accept } = req.body ?? {};
+  const { email, accept, next } = req.body ?? {};
   if (!acceptedTerms(accept)) {
     res.status(400).json({ error: "Confirm your age and agree to the Terms and Privacy Policy to continue." });
     return;
@@ -817,6 +820,7 @@ app.post("/api/auth/magic-link", authRateLimiter, async (req, res) => {
   try {
     const { verifier, challenge } = createPkcePair();
     setPkceCookie(res, verifier);
+    setNextCookie(res, next);
     await sendMagicLink(email.trim(), challenge);
   } catch (err) {
     // Never echo the provider's message back — it distinguishes "unknown
@@ -885,9 +889,11 @@ async function finishSignIn(req, res, user) {
   // so a pre-login cookie can never live on past authentication.
   await destroySession(req, res);
   await createSession(res, { userId: user.userId });
-  // Straight into the app: "/" is now the public landing page, and a
+  // Back to the page they started from (validated same-site path), else
+  // straight into the app: "/" is the public landing page, and a
   // just-authenticated visitor should never see it flash past.
-  res.redirect(`${appBaseUrl()}/home`);
+  const next = takeNextCookie(req, res);
+  res.redirect(`${appBaseUrl()}${next || "/home"}`);
 }
 
 // Safety net for a Supabase redirect allowlist that doesn't list

@@ -77,14 +77,21 @@ export function getAuthMe(): Promise<AuthMe> {
 // /terms and /privacy. The server refuses to start sign-in without it.
 export const TERMS_VERSION = "2026-11-13"
 
+// The page to return to after sign-in (e.g. a card opened from a topic
+// page). The server only accepts same-site paths; /home is its default.
+function currentPath(): string {
+  return `${window.location.pathname}${window.location.search}`
+}
+
 export function startGoogleSignIn(): void {
-  window.location.href = `/api/auth/start/google?accept=${TERMS_VERSION}`
+  const next = encodeURIComponent(currentPath())
+  window.location.href = `/api/auth/start/google?accept=${TERMS_VERSION}&next=${next}`
 }
 
 // Always resolves when the address is well-formed, whether or not an account
 // exists — the server deliberately doesn't say.
 export function sendMagicLink(email: string): Promise<{ ok: true }> {
-  return postJson("/api/auth/magic-link", { email, accept: TERMS_VERSION })
+  return postJson("/api/auth/magic-link", { email, accept: TERMS_VERSION, next: currentPath() })
 }
 
 export function logout(): Promise<{ ok: true }> {

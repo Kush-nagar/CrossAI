@@ -115,4 +115,35 @@ globalThis.fetch = async () => new Response(JSON.stringify({ error: "invalid_gra
 await assert.rejects(() => g.exchangeGoogleCode("bad", saved), /Google rejected the sign-in: invalid_grant/);
 globalThis.fetch = realFetch;
 
+// --- Return-to path after sign-in (open-redirect safety) -----------------
+const { safeNextPath, setNextCookie, takeNextCookie } = g;
+assert.equal(safeNextPath("/cards?id=0123456789abcdef"), "/cards?id=0123456789abcdef");
+assert.equal(safeNextPath("/topics/pf-january-2026"), "/topics/pf-january-2026");
+for (const evil of [
+  "https://evil.example",
+  "//evil.example/x",
+  "/\\evil.example",
+  "\\evil.example",
+  "/\tevil",
+  "javascript:alert(1)",
+  "/api/auth/logout",
+  "/",
+  "",
+  "x".repeat(600),
+  undefined,
+  42,
+]) {
+  assert.equal(safeNextPath(evil), null, `must reject ${JSON.stringify(evil)}`);
+}
+// Percent-encoded slashes stay a path on our own origin.
+assert.equal(safeNextPath("/%2F%2Fevil.example"), "/%2F%2Fevil.example");
+const nextCookies = [];
+setNextCookie({ append: (_h, v) => nextCookies.push(v) }, "/cards?id=0123456789abcdef");
+const nextPair = nextCookies[0].split(";")[0];
+const taken = takeNextCookie({ headers: { cookie: nextPair } }, { append: () => {} });
+assert.equal(taken, "/cards?id=0123456789abcdef", "round-trips through the cookie");
+const cleared2 = [];
+setNextCookie({ append: (_h, v) => cleared2.push(v) }, "//evil.example");
+assert.ok(/Max-Age=0/.test(cleared2[0]), "an unsafe value clears any earlier destination");
+
 console.log("auth.smoke: ok");

@@ -283,3 +283,45 @@ export async function exchangeGoogleCode(code, { nonce, verifier }) {
     displayName: user.user_metadata?.full_name || user.user_metadata?.name || null,
   };
 }
+
+// --- Return-to after sign-in ---------------------------------------------
+// The page the user was on when they started signing in (e.g. a card opened
+// from a public topic page), so they land back there instead of /home.
+// Only same-site paths are accepted — never a full URL or "//host" — so this
+// can't be turned into an open redirect to another site.
+const NEXT_COOKIE = cookieName("cross_next");
+
+/** A safe in-app path, or null. */
+export function safeNextPath(value) {
+  if (typeof value !== "string" || value.length > 500) return null;
+  if (!value.startsWith("/") || value.startsWith("//") || value.includes("\\")) return null;
+  if (/[\u0000-\u001f\u007f]/.test(value)) return null;
+  try {
+    // Must stay on our origin once resolved (catches encoded tricks).
+    const u = new URL(value, "https://cross.invalid");
+    if (u.origin !== "https://cross.invalid") return null;
+    if (u.pathname.startsWith("/api/") || u.pathname === "/") return null;
+    return `${u.pathname}${u.search}`;
+  } catch {
+    return null;
+  }
+}
+
+export function setNextCookie(res, value) {
+  const next = safeNextPath(value);
+  // Always overwrite, so a stale destination from an abandoned attempt
+  // never hijacks a later sign-in.
+  res.append("Set-Cookie", buildCookie(NEXT_COOKIE, next ? encodeURIComponent(next) : "", next ? PKCE_TTL_SEC : 0));
+}
+
+/** Reads and clears the return-to path. */
+export function takeNextCookie(req, res) {
+  const raw = parseCookies(req.headers.cookie)[NEXT_COOKIE];
+  res.append("Set-Cookie", buildCookie(NEXT_COOKIE, "", 0));
+  if (!raw) return null;
+  try {
+    return safeNextPath(decodeURIComponent(raw));
+  } catch {
+    return null;
+  }
+}
