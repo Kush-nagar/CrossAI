@@ -25,6 +25,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
 const TRAINING_DATA = path.join(ROOT, "training-data");
 export const CARD_INDEX_DIR = path.join(ROOT, "scripts", "card-index");
+const WEB_DATA_DIR = path.join(ROOT, "web", "data");
 const SOURCES = [
   { dir: "cases/pf-archive", kind: "case" },
   { dir: "cases/pf-rebuttals", kind: "rebuttal" },
@@ -109,6 +110,155 @@ function previewOf(body) {
   return text.length > 220 ? `${text.slice(0, 217)}…` : text;
 }
 
+// ------------------------------------------------------------ topic pages ---
+// Aggregates for the public /topics pages: what was run on each resolution,
+// computed from the disclosed cards. Counts are DISTINCT DISCLOSED DOCS (one
+// team's case at one tournament), not cards, so one card-heavy case can't
+// dominate. Team names are deliberately not included: public pages show
+// aggregates only.
+
+// Words too generic to be a "theme" of one side (debate filler).
+const THEME_STOP = new Set(
+  "aff neg pro con impact impacts link links turn turns key causes cause leads lead now status quo means solves solve solvency empirics empirically prove proves outweighs uniqueness unique non probability magnitude timeframe scope makes make makes more less every only even also still because would will could should can just already way thus means outweigh evidence card cards author warrant extinction".split(" ")
+);
+
+const GENERIC_ARGS = new Set(
+  "cards card overview framework rebuttal rebuttals off case on case weighing numbers to note lay aff cards lay neg cards extensions extension frontlines frontline blocks block answers analytics definitions definition evidence aff neg pro con summary final focus 1ac 1nc 2ac 2nc misc other theory".split(
+    /\s(?=[a-z0-9])/
+  )
+);
+const JUNK_SECTION = /https?:|www\.|accessed|\/\/|%[0-9a-f]{2}|<<|\.com|\.org|\]|\[|\d{4}|[^\x20-\x7e’'–—]/i;
+const ARG_PATTERNS = [
+  /^(.{3,48}?)\s*[-—–]{1,3}\s*(?:1AC|1NC|2AC|2NC|AC|NC)\b/i, // "Deterrence---1NC"
+  /^(?:1AC|1NC|2AC|2NC)\s*[-—–:]{1,3}\s*(.{3,48})$/i, // "1NC – Stability"
+  /^(?:contention|c)\s*(?:\d+|#|one|two|three|four)\s*(?:[:\-–—.]\s*)?(?:is\s+)?(.{3,48})$/i, // "Contention 1 is X", "C2 Tradeoff"
+  /^sub\s*-?point\s*[a-z0-9]\s*[:\-–—.]\s*(.{3,48})$/i, // "Subpoint A: Terrorism"
+];
+
+/** The argument a section heading names ("Deterrence"), or null. */
+export function argumentFromSection(section) {
+  const s = String(section || "").trim();
+  if (!s || s.length > 70 || JUNK_SECTION.test(s)) return null;
+  for (const re of ARG_PATTERNS) {
+    const m = re.exec(s);
+    if (!m) continue;
+    const arg = m[1]
+      .replace(/[\s:.;,\-–—]+$/, "")
+      .replace(/^[\s\-–—#:*.]+/, "")
+      .replace(/^(the|a|an)\s+/i, "")
+      .trim();
+    const key = arg.toLowerCase();
+    if (arg.length < 3 || GENERIC_ARGS.has(key) || /^(contention|subpoint|c\d)/i.test(arg)) return null;
+    return arg;
+  }
+  return null;
+}
+
+const MIN_TOPIC_DOCS = 20;
+
+const titleCase = (s) =>
+  s.length > 4 && s === s.toUpperCase() ? s.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase()) : s.charAt(0).toUpperCase() + s.slice(1);
+
+function topN(map, n) {
+  return [...map.values()].sort((a, b) => b.docs.size - a.docs.size || a.label.localeCompare(b.label)).slice(0, n);
+}
+
+function buildTopicSummaries(rows) {
+  const topics = new Map();
+  for (const r of rows) {
+    if (!r.season || !r.cycle || r.cycle === "unsorted") continue;
+    const key = `${r.season}|${r.cycle}`;
+    if (!topics.has(key)) {
+      topics.set(key, { season: r.season, cycle: r.cycle, docs: new Set(), teams: new Set(), cards: 0, sides: { Pro: newSide(), Con: newSide() } });
+    }
+    const t = topics.get(key);
+    t.docs.add(r.doc);
+    if (r.team) t.teams.add(r.team);
+    t.cards++;
+    const side = t.sides[r.side];
+    if (!side) continue;
+    side.cards++;
+    side.docs.add(r.doc);
+    const arg = argumentFromSection(r.section);
+    if (arg) {
+      const k = arg.toLowerCase();
+      if (!side.args.has(k)) side.args.set(k, { label: titleCase(arg), docs: new Set(), cards: [] });
+      const entry = side.args.get(k);
+      entry.docs.add(r.doc);
+      if (r.hl && entry.cards.length < 4) entry.cards.push(r);
+    }
+    // Tag vocabulary (words and two-word phrases), counted once per doc.
+    const words = tokenize(r.tag).filter((w) => w.length > 2 && !/^\d+$/.test(w) && !THEME_STOP.has(w) && !/^(https?|www|com|org|html)$/.test(w));
+    // Two-word phrases only: single words ("otherwise", "next") are noise.
+    const grams = new Set();
+    for (let i = 0; i + 1 < words.length; i++) grams.add(`${words[i]} ${words[i + 1]}`);
+    // Counted per TEAM, so one team's case disclosed at several tournaments
+    // can't make its own phrasing look like a trend.
+    for (const g of grams) {
+      if (!side.terms.has(g)) side.terms.set(g, new Set());
+      side.terms.get(g).add(r.team || r.doc);
+    }
+    const author = r.cite.replace(/\s*['’]?\d{2,4}$/, "").trim();
+    if (author && author.length <= 40 && /^[A-Z]/.test(author) && !/^(no author|na|n\/a|accessed|retrieved|cited|updated)\b/i.test(author)) {
+      const ak = author.toLowerCase();
+      if (!side.authors.has(ak)) side.authors.set(ak, { label: author, docs: new Set() });
+      side.authors.get(ak).docs.add(r.doc);
+    }
+  }
+  function newSide() {
+    return { cards: 0, docs: new Set(), args: new Map(), authors: new Map(), terms: new Map() };
+  }
+  const out = [];
+  for (const t of topics.values()) {
+    // Too few disclosed cases to say anything real: no public page.
+    if (t.docs.size < MIN_TOPIC_DOCS) continue;
+    const sides = {};
+    for (const [name, side] of Object.entries(t.sides)) {
+      const args = topN(side.args, 8).filter((a) => a.docs.size >= 2);
+      // Example cards: one or two per leading argument, highlighted only.
+      const examples = [];
+      for (const a of args.slice(0, 4)) {
+        for (const c of a.cards.slice(0, 2)) examples.push({ id: c.id, tag: c.tag.slice(0, 220), cite: c.cite, argument: a.label });
+      }
+      sides[name] = {
+        cards: side.cards,
+        docs: side.docs.size,
+        arguments: args.map((a) => ({ label: a.label, docs: a.docs.size })),
+        authors: topN(side.authors, 10)
+          .filter((a) => a.docs.size >= 2)
+          .map((a) => ({ label: a.label, docs: a.docs.size })),
+        examples: examples.slice(0, 6),
+      };
+    }
+    // Themes: phrases far more common in this side's tags than the other's.
+    for (const [name, other] of [["Pro", "Con"], ["Con", "Pro"]]) {
+      const mine = t.sides[name].terms;
+      const theirs = t.sides[other].terms;
+      const nMine = Math.max(1, t.teams.size);
+      const nTheirs = Math.max(1, t.teams.size);
+      const scored = [];
+      for (const [g, docs] of mine) {
+        if (docs.size < 3) continue;
+        const a = docs.size / nMine;
+        const b = (theirs.get(g)?.size || 0) / nTheirs;
+        if (a < 1.6 * b) continue;
+        scored.push({ label: g, docs: docs.size, score: a - b });
+      }
+      scored.sort((x, y) => y.score - x.score);
+      const picked = [];
+      for (const c of scored) {
+        // Skip a word already covered by a chosen phrase (and vice versa).
+        if (picked.some((p) => p.label.includes(c.label) || c.label.includes(p.label))) continue;
+        picked.push(c);
+        if (picked.length === 8) break;
+      }
+      sides[name].themes = picked.map(({ label, docs }) => ({ label, docs }));
+    }
+    out.push({ season: t.season, cycle: t.cycle, docs: t.docs.size, teams: t.teams.size, cards: t.cards, sides });
+  }
+  return out;
+}
+
 // ---------------------------------------------------------------- build ---
 
 /** Parses every source file and writes catalog + term shards + card shards. */
@@ -118,6 +268,7 @@ export async function buildCardIndex() {
   const postings = new Map(); // term -> Map<cardNum, weight>
   const seen = new Set();
   const resolutions = {}; // "season|cycle" -> resolution text
+  const topicRows = []; // per card, for buildTopicSummaries
   let files = 0;
 
   for (const { dir, kind } of SOURCES) {
@@ -153,6 +304,7 @@ export async function buildCardIndex() {
           preview: previewOf(card.body),
         };
         catalog.push(row);
+        topicRows.push({ id, doc: rel, team: row.team, side: row.side, season: row.season, cycle: row.cycle, section: card.section, cite: row.cite, tag: row.tag, hl: row.hl });
         cardBuckets[cardShard(id)][id] = {
           ...row,
           fullCite: card.cite,
@@ -209,8 +361,14 @@ export async function buildCardIndex() {
     path.join(tmp, "catalog.json"),
     JSON.stringify({ builtAt: new Date().toISOString(), files, resolutions, cards: catalog })
   );
+  const topics = buildTopicSummaries(topicRows).map((t) => ({ ...t, resolution: resolutions[`${t.season}|${t.cycle}`] || "" }));
+  await fs.writeFile(path.join(tmp, "topics.json"), JSON.stringify({ builtAt: new Date().toISOString(), topics }));
   await fs.rm(CARD_INDEX_DIR, { recursive: true, force: true });
   await fs.rename(tmp, CARD_INDEX_DIR);
+  // The public /topics pages are static Next pages built from this; Next
+  // reads it from inside web/ so the build doesn't trace the whole repo.
+  await fs.mkdir(WEB_DATA_DIR, { recursive: true });
+  await fs.copyFile(path.join(CARD_INDEX_DIR, "topics.json"), path.join(WEB_DATA_DIR, "topics.json"));
   invalidateCardIndex();
   return { files, cards: catalog.length };
 }

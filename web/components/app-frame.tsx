@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation'
 import { AuthGate } from '@/components/auth/auth-gate'
 import { AppShell } from '@/components/nav/app-shell'
 
-const PUBLIC_ROUTES = ['/', '/preview', '/privacy', '/terms', '/cookies']
+const PUBLIC_ROUTES = ['/', '/preview', '/privacy', '/terms', '/cookies', '/topics']
 
 export function AppFrame({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()

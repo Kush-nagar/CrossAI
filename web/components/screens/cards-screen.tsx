@@ -62,6 +62,10 @@ export function CardsScreen() {
     const id = params.get('id')
     if (q) setQuery(q)
     if (id) setSelectedId(id)
+    // Deep links from public topic pages: /cards?season=…&cycle=…
+    const season = params.get('season')
+    const cycle = params.get('cycle')
+    if (season || cycle) setFilters({ season: season || undefined, cycle: cycle || undefined })
     setSaved(loadSavedCards())
     getCardFacets()
       .then(setFacets)

@@ -50,6 +50,7 @@ export function VanishingPoint() {
           <a href="#product">Product</a>
           <a href="#how">How it works</a>
           <a href="#ledger">The ledger</a>
+          <Link href="/topics">Topics</Link>
         </div>
         <Link className="pv-btn" href="/home">
           Sign in
@@ -281,6 +282,7 @@ export function VanishingPoint() {
           <span className="pv-a-mark">Cross</span>
           <p>An AI debate coach for Policy, Lincoln-Douglas, Public Forum and Parliamentary.</p>
           <nav aria-label="Legal" className="pv-a-foot-links">
+            <Link href="/topics">PF topics</Link>
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
             <Link href="/cookies">Cookies</Link>

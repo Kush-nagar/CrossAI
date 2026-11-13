@@ -8,6 +8,7 @@ scripts/lexical-index.json
 scripts/lexical-index/
 scripts/lexical-index.tmp-*/
 scripts/card-index/
+web/data/
 scripts/card-index.tmp-*/
 incoming/processed/*
 !incoming/processed/.gitkeep
