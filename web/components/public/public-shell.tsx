@@ -1,6 +1,13 @@
 import Link from 'next/link'
 
-// Frame for public, indexable pages (topics). Renders outside the sign-in
+export const PUBLIC_NAV = [
+  { href: '/topics', label: 'Topics' },
+  { href: '/guides', label: 'Guides' },
+  { href: '/tools', label: 'Tools' },
+  { href: '/features', label: 'Features' },
+]
+
+// Frame for public, indexable pages (topics, guides, tools, features). Renders outside the sign-in
 // gate (see app-frame.tsx PUBLIC_ROUTES) using the app's color tokens.
 export function PublicShell({ children }: { children: React.ReactNode }) {
   return (
@@ -16,10 +23,12 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
           <Link href="/" className="font-display text-lg font-semibold">
             Cross
           </Link>
-          <nav aria-label="Main" className="flex items-center gap-x-5 text-sm">
-            <Link className="underline-offset-4 hover:underline" href="/topics">
-              Topics
-            </Link>
+          <nav aria-label="Main" className="flex flex-wrap items-center justify-end gap-x-5 gap-y-2 text-sm">
+            {PUBLIC_NAV.map((item) => (
+              <Link key={item.href} className="underline-offset-4 hover:underline" href={item.href}>
+                {item.label}
+              </Link>
+            ))}
             <Link href="/home" className="rounded-full bg-foreground px-4 py-2 font-semibold text-background">
               Sign in
             </Link>
@@ -32,6 +41,12 @@ export function PublicShell({ children }: { children: React.ReactNode }) {
       <footer className="border-t border-border">
         <div className="mx-auto flex max-w-5xl flex-wrap gap-x-5 gap-y-2 px-4 py-6 text-sm text-muted-foreground">
           <span>© 2026 Cross AI</span>
+          <Link className="underline-offset-2 hover:underline" href="/glossary">
+            Glossary
+          </Link>
+          <Link className="underline-offset-2 hover:underline" href="/resolutions">
+            Past resolutions
+          </Link>
           <Link className="underline-offset-2 hover:underline" href="/privacy">
             Privacy
           </Link>
