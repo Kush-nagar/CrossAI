@@ -101,7 +101,7 @@ function CommandBar() {
             transition={{ type: 'spring', stiffness: 300, damping: 26 }}
             className="glass w-full max-w-lg rounded-xl p-3"
           >
-            <label className="flex min-h-12 items-center gap-3 rounded-md border border-border bg-background px-4">
+            <label className="flex min-h-12 items-center gap-3 rounded-md border border-border bg-background px-4 focus-within:ring-2 focus-within:ring-pen">
               <Search className="size-4 text-muted-foreground" />
               <input
                 ref={inputRef}
@@ -109,6 +109,7 @@ function CommandBar() {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={onKeyDown}
                 placeholder="Jump to a screen or action…"
+                aria-label="Jump to a screen or action"
                 className="w-full bg-transparent text-sm outline-none"
               />
             </label>

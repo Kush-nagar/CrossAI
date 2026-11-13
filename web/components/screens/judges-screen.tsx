@@ -78,12 +78,13 @@ export function JudgesScreen() {
         title="Know the room."
         description="Turn long paradigms into trustworthy, source-linked strategic guidance."
       />
-      <form onSubmit={handleSubmit} className="glass mx-auto flex min-h-16 w-full max-w-3xl items-center gap-3 rounded-xl px-5">
+      <form onSubmit={handleSubmit} className="glass mx-auto flex min-h-16 w-full max-w-3xl items-center gap-3 rounded-xl px-5 focus-within:ring-2 focus-within:ring-pen">
         <Search className="size-5 text-muted-foreground" />
         <input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search by judge name"
+          aria-label="Search by judge name"
           className="w-full bg-transparent text-lg outline-none"
         />
         <InkButton type="submit" className="!min-h-9 py-2">

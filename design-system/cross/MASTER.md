@@ -23,7 +23,7 @@ Semantic vars on `:root` (light), `:root.dark` (dark), and `:root.pink` (pink), 
 **Light ("paper" — same world as dark, roles swapped)**
 ```
 --paper #f1ece1      --paper-raised #fbf9f4
---ink   #16161a      --ink-soft     #736b5c
+--ink   #16161a      --ink-soft     #6b6354
 --rule  rgba(20,18,14,.13)          --secondary  #e8e0d0
 --pen   #84631a (gilt, darkened for AA on paper, 4.7:1)
 --highlight #3f5872 (slate-blue)

@@ -110,9 +110,9 @@ export function PrepScreen() {
 
       <div className="grid min-h-[650px] gap-5 xl:grid-cols-[260px_minmax(0,1fr)_300px]">
         <aside className="surface rounded-3xl p-4">
-          <label className="flex min-h-11 items-center gap-2 rounded-xl bg-secondary px-3">
+          <label className="flex min-h-11 items-center gap-2 rounded-xl bg-secondary px-3 focus-within:ring-2 focus-within:ring-pen">
             <Search className="size-4 text-muted-foreground" />
-            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search cases" className="w-full bg-transparent text-sm outline-none" />
+            <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search cases" aria-label="Search cases" className="w-full bg-transparent text-sm outline-none" />
           </label>
           <div className="mt-4 flex flex-col gap-2">
             {filtered.length === 0 && <p className="px-2 py-4 text-sm text-muted-foreground">No cases uploaded yet.</p>}
