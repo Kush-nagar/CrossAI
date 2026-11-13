@@ -66,7 +66,7 @@
   --paper: #f1ece1;        /* warm paper page background */
   --paper-raised: #fbf9f4; /* cards lift just above it */
   --ink: #16161a;
-  --ink-soft: #736b5c;
+  --ink-soft: #6b6354;     /* secondary text: ≥4.5:1 on paper, cards and secondary fills (WCAG AA) */
   --rule: rgba(20, 18, 14, 0.13);
   --pen: #84631a;          /* gilt, darkened for AA contrast on paper (4.7:1) */
   --on-pen: #fbf9f4;       /* text/icons drawn on a filled --pen surface */
@@ -295,3 +295,15 @@
 .force-high-contrast { --rule: #6b665a; --ink-soft: #302c22; }
 .dark.force-high-contrast { --rule: #9a9483; --ink-soft: #d9d4c5; }
 .force-high-contrast .surface, .force-high-contrast .glass { border-width: 1.5px; }
+
+/* Legal pages (/privacy, /terms, /cookies): plain readable prose. */
+.legal-prose { line-height: 1.7; }
+.legal-prose h2 { font-family: var(--font-display); font-size: 1.375rem; font-weight: 600; margin: 2.25rem 0 0.75rem; }
+.legal-prose h3 { font-weight: 600; margin: 1.5rem 0 0.5rem; }
+.legal-prose p, .legal-prose ul, .legal-prose table { margin: 0 0 1rem; }
+.legal-prose ul { list-style: disc; padding-left: 1.5rem; }
+.legal-prose li { margin: 0.25rem 0; }
+.legal-prose a { text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
+.legal-prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; display: block; overflow-x: auto; }
+.legal-prose th, .legal-prose td { border: 1px solid var(--border); padding: 0.5rem 0.625rem; text-align: left; vertical-align: top; }
+.legal-prose th { font-weight: 600; }

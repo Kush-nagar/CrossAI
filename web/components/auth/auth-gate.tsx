@@ -43,6 +43,7 @@ const AUTH_ERRORS: Record<string, string> = {
   expired: 'That sign-in link has expired. Request a new one below.',
   failed: "Sign-in didn't complete. Please try again.",
   unavailable: 'Sign-in is temporarily unavailable. Try again in a moment.',
+  terms: 'Confirm your age and agree to the Terms and Privacy Policy to continue.',
 }
 
 function displayNameOf(me: AuthMe): string | null {
@@ -56,6 +57,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [agreed, setAgreed] = useState(false)
 
   async function refresh() {
     const data = await getAuthMe().catch(() => null)
@@ -123,7 +125,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background p-4">
+    <main className="fixed inset-0 z-50 flex items-center justify-center bg-background p-4">
       <div className="glass page-enter w-full max-w-sm rounded-3xl p-8">
         {stage === 'checking' && <p className="text-center text-sm text-muted-foreground">Checking your session…</p>}
 
@@ -139,10 +141,34 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
               </div>
             </div>
 
+            {/* Unticked by default and required for both sign-in methods; the
+                server enforces it too (TERMS_VERSION). */}
+            <label className="flex items-start gap-3 text-left text-sm leading-relaxed text-foreground">
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                className="mt-1 size-4 shrink-0 accent-[var(--pen)]"
+              />
+              <span>
+                I&apos;m 13 or older (with a parent or guardian&apos;s permission if I&apos;m under 18), and I agree to
+                the{' '}
+                <a href="/terms" target="_blank" rel="noopener" className="font-semibold underline underline-offset-2">
+                  Terms
+                </a>{' '}
+                and{' '}
+                <a href="/privacy" target="_blank" rel="noopener" className="font-semibold underline underline-offset-2">
+                  Privacy Policy
+                </a>
+                .
+              </span>
+            </label>
+
             <button
               type="button"
               onClick={startGoogleSignIn}
-              className="press flex min-h-11 w-full items-center justify-center gap-3 rounded-xl border border-border bg-background text-sm font-semibold transition hover:bg-secondary"
+              disabled={!agreed}
+              className="press flex min-h-11 w-full items-center justify-center gap-3 rounded-xl border border-border bg-background text-sm font-semibold transition hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50"
             >
               <GoogleMark />
               Continue with Google
@@ -172,7 +198,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
                   {error}
                 </p>
               )}
-              <InkButton type="submit" disabled={submitting}>
+              <InkButton type="submit" disabled={submitting || !agreed}>
                 {submitting ? 'Sending…' : 'Email me a sign-in link'}
               </InkButton>
             </form>
@@ -203,7 +229,7 @@ export function AuthGate({ children }: { children: React.ReactNode }) {
           </div>
         )}
       </div>
-    </div>
+    </main>
   )
 }
 

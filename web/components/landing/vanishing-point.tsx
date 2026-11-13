@@ -39,29 +39,6 @@ const BAYS = [
   },
 ]
 
-const PEOPLE = [
-  {
-    name: 'First Last',
-    role: 'Product & engineering',
-    bio: 'Builds the coaching loop, the corpus pipeline, and everything that talks to Tabroom.',
-  },
-  {
-    name: 'First Last',
-    role: 'Debate lead',
-    bio: 'Sets what good feedback sounds like across Policy, LD, PF and Parli.',
-  },
-  {
-    name: 'First Last',
-    role: 'Evidence & corpus',
-    bio: 'Cuts, tags and ingests the material Cross reasons from, none of it ever quoted back.',
-  },
-  {
-    name: 'First Last',
-    role: 'Design',
-    bio: 'Keeps the interface out of the way of the round you are about to debate.',
-  },
-]
-
 export function VanishingPoint() {
   return (
     <main className="pv pv-a">
@@ -73,7 +50,6 @@ export function VanishingPoint() {
           <a href="#product">Product</a>
           <a href="#how">How it works</a>
           <a href="#ledger">The ledger</a>
-          <a href="#people">People</a>
         </div>
         <Link className="pv-btn" href="/home">
           Sign in
@@ -251,46 +227,31 @@ export function VanishingPoint() {
         </div>
       </section>
 
-      <section id="people">
-        <div className="pv-wrap pv-rise">
-          <h2>The people behind it.</h2>
-          <div className="pv-a-people">
-            {PEOPLE.map((p, i) => (
-              <article className="pv-a-person" key={i}>
-                <figure>PORTRAIT</figure>
-                <h3>{p.name}</h3>
-                <p className="pv-role">{p.role}</p>
-                <p>{p.bio}</p>
-              </article>
-            ))}
-          </div>
-          <p className="pv-synthetic" style={{ marginTop: '1.5rem' }}>
-            Placeholder names, roles and portraits
-          </p>
-        </div>
-      </section>
 
       <section>
         <div className="pv-wrap pv-rise">
           <h2>Built for competitive debate.</h2>
           <div className="pv-a-claims">
             <div>
-              <h3>Your corpus stays yours</h3>
+              <h3>Coaching, not copying</h3>
               <p>
-                Cross reasons from the material you ingest and never names a file, a case or a cite
-                back at you.
+                Cross is built to coach from patterns in real rounds, not to read someone else&apos;s
+                case back to you.
               </p>
             </div>
             <div>
-              <h3>Real paradigms, your account</h3>
+              <h3>Your Tabroom, your account</h3>
               <p>
-                Judge paradigms and disclosed positions are pulled with your own linked Tabroom
-                account, or not at all.
+                Disclosed positions are looked up only through your own linked Tabroom account.
+                Public judge paradigms work without linking anything.
               </p>
             </div>
             <div>
-              <h3>No invented evidence</h3>
-              <p>When you need a card, Cross describes the card to go cut. It will not fabricate a cite.</p>
+              <h3>Describes cards, doesn&apos;t invent them</h3>
+              <p>
+                Cross is designed to describe the card you should go cut rather than make one up. It
+                is still an AI and can be wrong, so check every cite before you read it in a round.
+              </p>
             </div>
           </div>
         </div>
@@ -319,7 +280,14 @@ export function VanishingPoint() {
         <div className="pv-wrap pv-a-foot-inner">
           <span className="pv-a-mark">Cross</span>
           <p>An AI debate coach for Policy, Lincoln-Douglas, Public Forum and Parliamentary.</p>
-          <Link href="/home">Sign in</Link>
+          <nav aria-label="Legal" className="pv-a-foot-links">
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/cookies">Cookies</Link>
+            <a href="mailto:support@cross-ai.dev">support@cross-ai.dev</a>
+            <Link href="/home">Sign in</Link>
+          </nav>
+          <p className="pv-a-foot-legal">© 2026 Cross AI. Not affiliated with the NSDA, Tabroom.com or OpenCaselist.</p>
         </div>
       </footer>
     </main>
