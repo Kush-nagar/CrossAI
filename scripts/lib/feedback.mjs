@@ -10,10 +10,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { userDataPath, writeUserFile } from "./userContext.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
-const FEEDBACK_PATH = path.join(ROOT, "feedback.json");
+// Per user (see userContext.mjs): complaints only reshape the prompts of the
+// person who made them — never quoted into anyone else's system prompt.
+const feedbackPath = () => userDataPath("feedback.json");
 
 const MAX_ENTRIES = 200; // keep the file bounded; oldest entries roll off
 const PROMPT_ENTRIES = 10; // how many recent complaints reach the prompt
@@ -32,7 +35,7 @@ export function shouldRequestFeedback() {
 
 async function loadFeedback() {
   try {
-    const data = JSON.parse(await fs.readFile(FEEDBACK_PATH, "utf8"));
+    const data = JSON.parse(await fs.readFile(feedbackPath(), "utf8"));
     return { entries: Array.isArray(data.entries) ? data.entries : [] };
   } catch {
     return { entries: [] };
@@ -40,7 +43,7 @@ async function loadFeedback() {
 }
 
 async function saveFeedback(data) {
-  await fs.writeFile(FEEDBACK_PATH, JSON.stringify(data, null, 2) + "\n", "utf8");
+  await writeUserFile(feedbackPath(), JSON.stringify(data, null, 2) + "\n");
 }
 
 /**

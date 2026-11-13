@@ -6,6 +6,7 @@
 import express from "express";
 import multer from "multer";
 import rateLimit, { ipKeyGenerator } from "express-rate-limit";
+import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -33,6 +34,7 @@ import {
   hasWebSearch,
 } from "./lib/tools.mjs";
 import { GENERATED_DIR } from "./lib/fileGen.mjs";
+import { bindUser, runWithUser, isValidUserId, USER_DATA_DIR } from "./lib/userContext.mjs";
 import { extractTextFromBuffer, convertDocxToHtml, cleanText } from "./lib/extract.mjs";
 import { transcribeAudio } from "./lib/stt.mjs";
 import { cleanupTranscript } from "./lib/transcriptCleanup.mjs";
@@ -71,6 +73,8 @@ import {
   setConsentVersion,
   saveTabroomLink,
   deleteTabroomLink,
+  deleteAccount,
+  recordTermsAcceptance,
 } from "./lib/userStore.mjs";
 import { hasSupabaseCredentials } from "./lib/supabaseClient.mjs";
 import { judgeCacheKey, hashParadigm, isFresh, getCachedJudge, upsertJudgeCache, touchScrapedAt } from "./lib/judgeCache.mjs";
@@ -658,9 +662,29 @@ async function oversizedMessageReply(lastMessage) {
 }
 
 app.use(express.json({ limit: "30mb" }));
-app.use("/generated", express.static(GENERATED_DIR));
-app.use("/uploads", express.static(UPLOADS_DIR));
-app.use("/case-uploads", express.static(CASE_UPLOADS_DIR));
+// User files (recordings, case PDFs, generated documents) are private: each
+// lives under <dir>/<userId>/ and is served only to the signed-in owner.
+// These used to be public static mounts — anyone with (or guessing) a URL
+// could fetch another debater's speech recording.
+function serveOwnFiles(dir) {
+  const serveStatic = express.static(dir, { fallthrough: false, index: false });
+  return async (req, res, next) => {
+    const [, owner, ...rest] = req.path.split("/");
+    if (!isValidUserId(owner) || rest.length === 0) return res.status(404).end();
+    const session = await readSession(req).catch(() => null);
+    if (!session || session.userId !== owner) return res.status(404).end();
+    res.set("Cache-Control", "private, no-store");
+    serveStatic(req, res, next);
+  };
+}
+app.use("/generated", serveOwnFiles(GENERATED_DIR));
+app.use("/uploads", serveOwnFiles(UPLOADS_DIR));
+app.use("/case-uploads", serveOwnFiles(CASE_UPLOADS_DIR));
+
+// Random component so stored file names can't be guessed from an upload time.
+function storedName(originalname) {
+  return `${Date.now()}-${crypto.randomBytes(6).toString("hex")}-${originalname.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+}
 
 // --- Auth gate (Cross accounts) -----------------------------------------
 // The whole app is gated behind a Cross account. Users sign in with Google or
@@ -738,7 +762,21 @@ const REQUIRED_CONSENT_VERSION = 1;
 // Step 1 of Google sign-in: park a PKCE verifier on our origin and bounce the
 // browser to Supabase. Without the verifier, an intercepted `code` in the
 // callback URL would be redeemable by anyone who saw it.
+// Version of the Terms + Privacy Policy accepted on the sign-in screen (the
+// effective date shown on /terms and /privacy). Bump it when either changes
+// materially. Both sign-in starts require the screen's "13+ / parent
+// permission / I agree" checkbox (sent as accept=<version>), so the UI can't
+// be skipped by hitting the endpoints directly.
+const TERMS_VERSION = "2026-11-13";
+function acceptedTerms(value) {
+  return value === TERMS_VERSION;
+}
+
 app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
+  if (!acceptedTerms(req.query.accept)) {
+    res.redirect(`${appBaseUrl()}/home?authError=terms`);
+    return;
+  }
   try {
     const { verifier, challenge } = createPkcePair();
     setPkceCookie(res, verifier);
@@ -753,7 +791,11 @@ app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
 // caller whether an address is registered would turn this into an account
 // enumeration oracle.
 app.post("/api/auth/magic-link", authRateLimiter, async (req, res) => {
-  const { email } = req.body ?? {};
+  const { email, accept } = req.body ?? {};
+  if (!acceptedTerms(accept)) {
+    res.status(400).json({ error: "Confirm your age and agree to the Terms and Privacy Policy to continue." });
+    return;
+  }
   if (typeof email !== "string" || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())) {
     res.status(400).json({ error: "Enter a valid email address." });
     return;
@@ -786,7 +828,15 @@ app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
   }
   try {
     const user = await exchangeCode(code, verifier);
-    await upsertProfile(user);
+    const profile = await upsertProfile(user);
+    // Reaching the callback means this sign-in started behind the terms
+    // checkbox (see acceptedTerms); record the version and time once per
+    // version so there's an audit trail of who agreed to what.
+    if (profile?.prefs?.termsVersion !== TERMS_VERSION) {
+      await recordTermsAcceptance(user.userId, profile?.prefs, TERMS_VERSION).catch((err) =>
+        console.error("Terms acceptance not recorded:", err.message)
+      );
+    }
     // Retire any session the browser already holds before minting a new one,
     // so a pre-login cookie can never live on past authentication.
     await destroySession(req, res);
@@ -814,6 +864,44 @@ app.get(["/", "/home"], (req, res, next) => {
 
 app.post("/api/auth/logout", async (req, res) => {
   await destroySession(req, res);
+  res.json({ ok: true });
+});
+
+// Permanent account + data deletion (Settings → Delete account; also the
+// route behind the Privacy Policy's deletion promise). Requires the literal
+// confirmation string so a stray or forged request can't wipe an account.
+// Deletes the database account (cascades to profile, sessions and Tabroom
+// link) and every per-user file: voice profile, feedback, delivery history,
+// recordings, case PDFs and generated documents. Chat history lives only in
+// the browser, which the client clears itself after this succeeds.
+app.post("/api/account/delete", authRateLimiter, async (req, res) => {
+  const session = await readSession(req).catch(() => null);
+  if (!session) {
+    res.status(401).json({ error: "Sign in to Cross first.", needsAuth: true });
+    return;
+  }
+  if (req.body?.confirm !== "DELETE") {
+    res.status(400).json({ error: 'Type DELETE to confirm.' });
+    return;
+  }
+  const userId = session.userId;
+  if (!isValidUserId(userId)) {
+    res.status(400).json({ error: "Invalid account." });
+    return;
+  }
+  try {
+    await destroySession(req, res);
+    await deleteAccount(userId);
+  } catch (err) {
+    console.error("Account deletion failed:", err.message);
+    res.status(500).json({ error: `Couldn't delete your account. Email support@cross-ai.dev and we'll do it by hand.` });
+    return;
+  }
+  for (const dir of [USER_DATA_DIR, UPLOADS_DIR, CASE_UPLOADS_DIR, GENERATED_DIR]) {
+    await fs.rm(path.join(dir, userId), { recursive: true, force: true }).catch((err) =>
+      console.error(`Account deletion: could not remove files in ${dir}:`, err.message)
+    );
+  }
   res.json({ ok: true });
 });
 
@@ -933,7 +1021,10 @@ app.use(async (req, res, next) => {
     return;
   }
   req.session = session;
-  next();
+  // Binds this user for per-user storage (userContext.mjs) for the rest of
+  // the request. Routes behind multer re-bind with bindUser, since multer
+  // resumes from stream events outside this async context.
+  runWithUser(session.userId, next);
 });
 
 // Note: OpenCaselist wiki access is no longer a client-facing browser. It is
@@ -947,7 +1038,7 @@ app.get("/api/status", async (req, res) => {
   res.json({ corpusCount: files.length });
 });
 
-app.post("/api/upload", upload.single("file"), async (req, res) => {
+app.post("/api/upload", upload.single("file"), bindUser, async (req, res) => {
   if (!req.file) {
     res.status(400).json({ error: "No file uploaded." });
     return;
@@ -973,8 +1064,9 @@ app.post("/api/upload", upload.single("file"), async (req, res) => {
     // Hume EVI, else local Whisper — see stt.mjs) so the transcript — not
     // live browser dictation — is what reaches the model.
     if (mimetype.startsWith("audio/") || AUDIO_EXTENSIONS.has(ext)) {
-      await fs.mkdir(UPLOADS_DIR, { recursive: true });
-      const safeName = `${Date.now()}-${originalname.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+      const userDir = path.join(UPLOADS_DIR, req.session.userId);
+      await fs.mkdir(userDir, { recursive: true });
+      const safeName = `${req.session.userId}/${storedName(originalname)}`;
       await fs.writeFile(path.join(UPLOADS_DIR, safeName), buffer);
 
       let transcript = "";
@@ -1064,7 +1156,7 @@ app.post("/api/feedback", async (req, res) => {
 // keeps a rendered version around so the Prep case reader can display the
 // original docx/pdf formatting (bold/underline/highlight), not just plain text.
 const CASE_UPLOAD_EXTENSIONS = new Set([".docx", ".pdf", ".txt", ".md", ".html", ".htm"]);
-app.post("/api/case-upload", upload.single("file"), async (req, res) => {
+app.post("/api/case-upload", upload.single("file"), bindUser, async (req, res) => {
   if (!req.file) {
     res.status(400).json({ error: "No file uploaded." });
     return;
@@ -1084,8 +1176,9 @@ app.post("/api/case-upload", upload.single("file"), async (req, res) => {
     }
 
     if (ext === ".pdf") {
-      await fs.mkdir(CASE_UPLOADS_DIR, { recursive: true });
-      const safeName = `${Date.now()}-${originalname.replace(/[^a-zA-Z0-9._-]/g, "_")}`;
+      const userDir = path.join(CASE_UPLOADS_DIR, req.session.userId);
+      await fs.mkdir(userDir, { recursive: true });
+      const safeName = `${req.session.userId}/${storedName(originalname)}`;
       await fs.writeFile(path.join(CASE_UPLOADS_DIR, safeName), buffer);
       const rawText = await extractTextFromBuffer(buffer, ext);
       res.json({ filename: originalname, kind: "pdf", text: cleanText(rawText), url: `/case-uploads/${safeName}` });
@@ -1106,14 +1199,16 @@ app.post("/api/case-upload", upload.single("file"), async (req, res) => {
 
 // Deletes a saved case PDF (docx/text cases never touch disk, so there's
 // nothing to clean up for those — only pdf uploads persist a file here).
+// Clients hold the URL /case-uploads/<userId>/<name>; older clients may send
+// just the last segment — either way only the caller's own directory is touched.
 app.delete("/api/case-upload/:filename", async (req, res) => {
-  const { filename } = req.params;
+  const filename = String(req.params.filename).split("/").pop();
   if (!/^[a-zA-Z0-9._-]+$/.test(filename)) {
     res.status(400).json({ error: "Invalid filename." });
     return;
   }
   try {
-    await fs.unlink(path.join(CASE_UPLOADS_DIR, filename));
+    await fs.unlink(path.join(CASE_UPLOADS_DIR, req.session.userId, filename));
   } catch (err) {
     if (err.code !== "ENOENT") {
       res.status(500).json({ error: err.message });
@@ -2960,7 +3055,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
       await Promise.all(
         toolCalls.map(async (call) => {
           if (call.name === "generate_file") {
-            const result = await runGenerateFileTool({ input: call.input }, (finalName) => `/generated/${finalName}`);
+            const result = await runGenerateFileTool({ input: call.input }, (finalName, _absPath, subdir) => (subdir ? `/generated/${subdir}/${finalName}` : `/generated/${finalName}`));
             banners.set(
               call.id,
               result.isError

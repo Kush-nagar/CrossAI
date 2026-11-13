@@ -73,18 +73,40 @@ export function getAuthMe(): Promise<AuthMe> {
 // A full-page navigation, not a fetch: the browser has to follow Supabase's
 // redirect to Google and back to /api/auth/callback, which sets the session
 // cookie server-side.
+// Must match TERMS_VERSION in scripts/server.mjs and the effective date on
+// /terms and /privacy. The server refuses to start sign-in without it.
+export const TERMS_VERSION = "2026-11-13"
+
 export function startGoogleSignIn(): void {
-  window.location.href = "/api/auth/start/google"
+  window.location.href = `/api/auth/start/google?accept=${TERMS_VERSION}`
 }
 
 // Always resolves when the address is well-formed, whether or not an account
 // exists — the server deliberately doesn't say.
 export function sendMagicLink(email: string): Promise<{ ok: true }> {
-  return postJson("/api/auth/magic-link", { email })
+  return postJson("/api/auth/magic-link", { email, accept: TERMS_VERSION })
 }
 
 export function logout(): Promise<{ ok: true }> {
   return postJson("/api/auth/logout", {})
+}
+
+// Permanently deletes the account and every server-side record of it.
+// `confirm` must be the literal "DELETE" (checked server-side too).
+export function deleteAccount(confirm: string): Promise<{ ok: true }> {
+  return postJson("/api/account/delete", { confirm })
+}
+
+// Chat history, saved judges, case list and preferences live only in this
+// browser. All of Cross's localStorage keys start with "cross".
+export function clearLocalCrossData(): void {
+  try {
+    for (const key of Object.keys(window.localStorage)) {
+      if (key.startsWith("cross")) window.localStorage.removeItem(key)
+    }
+  } catch {
+    // storage blocked — nothing stored to clear
+  }
 }
 
 // --- Tabroom link (optional) ---------------------------------------------

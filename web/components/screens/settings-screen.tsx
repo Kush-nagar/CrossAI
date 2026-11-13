@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Gavel, Headphones, Heart, LogOut, Monitor, Moon, SlidersHorizontal, Sun } from 'lucide-react'
 import { InkButton, PageTitle, SettingsGroup, Field, Toggle } from '@/components/ui/primitives'
-import { getVoiceProfileStatus, resetVoiceProfile, type VoiceProfileStatus } from '@/lib/api'
+import { clearLocalCrossData, deleteAccount, getVoiceProfileStatus, resetVoiceProfile, type VoiceProfileStatus } from '@/lib/api'
 import { useOnboarding } from '@/components/onboarding/onboarding-overlay'
 import { defaultPrefs, loadLocalPrefs, saveLocalPrefs, type LocalPrefs, type Theme } from '@/lib/local-prefs'
 import { useAuth } from '@/components/auth/auth-gate'
@@ -240,6 +240,18 @@ export function SettingsScreen() {
           />
         </SettingsGroup>
 
+        <SettingsGroup title="Your data">
+          <p className="text-sm text-muted-foreground">
+            Chat history, saved judges and preferences are stored only in this browser. Your account, voice
+            calibration, drill history and uploaded files are stored on our servers. See the{' '}
+            <a href="/privacy" className="font-semibold text-foreground underline underline-offset-2">
+              Privacy Policy
+            </a>
+            .
+          </p>
+          <DeleteAccount />
+        </SettingsGroup>
+
         <div className="flex items-center justify-end gap-3">
           <span role="status" className={`text-sm text-muted-foreground transition ${saved ? 'opacity-100' : 'opacity-0'}`}>
             Changes saved
@@ -248,6 +260,85 @@ export function SettingsScreen() {
             Save preferences
           </InkButton>
         </div>
+      </div>
+    </div>
+  )
+}
+
+function DeleteAccount() {
+  const [open, setOpen] = useState(false)
+  const [typed, setTyped] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleDelete() {
+    setBusy(true)
+    setError(null)
+    try {
+      await deleteAccount(typed)
+      clearLocalCrossData()
+      window.location.assign('/')
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Could not delete your account.')
+      setBusy(false)
+    }
+  }
+
+  if (!open) {
+    return (
+      <div>
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="press min-h-11 rounded-xl border border-destructive px-4 text-sm font-semibold text-destructive hover:bg-destructive/10"
+        >
+          Delete account and data
+        </button>
+      </div>
+    )
+  }
+
+  return (
+    <div className="space-y-3 rounded-xl border border-destructive p-4">
+      <p className="text-sm text-foreground">
+        This permanently deletes your Cross account, your Tabroom link, voice calibration, drill history, uploaded
+        recordings and case files, and clears the chat history saved in this browser. It can&apos;t be undone.
+      </p>
+      <label className="block text-sm text-foreground" htmlFor="delete-confirm">
+        Type <strong>DELETE</strong> to confirm
+      </label>
+      <input
+        id="delete-confirm"
+        value={typed}
+        onChange={(e) => setTyped(e.target.value)}
+        autoComplete="off"
+        className="min-h-11 w-full max-w-xs rounded-md border border-border bg-background px-3 text-sm text-foreground"
+      />
+      {error && (
+        <p role="alert" className="text-sm text-destructive">
+          {error}
+        </p>
+      )}
+      <div className="flex flex-wrap gap-3">
+        <button
+          type="button"
+          disabled={typed !== 'DELETE' || busy}
+          onClick={handleDelete}
+          className="press min-h-11 rounded-xl bg-destructive px-4 text-sm font-semibold text-white disabled:opacity-50"
+        >
+          {busy ? 'Deleting…' : 'Permanently delete'}
+        </button>
+        <button
+          type="button"
+          onClick={() => {
+            setOpen(false)
+            setTyped('')
+            setError(null)
+          }}
+          className="press min-h-11 rounded-xl bg-secondary px-4 text-sm font-semibold text-secondary-foreground"
+        >
+          Cancel
+        </button>
       </div>
     </div>
   )

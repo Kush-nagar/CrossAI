@@ -19,6 +19,7 @@ voice-profile.json
 feedback.json
 .env
 delivery-history.json
+user-data/
 distill-data/
 delivery-data/*
 !delivery-data/README.md

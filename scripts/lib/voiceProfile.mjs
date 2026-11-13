@@ -9,10 +9,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { userDataPath, writeUserFile } from "./userContext.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
-const PROFILE_PATH = path.join(ROOT, "voice-profile.json");
+// Per user (see userContext.mjs): one account's calibration must never shape
+// another's transcripts or prompts.
+const profilePath = () => userDataPath("voice-profile.json");
 
 // 12 distinct calibration scripts (~30-50 words each), one per take, drawn
 // from across the debate glossary (training-data/reference/) so calibration
@@ -91,7 +94,7 @@ function emptyProfile() {
 
 export async function loadProfile() {
   try {
-    const profile = JSON.parse(await fs.readFile(PROFILE_PATH, "utf8"));
+    const profile = JSON.parse(await fs.readFile(profilePath(), "utf8"));
     // Older profiles predate the pending-corrections holding area.
     profile.pendingCorrections ??= {};
     return profile;
@@ -101,7 +104,7 @@ export async function loadProfile() {
 }
 
 async function saveProfile(profile) {
-  await fs.writeFile(PROFILE_PATH, JSON.stringify(profile, null, 2) + "\n", "utf8");
+  await writeUserFile(profilePath(), JSON.stringify(profile, null, 2) + "\n");
 }
 
 function tokenize(text) {

@@ -96,6 +96,17 @@ export async function getProfile(userId) {
   return data;
 }
 
+/**
+ * Records which version of the Terms/Privacy Policy (and the 13+ / parental
+ * permission confirmation) the user accepted at sign-in, and when. Kept in
+ * profiles.prefs so no migration is needed; merged so other prefs survive.
+ */
+export async function recordTermsAcceptance(userId, prevPrefs, version) {
+  const prefs = { ...(prevPrefs || {}), termsVersion: version, termsAcceptedAt: new Date().toISOString() };
+  const { error } = await db().from(PROFILES).update({ prefs }).eq("user_id", userId);
+  if (error) throw new Error(`Could not record terms acceptance: ${error.message}`);
+}
+
 export async function setConsentVersion(userId, version) {
   const { error } = await db()
     .from(PROFILES)
@@ -149,4 +160,15 @@ export async function getTabroomLink(userId) {
 export async function deleteTabroomLink(userId) {
   const { error } = await db().from(TABROOM_LINKS).delete().eq("user_id", userId);
   if (error) throw new Error(`Could not unlink your Tabroom account: ${error.message}`);
+}
+
+/**
+ * Permanently deletes a Cross account. Removing the Supabase auth user
+ * cascades (ON DELETE CASCADE in supabase/migrations/0002_auth.sql) to
+ * profiles, cross_sessions and tabroom_links, so one call covers every
+ * database row tied to the person. Files on disk are removed by the caller.
+ */
+export async function deleteAccount(userId) {
+  const { error } = await db().auth.admin.deleteUser(userId);
+  if (error) throw new Error(`Could not delete your account: ${error.message}`);
 }

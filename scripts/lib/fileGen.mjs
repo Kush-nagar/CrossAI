@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import PDFDocument from "pdfkit";
 import { Document, Packer, Paragraph, TextRun, HeadingLevel } from "docx";
 import ExcelJS from "exceljs";
+import { userSubdir } from "./userContext.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
@@ -207,11 +208,15 @@ export async function generateFile({ filename, format, content, title }) {
     throw new Error("content is required and cannot be empty.");
   }
 
-  await fs.mkdir(GENERATED_DIR, { recursive: true });
+  // Per user (see userContext.mjs) — served back only to its owner by
+  // server.mjs, at /generated/<subdir>/<name>.
+  const subdir = userSubdir();
+  const dir = subdir ? path.join(GENERATED_DIR, subdir) : GENERATED_DIR;
+  await fs.mkdir(dir, { recursive: true });
 
   const slug = slugify(filename || title || "document");
   let finalName = `${slug}.${fmt}`;
-  let outPath = path.join(GENERATED_DIR, finalName);
+  let outPath = path.join(dir, finalName);
   let n = 2;
   while (
     await fs
@@ -220,7 +225,7 @@ export async function generateFile({ filename, format, content, title }) {
       .catch(() => false)
   ) {
     finalName = `${slug}-${n}.${fmt}`;
-    outPath = path.join(GENERATED_DIR, finalName);
+    outPath = path.join(dir, finalName);
     n++;
   }
 
@@ -229,7 +234,7 @@ export async function generateFile({ filename, format, content, title }) {
   else if (fmt === "xlsx") await writeXlsx(outPath, { title, content });
   else await writeMdOrTxt(outPath, { title, content });
 
-  return { filename: finalName, absPath: outPath };
+  return { filename: finalName, absPath: outPath, subdir };
 }
 
 export { SUPPORTED_FORMATS, GENERATED_DIR };

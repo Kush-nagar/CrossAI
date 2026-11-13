@@ -14,10 +14,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { userDataPath, writeUserFile } from "./userContext.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..", "..");
-const HISTORY_PATH = path.join(ROOT, "delivery-history.json");
+// Per user (see userContext.mjs): GET /api/drill/delivery-history returns
+// this, so a shared file showed every account everyone's practice history.
+const historyPath = () => userDataPath("delivery-history.json");
 const DELIVERY_DATA_DIR = path.join(ROOT, "delivery-data");
 
 const MAX_SNAPSHOTS = 500;
@@ -28,7 +31,7 @@ const RUBRIC_EXTENSIONS = new Set([".md", ".txt", ".json"]);
 
 async function loadHistory() {
   try {
-    const data = JSON.parse(await fs.readFile(HISTORY_PATH, "utf8"));
+    const data = JSON.parse(await fs.readFile(historyPath(), "utf8"));
     return { snapshots: Array.isArray(data.snapshots) ? data.snapshots : [] };
   } catch {
     return { snapshots: [] };
@@ -36,7 +39,7 @@ async function loadHistory() {
 }
 
 async function saveHistory(data) {
-  await fs.writeFile(HISTORY_PATH, JSON.stringify(data, null, 2) + "\n", "utf8");
+  await writeUserFile(historyPath(), JSON.stringify(data, null, 2) + "\n");
 }
 
 /**

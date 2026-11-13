@@ -51,8 +51,8 @@ export const generateFileTool = {
 export async function runGenerateFileTool(toolUseBlock, describeLocation) {
   const { filename, format, content, title } = toolUseBlock.input ?? {};
   try {
-    const { filename: finalName, absPath } = await generateFile({ filename, format, content, title });
-    const location = describeLocation(finalName, absPath);
+    const { filename: finalName, absPath, subdir } = await generateFile({ filename, format, content, title });
+    const location = describeLocation(finalName, absPath, subdir);
     return {
       toolResultContent: `File generated: ${finalName}\nAvailable at: ${location}`,
       isError: false,
