@@ -19,7 +19,7 @@ const MAX = 0.62
 const BAYS = [
   {
     title: 'Prep',
-    body: 'Bring a case, a block, or a half-formed idea. Cross names the missing warrant and describes the card that would fill it.',
+    body: 'Bring a case, a block, or a half-formed idea. Cross names the missing warrant, then finds a real disclosed card for it or tells you what to go cut.',
     icon: <path d="M6 30V10a8 8 0 0 1 16 0v20M6 30h16M10 16h8M10 22h8" />,
   },
   {
@@ -230,13 +230,13 @@ export function VanishingPoint() {
 
       <section>
         <div className="pv-wrap pv-rise">
-          <h2>Built for competitive debate.</h2>
+          <h2>Ground rules.</h2>
           <div className="pv-a-claims">
             <div>
-              <h3>Coaching, not copying</h3>
+              <h3>Coaching, not scripts</h3>
               <p>
-                Cross is built to coach from patterns in real rounds, not to read someone else&apos;s
-                case back to you.
+                Cross argues strategy with you instead of handing you a speech to read. The
+                reasoning is the part you take into the next round.
               </p>
             </div>
             <div>
@@ -247,10 +247,10 @@ export function VanishingPoint() {
               </p>
             </div>
             <div>
-              <h3>Describes cards, doesn&apos;t invent them</h3>
+              <h3>Real cards, never made-up ones</h3>
               <p>
-                Cross is designed to describe the card you should go cut rather than make one up. It
-                is still an AI and can be wrong, so check every cite before you read it in a round.
+                When you need evidence, Cross pulls a card a team actually disclosed or tells you what
+                to go cut. It&apos;s still an AI and can be wrong, so check the source before you read it.
               </p>
             </div>
           </div>

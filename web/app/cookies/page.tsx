@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { CONTACT_EMAIL, LegalPage } from '@/components/legal/legal-page'
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy · Cross',
+  title: 'Cookie Policy',
+  alternates: { canonical: '/cookies' },
   description: 'The cookies and browser storage Cross uses, and why there is no cookie banner.',
 }
 

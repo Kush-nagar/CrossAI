@@ -97,7 +97,7 @@ export function HomeScreen() {
         <h1 className="font-display text-balance text-3xl font-semibold tracking-tight md:text-5xl">
           {greeting()}, {firstName(username)}.
         </h1>
-        <p className="text-sm text-muted-foreground md:text-base">Your next round gets easier when today's practice has a purpose.</p>
+        <p className="text-sm text-muted-foreground md:text-base">Here's what to work on today.</p>
       </header>
 
       {snapshots !== null && <RecommendedSession snapshots={snaps} calibration={calibration} />}

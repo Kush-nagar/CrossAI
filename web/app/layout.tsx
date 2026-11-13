@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { AppFrame } from '@/components/app-frame'
+import { SITE_URL } from '@/lib/seo'
 import './globals.css'
 
 // App-wide type program: Zodiak (display) + Switzer (body) + Azeret Mono
@@ -14,8 +15,23 @@ const BRAND_FONTSHARE =
 const BRAND_GOOGLE_FONTS = 'https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;500&display=swap'
 
 export const metadata: Metadata = {
-  title: 'Cross: Debate training, intelligently focused',
-  description: 'Prepare cases, practice under pressure, study judges, and improve with an AI debate coach.',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: 'Cross: an AI coach for competitive debate',
+    template: '%s · Cross',
+  },
+  description:
+    'Practice a speech and get it graded, read any judge\'s paradigm in a minute, and search 17,000 cards from disclosed Public Forum cases.',
+  applicationName: 'Cross',
+  openGraph: {
+    type: 'website',
+    siteName: 'Cross',
+    url: '/',
+    locale: 'en_US',
+  },
+  twitter: { card: 'summary_large_image' },
+  // Signed-in app screens opt out per page (see appPageMetadata).
+  robots: { index: true, follow: true },
 }
 
 export const viewport: Viewport = {

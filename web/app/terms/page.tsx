@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { CONTACT_EMAIL, LegalPage } from '@/components/legal/legal-page'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service · Cross',
+  title: 'Terms of Service',
+  alternates: { canonical: '/terms' },
   description: 'The terms for using Cross, including pricing, refunds and AI limitations.',
 }
 

@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { CONTACT_EMAIL, LegalPage } from '@/components/legal/legal-page'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy · Cross',
+  title: 'Privacy Policy',
+  alternates: { canonical: '/privacy' },
   description: 'What Cross collects, why, who it is shared with, and how to delete it.',
 }
 

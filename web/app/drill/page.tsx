@@ -1,5 +1,8 @@
+import { appPageMetadata } from '@/lib/seo'
 import { redirect } from 'next/navigation'
 import { DrillScreen } from '@/components/screens/drill-screen'
+
+export const metadata = appPageMetadata('Drill')
 
 // Same flag as nav-config.ts: a build that hides the drill nav entry also
 // blocks the route directly, so a guessed/bookmarked /drill URL doesn't land

@@ -1,0 +1,1 @@
+Cross: an AI debate coach that grades your speeches, reads your judge, and finds the card.

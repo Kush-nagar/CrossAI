@@ -76,7 +76,7 @@ export function JudgesScreen() {
       <PageTitle
         eyebrow="Judge intelligence"
         title="Know the room."
-        description="Turn long paradigms into trustworthy, source-linked strategic guidance."
+        description="Search your judge and see what their paradigm means for speed, theory and how you weigh."
       />
       <form onSubmit={handleSubmit} className="glass mx-auto flex min-h-16 w-full max-w-3xl items-center gap-3 rounded-xl px-5 focus-within:ring-2 focus-within:ring-pen">
         <Search className="size-5 text-muted-foreground" />

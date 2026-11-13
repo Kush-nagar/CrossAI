@@ -99,8 +99,8 @@ export function SettingsScreen() {
     <div className="page-enter mx-auto flex max-w-4xl flex-col gap-7">
       <PageTitle
         eyebrow="Preferences"
-        title="Make Cross yours."
-        description="Tune your debate context, voice calibration, and accessibility preferences."
+        title="Settings."
+        description="Your debate background, voice calibration, theme and accessibility."
       />
 
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Settings sections">
