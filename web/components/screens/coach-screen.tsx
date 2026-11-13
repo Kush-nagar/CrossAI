@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { marked } from 'marked'
+import { Marked, type Tokens } from 'marked'
 import { AlertTriangle, ArrowRight, Brain, FileText, Menu, Plus, RotateCcw, Sparkles, Trash2, X } from 'lucide-react'
 import {
   streamChat,
@@ -53,8 +53,54 @@ function buildContent(text: string, attachments: UploadResult[]): string | Conte
   return blocks.length === 1 && blocks[0].type === 'text' ? blocks[0].text : blocks
 }
 
+// Model replies are rendered as HTML, and they can carry third-party text
+// (disclosed cards from the card library, web results, uploaded docs). So the
+// renderer never passes raw HTML through (it's shown as text), only allows
+// http(s)/mailto/in-app links, and renders images as plain links. ==text== is
+// card highlighting (read-aloud words) and renders as <mark>.
+const escapeHtml = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+const SAFE_HREF = /^(https?:|mailto:|\/(?!\/)|#)/i
+
+const markdown = new Marked({ breaks: true, async: false })
+markdown.use({
+  renderer: {
+    html(token: Tokens.HTML | Tokens.Tag) {
+      return escapeHtml(token.text ?? token.raw ?? '')
+    },
+    link(token: Tokens.Link) {
+      const label = this.parser.parseInline(token.tokens)
+      const href = (token.href || '').trim()
+      if (!SAFE_HREF.test(href)) return label
+      const external = /^https?:/i.test(href)
+      return `<a href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>${label}</a>`
+    },
+    image(token: Tokens.Image) {
+      const href = (token.href || '').trim()
+      const label = escapeHtml(token.text || href)
+      return /^https?:/i.test(href) ? `<a href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer">${label}</a>` : label
+    },
+  },
+  extensions: [
+    {
+      name: 'highlight',
+      level: 'inline',
+      start(src: string) {
+        return src.indexOf('==')
+      },
+      tokenizer(src: string) {
+        const m = /^==(?=\S)([\s\S]*?\S)==/.exec(src)
+        if (m) return { type: 'highlight', raw: m[0], tokens: this.lexer.inlineTokens(m[1]) }
+        return undefined
+      },
+      renderer(token) {
+        return `<mark>${this.parser.parseInline((token as unknown as { tokens: Tokens.Generic[] }).tokens)}</mark>`
+      },
+    },
+  ],
+})
+
 function renderMarkdown(text: string): string {
-  return marked.parse(text, { breaks: true, async: false }) as string
+  return markdown.parse(text) as string
 }
 
 // Rotates through while waiting on the first token, so a slow reply doesn't
@@ -470,7 +516,7 @@ export function CoachScreen() {
                   ) : (
                     <div className="flex min-w-0 flex-col">
                       <div
-                        className="max-w-2xl text-[15px] leading-7 text-foreground/90 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5"
+                        className="chat-md max-w-2xl text-[15px] leading-7 text-foreground/90 [&_p]:mb-3 [&_ul]:list-disc [&_ul]:pl-5"
                         dangerouslySetInnerHTML={{ __html: renderMarkdown(text) }}
                       />
                       {i === messages.length - 1 && !streaming && (
@@ -517,7 +563,7 @@ export function CoachScreen() {
                 </span>
                 {assistantDraft ? (
                   <div
-                    className="max-w-2xl text-[15px] leading-7 text-foreground/90 [&_p]:mb-3"
+                    className="chat-md max-w-2xl text-[15px] leading-7 text-foreground/90 [&_p]:mb-3"
                     dangerouslySetInnerHTML={{ __html: renderMarkdown(assistantDraft) }}
                   />
                 ) : (

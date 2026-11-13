@@ -19,6 +19,8 @@ import {
   searchCorpusTool,
   readCorpusFileTool,
   runSearchCorpusTool,
+  searchCardsTool,
+  runSearchCardsTool,
   runReadCorpusFileTool,
   caselistTools,
   isCaselistTool,
@@ -3047,7 +3049,7 @@ app.post("/api/chat", aiGuards, async (req, res) => {
     // account — offering them to an unlinked user would only produce auth
     // failures the model then has to explain, so they're withheld instead and
     // Cross coaches from the corpus alone.
-    const chatTools = [generateFileTool, searchCorpusTool, readCorpusFileTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
+    const chatTools = [generateFileTool, searchCorpusTool, readCorpusFileTool, searchCardsTool, lookupJudgeParadigmTool, tabroomJudgeReportTool];
     // Live web search for provably time-sensitive facts (current topic wording,
     // recent results) — env-gated, only offered when a search API key is
     // configured (hasWebSearch()). Silent like corpus retrieval: see
@@ -3101,6 +3103,11 @@ app.post("/api/chat", aiGuards, async (req, res) => {
           } else if (call.name === "search_corpus") {
             // Corpus retrieval is silent — nothing is written to the response.
             const result = await runSearchCorpusTool({ input: call.input });
+            results.set(call.id, { content: result.toolResultContent, isError: result.isError });
+          } else if (call.name === "search_cards") {
+            // Public card library: results may be quoted and linked (the
+            // model writes the card into its reply itself).
+            const result = await runSearchCardsTool({ input: call.input });
             results.set(call.id, { content: result.toolResultContent, isError: result.isError });
           } else if (call.name === "read_corpus_file") {
             const result = await runReadCorpusFileTool({ input: call.input });

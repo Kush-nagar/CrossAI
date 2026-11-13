@@ -1,4 +1,5 @@
 import { generateFile, SUPPORTED_FORMATS } from "./fileGen.mjs";
+import { searchCards as searchCardLibrary, getCard as getLibraryCard } from "./cardLibrary.mjs";
 import { searchCorpus, readCorpusSection } from "./corpusSearch.mjs";
 import { webSearch, hasWebSearch } from "./webSearch.mjs";
 import { apiGet as caselistApiGet, apiGetBuffer as caselistApiGetBuffer, CaselistError } from "./caselistClient.mjs";
@@ -75,6 +76,66 @@ export async function runGenerateFileTool(toolUseBlock, describeLocation) {
 // cases, blocks, and rounds through these tools when a turn needs them.
 // Retrieval is invisible bookkeeping — per the corpus-privacy rule, nothing a
 // tool returns may be referenced by file or cite in the reply.
+
+// --- Card library (PUBLIC, may be quoted) ------------------------------------
+// The one exception to the corpus-privacy rule: individual cards from teams'
+// publicly disclosed (openCaselist open-source) cases. The model may quote a
+// card verbatim with its cite and link the debater to it — one card at a
+// time, never a whole case file, file name or the private corpus.
+export const searchCardsTool = {
+  name: "search_cards",
+  description:
+    "Search the public card library: individual evidence cards from teams' publicly disclosed Public Forum cases " +
+    "(openCaselist open source). Returns cards with id, tag, short cite, full cite, the team that disclosed it, " +
+    "side, topic, and the card text with highlighted (read) words in <mark>. Use it when the debater wants real " +
+    "evidence for or against a claim, an example card, or what's being read on a topic. Unlike search_corpus, " +
+    "these cards MAY be shown: quote a card exactly as returned (never edit its words or highlighting), give its " +
+    "cite, and link it as [Open card](/cards?id=<id>). Never invent a card, cite or quote that this tool didn't return.",
+  input_schema: {
+    type: "object",
+    properties: {
+      query: { type: "string", description: "The claim, impact, author or topic words, e.g. 'war powers gridlock congress'." },
+      side: { type: "string", description: "Optional: 'Pro' or 'Con'." },
+      season: { type: "string", description: "Optional: e.g. '2025-2026'." },
+      limit: { type: "integer", description: "Cards to return, 1-6 (default 4)." },
+    },
+    required: ["query"],
+  },
+};
+
+const CARD_TEXT_MAX = 1800;
+
+export async function runSearchCardsTool(toolUseBlock) {
+  const { query, side, season, limit } = toolUseBlock.input ?? {};
+  const n = Math.min(6, Math.max(1, Number(limit) || 4));
+  try {
+    const found = await searchCardLibrary(String(query || ""), {
+      limit: n,
+      side: side === "Pro" || side === "Con" ? side : undefined,
+      season: typeof season === "string" && /^\d{4}-\d{4}$/.test(season) ? season : undefined,
+    });
+    if (!found.available) return { toolResultContent: "The card library isn't available right now.", isError: false };
+    if (!found.results.length) return { toolResultContent: "No cards matched. Try other words for the claim.", isError: false };
+    const cards = await Promise.all(found.results.map((r) => getLibraryCard(r.id)));
+    const text = cards
+      .filter(Boolean)
+      .map((c) => {
+        const body = c.body.length > CARD_TEXT_MAX ? `${c.body.slice(0, CARD_TEXT_MAX)}…` : c.body;
+        return [
+          `id: ${c.id}`,
+          `tag: ${c.tag}`,
+          `cite: ${c.cite} — ${c.fullCite.slice(0, 400)}`,
+          `disclosed by: ${c.team} (${c.side}), ${c.season} ${c.cycle}${c.resolution ? ` — topic: ${c.resolution}` : ""}`,
+          `highlighting: ${c.hl ? "yes (<mark> = read aloud)" : "none in the disclosed copy"}`,
+          `text:\n${body}`,
+        ].join("\n");
+      })
+      .join("\n\n---\n\n");
+    return { toolResultContent: text, isError: false };
+  } catch (err) {
+    return { toolResultContent: `Card search failed: ${err.message}`, isError: true };
+  }
+}
 
 export const searchCorpusTool = {
   name: "search_corpus",

@@ -169,6 +169,24 @@ async function buildRetrievalCorpusSection() {
 // exactly matching the condition server.mjs uses to add web_search to
 // chatTools — so this guidance travels with the tool whenever it's actually
 // offered, never as dead instruction text when it isn't.
+// The public card library (search_cards) is the one place real evidence may
+// be shown. Kept next to the tool's own description so both halves of the
+// contract agree (see the corpus-privacy note in CLAUDE.md).
+const CARD_LIBRARY_SECTION =
+  "\n\n## Card Library (public disclosed evidence — may be quoted)\n\n" +
+  "You have a `search_cards` tool over individual cards from teams' publicly disclosed Public Forum cases. This is " +
+  "the ONE exception to the corpus-privacy rule, and it is narrow:\n" +
+  "- When the debater wants real evidence, an example card, or what teams are reading on a claim, search_cards and " +
+  "show the best one to three cards. For each: the tag in bold, the cite, then the card text exactly as returned " +
+  "(keep its words; show <mark> highlighting as ==highlighted== text), then [Open card](/cards?id=<id>). You may " +
+  "say which team disclosed it — disclosure is public.\n" +
+  "- One card at a time. Never reproduce or summarize a whole case file, never give a file name or path, and never " +
+  "quote anything from search_corpus / read_corpus_file — that material stays private exactly as before.\n" +
+  "- Never invent, edit, merge or re-highlight a card, and never present a card the tool didn't return. If nothing " +
+  "fits, say so and describe the card the debater should go cut instead.\n" +
+  "- Tell the debater to check the original source before reading a card in a round; a disclosed card is only as " +
+  "good as its cut.";
+
 const WEB_SEARCH_SECTION =
   "\n\n## Live Web Lookup (time-sensitive facts only)\n\n" +
   "You also have a `web_search` tool for the narrow case your corpus and internalized understanding genuinely " +
@@ -311,6 +329,7 @@ export async function buildSystemPrompt({ corpusMode = "full", chatMode, retriev
     // Travels with the tool exactly when server.mjs actually offers it
     // (same hasWebSearch() condition gates both).
     if (hasWebSearch()) prompt += WEB_SEARCH_SECTION;
+    prompt += CARD_LIBRARY_SECTION;
   } else if (wantRetrieval) prompt += await buildRetrievedChunksSection(retrievalQuery, retrievalBoostDirs);
   else prompt += await buildFullCorpusSection();
   if (chatMode === "general") prompt += GENERAL_MODE_SECTION;

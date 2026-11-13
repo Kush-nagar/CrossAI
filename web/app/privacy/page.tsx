@@ -86,6 +86,13 @@ export default function PrivacyPage() {
         <Link href="/cookies">Cookie Policy</Link>.
       </p>
 
+      <h3>The card library</h3>
+      <p>
+        Cross shows individual evidence cards from Public Forum cases that debate teams chose to disclose publicly on
+        openCaselist, along with the name of the team that disclosed each card. If you&apos;re a debater and want a card
+        or your team&apos;s name removed from Cross, email {mail} and we&apos;ll take it down.
+      </p>
+
       <h2>How we use it</h2>
       <ul>
         <li>To provide Cross: generate coaching replies, grade drills, transcribe speeches and look up judges.</li>

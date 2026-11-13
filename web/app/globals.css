@@ -322,3 +322,7 @@
 }
 .dark .card-body mark.card-read { background: color-mix(in srgb, #f2d33a 32%, transparent); }
 .card-body .card-unread { font-size: 0.78em; color: var(--muted-foreground); }
+/* Card highlighting quoted by the coach (==text== in replies). */
+.chat-md mark { background: color-mix(in srgb, #f2d33a 55%, transparent); color: inherit; text-decoration: underline; text-underline-offset: 2px; padding: 0 1px; border-radius: 2px; }
+.dark .chat-md mark { background: color-mix(in srgb, #f2d33a 32%, transparent); }
+.chat-md a { text-decoration: underline; text-underline-offset: 2px; font-weight: 600; }
