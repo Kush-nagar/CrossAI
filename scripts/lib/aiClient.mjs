@@ -24,12 +24,12 @@ function getClient() {
 }
 
 const MODEL_TIERS = {
-  opus: process.env.NVIDIA_MODEL_OPUS || "nvidia/nemotron-3-super-120b-a12b",
-  sonnet: process.env.NVIDIA_MODEL_SONNET || "nvidia/nemotron-3-super-120b-a12b",
-  haiku: process.env.NVIDIA_MODEL_HAIKU || "nvidia/nemotron-3-super-120b-a12b",
+  opus: process.env.NVIDIA_MODEL_OPUS || "nvidia/nemotron-3.5-super-vl-120b-a12b",
+  sonnet: process.env.NVIDIA_MODEL_SONNET || "nvidia/nemotron-3.5-super-vl-120b-a12b",
+  haiku: process.env.NVIDIA_MODEL_HAIKU || "nvidia/nemotron-3.5-super-vl-120b-a12b",
 };
 const DEFAULT_TIER = "opus";
-const VISION_MODEL = process.env.NVIDIA_MODEL_VISION || "meta/llama-3.2-11b-vision-instruct";
+const VISION_MODEL = process.env.NVIDIA_MODEL_VISION || "meta/llama-3.2-90b-vision-instruct";
 
 function resolveModel(model) {
   return MODEL_TIERS[model] ?? model ?? MODEL_TIERS[DEFAULT_TIER];
