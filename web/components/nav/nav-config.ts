@@ -6,6 +6,7 @@
 import {
   AudioLines,
   Bot,
+  FileText,
   Home,
   Library,
   Mic,
@@ -44,6 +45,7 @@ export const navItems: NavItem[] = [
     ? [{ id: 'drill', label: 'Drill', href: '/drill', icon: Target, primary: true, mobile: true }]
     : []),
   { id: 'insight', label: 'Insight', href: '/insight', icon: AudioLines, primary: true, mobile: true },
+  { id: 'cards', label: 'Cards', href: '/cards', icon: FileText, primary: true, mobile: false },
   { id: 'judges', label: 'Judges', href: '/judges', icon: Users, primary: true, mobile: false },
   { id: 'coach', label: 'CrossCoach', href: '/coach', icon: Bot, primary: true, mobile: true },
   { id: 'tournament', label: 'Tournament', href: '/tournament', icon: Trophy, primary: false, mobile: false },
@@ -69,6 +71,7 @@ export const commandActions: CommandAction[] = [
     : []),
   { id: 'get-insight', label: 'Get feedback on a round speech', icon: AudioLines, href: '/insight' },
   { id: 'new-case', label: 'Upload a new case', icon: Upload, href: '/prep' },
+  { id: 'search-cards', label: 'Search cards', icon: FileText, href: '/cards' },
   { id: 'ask-coach', label: 'Ask CrossCoach', icon: Sparkles, href: '/coach' },
   { id: 'new-chat', label: 'Start a new chat', icon: Plus, href: '/coach' },
 ]

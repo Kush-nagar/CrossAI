@@ -307,3 +307,18 @@
 .legal-prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; display: block; overflow-x: auto; }
 .legal-prose th, .legal-prose td { border: 1px solid var(--border); padding: 0.5rem 0.625rem; text-align: left; vertical-align: top; }
 .legal-prose th { font-weight: 600; }
+
+/* Card library: read text highlighted + underlined like a cut card; unread
+   text can be shrunk (Verbatim's "shrink"). Colors use theme tokens so the
+   highlight stays legible in light, dark and pink themes. */
+.card-body mark.card-read {
+  background: color-mix(in srgb, #f2d33a 55%, transparent);
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+.dark .card-body mark.card-read { background: color-mix(in srgb, #f2d33a 32%, transparent); }
+.card-body .card-unread { font-size: 0.78em; color: var(--muted-foreground); }

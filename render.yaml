@@ -8,7 +8,7 @@ services:
     runtime: node
     plan: free            # "starter" (~$7/mo) keeps it always-on; "free" sleeps when idle
     branch: main
-    buildCommand: npm install && node scripts/build-lexical-index.mjs && npm --prefix web install --include=dev && npm --prefix web run build
+    buildCommand: npm install && node scripts/build-lexical-index.mjs && node scripts/build-card-index.mjs && npm --prefix web install --include=dev && npm --prefix web run build
     startCommand: npm start
     healthCheckPath: /healthz   # public; /api/status sits behind the sign-in gate and 401s
     envVars:

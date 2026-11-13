@@ -543,3 +543,62 @@ export function getStrategyMode(input: {
 }): Promise<{ items: { title: string; rationale: string }[] }> {
   return postJson("/api/strategy-mode", input)
 }
+
+// --- Card library ----------------------------------------------------------
+// Individual cards from the public disclosed archive. See
+// scripts/lib/cardLibrary.mjs — only single cards, never whole case files.
+
+export type CardRow = {
+  id: string
+  tag: string
+  cite: string // short cite, e.g. "Osborn 21"
+  team: string
+  side: string
+  season: string
+  cycle: string
+  kind: "case" | "rebuttal"
+  hl: 0 | 1 // has highlighting
+  preview: string
+  score?: number
+}
+
+export type CardDetail = CardRow & {
+  fullCite: string
+  body: string // paragraphs separated by \n; highlighted runs wrapped in <mark>
+  section: string
+  resolution: string
+  tournaments: string[]
+}
+
+export type CardFilters = { side?: string; season?: string; cycle?: string; kind?: string; highlighted?: boolean }
+
+export type CardFacets = {
+  available: boolean
+  total: number
+  builtAt?: string
+  seasons: { season: string; count: number }[]
+  cycles: { season: string; cycle: string; count: number; resolution: string }[]
+}
+
+export function searchCards(
+  q: string,
+  filters: CardFilters,
+  page: { limit?: number; offset?: number } = {},
+): Promise<{ total: number; results: CardRow[]; available: boolean }> {
+  const params = new URLSearchParams({ q })
+  for (const [k, v] of Object.entries(filters)) {
+    if (v === true) params.set(k, "1")
+    else if (typeof v === "string" && v) params.set(k, v)
+  }
+  if (page.limit) params.set("limit", String(page.limit))
+  if (page.offset) params.set("offset", String(page.offset))
+  return json(`/api/cards/search?${params}`)
+}
+
+export function getCard(id: string): Promise<CardDetail> {
+  return json(`/api/cards/${encodeURIComponent(id)}`)
+}
+
+export function getCardFacets(): Promise<CardFacets> {
+  return json("/api/cards/facets")
+}

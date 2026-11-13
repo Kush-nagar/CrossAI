@@ -34,6 +34,7 @@ import {
   hasWebSearch,
 } from "./lib/tools.mjs";
 import { GENERATED_DIR } from "./lib/fileGen.mjs";
+import { searchCards, getCard, cardFacets } from "./lib/cardLibrary.mjs";
 import { bindUser, runWithUser, isValidUserId, USER_DATA_DIR } from "./lib/userContext.mjs";
 import { extractTextFromBuffer, convertDocxToHtml, cleanText } from "./lib/extract.mjs";
 import { transcribeAudio } from "./lib/stt.mjs";
@@ -1030,6 +1031,40 @@ app.use(async (req, res, next) => {
 // Note: OpenCaselist wiki access is no longer a client-facing browser. It is
 // now a coaching capability — Cross reaches the wiki through the caselist_*
 // tools in the /api/chat loop, authenticated with each debater's own token.
+
+// --- Card library -----------------------------------------------------------
+// Individual evidence cards from the public disclosed archive (openCaselist
+// open-source docs). Only single cards are ever returned — never whole case
+// files or their paths. See scripts/lib/cardLibrary.mjs.
+const CARD_FILTER_KEYS = ["side", "season", "cycle", "kind"];
+function cardFilters(q) {
+  const out = {};
+  for (const k of CARD_FILTER_KEYS) {
+    if (typeof q[k] === "string" && q[k] && q[k].length <= 40) out[k] = q[k];
+  }
+  if (q.highlighted === "1") out.highlighted = true;
+  return out;
+}
+
+app.get("/api/cards/search", async (req, res) => {
+  const q = typeof req.query.q === "string" ? req.query.q.slice(0, 300) : "";
+  const limit = Math.min(50, Math.max(1, Number(req.query.limit) || 20));
+  const offset = Math.min(5000, Math.max(0, Number(req.query.offset) || 0));
+  res.json(await searchCards(q, { limit, offset, ...cardFilters(req.query) }));
+});
+
+app.get("/api/cards/facets", async (req, res) => {
+  res.json(await cardFacets());
+});
+
+app.get("/api/cards/:id", async (req, res) => {
+  const card = await getCard(req.params.id);
+  if (!card) {
+    res.status(404).json({ error: "Card not found." });
+    return;
+  }
+  res.json(card);
+});
 
 // Reports only a count — corpus file names/paths are private training
 // material and are never exposed to the client (corpus-privacy rule).

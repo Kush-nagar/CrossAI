@@ -7,6 +7,8 @@ node_modules/
 scripts/lexical-index.json
 scripts/lexical-index/
 scripts/lexical-index.tmp-*/
+scripts/card-index/
+scripts/card-index.tmp-*/
 incoming/processed/*
 !incoming/processed/.gitkeep
 generated/*
