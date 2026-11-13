@@ -69,6 +69,11 @@ import {
   readPkceCookie,
   clearPkceCookie,
   AuthError,
+  hasDirectGoogle,
+  startDirectGoogle,
+  takeGoogleState,
+  stateMatches,
+  exchangeGoogleCode,
 } from "./lib/crossAuth.mjs";
 import {
   upsertProfile,
@@ -781,6 +786,12 @@ app.get("/api/auth/start/google", authRateLimiter, (req, res) => {
     return;
   }
   try {
+    // Direct flow (Google screens and emails name our domain) when the
+    // Google client is configured on this server; Supabase-hosted otherwise.
+    if (hasDirectGoogle()) {
+      res.redirect(startDirectGoogle(res));
+      return;
+    }
     const { verifier, challenge } = createPkcePair();
     setPkceCookie(res, verifier);
     res.redirect(googleAuthorizeUrl(challenge));
@@ -830,28 +841,54 @@ app.get("/api/auth/callback", authRateLimiter, async (req, res) => {
     return;
   }
   try {
-    const user = await exchangeCode(code, verifier);
-    const profile = await upsertProfile(user);
-    // Reaching the callback means this sign-in started behind the terms
-    // checkbox (see acceptedTerms); record the version and time once per
-    // version so there's an audit trail of who agreed to what.
-    if (profile?.prefs?.termsVersion !== TERMS_VERSION) {
-      await recordTermsAcceptance(user.userId, profile?.prefs, TERMS_VERSION).catch((err) =>
-        console.error("Terms acceptance not recorded:", err.message)
-      );
-    }
-    // Retire any session the browser already holds before minting a new one,
-    // so a pre-login cookie can never live on past authentication.
-    await destroySession(req, res);
-    await createSession(res, { userId: user.userId });
-    // Straight into the app: "/" is now the public landing page, and a
-    // just-authenticated visitor should never see it flash past.
-    res.redirect(`${appBaseUrl()}/home`);
+    await finishSignIn(req, res, await exchangeCode(code, verifier));
   } catch (err) {
     console.error("Sign-in callback failed:", err.message);
     res.redirect(`${appBaseUrl()}/home?authError=failed`);
   }
 });
+
+// Direct Google sign-in callback (see crossAuth.mjs). `state` must match the
+// cookie set at the start, so a forged or replayed callback goes nowhere.
+app.get("/api/auth/google/callback", authRateLimiter, async (req, res) => {
+  const saved = takeGoogleState(req, res);
+  if (typeof req.query.error === "string") {
+    // The user cancelled on Google's screen (access_denied) or Google refused.
+    res.redirect(`${appBaseUrl()}/home${req.query.error === "access_denied" ? "" : "?authError=failed"}`);
+    return;
+  }
+  const code = typeof req.query.code === "string" ? req.query.code : null;
+  if (!saved || !code || !stateMatches(saved.state, req.query.state)) {
+    res.redirect(`${appBaseUrl()}/home?authError=expired`);
+    return;
+  }
+  try {
+    await finishSignIn(req, res, await exchangeGoogleCode(code, saved));
+  } catch (err) {
+    console.error("Google sign-in callback failed:", err.message);
+    res.redirect(`${appBaseUrl()}/home?authError=failed`);
+  }
+});
+
+// Shared last step of every sign-in flow once the user is verified.
+async function finishSignIn(req, res, user) {
+  const profile = await upsertProfile(user);
+  // Reaching a callback means this sign-in started behind the terms
+  // checkbox (see acceptedTerms); record the version and time once per
+  // version so there's an audit trail of who agreed to what.
+  if (profile?.prefs?.termsVersion !== TERMS_VERSION) {
+    await recordTermsAcceptance(user.userId, profile?.prefs, TERMS_VERSION).catch((err) =>
+      console.error("Terms acceptance not recorded:", err.message)
+    );
+  }
+  // Retire any session the browser already holds before minting a new one,
+  // so a pre-login cookie can never live on past authentication.
+  await destroySession(req, res);
+  await createSession(res, { userId: user.userId });
+  // Straight into the app: "/" is now the public landing page, and a
+  // just-authenticated visitor should never see it flash past.
+  res.redirect(`${appBaseUrl()}/home`);
+}
 
 // Safety net for a Supabase redirect allowlist that doesn't list
 // <PUBLIC_BASE_URL>/api/auth/callback exactly: GoTrue then silently falls

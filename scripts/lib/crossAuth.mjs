@@ -171,3 +171,115 @@ export async function exchangeCode(code, verifier) {
     displayName: user.user_metadata?.full_name || user.user_metadata?.name || null,
   };
 }
+
+// --- Direct Google sign-in (our own domain on Google's screens) -------------
+//
+// With GOOGLE_CLIENT_ID/GOOGLE_CLIENT_SECRET set, Cross runs the Google OAuth
+// step itself instead of bouncing through Supabase's hosted /authorize. The
+// only visible difference is the point: Google's consent screen and its
+// "you signed in to…" emails name cross-ai.dev rather than
+// <project>.supabase.co. Identity still comes from Supabase:
+//
+//   1. /api/auth/start/google → accounts.google.com with our redirect_uri,
+//      a random `state`, a PKCE challenge, and sha256(nonce).
+//   2. Google → /api/auth/google/callback?code&state. `state` must match the
+//      cookie (no forged callbacks), and the code is redeemed with the PKCE
+//      verifier and our client secret for a Google ID token.
+//   3. The ID token goes to GoTrue's grant_type=id_token with the raw nonce.
+//      Supabase verifies the token's signature, audience (the same client id
+//      must be configured on its Google provider) and nonce, then returns the
+//      same auth.users row a Supabase-hosted Google sign-in would — existing
+//      accounts are unaffected. Supabase's tokens are discarded as before.
+//
+// Without the two env vars, the Supabase-hosted flow above stays in use.
+
+const GOOGLE_AUTHORIZE = "https://accounts.google.com/o/oauth2/v2/auth";
+const GOOGLE_TOKEN = "https://oauth2.googleapis.com/token";
+const GOOGLE_STATE_COOKIE = cookieName("cross_gstate");
+
+export function hasDirectGoogle() {
+  return Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET);
+}
+
+export function googleCallbackUrl() {
+  return `${appBaseUrl()}/api/auth/google/callback`;
+}
+
+/**
+ * Starts direct Google sign-in: parks state, nonce and PKCE verifier in one
+ * short httpOnly cookie, returns the Google URL to redirect to.
+ */
+export function startDirectGoogle(res) {
+  const state = crypto.randomBytes(24).toString("base64url");
+  const nonce = crypto.randomBytes(24).toString("base64url");
+  const { verifier, challenge } = createPkcePair();
+  res.append("Set-Cookie", buildCookie(GOOGLE_STATE_COOKIE, `${state}.${nonce}.${verifier}`, PKCE_TTL_SEC));
+  const url = new URL(GOOGLE_AUTHORIZE);
+  url.search = new URLSearchParams({
+    client_id: requireEnv("GOOGLE_CLIENT_ID"),
+    redirect_uri: googleCallbackUrl(),
+    response_type: "code",
+    scope: "openid email profile",
+    state,
+    // Supabase compares sha256(raw nonce) against the token's nonce claim,
+    // so Google gets the hash and GoTrue later gets the raw value.
+    nonce: crypto.createHash("sha256").update(nonce).digest("hex"),
+    code_challenge: challenge,
+    code_challenge_method: "S256",
+    prompt: "select_account",
+  }).toString();
+  return url.toString();
+}
+
+/** Reads and clears the state cookie. Returns { state, nonce, verifier } or null. */
+export function takeGoogleState(req, res) {
+  res.append("Set-Cookie", buildCookie(GOOGLE_STATE_COOKIE, "", 0));
+  const raw = parseCookies(req.headers.cookie)[GOOGLE_STATE_COOKIE];
+  const parts = raw ? raw.split(".") : [];
+  if (parts.length !== 3 || parts.some((p) => !p)) return null;
+  const [state, nonce, verifier] = parts;
+  return { state, nonce, verifier };
+}
+
+/** Constant-time compare for the returned `state`. */
+export function stateMatches(expected, actual) {
+  if (typeof actual !== "string" || actual.length !== expected.length) return false;
+  return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(actual));
+}
+
+/**
+ * Redeems Google's code for an ID token, then trades the ID token at
+ * Supabase for the Cross user. Returns the same shape as exchangeCode().
+ */
+export async function exchangeGoogleCode(code, { nonce, verifier }) {
+  let res;
+  try {
+    res = await fetch(GOOGLE_TOKEN, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({
+        client_id: requireEnv("GOOGLE_CLIENT_ID"),
+        client_secret: requireEnv("GOOGLE_CLIENT_SECRET"),
+        code,
+        code_verifier: verifier,
+        grant_type: "authorization_code",
+        redirect_uri: googleCallbackUrl(),
+      }),
+    });
+  } catch (err) {
+    throw new AuthError(`Could not reach Google: ${err.message}`, 502);
+  }
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok || !data.id_token) {
+    // Google's error codes are safe to log; never log the request body.
+    throw new AuthError(`Google rejected the sign-in: ${data.error_description || data.error || `HTTP ${res.status}`}`, 502);
+  }
+  const session = await gotruePost("/token", { grant_type: "id_token" }, { provider: "google", id_token: data.id_token, nonce });
+  const user = session.user;
+  if (!user?.id) throw new AuthError("Sign-in did not return a user.", 502);
+  return {
+    userId: user.id,
+    email: user.email || null,
+    displayName: user.user_metadata?.full_name || user.user_metadata?.name || null,
+  };
+}

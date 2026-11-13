@@ -36,5 +36,9 @@ services:
         sync: false        # 64 hex chars (`openssl rand -hex 32`); encrypts linked Tabroom tokens
       - key: PUBLIC_BASE_URL
         sync: false        # public origin users visit: https://cross-ai.dev once the custom domain is live (see DEPLOY.md)
+      - key: GOOGLE_CLIENT_ID
+        sync: false        # optional: Google sign-in on our own domain (docs/AUTH.md); same client as Supabase's Google provider
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
       - key: TRUST_PROXY_HOPS
         value: "1"         # set "2" if Cloudflare's proxy (orange cloud) sits in front of Render

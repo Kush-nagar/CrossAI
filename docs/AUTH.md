@@ -18,7 +18,13 @@ The browser never talks to Supabase, never holds a Supabase token, and never
 receives the anon key.
 
 ```
-Google:  GET /api/auth/start/google  → 302 ${SUPABASE_URL}/auth/v1/authorize
+Google (direct, when GOOGLE_CLIENT_ID + GOOGLE_CLIENT_SECRET are set):
+         GET /api/auth/start/google  → 302 accounts.google.com (state, PKCE, sha256(nonce))
+                                     → 302 /api/auth/google/callback?code&state
+         callback: state must match cookie → Google /token (code, verifier, secret)
+                  → id_token → POST /auth/v1/token?grant_type=id_token {provider, id_token, nonce}
+Google (Supabase-hosted fallback, when those env vars are unset):
+         GET /api/auth/start/google  → 302 ${SUPABASE_URL}/auth/v1/authorize
                                      → Google → Supabase
                                      → 302 /api/auth/callback?code=…
 Email:   POST /api/auth/magic-link {email} → GoTrue /auth/v1/otp
@@ -27,6 +33,14 @@ Email:   POST /api/auth/magic-link {email} → GoTrue /auth/v1/otp
 Both:    callback → POST /auth/v1/token?grant_type=pkce {auth_code, code_verifier}
                   → upsert profile → mint session cookie → 302 to the app
 ```
+
+**Why the direct Google flow exists:** with the Supabase-hosted flow, Google's
+consent screen and its "you signed in to…" emails name `<project>.supabase.co`.
+Running the OAuth step ourselves makes them name our domain, at no cost (the
+alternative is Supabase's paid custom-domain add-on). Supabase still verifies
+the ID token (signature, audience, nonce) and owns the user record, so
+accounts are the same either way. The Google client id must therefore be set
+both here and on Supabase's Google provider.
 
 The PKCE `code_verifier` is minted at step 1 and parked in a 10-minute
 httpOnly cookie on our origin; only its sha256 goes to Supabase. Without it,
@@ -50,7 +64,8 @@ unaffected: the callback URL is still `<PUBLIC_BASE_URL>/api/auth/callback`.
 
 | Route | Notes |
 |---|---|
-| `GET /api/auth/start/google` | sets PKCE cookie, redirects to Supabase |
+| `GET /api/auth/start/google` | direct: sets state cookie, redirects to Google; fallback: sets PKCE cookie, redirects to Supabase |
+| `GET /api/auth/google/callback` | direct flow only: checks state, redeems the code, mints the session |
 | `POST /api/auth/magic-link` | always `{ok:true}` — never reveals whether an address is registered |
 | `GET /api/auth/callback` | redeems the code, mints the session, redirects to the app |
 | `GET /api/auth/me` | ungated; `{authenticated, user, tabroom}` |
@@ -114,6 +129,11 @@ throttled into a single bucket. `DAILY_REQUEST_CAP` remains global.
    `PUBLIC_BASE_URL`. The server refuses to boot without the Supabase three.
 3. Supabase dashboard → **Authentication → Providers → Google**: enable it
    with a GCP OAuth client id/secret.
+   For the direct flow (our domain on Google's screens), also set
+   `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` on the server (same client),
+   and add `<PUBLIC_BASE_URL>/api/auth/google/callback` to the client's
+   **Authorized redirect URIs** in Google Cloud. Keep the Supabase callback
+   URI there too until the direct flow is confirmed working.
 4. Supabase dashboard → **Authentication → URL Configuration → Redirect
    URLs**: add `<PUBLIC_BASE_URL>/api/auth/callback`.
 5. Supabase dashboard → **Authentication → Emails → SMTP**: configure a real
